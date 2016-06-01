@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-import com.opus2.enums.ChronologyOption;
 import com.opus2.enums.ChronologyType;
 import com.opus2.util.Event;
 import com.opus2.util.Util;
@@ -16,13 +15,14 @@ public class Chronology extends PageObject {
 	Util util;
 	Event event;
 	Dialog dialog;
+	UserAction action;
 	
 	public void goTo() {
 		getDriver().findElement(By.id("magnumChronology")).click();
 	}
 
 	public void newEntry() {
-		util.clickAction("docscontrols_NewEntry");
+		action.clickAction("docscontrols_NewEntry");
 	}
 
 	public void selectLastEntry() {
@@ -31,23 +31,20 @@ public class Chronology extends PageObject {
 
 	
 	public void selectTag() {
-		util.clickAction("select_tags");			
+		action.clickAction("select_tags");			
 	}
 	
 	public void saveChanges() {
-		util.clickAction("button-div_SaveChanges");
+		action.clickAction("button-div_SaveChanges");
 	}
 
 	public void select(ChronologyType type) {
-		util.clickAction("preview-div","button",0);
+		action.clickAction("preview-div","button",0);
 		event.selectType(type);
 	}
-	public void select(ChronologyOption type) {
-		util.clickAction("preview-div","button", 0);
-		event.selectType(type);
-	}
+
 	public void customType() {
-		util.clickAction("docscontrols_CustomTypes");	
+		action.clickAction("docscontrols_CustomTypes");	
 	}
 	
 	

@@ -23,6 +23,7 @@ public class Admin extends PageObject {
 	public static Util util;
 	static Event event;
 	public static MonitorActivity monitorActivity;
+	static UserAction action;
 	
 	public void goTo() {
 		getDriver().findElement(By.id("magnumAdmin")).click();
@@ -101,45 +102,45 @@ public class Admin extends PageObject {
 	public static class Roles
 	{
 		public static void newRole() {
-			util.clickAction("settingsmain","floatleft","button",0);
+			action.clickAction("settingsmain","floatleft","button",0);
 		}
 
 		public static void enterNewRole(String newrole) {
-			util.inputTextClassName("panel-header", newrole);
+			action.inputTextClassName("panel-header", newrole);
 		}
 
 		public static void generalCapabilities() {
-			util.setCapabilities(3,13);			
+			action.setCapabilities(3,13);			
 		}
 		public static void documentsCapability() {
-			util.setCapabilities(14,15);			
+			action.setCapabilities(14,15);			
 		}
 		public static void transcriptsCapabilities() {
-			util.setCapabilities(16,18);			
+			action.setCapabilities(16,18);			
 		}
 		public static void chronologyCapabilities() {
-			util.setCapabilities(19,21);			
+			action.setCapabilities(19,21);			
 		}
 		public static void exportingCapabilities() {
-			util.setCapabilities(22,24);			
+			action.setCapabilities(22,24);			
 		}
 
 		public static void saveChanges() {
-			util.clickAction("settingsmain","floatleft","button","Save change to the roles table");		
-			//util.acceptAlert();
+			action.clickAction("settingsmain","floatleft","button","Save change to the roles table");		
+			//action.acceptAlert();
 		}
 
 		public static void edit(String newrole) {
 			event.editNewRole(newrole);
-			util.setCapabilities(6,9);
+			action.setCapabilities(6,9);
 			util.wait(0.5);
-			util.setCapabilities(17,18);
+			action.setCapabilities(17,18);
 			util.wait(0.5);		
-			util.setCapabilities(19,20);
+			action.setCapabilities(19,20);
 			util.wait(0.5);	
-			util.setCapabilities(23,24);
+			action.setCapabilities(23,24);
 			util.wait(0.5);
-			util.clickAction("settingsmain","floatleft","button","Save change to the roles table");
+			action.clickAction("settingsmain","floatleft","button","Save change to the roles table");
 		}
 	}
 	

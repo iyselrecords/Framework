@@ -1,8 +1,9 @@
 Meta:
 @regression
-@magnumAdmin
+@magnumUser
 @transcript
 @user_GUI11
+@test
 
 Narrative:
 In order to test Magnum application

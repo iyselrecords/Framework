@@ -1,6 +1,6 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumUser
 @transcript
 @user_FUNCTr01
 

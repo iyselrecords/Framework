@@ -6,13 +6,17 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import com.opus2.pages.Transcripts;
+import com.opus2.pages.UserAction;
 import com.opus2.util.Util;
 
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
 public class MagnumUserSteps extends SerenityStories{
+	@Steps
 	Transcripts transcript;
 	Util util;
+	UserAction action;
 	
 	@When("user select '<testTranscripts>' Transcript")
 	public void whenUserSelecttestTranscriptsTranscript(@Named("testTranscripts") String file){
@@ -25,7 +29,7 @@ public class MagnumUserSteps extends SerenityStories{
 	@When("user clicks on '<testTranscripts>' Transcript")
 	public void whenUserClicksOntestTranscripts2Transcript(@Named("testTranscripts") String file){
 		transcript.clickPreview(file);
-		util.switchToCurrentWindow(1);
+		action.switchToCurrentWindow(1);
 	}
 	@Then("'<testTranscripts>' Transcript should open in a new tab")
 	public void thenTestTranscriptsTranscriptShouldOpenInANewTab(@Named("testTranscripts") String file){

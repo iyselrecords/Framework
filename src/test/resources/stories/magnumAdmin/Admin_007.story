@@ -1,10 +1,12 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumAdmin
 @admin_007
 
 Narrative:
-As a test team, we want to use the Behavioral Driven Development in running our regression suite
+In order to test Magnum application
+As a tester
+I want to use the BDD approach in testing features and functionality
 					 
 Scenario: Verify Initial Upload of the documents from the Documents tab
 When user clicks on upload button and clicks on Select Files

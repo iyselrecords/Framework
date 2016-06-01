@@ -3,15 +3,10 @@ package com.opus2.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.google.common.base.Predicate;
 import com.opus2.enums.TranscriptOptions;
 import com.opus2.util.Event;
 import com.opus2.util.Util;
@@ -22,17 +17,18 @@ public class Transcripts extends PageObject {
 	public WebDriver driver = getDriver();
 	Util util;
 	Event event;
+	UserAction action;
 	
 	public void goTo() {
 		getDriver().findElement(By.id("transcripts")).click();
 	}
 
 	public void editProperties() {
-		util.clickAction("edit-toggle-button");
+		action.clickAction("edit-toggle-button");
 	}
 	
 	public void importTranscript() {
-		util.clickAction("upload-toggle-button-new");
+		action.clickAction("upload-toggle-button-new");
 	}
 
 
@@ -80,7 +76,7 @@ public class Transcripts extends PageObject {
 		util.wait(0.5);
 	}
 	public void clickPreview(String file) {
-		util.clickAction("preview-div");
+		action.clickAction("preview-div");
 	}
 	public void ImportAnnotations() {
 		select(TranscriptOptions.ImportAnnotations);
@@ -89,11 +85,11 @@ public class Transcripts extends PageObject {
 		select(TranscriptOptions.ReplaceTranscript);
 	}
 	public void clickToolDropdown() {
-		util.clickAction("rightToolbarDiv","btn-grp","button",4);
+		action.clickAction("rightToolbarDiv","btn-grp","button",4);
 	}
 	
 	public void chooseFile() {
-		util.clickAction("fileid");
+		action.clickAction("fileid");
 	}
 	public void selectFile(String file) {	
 		String path = "C:\\Users\\misele\\Desktop\\PN\\docs\\testData\\";
@@ -166,10 +162,10 @@ public class Transcripts extends PageObject {
 	}
 
 	public void find(String file) {
-		util.inputText("docctrls", file);
+		action.inputText("docctrls", file);
 	}
 	public void clearText(String file) {
-		util.clearText("docctrls");
+		action.clearText("docctrls");
 	}
 
 
@@ -208,33 +204,33 @@ public class Transcripts extends PageObject {
 	}
 
 	public void textLarger() {
-		util.clickAction("leftToolbarDiv", "zoom", "button", 0);
+		action.clickAction("leftToolbarDiv", "zoom", "button", 0);
 	}
 	public void textLarger(int num) {
 		for(int i = 0; i < num; i++){
-			util.clickAction("leftToolbarDiv", "zoom", "button", 0);
+			action.clickAction("leftToolbarDiv", "zoom", "button", 0);
 		}
 	}
 
 	public void textSmaller() {
-		util.clickAction("leftToolbarDiv", "zoom", "button", 1);
+		action.clickAction("leftToolbarDiv", "zoom", "button", 1);
 	}
 	public void textSmaller(int num) {
 		for(int i = 0; i < num; i++){
-			util.clickAction("leftToolbarDiv", "zoom", "button", 1);
+			action.clickAction("leftToolbarDiv", "zoom", "button", 1);
 		}
 	}
 
 	public void manageTags() {
-		util.clickAction("leftToolbarDiv", "tagsbutton", "button", 0);
+		action.clickAction("leftToolbarDiv", "tagsbutton", "button", 0);
 	}
 
 	public void manageDesignations() {
-		util.clickAction("leftToolbarDiv", "tagsbutton", "button", 1);
+		action.clickAction("leftToolbarDiv", "tagsbutton", "button", 1);
 	}
 	
 	public void showTrascriptLists(){
-		//util.clickAction("leftToolbarDiv", "inline-control", "button", "Show the transcripts list");
+		//action.clickAction("leftToolbarDiv", "inline-control", "button", "Show the transcripts list");
 	}
 	
 	public void selectTranscriptFromList(String file){
@@ -242,44 +238,44 @@ public class Transcripts extends PageObject {
 	}
 
 	public void toggleDesignationsFromWall() {
-		util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
-		util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
+		action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
+		action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
 	}
 
 	public void toggleNotesFromWall() {
-		util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
-		util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
+		action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
+		action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
 	}
 
 	public void toggleLinkedDocumentsFromWall() {
-		util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
-		util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
+		action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
+		action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
 	}
 
 	public void toggleBetweenButtons(String button) {
 		if(button.equalsIgnoreCase("Notes")){
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
 			util.wait(3);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
 		}else if(button.equalsIgnoreCase("Linked Documents")){
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
 			util.wait(3);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 3);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
 		}else if(button.equalsIgnoreCase("Designations")){
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
 			util.wait(3);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
-			util.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 2);
+			action.clickAction("rightToolbarDiv","buttonGroupDiv","button", 1);
 		}
 	}
 
 	public void dropdown() {
-		util.clickAction("leftToolbarDiv", "button", 5);
+		action.clickAction("leftToolbarDiv", "button", 5);
 	}
 
 	public void displaysListOfTranscript() {
@@ -293,11 +289,11 @@ public class Transcripts extends PageObject {
 	}
 	
 	public void displaySearchList() {
-		util.clickAction("leftToolbarDiv", "search-left", "span", 0);
+		action.clickAction("leftToolbarDiv", "search-left", "span", 0);
 	}
 
 	public void enterSearchText(String text) {
-		util.inputText("leftToolbarDiv", text, 0);
+		action.inputText("leftToolbarDiv", text, 0);
 	}
 
 	public void indentifyText() {
@@ -312,5 +308,4 @@ public class Transcripts extends PageObject {
      		occurrences.get(i).click();
      	}
 	}
-
 }

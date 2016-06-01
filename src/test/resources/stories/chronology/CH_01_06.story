@@ -1,6 +1,6 @@
 Meta:
-@magnumAdmin
 @regression
+@chronology
 @ch_01_06
 
 

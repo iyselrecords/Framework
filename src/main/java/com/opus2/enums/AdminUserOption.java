@@ -1,7 +1,6 @@
 package com.opus2.enums;
 
 public enum AdminUserOption {
-	
 	Delete("Delete"),
 	Edit("Edit"),
 	UnlockAccount("Unlock Account"),

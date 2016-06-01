@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.opus2.enums.DocumentOption;
+import com.opus2.enums.ToolsOption;
 import com.opus2.util.Constants;
 import com.opus2.util.Util;
 
@@ -18,11 +20,12 @@ import net.thucydides.core.pages.PageObject;
 public class Documents extends PageObject {
 	public WebDriver driver = getDriver();
 	static Util util;
+	UserAction action;
 	
 	
 	public void uploadDocument() {
-		getDriver().findElement(By.id("upload-toggle-button")).click();
-		util.wait(2);
+		action.clickAction("upload-toggle-button");
+		util.wait(1);
 	}
 
 	public UploadDialog uploadDialog() {
@@ -30,8 +33,7 @@ public class Documents extends PageObject {
 	}
 
 	public void newFolder() {
-		//getDriver().findElement(By.id("docscontrols_NewFolder")).click();
-		util.clickAction("docscontrols_NewFolder");
+		action.clickAction("docscontrols_NewFolder");
 	}
 
 	public void enterFoldersName(String name) {
@@ -214,6 +216,17 @@ public class Documents extends PageObject {
 			}
 		}		
 	}
+	public void selectContextOptions(DocumentOption option) {
+		WebElement menuWrap = getDriver().findElement(By.id("rightClickMenu"));
+		List<WebElement> lists = menuWrap.findElements(By.className("element"));
+		for(WebElement list : lists){
+			if(list.findElements(By.tagName("span")).get(0).getText().equalsIgnoreCase(option.returnOption())){
+				list.click();
+				break;
+			}
+		}
+	}
+
 	public void selectNewNotes(String option){
 		
 		WebElement dropdown = getDriver().findElement(By.id("new-notes-dd"));
@@ -279,7 +292,7 @@ public class Documents extends PageObject {
 	}
 
 	private void reorderDoc(String elementID) {
-		util.clickAction(elementID);
+		action.clickAction(elementID);
 		util.wait(1);
 	}
 
@@ -398,23 +411,23 @@ public class Documents extends PageObject {
 		util.wait(0.5);
 	}
 	public void filterByTags(){
-		util.clickAction("filter-button-docscontrols");		
+		action.clickAction("filter-button-docscontrols");		
 	}
 	public void uploadNewDocument(){
-		util.clickAction("upload-toggle-button");	
+		action.clickAction("upload-toggle-button");	
 	}
 	public void createNewFolder(){
-		util.clickAction("docscontrols_NewFolder");
+		action.clickAction("docscontrols_NewFolder");
 		util.wait(0.5);
-		util.closeDialog("newFolderDialog dialogClose-div");
+		action.closeDialog("newFolderDialog dialogClose-div");
 	}
 	public void createOrEditTags(){
-		util.clickAction("docscontrols_Tags");
+		action.clickAction("docscontrols_Tags");
 	}
 	public void moveFolderOrTags(){
-		util.clickAction("docscontrols_Move");
+		action.clickAction("docscontrols_Move");
 		util.wait(0.5);
-		util.clickAction("docscontrols_Move");
+		action.clickAction("docscontrols_Move");
 	}
 	public void snapshotView(){
 		WebElement wrap = getDriver().findElement(By.id("docscontrols"));
@@ -427,14 +440,14 @@ public class Documents extends PageObject {
 			}
 		}
 		util.wait(0.5);
-		util.closeDialog("dialogClose-div");
+		action.closeDialog("dialogClose-div");
 	}
 	public void controlsTools(){
-		util.clickAction("docscontrols_Tools");
+		action.clickAction("docscontrols_Tools");
 		util.wait(0.5);		
 		dropDownOptions2("admin-button", "element", Constants.BULK_ORGANIZE);
 		util.wait(0.5);
-		util.closeDialog("add-doc-to-tags-from-id dialogClose-div");
+		action.closeDialog("add-doc-to-tags-from-id dialogClose-div");
 	}
 
 	public void rightClickDocument(String fol, String document) {
@@ -470,6 +483,14 @@ public class Documents extends PageObject {
             }
         }
 	}
+
+	public void select(ToolsOption option) {
+		action.clickAction("docscontrols_Tools");
+		action.select(option, "admin-button");
+		action.switchToCurrentWindow(1);
+	}
+
+	
 
 	
 	

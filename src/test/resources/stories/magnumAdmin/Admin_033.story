@@ -1,12 +1,12 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumAdmin
 @admin_033
 
 Narrative:
 In order to test Magnum application
 As a tester
-I want to use the BDD approach in testing features and functionality.
+I want to use the BDD approach in testing features and functionality
 					 
 Scenario: Verify Page Rotation On Multiple Documents
 When user find a <'docs'> selects and rightclick on it

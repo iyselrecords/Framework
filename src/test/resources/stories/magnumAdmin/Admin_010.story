@@ -1,10 +1,12 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumAdmin
 @admin_010
 
 Narrative:
-As a test team, we want to use the Behavioral Driven Development in running our regression suite
+In order to test Magnum application
+As a tester
+I want to use the BDD approach in testing features and functionality
 					 
 Scenario: Verify Uploading To A Folder
 When user clicks on Upload button

@@ -35,7 +35,7 @@ public enum DocumentOption {
     	this.option = option;
     }
     
-    public String enumField(){
+    public String returnOption(){
     	return option;
     }
 }       

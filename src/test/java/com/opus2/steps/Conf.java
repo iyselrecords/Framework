@@ -1,6 +1,7 @@
 package com.opus2.steps;
 
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.AfterStories;
@@ -14,9 +15,9 @@ import com.opus2.pages.Testing;
 import com.opus2.util.Util;
 
 public class Conf extends SerenityStories{
+	
 	Login loginpage;
 	Util util;
-	Testing test;
 	
 	@BeforeScenario
 	public void beforeEachScenario() {
@@ -35,8 +36,7 @@ public class Conf extends SerenityStories{
 	@AfterStory
 	public void afterStory() {
 		loginpage.tearDown();
-	}
-	 
+	}	
 	
 	@BeforeStories
 	public void beforeStories() {

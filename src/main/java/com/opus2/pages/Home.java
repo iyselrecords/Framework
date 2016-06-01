@@ -15,13 +15,14 @@ import com.opus2.util.Util;
 public class Home extends PageObject {
 	public WebDriver driver = getDriver();
 	Util util;
+	UserAction action;
 
 	public void newWorkspace() {
-		getDriver().findElement(By.id("home-buttons_NewWorkspace")).click();
+		action.clickAction("home-buttons_NewWorkspace");
 	}
 	
 	public boolean newWorkspaceDialog() {
-		util.wait(2);
+		//util.wait(1);
 		WebElement h2 = getDriver().findElement(By.tagName("h2"));
 		if (h2.getText().equalsIgnoreCase("Start a new workspace")){
 			return true;
@@ -31,16 +32,15 @@ public class Home extends PageObject {
 	
 	public void closeNewWorkspaceDialog()
 	{
-		getDriver().findElement(By.id("new-ws dialogClose-div")).click();
+		action.clickAction("new-ws dialogClose-div");
 	}
 
 	public void manageUserAndWorkspace() {
-		getDriver().findElement(By.id("home-buttons_ManageUsersandWorkspaces")).click();
+		action.clickAction("home-buttons_ManageUsersandWorkspaces");
 	}
 
-	public void findCase(String workspace) {
-		WebElement wrap = getDriver().findElement(By.id("wsfindcontainer"));
-		wrap.findElements(By.tagName("input")).get(0).sendKeys(workspace);	
+	public void findCase(String keysToSend) {
+		action.inputText("wsfindcontainer", keysToSend);
 	}
 
 	public void selectWorkspace(String workspace) {

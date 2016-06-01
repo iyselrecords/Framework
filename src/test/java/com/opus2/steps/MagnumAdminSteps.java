@@ -2,12 +2,16 @@ package com.opus2.steps;
 
 import java.awt.AWTException;
 
+import static org.junit.Assert.*;
+
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.opus2.enums.DocumentOption;
 import com.opus2.enums.Pages;
 import com.opus2.enums.SideMenu;
+import com.opus2.enums.ToolsOption;
 import com.opus2.enums.TranscriptOptions;
 import com.opus2.enums.UserActivity;
 import com.opus2.pages.Admin;
@@ -22,14 +26,18 @@ import com.opus2.pages.OldSearch;
 import com.opus2.pages.Search;
 import com.opus2.pages.Transcripts;
 import com.opus2.pages.UploadDialog;
+import com.opus2.pages.UserAction;
 import com.opus2.pages.UserWorkspaces;
 import com.opus2.util.Constants;
 import com.opus2.util.Event;
 import com.opus2.util.Util;
 
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
-public class MagnumAdminSteps extends SerenityStories{
+public class MagnumAdminSteps extends SerenityStories{	
+	@Steps	
+	
 	static Admin admin;
 	Chronology chronology;
 	Documents documents;
@@ -45,8 +53,10 @@ public class MagnumAdminSteps extends SerenityStories{
 	static Util util;
 	Dialog dialog;
 	Event event;
+	UserAction action;
 	
-
+	
+	
 	@When("user clicks on Documents Tab")
 	public void whenUserClicksOnDocumentsTab(){
 		documents.goTo();
@@ -95,7 +105,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("user clicks on Admin Tab")
 	public void whenUserClicksOnAdminTab(){
 		//admin.goTo();
-		util.goTo(Pages.Admin);
+		action.goTo(Pages.Admin);
 	}
 	@Then("they should be on Admin page")
 	public void thenTheyShouldBeOnAdminPage(){
@@ -194,7 +204,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("user clicks on Preview '<doc>'")
 	public void whenUserClicksOnPreviewDocument(@Named("doc")String document){
 	    documents.previewDocumentNewTab();
-	    util.switchToCurrentWindow(1);
+	    action.switchToCurrentWindow(1);
 	}
 	@Then("a new tab opens with the preview '<doc>'")
 	public void thenANewTabOpensWithThePreviewDocument(@Named("doc")String document){
@@ -239,7 +249,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@Then("Reorder Dialog should be visible")
 	public void thenReorderDialogShouldBeVisible(){
 		//assert
-		util.acceptAlert();
+		action.acceptAlert();
 		util.wait(4);
 	}
 	@When("user clicks New notes dropdown and select '<Closed to new notes>' option")
@@ -258,7 +268,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user navigates back to previous window")
 	public void whenUserNavigatesBackToPreviousWindow(){
-		util.switchToCurrentWindow(0);
+		action.switchToCurrentWindow(0);
 	}
 	@Then("annotation dialog wouldn't be activated")
 	public void thenAnnotationDialogWouldntBeActivated(){
@@ -280,7 +290,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("user clicks on Preview '<Document>' again")
 	public void whenUserClicksOnPreviewDocumentAgain(@Named("Document")String document){
 	    documents.previewDocumentNewTab();
-	    util.switchToCurrentWindow(2);
+	    action.switchToCurrentWindow(2);
 	}
 	@When("user enters a '<new_name>' and click Ok")
 	public void whenUserEntersAnew_nameAndClickOk(@Named("new_name") String newName){
@@ -422,7 +432,7 @@ public class MagnumAdminSteps extends SerenityStories{
 		util.wait(0.5);
 		documents.showOrHideAdditonalColumn();
 		util.wait(0.5);
-		util.findSearch("left-button-row","testDoc50");
+		action.findSearch("left-button-row","testDoc50");
 		util.wait(0.5);
 		documents.reset();
 		util.wait(0.5);
@@ -446,14 +456,14 @@ public class MagnumAdminSteps extends SerenityStories{
 	
 	@When("user clicks on Transcripts tab")
 	public void whenUserClicksOnTranscriptTab(){
-		util.goTo(Constants.Transcripts);
+		action.goTo(Constants.Transcripts);
 		util.wait(1);	
-		util.find("docctrls", "Day 2");	
+		action.find("docctrls", "Day 2");	
 		util.wait(2);
 		transcript.clickTranscript();
 		transcript.importTranscript();
 		util.wait(0.5);
-		util.closeDialog("dialogClose-div");
+		action.closeDialog("dialogClose-div");
 		transcript.editProperties();
 	}
 	
@@ -586,7 +596,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("save ordering and confirm change")
 	public void whenSaveOrderingAndConfirmChange(){
         dialog.sortOrder.SaveOrdering();
-        util.confirm("OK"); 
+        action.confirm("OK"); 
 	}
 	@SuppressWarnings("static-access")
 	@When("enters <'X'> on Distance input and clicks on the X Distance button")
@@ -655,7 +665,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("select <ReOrder> option")
 	public void whenSelectReOrderOption(){
         documents.selectContextOptions(Constants.ReOrder);
-        util.acceptAlert();
+        action.acceptAlert();
 	}
 	
 	@When("user find a <'docs'> selects and rightclick on it")
@@ -702,7 +712,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	
 	@When("user reload the page")
 	public void whenUserReloadThePage(){
-		util.reloadPage();
+		action.reloadPage();
 	}
 	@When("finds <'docs'> and click on <'docs'>")
 	public void whenFindsdocumentAndClickOndocument(@Named("docs") String file){
@@ -714,7 +724,7 @@ public class MagnumAdminSteps extends SerenityStories{
 		
 	@When("user navigate to Admin page")
 	public void whenUserNavigateToAdminPage(){
-		util.goTo(Constants.Admin);
+		action.goTo(Constants.Admin);
 	}
 	
 	@When("clicks Metadata on the SideMenu")
@@ -763,7 +773,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user clicks OK to confirm")
 	public void whenUserClicksOKToConfirm(){
-		util.acceptAlert();
+		action.acceptAlert();
 	}
 	@Then("Document TYpe is removed from both Document Type table and Magnum")
 	public void thenDocumentTYpeIsRemovedFromBothDocumentTypeTableAndMagnum(){
@@ -782,7 +792,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	public void whenUserEntersDocumentTypesDetailsAndClicksTheApplyButton(@Named("newDocType") String newDoc){
 		event.enterDocumentTypeDetails(newDoc,"Description");
 		util.wait(1);
-		util.clickAction("doc-type_Apply");
+		action.clickAction("doc-type_Apply");
 	}
 	@Then("new Document Type should be added to the Document Type table")
 	public void thenNewDocumentTypeShouldBeAddedToTheDocumentTypeTable(){
@@ -802,7 +812,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("clicks the Apply button")
 	public void whenClicksTheApplyButton(){
-		util.clickAction("custom-field_Apply");
+		action.clickAction("custom-field_Apply");
 	}
 	@Then("the new Metadata should added to Metadata table")
 	public void thenTheNewMetadataShouldAddedToMetadataTable(){
@@ -837,7 +847,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user navigates to Transcript page")
 	public void whenUserNavigatesToTranscriptPage(){
-		 util.goTo(Pages.Transcripts);
+		 action.goTo(Pages.Transcripts);
 	}
 	@When("user click on Tools dropdown")
 	public void whenUserClickOnToolsDropdown(){
@@ -846,12 +856,12 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("click on '<testTranscripts>' Transcript")
 	public void whenClickOntestTranscriptsTranscript(@Named("testTranscripts") String file){
 		transcript.clickPreview(file);
-		util.switchToCurrentWindow(1);
+		action.switchToCurrentWindow(1);
 	}
 	@When("click on '<testTranscripts2>' Transcript")
 	public void whenClickOntestTranscripts2Transcript(@Named("testTranscripts2") String file){
 		transcript.clickPreview(file);
-		util.switchToCurrentWindow(1);
+		action.switchToCurrentWindow(1);
 	}
 	@Then("file should be attached to page")
 	public void thenFileShouldBeAttachedToPage(){
@@ -860,7 +870,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("click on Import button")
 	public void whenClickOnImportButton(){
 		transcript.Import();
-		util.acceptAlert();
+		action.acceptAlert();
 	}	
 	@Then("'<testTranscripts>' should open in a new tab")
 	public void thentestTranscriptsShouldOpenInANewTab(){
@@ -886,12 +896,12 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("click the Replace button")
 	public void whenClickTheReplaceButton(){
-		 util.clickAction("replace-transcript_Replace");
+		 action.clickAction("replace-transcript_Replace");
 	}
 	@Then("annotations, designations or video appear should be visible on new transcript")
 	public void thenAnnotationsDesignationsOrVideoAppearShouldBeVisibleOnNewTranscript(){
 		 transcript.progressBar(17);
-		 util.confirm("OK");
+		 action.confirm("OK");
 	}
 	@When("user select '<ptfFile2>' Transcript")
 	public void whenUserSelectPtfFile2Transcript(@Named("ptfFile2") String file){
@@ -909,7 +919,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user clicks on Cancel button")	
 	public void whenUserClicksOnCancelButton(){
-		util.clickAction("DOMadditions","dialogFoot", "button", 0);
+		action.clickAction("DOMadditions","dialogFoot", "button", 0);
 	}
 	@Then("video should play")	
 	public void thenVideoShouldPlay(){
@@ -917,8 +927,8 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user click on the Play button")	
 	public void whenUserClickOnThePlayButton(){
-		util.clickAction("DOMadditions","dialogBody", "button", 0);
-		util.confirm("OK");
+		action.clickAction("DOMadditions","dialogBody", "button", 0);
+		action.confirm("OK");
 	}
 	@Then("Video Timecode Correction Dailog should be visible")	
 	public void thenVideoTimecodeCorrectionDailogShouldBeVisible(){
@@ -945,7 +955,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user clicks on Close button")
 	public void whenUserClicksOnCloseButton(){
-		util.clickAction("DOMadditions","dialogFoot", "button", 0);
+		action.clickAction("DOMadditions","dialogFoot", "button", 0);
 	}
 	
 	//Admin_94
@@ -973,7 +983,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("click the Upload button")
 	public void whenClickTheUploadButton(){
-		util.clickAction("DOMadditions", "dialogFoot", "button", "Upload");
+		action.clickAction("DOMadditions", "dialogFoot", "button", "Upload");
 		util.wait(10);
 	}
 	@Then("Video should be attach to Transcript")
@@ -987,7 +997,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@Then("'<testTranscripts>' Transcript is filtered and displayed on preview pane")
 	public void thentestTranscriptsTranscriptIsFilteredAndDisplayedOnPreviewPane(@Named("testTranscripts") String file){
 		util.wait(1);
-		util.clearText("docctrls");
+		action.clearText("docctrls");
 	}
 	@When("user clicks on 'Edit Transcript Properties' tab")
 	public void whenUserClicksOnEditTranscriptPropertiesTab(){
@@ -1000,7 +1010,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@Then("the Import Transcript Dialog should be visible")
 	public void thenTheImportTranscriptDialogShouldBeVisible(){
 		util.wait(1);
-		util.closeDialog("DOMadditions", "Import Transcript");
+		action.closeDialog("DOMadditions", "Import Transcript");
 	}
 	@When("user input '<testTranscripts>' on Find input box")
 	public void whenUserInputtestTranscriptsOnFindInputBox(@Named("testTranscripts") String file){
@@ -1009,7 +1019,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@Then("the Edit Transcript Dialog should be visible")
 	public void thenTheEditTranscriptDialogShouldBeVisible(){
 		util.wait(1);
-		util.closeDialog("DOMadditions", "Edit Transcript");
+		action.closeDialog("DOMadditions", "Edit Transcript");
 	}
 	
 	@When("user selects page <pageNum>")
@@ -1062,7 +1072,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@Then("Manage Tags Dialog should be visible")	
 	public void thenManageTagsDialogShouldBeVisible(){
 		util.wait(1);
-		util.closeDialog("DOMadditions", "Manage Tags");
+		action.closeDialog("DOMadditions", "Manage Tags");
 	}
 	@When("user clicks on Designations button")
 	public void whenUserClicksOnDesignationsButton(){
@@ -1071,7 +1081,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@Then("Designations Dialog should be visible")	
 	public void thenDesignationsDialogShouldBeVisible(){
 		util.wait(1);
-		util.closeDialog("DOMadditions", "Manage Designations and Comments");
+		action.closeDialog("DOMadditions", "Manage Designations and Comments");
 	}
 	
 	@When("user clicks on Transcript List button")
@@ -1085,7 +1095,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	@When("user select '<testTranscripts2>' from list")
 	public void whenUserSelecttestTranscripts2FromList(@Named("testTranscripts2") String file){
 		transcript.selectTranscriptFromList(file);
-		util.switchToCurrentWindow(1);
+		action.switchToCurrentWindow(1);
 	}
 	
 	@Then("'<testTranscripts2>' is open in a new tab")
@@ -1264,5 +1274,106 @@ public class MagnumAdminSteps extends SerenityStories{
 		admin.monitorActivity.show(UserActivity._30mins);
 		admin.monitorActivity.show(UserActivity._7days);
 		admin.monitorActivity.show(UserActivity._3hours);
+	}
+	
+	@Then("user should be in Documents page")
+	public void thenUserShouldBeInDocumentsPage(){
+		util.wait(1); 
+	}
+	
+	
+	//Admin_084
+	@When("user select Upload Manager from Tools dropdown")
+	public void whenUserSelectUploadManagerFromToolsDropdown(){
+		documents.select(ToolsOption.UploadManager);
+	}
+	@Then("Upload Manager should be open in a new tab displaying all recent uploads")
+	public void thenUploadManagerShouldBeOpenInANewTabDisplayingAllRecentUploads(){
+		assertTrue(true);
+		util.wait(2);
+	}
+	//Admin_085
+	@When("user select Export Manager from Tools dropdown")
+	public void whenUserSelectExportManagerFromToolsDropdown(){
+		documents.select(ToolsOption.ExportManager);
+	}
+	@Then("Export Manager should be open in a new tab displaying files to download")
+	public void thenExportManagerShouldBeOpenInANewTabDisplayingFilesToDownload(){
+		assertTrue(true);
+		util.wait(2);
+	}
+	
+	//Admin_086
+	@When("user select Video Exports from Tools dropdown")
+	public void whenUserSelectVideoExportsFromToolsDropdown(){
+		documents.select(ToolsOption.VideoExports);
+	}
+	@Then("Video Exports should be open in a new tab displaying files to export")
+	public void thenVideoExportShouldBeOpenInANewTabDisplayingFilesToExport(){
+		assertTrue(true);
+		util.wait(2);
+	}
+	
+	//Admin_87a	
+	@SuppressWarnings("static-access")
+	@When("user creates a '<doc_fol>'")
+	public void whenUserCreatesAdoc_fol(@Named("doc_fol")String folder){
+		documents.newFolder();
+		dialog.newFolder.enterFoldersName(folder);
+		dialog.newFolder.createFolder();
+	}
+	@SuppressWarnings("static-access")
+	@When("upload a '<doc>' into '<doc_fol>'")	
+	public void andUploadAdocIntodoc_fol(@Named("doc") String doc, @Named("doc_fol") String folder) throws AWTException{
+		documents.uploadDocument();
+		
+		dialog.upload.selectDestination();
+		dialog.uploadDestination.find(folder);
+		dialog.uploadDestination.selectFolder(folder);
+		dialog.uploadDestination.apply();
+		
+		dialog.upload.selectFiles();
+		dialog.upload.selectFiles(doc);
+		dialog.upload.upload();
+		dialog.upload.close();
+		
+	}
+	@Then("'<doc>' should be uploaded to '<doc_fol>'")
+	public void thendocShouldBeUploadedTodoc_fol(){
+		util.wait(1);
+	}
+	
+	//
+	@When("user select '<doc>'")
+	public void whenUserSelectDoc(@Named("doc") String doc){
+		documents.findDocument(doc);
+		
+	}
+
+	@When("rightclick '<doc>' and select Properties")
+	public void andRightclickDocAndSelectProperties(@Named("doc") String doc){
+		documents.rightClick(doc);
+		documents.selectContextOptions(DocumentOption.Properties);
+		util.wait(1);
+	}
+	
+	@SuppressWarnings("static-access")
+	@When("user select Document type")	
+	public void whenUserSelectDocumentType(){
+		dialog.properties.type("Document");
+	}
+	@SuppressWarnings("static-access")
+	@When("input date")
+	public void whenInputDate(){
+		dialog.properties.inputDate("05/30/2016");
+	}
+	@SuppressWarnings("static-access")
+	@When("apply to '<doc>'")	
+	public void whenApplyTodoc(){
+		dialog.properties.apply();
+	}
+	@Then("date metadata in inputted to '<doc>'")	
+	public void thenDateMetadataInInputtedTodoc(){
+		util.wait(2);
 	}
 }

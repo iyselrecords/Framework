@@ -1,12 +1,12 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumAdmin
 @admin_028
 
 Narrative:
 In order to test Magnum application
 As a tester
-I want to use the BDD approach in testing features and functionality.
+I want to use the BDD approach in testing features and functionality
 					 
 Scenario: Verify ReOrdering Document Within A Folder
 When user highlights a '<folder>' and right click to select '<Sort by>' option

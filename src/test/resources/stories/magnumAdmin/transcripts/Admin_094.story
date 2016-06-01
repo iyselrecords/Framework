@@ -1,8 +1,8 @@
 Meta:
 @magnumAdmin
 @regression
+@transcripts
 @admin_094
-@transcript
 
 Narrative:
 In order to test Magnum application

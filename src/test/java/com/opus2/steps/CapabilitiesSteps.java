@@ -9,21 +9,26 @@ import com.opus2.enums.SideMenu;
 import com.opus2.enums.UsersCap;
 import com.opus2.pages.Admin;
 import com.opus2.pages.Dialog;
+import com.opus2.pages.UserAction;
 import com.opus2.util.Constants;
 import com.opus2.util.Event;
 import com.opus2.util.Util;
 
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
 public class CapabilitiesSteps extends SerenityStories{
+	@Steps
+	
 	Event event;
 	Util util;
 	Admin admin;
 	Dialog dialog;
+	static UserAction action;
 	
 	@When("user navigates to Admin page")
 	public void whenUserNavigatesToAdminPage(){
-		util.goTo(Pages.Admin);		
+		action.goTo(Pages.Admin);		
 	}
 	@Then("user should be in Admin page")
 	public void thenUserShouldBeInAdminPage(){

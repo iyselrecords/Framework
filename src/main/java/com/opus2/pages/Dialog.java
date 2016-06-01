@@ -1,6 +1,7 @@
 package com.opus2.pages;
 
-import org.openqa.selenium.By;
+import java.awt.AWTException;
+
 import org.openqa.selenium.WebDriver;
 
 import com.opus2.pages.UploadDialog;
@@ -11,6 +12,7 @@ import net.thucydides.core.pages.PageObject;
 public class Dialog extends PageObject{
 	public WebDriver driver = getDriver();
 	static Util util;
+	static UserAction action;
 	
 	public static SelectDocumentTags selectDocumentTags;
 	public static Upload upload;
@@ -27,49 +29,51 @@ public class Dialog extends PageObject{
 	public static AddUsers addUsers;
 	public static CustomTypes customTypes;
 	public static SaveACustomType saveACustomType; 
+	public static UploadDialog updlog;
+	public static Properties properties;
 	
 	
 	//Documents
 	public static class SelectDocumentTags
 	{
 		public static void find(String searchText) {
-			util.findSearch("select-categories", searchText);				
+			action.findSearch("select-categories", searchText);				
 		}
 		public static void closeDialog() {
-			util.closeDialog("select-categories dialogClose-div");
+			action.closeDialog("select-categories dialogClose-div");
 		}
 		
 		public static void selectAll() {
-			util.clickActionByText("All");				
+			action.clickActionByText("All");				
 		}
 		
 		public static void selectNone() {
-			util.clickActionByText("None");
+			action.clickActionByText("None");
 		}
 		
 		public static void expand() {
-			util.clickActionByText("Expand");				
+			action.clickActionByText("Expand");				
 		}
 		
 		public static void collapse() {
-			util.clickActionByText("Collapse");
+			action.clickActionByText("Collapse");
 		}
 		
 		public static void selectDocumentsWithoutTags() {
-			util.documentsWithoutTags();
+			action.documentsWithoutTags();
 		}
 		
 		public static void close() {
-			util.clickAction("select-categories_Close");				
+			action.clickAction("select-categories_Close");				
 		}
 		public static void cancel() {
-			util.clickAction("select-categories_Cancel");				
+			action.clickAction("select-categories_Cancel");				
 		}
 		public static void apply() {
-			util.clickAction("select-categories_Apply");
+			action.clickAction("select-categories_Apply");
 		}
 		public static void selectTag() {
-			util.selectTag("select-categories");				
+			action.selectTag("select-categories");				
 		}
 	}
 	
@@ -78,27 +82,29 @@ public class Dialog extends PageObject{
 		static UploadDialog uploadDialog;
 		
 		public static void selectDestination() {
-			util.clickAction("upload destination");	
+			action.clickAction("upload destination");	
 		}
 		
 		public static void closeDialog() {
-			util.closeDialog("uploader dialogClose-div");
+			action.closeDialog("uploader dialogClose-div");
 		}
 		
 		public static void close() {
-			util.clickAction("uploader_Close");
+			action.clickAction("uploader_Close");
 		}
 
 		public static void upload() {
-			util.clickAction("uploader_uploader_Upload");
+			action.clickAction("uploader_uploader_Upload");
+			util.wait(20);
 		}
 
 		public static void selectFiles() {
-			util.clickAction("select files");
+			action.clickAction("select files");
 		}
 
-		public static void selectFiles(String file) {
-			util.selectDocOpenWindow(file);
+		public static void selectFiles(String file) throws AWTException {
+			//action.selectDocOpenWindow(file);
+			updlog.selectFile(file);
 		}
 		
 	}
@@ -106,24 +112,24 @@ public class Dialog extends PageObject{
 	public static class UploadDestination
 	{
 		public static void find(String searchText) {
-			util.findSearch("doc-chooser_doc-chooser", searchText);
+			action.findSearch("doc-chooser_doc-chooser", searchText);
 		}
 
 		public static void closeDialog() {
-			util.closeDialog("doc-chooser dialogClose-div");
+			action.closeDialog("doc-chooser dialogClose-div");
 		}
 		
 		public static void cancel() {
-			util.clickAction("doc-chooser_Cancel");				
+			action.clickAction("doc-chooser_Cancel");				
 		}
 		
 		public static void apply() {
-			util.clickAction("doc-chooser_Apply");
+			action.clickAction("doc-chooser_Apply");
 		}
 
 		public static void selectFolder(String folder) {
 			util.wait(2);
-			util.selectFolder(folder); 			
+			action.selectFolder(folder); 			
 		}
 	}
 	
@@ -134,58 +140,58 @@ public class Dialog extends PageObject{
 		}
 
 		public static void changeDestination() {
-			util.clickAction("newFolderDialog_newFolderDialog_Change");
+			action.clickAction("newFolderDialog_newFolderDialog_Change");
 		}
 
 		public static void enterFoldersName(String name) {
-			util.inputText("newFolderDialog_newFolderDialog", name);
+			action.inputText("newFolderDialog_newFolderDialog", name);
 		}
 
 		public static void createFolder() {
-			util.clickAction("newFolderDialog_CreateFolder");
-			util.reloadPage();
+			action.clickAction("newFolderDialog_CreateFolder");
+			action.reloadPage();
 		}
 	}
 	
 	public static class ManageTags
 	{
 		public static void find(String searchText) {
-			util.findSearch("manage-tags", searchText);				
+			action.findSearch("manage-tags", searchText);				
 		}
 		
 		public static void closeDialog() {
-			util.closeDialog("manage-tags dialogClose-div");
+			action.closeDialog("manage-tags dialogClose-div");
 		}
 		
 		public static void selectAll() {
-			util.clickActionByText("All");				
+			action.clickActionByText("All");				
 		}
 		
 		public static void selectNone() {
-			util.clickActionByText("None");
+			action.clickActionByText("None");
 		}
 		
 		public static void expand() {
-			util.clickActionByText("Expand");				
+			action.clickActionByText("Expand");				
 		}
 		
 		public static void collapse() {
-			util.clickActionByText("Collapse");
+			action.clickActionByText("Collapse");
 		}
 		public static void add() {
-			util.clickAction("manage-tags_Add");				
+			action.clickAction("manage-tags_Add");				
 		}
 		
 		public static void edit() {
-			util.clickAction("manage-tags_Edit");
+			action.clickAction("manage-tags_Edit");
 		}
 		
 		public static void delete() {
-			util.clickAction("manage-tags_Delete");				
+			action.clickAction("manage-tags_Delete");				
 		}
 		
 		public static void close() {
-			util.clickAction("manage-tags_Close");
+			action.clickAction("manage-tags_Close");
 		}		
 	}
 	
@@ -194,20 +200,20 @@ public class Dialog extends PageObject{
 		
 		
 		public static void cancel() {
-			util.clickAction("new-edit-tag_Cancel");				
+			action.clickAction("new-edit-tag_Cancel");				
 		}
 		
 		public static void save() {
-			util.clickAction("new-edit-tag_Save");
+			action.clickAction("new-edit-tag_Save");
 		}
 
 		public static void name(String text) {
-			util.inputText("new-edit-tag_new-edit-tag", text);
+			action.inputText("new-edit-tag_new-edit-tag", text);
 		}
 		
 		@SuppressWarnings("static-access")
 		public static void nestUnder(String tag) {
-			util.clickAction("new-edit-tag_new-edit-tag_Change");
+			action.clickAction("new-edit-tag_new-edit-tag_Change");
 			selectTag.find(tag);
 			selectTag.apply();
 		}
@@ -216,7 +222,7 @@ public class Dialog extends PageObject{
 	public static class EditTag
 	{
 		public static void find(String searchText) {
-			util.findSearch("category-filter", searchText);				
+			action.findSearch("category-filter", searchText);				
 		}
 	}
 	
@@ -225,16 +231,16 @@ public class Dialog extends PageObject{
 		
 		public static void selectTag(String string) {
 			
-			util.clickAction("new-edit-tag_new-edit-tag_Change");
+			action.clickAction("new-edit-tag_new-edit-tag_Change");
 			//
 		}
 		
 		public static void find(String text) {
-			util.findSearch("select-tag", text);				
+			action.findSearch("select-tag", text);				
 		}
 		
 		public static void apply() {
-			util.clickAction("select-tag_Apply");
+			action.clickAction("select-tag_Apply");
 		}
 	}
 	
@@ -254,11 +260,11 @@ public class Dialog extends PageObject{
 	{
 
 		public static void SaveOrdering() {
-			util.clickAction("sort-order_SaveOrdering");
+			action.clickAction("sort-order_SaveOrdering");
 		}
 
 		public static void select(String option) {
-			util.selectOption(option);
+			action.selectOption(option);
 		}
 		
 	}
@@ -268,37 +274,37 @@ public class Dialog extends PageObject{
 		public static void click(String option) {
 			if(option.equalsIgnoreCase("Up"))
 			{
-				util.clickAction("reorderTbl_Up");
+				action.clickAction("reorderTbl_Up");
 			}
 			else if(option.equalsIgnoreCase("Down"))
 			{
-				util.clickAction("reorderTbl_Down");
+				action.clickAction("reorderTbl_Down");
 			}
 			else if(option.equalsIgnoreCase("Top"))
 			{
-				util.clickAction("reorderTbl_Top");
+				action.clickAction("reorderTbl_Top");
 			}
 			else if(option.equalsIgnoreCase("Bottom"))
 			{
-				util.clickAction("reorderTbl_Bottom");
+				action.clickAction("reorderTbl_Bottom");
 			}
 			else if(option.equalsIgnoreCase("Move 10 Up"))
 			{
-				util.clickAction("reorderTbl_Move10Up");
+				action.clickAction("reorderTbl_Move10Up");
 			}
 			else if(option.equalsIgnoreCase("Move 10 Down"))
 			{
-				util.clickAction("reorderTbl_Move10Down");
+				action.clickAction("reorderTbl_Move10Down");
 			}
 			else if(option.equalsIgnoreCase("X Distance"))
 			{
-				util.xSpace(7);
-				util.clickAction("reorderTbl_XDistance");
+				action.xSpace(7);
+				action.clickAction("reorderTbl_XDistance");
 			}
 		}
 		public static void applyOrdering() {
-			util.clickAction("reorder_ApplyOrdering");
-			util.acceptAlert();
+			action.clickAction("reorder_ApplyOrdering");
+			action.acceptAlert();
 		}
 	
 	}	
@@ -311,7 +317,7 @@ public class Dialog extends PageObject{
 		}
 
 		private static void rotatePagesTo(String page, int index) {
-			util.rotation(page, index);
+			action.rotation(page, index);
 		}
 
 		public static void to(String page) {
@@ -319,11 +325,11 @@ public class Dialog extends PageObject{
 		}
 
 		public static void rotation(String rotate) {
-			util.rotation(rotate);			
+			action.rotation(rotate);			
 		}
 
 		public static void apply() {
-			util.clickAction("page-rotation_Apply");
+			action.clickAction("page-rotation_Apply");
 		}
 		
 	}
@@ -404,13 +410,13 @@ public class Dialog extends PageObject{
 	public static class AddUsers
 	{
 		public static void email(String email){
-			util.inputTextClassName("panel-body", email);
+			action.inputTextClassName("panel-body", email);
 		}
 		public static void selectRole(String newRole){
-			util.selectDropdown("settingsmain", "select", newRole);
+			action.selectDropdown("settingsmain", "select", newRole);
 		}
 		public static void invite(){
-			util.clickAction("settingsmain","panel-body","button","Invite");
+			action.clickAction("settingsmain","panel-body","button","Invite");
 		}
 		public static void createAccount(){
 			
@@ -447,25 +453,38 @@ public class Dialog extends PageObject{
 	public static class CustomTypes
 	{
 		public static void add(){
-			util.clickAction("custom-types_Add");
+			action.clickAction("custom-types_Add");
 		}
 
 		public static void cancel() {
-			util.clickAction("custom-types_Cancel");
+			action.clickAction("custom-types_Cancel");
 		}
 	}
 	
 	public static class SaveACustomType
 	{
 		public static void newName(String name){
-			util.wait(0.5);
-			util.inputText("name-dialog", name, 1);
+			util.wait(1.5);
+			action.inputText("name-dialog", name, 1);
 		}
 
 		public static void OK() {
-			util.clickAction("name-dialog_OK");
+			action.clickAction("name-dialog_OK");
 		}
 	}
 	
+	public static class Properties
+	{
+		
+		public static void type(String option) {
+			action.dropdownSelect("doctype-dd", "menu", option);
+		}
+		public static void inputDate(String keysToSend) {
+			action.inputText("properties", "textComponentInput", keysToSend);
+		}
+		public static void apply() {
+			action.clickAction("properties_Apply");
+		}
+	}
 	
 }

@@ -4,24 +4,27 @@ package com.opus2.steps;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
-import com.opus2.enums.ChronologyOption;
 import com.opus2.enums.ChronologyType;
 import com.opus2.enums.Pages;
 import com.opus2.pages.Chronology;
 import com.opus2.pages.Dialog;
+import com.opus2.pages.UserAction;
 import com.opus2.util.Constants;
 import com.opus2.util.Util;
 
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
 public class ChronologySteps extends SerenityStories{
+	@Steps
 	Chronology chronology;
 	Util util;
 	Dialog dialog;
+	UserAction action;
 	
 	@When("user clicks on Chronology Tab")
 	public void whenUserClicksOnChronologyTab(){
-		util.goTo(Pages.Chronology);
+		action.goTo(Pages.Chronology);
 	}
 	@Then("Chronology page opens correctly")
 	public void thenChronologyPageOpensCorrectly(){
@@ -83,7 +86,7 @@ public class ChronologySteps extends SerenityStories{
 	}
 	@When("select Custom Type option")
 	public void andSelectCustomTypeOptionFromTheTypeDropdown(){
-		chronology.select(ChronologyOption.CustomType);
+		chronology.select(ChronologyType.CustomType);
 	}
 	@Then("Type option should be assigned to Entry List")
 	public void thenTypeOptionShouldBeAssignedToEntryList(){
@@ -127,7 +130,7 @@ public class ChronologySteps extends SerenityStories{
 	@Then("Custom Type should be added on Custom Types Dialog")
 	public void thenCustomTypeTypeShouldBeAddedOnCustomTypesDialog(){
 		dialog.customTypes.cancel();
-		util.reloadPage();
+		action.reloadPage();
 		util.wait(1);
 	}
 	

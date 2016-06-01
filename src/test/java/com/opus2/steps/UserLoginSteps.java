@@ -1,23 +1,28 @@
 package com.opus2.steps;
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
 
 import com.opus2.enums.Pages;
+import com.opus2.enums.UserWorkspaceOption;
 import com.opus2.pages.Admin;
 import com.opus2.pages.Home;
 import com.opus2.pages.Login;
+import com.opus2.pages.UserAction;
 import com.opus2.pages.UserWorkspaces;
 import com.opus2.util.Constants;
 import com.opus2.util.Util;
 
 public class UserLoginSteps extends SerenityStories{
+	@Steps
 	
 	Login loginpage;
 	Util util;
 	Home homepage;
 	UserWorkspaces userWorkspace;
 	Admin adim;
+	UserAction action;
 	 
 	@Given("that a user initialize a browser")
 	public void givenThatAUserInitiliseABrowser(){
@@ -41,8 +46,8 @@ public class UserLoginSteps extends SerenityStories{
 		//assert user is in homepage
 	}
 	
-	@When("use clicks on the new workspace button")
-	public void whenUseClicksOnTheNewWorkspaceButton(){
+	@When("user clicks on the new workspace button")
+	public void whenUserClicksOnTheNewWorkspaceButton(){
 		homepage.newWorkspace();
 	}
 	@Then("it should open the New Workspace Dialog box")
@@ -58,28 +63,27 @@ public class UserLoginSteps extends SerenityStories{
 	public void userExitDialogBox(){
 		//assert
 	}
-	@When("user clicks on Manage Users and Workspaces button")
-	public void userClicksOnManageUsersAndWorkspacesButton(){
+	@When("clicks on Manage Users and Workspaces button")
+	public void clicksOnManageUsersAndWorkspacesButton(){
 		homepage.manageUserAndWorkspace();
-		userWorkspace.switchToCurrentWindow();
+		action.switchToCurrentWindow(1);
 	}
 	@Then("a new tab navigates user to adminUsers page where users can be added and removed from workspaces")
 	public void userNaviagtesToNewTab(){
 		userWorkspace.verifyUserWorkspace();
-		util.wait(5);
 	}
 	
 	@When("user clicks on New User button")
 	public void userClickNewUser(){
-		userWorkspace.clickNewUser();
+		userWorkspace.newUser();
 	}
 	@Then("add a new user dialog open")
 	public void dialogBoxOpens(){
 		//assert
 	}
-	@When("user enters '<email>'")
-	public void userEntersEmail(@Named("email") String email){
-		userWorkspace.typesUserEmail(email);
+	@When("enters '<email>'")
+	public void entersEmail(@Named("email") String email){
+		userWorkspace.enterUserEmail(email);
 	}
 	@When("clicks Invite button")
 	public void clickInviteButton(){
@@ -92,11 +96,11 @@ public class UserLoginSteps extends SerenityStories{
 	}
 	@When("user clicks on the New Workspace button")
 	public void userClicksOnNewWorkspaceButton(){
-		userWorkspace.clicksNewWorkspace();
+		userWorkspace.newWorkspace();
 	}
 	@When("type in a '<title>' and '<description>'")
 	public void userTypedTitleAndDescription(@Named("title") String title, @Named("description") String desc){
-		userWorkspace.entersTitleAndDescription(title,desc);
+		userWorkspace.enterTitleAndDescription(title,desc);
 	}
 	@When("click Create Workspace button")
 	public void clickCreateWorkspace(){
@@ -109,19 +113,20 @@ public class UserLoginSteps extends SerenityStories{
 	}
 	
 	@When("user select a '<workspace>'")
-	public void selectAWorkspace(@Named("workspace") String workspace){		
+	public void selectAWorkspace(@Named("workspace") String workspace){
+		action.reloadPage();
 		userWorkspace.findWorkspace(workspace);
 		userWorkspace.selectWorkspace(workspace);
 	}
 
 	@When("clicks on the view dropdown")
 	public void clickOnViewDropdown(){
-		userWorkspace.viewDropdown();
+		userWorkspace.viewDropdown("workspace");
 	}
 
-	@When("select '<delete>' option")
-	public void selectDeleteOption(@Named("delete") String delete){
-	    userWorkspace.selectDeleteOption();
+	@When("select 'delete' option")
+	public void selectDeleteOption(){
+	    userWorkspace.selectWorkspaceOption(UserWorkspaceOption.Delete);;
 	    userWorkspace.confirmDelete();
 	}
 
@@ -130,15 +135,16 @@ public class UserLoginSteps extends SerenityStories{
 	    //assert: userWorkspace.confirmDelete();
 	}
 
-	@When("select '<disable account>' option")
-	public void andSelectdisableAccountOption(@Named("disable account") String option){
-		userWorkspace.selectDisableAccountOption(option);
-	    userWorkspace.confirmAction();
+	@When("select 'disable account' option")
+	public void andSelectdisableAccountOption(){
+		//userWorkspace.selectDisableAccountOption(option);
+		userWorkspace.selectUserOption(UserWorkspaceOption.DisableAccount);
+	    userWorkspace.confirmAction("OK");
 	}
 	
-	@When("clicks on '<user>' view menu dropdown")
-	public void whenClicksOnuserViewMenuDropdown(@Named("user") String user){
-		userWorkspace.viewDropdown(user);
+	@When("clicks on view menu dropdown")
+	public void whenClicksOnViewMenuDropdown(){
+		userWorkspace.viewDropdown("user");
 	}
 	
 	@When("admin selects a '<user>'")
@@ -147,31 +153,23 @@ public class UserLoginSteps extends SerenityStories{
 		userWorkspace.selectUser(user);
 	}
 	
-	@When("select '<enable 2fa>' option")
-	public void andSelectEnable2faOption(@Named("enable 2fa") String option){
-		userWorkspace.selectDisableAccountOption(option);
-		util.wait(1);
-	    //userWorkspace.confirmAction();
-	    util.confirmAction("Cancel");	
+	@When("select 'enable 2fa' option")
+	public void andSelectEnable2faOption(){	
+		userWorkspace.selectUserOption(UserWorkspaceOption.Enable2FA);
+		userWorkspace.confirmAction("OK");
 	}
-	@When("select '<enable memorable word>' option")
-	public void andSelectEnableMemorableWordOption(@Named("enable memorable word") String option){
-		userWorkspace.selectDisableAccountOption(option);
-		util.wait(1);
-	    //userWorkspace.confirmAction();
-	    util.confirmAction("Cancel");		
+	@When("select 'enable memorable word' option")
+	public void andSelectEnableMemorableWordOption(){
+	    userWorkspace.selectUserOption(UserWorkspaceOption.EnableMemorableWord);
+	    action.confirmAction("OK");
 	}
-	@When("select '<authenticate with Magnum>' option")
-	public void andSelectAuthenticateWithMagnumOption(@Named("authenticate with Magnum") String option){
-		userWorkspace.selectDisableAccountOption(option);
-		util.wait(1);
-	    //userWorkspace.confirmAction();		
+	@When("select 'authenticate with Magnum' option")
+	public void andSelectAuthenticateWithMagnumOption(){
+		userWorkspace.selectUserOption(UserWorkspaceOption.AuthenticateWithMagnum);
 	}
-	@When("select '<authenticate with LDAP>' option")
-	public void andSelectAuthenticateWithLDAPOption(@Named("authenticate with LDAP") String option){
-		userWorkspace.selectDisableAccountOption(option);
-		util.wait(1);
-	    //userWorkspace.confirmAction();	
+	@When("select 'authenticate with LDAP' option")
+	public void andSelectAuthenticateWithLDAPOption(){
+		userWorkspace.selectUserOption(UserWorkspaceOption.AuthenticateWithLDAP);
 	}
 	
 	@When("martin enters '<username>' and '<password>' and clicks the login button")
@@ -181,7 +179,7 @@ public class UserLoginSteps extends SerenityStories{
 	
 	@When("user navigates to home page")
 	public void whenUserNavigatesToHomePage(){
-		util.goTo(Pages.Home);
+		action.goTo(Pages.Home);
 	}
 	@Then("user should be in home page")
 	public void thenUserShouldBeInHomePage(){

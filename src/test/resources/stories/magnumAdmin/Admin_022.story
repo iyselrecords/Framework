@@ -1,12 +1,12 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumAdmin
 @admin_022
 
 Narrative:
 In order to test Magnum application
 As a tester
-I want to use the BDD approach in testing features and functionality.
+I want to use the BDD approach in testing features and functionality
 					 
 Scenario: Verify Renaming A Document
 When user finds a '<doc>' and clicks on it

@@ -10,8 +10,10 @@ import com.opus2.util.Constants;
 import com.opus2.util.Util;
 
 import net.serenitybdd.jbehave.SerenityStories;
+import net.thucydides.core.annotations.Steps;
 
 public class HomepageSteps extends SerenityStories{
+	@Steps
 	Home homepage;
 	Login loginpage;
 	Util util;

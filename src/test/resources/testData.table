@@ -4,9 +4,9 @@
 |email|opus2k4@mailinator.com|
 |title|Martins|
 |description|Designing BDD Framework|
-|workspace|Test Automation|
+|workspace|TAF|
 |delete|Delete|
-|user|test2@opus2.com|
+|user|TAF|
 |disable account|Disable Account|
 |enable 2fa|Enable 2FA|
 |enable memorable word|Enable Memorable Word|
@@ -43,6 +43,7 @@
 |end_page|30|
 |rotate_degree|rotate_degree|
 |next_six|5|
-|doc|recentDoc21|
+|doc|testDoc04|
 |docType|DTypeTest|
 |newDocType|DTypeTest|
+|doc_fol|CSV|

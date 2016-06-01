@@ -38,6 +38,8 @@ public class UploadDialog extends PageObject {
 
 
 	public void selectFile(String file) throws AWTException {
+		util.wait(1);
+		
 		StringSelection myFile = new StringSelection(file);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(myFile, null);
 		
@@ -49,7 +51,7 @@ public class UploadDialog extends PageObject {
 		upload.keyPress(KeyEvent.VK_ENTER);
 		upload.keyRelease(KeyEvent.VK_ENTER);		
 		
-		util.wait(2);
+		util.wait(1);
 	}
 
 	public void clickUpload() {

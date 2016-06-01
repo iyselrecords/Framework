@@ -1,6 +1,6 @@
 Meta:
-@magnumAdmin
 @regression
+@magnumAdmin
 @admin_015
 
 Narrative:

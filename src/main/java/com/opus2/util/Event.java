@@ -6,16 +6,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.opus2.enums.ChronologyOption;
 import com.opus2.enums.ChronologyType;
 import com.opus2.enums.UserActivity;
 import com.opus2.enums.UsersCap;
+import com.opus2.pages.UserAction;
 
 import net.thucydides.core.pages.PageObject;
 
 public class Event extends PageObject{
 	public WebDriver driver = getDriver();
 	Util util;
+	UserAction action;
 
 	public void selectDocumentType(String documentType) {
 		WebElement topLevel = getDriver().findElement(By.id("settingsmain"));
@@ -196,7 +197,7 @@ public class Event extends PageObject{
 		util.wait(2);
 		getDriver().findElement(By.id("log-out")).click();
 		util.wait(1);
-		util.acceptAlert();
+		action.acceptAlert();
 		util.wait(2);
 	}
 
@@ -231,19 +232,5 @@ public class Event extends PageObject{
 		util.wait(1);
 	}
 
-	public void selectType(ChronologyOption type) {
-		//WebElement topLevel = getDriver().findElement(By.id("previewtd"));
-		WebElement topLevel = getDriver().findElement(By.id("type-menu"));
-		
-		List<WebElement> lists = topLevel.findElements(By.className("element"));
-		
-		for(WebElement list:lists){
-			WebElement span = list.findElements(By.tagName("span")).get(0);
-			if(span.getText().equalsIgnoreCase(type.toString())){
-				span.click();
-				break;
-			}
-		}
-		util.wait(1);
-	}
+	
 }

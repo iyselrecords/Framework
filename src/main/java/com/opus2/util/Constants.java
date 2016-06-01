@@ -3,16 +3,16 @@ package com.opus2.util;
 
 public interface Constants {
 
-	String MP = "Opus2";
+	String Opus2 = "opus2";
 	String EN = "English";
 	String HI = "Hindu";
 	String IT = "Italian";
 	String PLATFORM_DESKTOP = "Desktop";
 	String PLATFORM_MOBILE = "Mobile";
 	String PLATFORM_GRID = "Grid";
-	String OPUS2_PAGE = "mp";
-	String username = "magnum@opus2international.com";
-	String password = "p00k!DtLQ";
+	String CONFIG = "configuration";
+	String USERNAME = "magnum@opus2international.com";
+	String PASSWORD = "p00k!DtLQ";
 	
 	String filesize = "File Size";
 	String WORKSPACE = "Test Automation";
@@ -42,4 +42,6 @@ public interface Constants {
 	String ImportAnnotations = "Import Annotations";
 	String NewRole = "TRole";
 	String CustomType = "CustomType";
+	
+	public static final String BS_URL = "https://customer.opus2.com/rc/php/magnumLogin.php";
 }
