@@ -1,7 +1,7 @@
 Meta:
 @regression
 @capabilities
-@CAP_03
+@cap_03
 
 Narrative:
 In order to test Magnum application
@@ -14,6 +14,8 @@ Then user should be in Admin page
 When user clicks on 'Roles' tab
 Then Roles tab should open default roles displaying list of capabilities
 When user clicks on the Edit button
+And edit user capabilities
+And save changes
 Then user should be able to toggle capabilities and save changes to the Role
 
 Examples:

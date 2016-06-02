@@ -18,8 +18,7 @@ import net.serenitybdd.jbehave.SerenityStories;
 import net.thucydides.core.annotations.Steps;
 
 public class CapabilitiesSteps extends SerenityStories{
-	@Steps
-	
+	@Steps	
 	Event event;
 	Util util;
 	Admin admin;
@@ -36,7 +35,10 @@ public class CapabilitiesSteps extends SerenityStories{
 	}
 	@When("user clicks on 'Roles' tab")	
 	public void whenUserClicksOnRolesTab(){
-		util.wait(1);
+		admin.select(SideMenu.Roles);
+	}
+	@When("clicks on 'Roles' tab")	
+	public void andClicksOnRolesTab(){
 		admin.select(SideMenu.Roles);
 	}
 	@Then("Roles tab should open default roles displaying list of capabilities")
@@ -65,8 +67,7 @@ public class CapabilitiesSteps extends SerenityStories{
 	}
 	@Then("new Role is created with ability to choose its capabilities")	
 	public void thenNewRoleIsCreatedWithAbilityToChooseItsCapabilities(){		
-		util.wait(5);
-		//event.deleteRole(Constants.NewRole);
+		util.wait(2);
 	}
 	@SuppressWarnings("static-access")
 	@When("user clicks on the New Role button")	
@@ -91,7 +92,7 @@ public class CapabilitiesSteps extends SerenityStories{
 	@SuppressWarnings("static-access")
 	@When("user clicks on the Edit button")
 	public void whenUserClicksOnTheEditButton(){
-		admin.roles.edit(Constants.NewRole);
+		admin.roles.edit(Constants.NewRole2);
 	}
 	@Then("user should be able to toggle capabilities and save changes to the Role")
 	public void thenUserShouldBeAbleToToggleCapabilitiesAndSaveChangesToTheRole(){
@@ -144,10 +145,12 @@ public class CapabilitiesSteps extends SerenityStories{
 	public void whenUserSelectsemailToEdit(@Named("email") String email){
 		admin.users.select(UsersCap.Edit, email);
 	}
+	@SuppressWarnings("static-access")
 	@When("Add FirstName and LastName")	
 	public void whenAddFirstNameAndLastName(){
 		admin.users.select(UsersCap.Delete, "email954@opus2.com");
 	}
+	@SuppressWarnings("static-access")
 	@When("Username and Signature")	
 	public void whenUsernameAndSignature(){
 		admin.users.select(UsersCap.UnlockAccount, "email204@opus2.com");
@@ -163,8 +166,31 @@ public class CapabilitiesSteps extends SerenityStories{
 	@Then("existing user should have the 'newRole' role capability")	
 	public void thenExistingUserShouldHaveThenewRoleRoleCapability(){
 		
+	}	
+	@SuppressWarnings("static-access")
+	@When("edit user capabilities")
+	public void andEditUserCapabilities(){
+		admin.roles.userCapabilities();
 	}
-
-
+	@Then("capabilities are updated to current changes")
+	public void thenCapabilitiesAreUpdatedToCurrentChanges(){
+		util.wait(2);
+	}
+	@When("user role is selected")
+	public void whenUserRoleIsSelected(){
+		util.wait(1);
+	}
+	@When("user click on the 'x' icon")
+	public void andUserClickOnTheXIcon(){
+		event.editDeleteRole(Constants.NewRole2, 1);
+	}
+	@When("confirm alert")
+	public void andConfirmAlert(){
+		action.acceptAlert();
+	}
+	@Then("user role should be deleted from role section")
+	public void thenUserRoleShouldBeDeletedFromRoleSection(){
+		util.wait(1);
+	}
 }
 

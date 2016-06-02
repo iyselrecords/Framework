@@ -41,6 +41,7 @@ public interface Constants {
 	String _270 = "270";
 	String ImportAnnotations = "Import Annotations";
 	String NewRole = "TRole";
+	String NewRole2 = "TRole2";
 	String CustomType = "CustomType";
 	
 	public static final String BS_URL = "https://customer.opus2.com/rc/php/magnumLogin.php";

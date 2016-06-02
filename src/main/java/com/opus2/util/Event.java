@@ -116,44 +116,27 @@ public class Event extends PageObject{
 		name.findElements(By.tagName("input")).get(1).sendKeys("CFName01");
 	}
 
-	public void deleteRole(String newrole) {
+	public void editDeleteRole(String newrole, int index) {
 		WebElement topLevel = getDriver().findElement(By.id("settingsmain"));
 		WebElement header = topLevel.findElements(By.className("panel-header")).get(0);
-		List<WebElement> lists = header.findElements(By.tagName("td"));
+		List<WebElement> lists = header.findElements(By.tagName("td"));	
 				
-		int roleIndex = 0; 
-		for(int i=0; i < lists.size(); i++){
-			if(lists.get(i).getText().equals(newrole)){
-				roleIndex = i;
-				break;
-			}
-		}
-		
-		WebElement row = topLevel.findElements(By.className("floatleft")).get(0)
-				.findElements(By.tagName("tr")).get(24);	
-		row.findElements(By.tagName("td")).get(roleIndex)
-			.findElements(By.tagName("button")).get(1).click();	
-	}
-
-	public void editNewRole(String newrole) {
-		WebElement topLevel = getDriver().findElement(By.id("settingsmain"));
-		WebElement header = topLevel.findElements(By.className("panel-header")).get(0);
-		List<WebElement> lists = header.findElements(By.tagName("td"));
-		
 		int roleIndex = 0;
 		for(int i=0; i < lists.size(); i++){
-			if(lists.get(i).getText().equals(newrole)){
+			if(lists.get(i).getText().equalsIgnoreCase("TRole2")){
 				roleIndex = i;
 				break;
 			}
 		}
-		
+	
 		WebElement editRow = topLevel.findElements(By.className("floatleft")).get(0)
 				.findElements(By.tagName("tr")).get(24);
-		List<WebElement> rows = editRow.findElements(By.className("btn-grp"));
+		List<WebElement> rows = editRow.findElements(By.className("btn-grp"));	
 		for(int c=0; c < rows.size(); c++){
 			if(rows.indexOf(rows.get(c)) == (roleIndex - 2)){
-				rows.get(c).findElements(By.tagName("button")).get(0).click();
+				rows.get(c).findElements(By.tagName("button")).get(index).click();
+				util.wait(3);
+				break;
 			}
 		}
 	}

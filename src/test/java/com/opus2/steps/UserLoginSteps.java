@@ -161,7 +161,7 @@ public class UserLoginSteps extends SerenityStories{
 	@When("select 'enable memorable word' option")
 	public void andSelectEnableMemorableWordOption(){
 	    userWorkspace.selectUserOption(UserWorkspaceOption.EnableMemorableWord);
-	    action.confirmAction("OK");
+	    action.confirm("OK");
 	}
 	@When("select 'authenticate with Magnum' option")
 	public void andSelectAuthenticateWithMagnumOption(){

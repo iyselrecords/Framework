@@ -25,70 +25,10 @@ public class Admin extends PageObject {
 	public static MonitorActivity monitorActivity;
 	static UserAction action;
 	
-	public void goTo() {
-		getDriver().findElement(By.id("magnumAdmin")).click();
-	}
 		
 	public void select(SideMenu menu){		
-		switch(menu){
-			case Overview:
-	            sideMenuSelect(menu, "activemenuitem");
-	            break;
-	        case Roles:
-	        	//sideMenuSelect(menu, "menuitem");
-	        	sideMenuRoleHack();
-	            break;
-	        case Users:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case Groups:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case DocumentStamps:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case Metadata:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case DocumentTags:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case Recovery:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case Settings:
-	        	sideMenuSelect(menu, "menuitem");
-	            break;
-	        case MonitorActivity:
-	        	sideMenuSelect(menu, "adminlink");
-	            break;
-	        case ACLReports:
-	        	sideMenuSelect(menu, "adminlink");
-	            break;
-		}
+		action.adminSidemMenu(menu);
 	}
-	
-	private void sideMenuSelect(SideMenu menu, String elem){
-		WebElement sideMenu = getDriver().findElements(By.className("menudiv")).get(0);
-        List<WebElement> rows = sideMenu.findElements(By.className(elem));
-
-        for (int i = 1; i < rows.size(); i++)
-        {       	
-            if (rows.get(i).getText().equals(menu.enumField()))
-            {
-            	rows.get(i).click();
-                 break;
-            }
-        }
-	}
-	
-	private void sideMenuRoleHack(){
-		WebElement sideMenu = getDriver().findElement(By.id("settingsmain"))
-				.findElements(By.className("menudiv")).get(0);
-        sideMenu.findElements(By.tagName("tr")).get(2)
-        .findElements(By.tagName("td")).get(0).click();
-	}
-		
 	
 	public static class Metadata 
 	{
@@ -129,9 +69,10 @@ public class Admin extends PageObject {
 			action.clickAction("settingsmain","floatleft","button","Save change to the roles table");		
 			//action.acceptAlert();
 		}
-
 		public static void edit(String newrole) {
-			event.editNewRole(newrole);
+			event.editDeleteRole(newrole, 0);
+		}
+		public static void userCapabilities() {
 			action.setCapabilities(6,9);
 			util.wait(0.5);
 			action.setCapabilities(17,18);
@@ -140,7 +81,6 @@ public class Admin extends PageObject {
 			util.wait(0.5);	
 			action.setCapabilities(23,24);
 			util.wait(0.5);
-			action.clickAction("settingsmain","floatleft","button","Save change to the roles table");
 		}
 	}
 	
@@ -159,6 +99,10 @@ public class Admin extends PageObject {
 		public static void show(UserActivity userActivity) {
             event.userActivity(userActivity);
 		}
+	}
+
+	public void backToAdmin() {
+		action.clickAction("adminbackbutton", "a", 0);
 	}
 	
 }

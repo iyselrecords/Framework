@@ -1,7 +1,7 @@
 Meta:
 @regression
 @capabilities
-@CAP_07
+@cap_07
 
 Narrative:
 In order to test Magnum application
