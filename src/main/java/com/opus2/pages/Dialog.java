@@ -31,7 +31,9 @@ public class Dialog extends PageObject{
 	public static SaveACustomType saveACustomType; 
 	public static UploadDialog updlog;
 	public static Properties properties;
-	
+	public static Relationships relationships;
+	public static DuplicateDocument duplicateDocument;
+	public static SelectADocument selectADocument;
 	
 	//Documents
 	public static class SelectDocumentTags
@@ -487,4 +489,35 @@ public class Dialog extends PageObject{
 		}
 	}
 	
+	public static class Relationships
+	{
+		public static void add() {
+			action.clickAction("relationships_Add");
+		}
+		public static void save() {
+			action.clickAction("relationships_Save");
+		}
+	}
+	public static class DuplicateDocument
+	{
+		public static void select() {
+			action.clickAction("properties_Apply");
+		} 
+		public static void save() {
+			action.clickAction("properties_Apply");
+			action.clickDialogHeader("DOMadditions", "DUPLICATE DOCUMENT", "button", "Save");
+		} 
+	}
+	public static class SelectADocument
+	{
+		public static void find() {
+			action.inputText("doc-chooser","tran");
+            select("tran");
+            action.clickAction("doc-chooser_Apply");
+		}
+		public static void select(String text)
+        {
+			action.clickAction("doc-chooser_doc-chooser_Selectall");
+        }
+	}
 }

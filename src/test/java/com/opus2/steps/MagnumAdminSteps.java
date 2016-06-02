@@ -163,7 +163,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	public void whenUserFindsADocAndClicksOnIt(@Named("doc") String document){
 		documents.findDocument(document);
 		util.wait(1);
-		documents.clickDocument(document);
+		documents.selectDocument(document);
 		util.wait(2);
 	}
 	@Then("Preview should display first page of the document selected")
@@ -203,7 +203,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	
 	@When("user clicks on Preview '<doc>'")
 	public void whenUserClicksOnPreviewDocument(@Named("doc")String document){
-	    documents.previewDocumentNewTab();
+	    documents.clickPreview();
 	    action.switchToCurrentWindow(1);
 	}
 	@Then("a new tab opens with the preview '<doc>'")
@@ -218,7 +218,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user right click on '<new_name>'")
 	public void whenUserRightClickOnnew_name(@Named("new_name")String document){
-		documents.clickDocument(document);
+		documents.selectDocument(document);
 		documents.rightClick(document);
 	}
 	@When("select option '<properties>'")
@@ -289,7 +289,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user clicks on Preview '<Document>' again")
 	public void whenUserClicksOnPreviewDocumentAgain(@Named("Document")String document){
-	    documents.previewDocumentNewTab();
+	    documents.clickPreview();
 	    action.switchToCurrentWindow(2);
 	}
 	@When("user enters a '<new_name>' and click Ok")
@@ -718,13 +718,13 @@ public class MagnumAdminSteps extends SerenityStories{
 	public void whenFindsdocumentAndClickOndocument(@Named("docs") String file){
 		 documents.findDocument(file);
 		 util.wait(2);
-		 documents.clickDocument(file);
+		 documents.selectDocument(file);
 		 util.wait(1);
 	}
 		
 	@When("user navigate to Admin page")
 	public void whenUserNavigateToAdminPage(){
-		action.goTo(Constants.Admin);
+		action.goTo(Pages.Admin);
 	}
 	
 	@When("clicks Metadata on the SideMenu")
@@ -1376,4 +1376,70 @@ public class MagnumAdminSteps extends SerenityStories{
 	public void thenDateMetadataInInputtedTodoc(){
 		util.wait(2);
 	}
+	
+	
+	@SuppressWarnings("static-access")
+	@When("designing and implemting Admin_089 using '<doc>'")
+	public void whenDesigningAndImplemtingAdmin_089(@Named("doc") String doc){
+		documents.findDocument(doc);
+		documents.rightClick(doc);
+		documents.selectContextOptions(DocumentOption.RelatedDocuments);	
+		
+		dialog.relationships.add();
+		dialog.duplicateDocument.select();
+	}
+	@When("designing and debugging Admin_089 using '<doc>'")
+	public void andDesigningAndDebuggingAdmin_089(@Named("doc") String doc){
+		
+		//
+		//dialog.selectADocument.find();
+		//dialog.duplicateDocument.save();
+		//util.wait(1);
+		//dialog.relationships.save();
+		//action.reloadPage();
+		//util.wait(5);
+	}
+	
+	@SuppressWarnings("static-access")
+	@When("designing and implemting Admin_090 using '<doc>'")
+	public void whenDesigningAndImplemtingAdmin_090(@Named("doc") String doc){
+		documents.findDocument(doc);
+		documents.rightClick(doc);
+		documents.selectContextOptions(DocumentOption.RelatedDocuments);	
+		
+		dialog.relationships.add();
+		dialog.duplicateDocument.select();
+		dialog.selectADocument.find();
+		dialog.duplicateDocument.save();
+		util.wait(1);
+		dialog.relationships.save();
+		action.reloadPage();
+
+	}
+	@When("designing and debugging Admin_090 using '<doc>'")
+	public void andDesigningAndDebuggingAdmin_090(@Named("doc") String doc){
+		util.wait(2);
+	}
+	
+	//Admin_095
+	@When("clicks on Role SideMenu")
+	public void whenClicksOnRoleSideMenu(){		
+		admin.select(SideMenu.Roles);
+	}
+	@SuppressWarnings("static-access")
+	@When("clicks New Role button")
+	public void whenClicksNewRoleButton(){
+		admin.roles.newRole();
+	}
+	@Then("New Role column input box is activated")
+	public void thenNewRoleColumnInputBoxIsActivated(){
+		util.wait(2);
+	}
+	
+	@SuppressWarnings("static-access")
+	@When("user enter a role name")
+	public void andUserEnterARoleName(){	
+		admin.roles.enterNewRole(Constants.NewRole2);
+	}
+	
 }

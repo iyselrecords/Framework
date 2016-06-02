@@ -10,7 +10,8 @@ As a tester
 I want to use the BDD approach in testing features and functionality
 					 
 Scenario: Verify Admin_088
-Then user should be in Documents page
+When designing and implemting Admin_088 using '<doc>'
+And designing and debugging Admin_088 using '<doc>'
 
 Examples:
 testData.table

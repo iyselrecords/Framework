@@ -115,13 +115,12 @@ public class Documents extends PageObject {
 		
 	}
 
-	public void clickDocument(String file) {		
+	public void selectDocument(String file) {		
 		WebElement wrap = getDriver().findElement(By.id("docsdiv"));
 		List<WebElement> folders = wrap.findElements(By.className("clearboth"));
 		
 		for(WebElement folder: folders){
-			List<WebElement> spans = folder.findElements(By.tagName("span"));
-			
+			List<WebElement> spans = folder.findElements(By.tagName("span"));			
 			for(WebElement span: spans){
 				if(span.getText().equalsIgnoreCase(file)){
 					span.click();
@@ -182,13 +181,15 @@ public class Documents extends PageObject {
 		}
 	}
 
-	public void previewDocumentNewTab() {
-		WebElement wrap = getDriver().findElement(By.id("preview-div"));
-		wrap.findElements(By.className("previewNotes")).get(0).click();	
+	public void clickPreview() {				
+		getDriver().findElement(By.id("preview-div"))
+			.findElements(By.className("previewNotes")).get(0).click();	
 	}
 
-	public void rightClick(String file) {
-		util.wait(2);
+	public void rightClick(String file) {		
+		findDocument(file);
+		
+		util.wait(1);
 		WebElement wrap = getDriver().findElement(By.id("docsdiv"));
 		List<WebElement> folders = wrap.findElements(By.className("clearboth"));
 		

@@ -47,7 +47,20 @@ public class AcceptanceTestSuite extends SerenityStories  {
 				+ "Admin_084.story;"
 				+ "Admin_085.story;"
 				+ "Admin_086.story;"
-				+ "Admin_087a.story;");
+				+ "Admin_087a.story;"
+				+ "Admin_089.story;"
+				+ "Admin_095.story;"
+				+ "Admin_0951.story;"
+				+ "Admin_096.story;"
+				+ "Admin_097.story;"
+				+ "Admin_097a.story;"
+				+ "Admin_097b.story;"
+				+ "CAP_01.story;"
+				+ "CAP_02.story;");
+				
+		
+
+
 		
 		Util.initializing(getEnvironmentVariables().getProperty("brand"),
 				getEnvironmentVariables().getProperty("lan"),
