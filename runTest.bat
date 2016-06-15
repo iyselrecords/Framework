@@ -1,50 +1,35 @@
 @ECHO OFF
 
+::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-
-:: TEST SUITE CAPBILITIES
-SET PARAM="-admin_004b1+admin_087"
-
-:: MAVEN EXECUTION PROFILE
-SET SINGLETHREAD=singlethread
-SET PARALLEL=parallel
-SET MULTITHREAD=multithread
-
-::SET STORIESFOLDER=%CD%\src\test\resources\stories
-
-
-SET REMOTE_OS=WINDOWS
-SET REMOTE_URL=http://localhost:4444/wd/hub
-SET REMOTE_BROWSER=chrome
-
-REM set profile for building 
-::SET PROFILE=%MULTITHREAD%
-SET PROFILE=%SINGLETHREAD%
-
-:: TEST RESULTS LOCATION
+SET META_FILTER="+loginToday"
 SET TEST_RESULTS=TestResults
 
-REM ======== DESKTOP ================
-:: chrome, iexplorer, firefox, safari 
-SET BROWSER=chrome
-SET BRAND=Opus2
-SET LAN=EN
-SET PLATFORM=DESKTOP
+echo Removing previous test results...
+IF exist %PROJECT_DIR%\%TEST_RESULTS%  DEL /S /Q /F %PROJECT_DIR%\%TEST_RESULTS% | echo > NUL
+echo Removing previous test results Done...........
+
+ 
+MD %PROJECT_DIR%\%TEST_RESULTS%\site\serenity
+
+echo clean........clean........clean........clean.......
+CALL mvn clean
+echo done.......done........done........done........done........done.........
+echo initialize........initialize........initialize........initialize
+
+CALL mvn initialize
+
+echo done.......done........done........done........done........done.........
+echo compile........compile........compile........compile
+
+CALL mvn compile
+
+echo done.......done........done........done........done........done.........
+echo running Test........running Test........running Test..............
+CALL mvn verify -Dmetafilter=%META_FILTER%
 
 
-SET SOURCE=%PROJECT_DIR%\src\test\resources\data
-SET DESTINATION=%PROJECT_DIR%\src\test\resources
+XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
+echo Done
+START %PROJECT_DIR%\%TEST_RESULTS%\site\serenity\index.html
 
- echo --- Creating Test Results folder...
- echo --- Testing DESKTOP_PH_EN
-
-::BaseUrl
-SET BASE_URL=https://customer.opus2.com/rc/php/magnumLogin.php
-
-MD %PROJECT_DIR%\%TEST_RESULTS%\%BRAND%_%PLATFORM%_%LAN%_%TEST_RESULTS%\site\serenity
-SET META_FILTER=%PARAM%
-
-echo --- calling run.bat file...
-CALL %PROJECT_DIR%\run.bat
-
-START %PROJECT_DIR%\%TEST_RESULTS%\%BRAND%_%PLATFORM%_%LAN%_%TEST_RESULTS%\site\serenity\index.html
