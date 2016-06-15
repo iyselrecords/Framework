@@ -46,6 +46,15 @@ public class Chronology extends PageObject {
 	public void customType() {
 		action.clickAction("docscontrols_CustomTypes");	
 	}
+
+	public void filter() {
+		action.clickAction("docscontrols_Filter");
+	}
+
+	public void reset() {
+		action.clickAction("docscontrols_Reset");
+        util.wait(1);
+	}
 	
 	
 }

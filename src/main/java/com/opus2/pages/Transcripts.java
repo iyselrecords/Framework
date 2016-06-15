@@ -56,6 +56,7 @@ public class Transcripts extends PageObject {
     {
         try
         {
+        	util.wait(1);
             return getDriver().findElement(By.id(elementId));
         }
         catch (StaleElementReferenceException e)
@@ -294,18 +295,27 @@ public class Transcripts extends PageObject {
 
 	public void enterSearchText(String text) {
 		action.inputText("leftToolbarDiv", text, 0);
+		util.wait(5);
 	}
 
 	public void indentifyText() {
+		/*
 		WebElement topLevel = getDriver().findElement(By.id("leftToolbarDiv"))
                 .findElements(By.className("wifound")).get(0);
-        util.wait(1);
-
+        util.wait(2);
+        */
+		
+		//WebElement topLevel = staleElement("leftToolbarDiv")
+	    
+		WebElement topLevel = getDriver().findElements(By.className("wifound")).get(0);
         List<WebElement> occurrences = topLevel.findElements(By.tagName("span"));
      	for (int i = 1; i < occurrences.size(); i++)
      	{    	
-     		util.wait(0.6);
+     		util.wait(1);
      		occurrences.get(i).click();
      	}
+	}
+	public void videoTimecodeCorrection(int pageNum, int lineNum) {		
+		action.videoTimecodeCorrection(pageNum, lineNum);
 	}
 }

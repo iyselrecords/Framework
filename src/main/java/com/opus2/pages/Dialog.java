@@ -34,6 +34,15 @@ public class Dialog extends PageObject{
 	public static Relationships relationships;
 	public static DuplicateDocument duplicateDocument;
 	public static SelectADocument selectADocument;
+	public static ReplaceDocument replaceDocument;
+	public static StampEditor stampEditor;
+	public static BulkOrganize bulkOrganize;
+	public static ChronologyFilter chronologyFilter;
+	public static SaveAsSharedFilter saveAsSharedFilter;
+	public static ImportUser importUser;
+	public static Legend legend;
+	public static LiveUser liveUser;
+	public static EditUser editUser;
 	
 	//Documents
 	public static class SelectDocumentTags
@@ -72,10 +81,14 @@ public class Dialog extends PageObject{
 			action.clickAction("select-categories_Cancel");				
 		}
 		public static void apply() {
-			action.clickAction("select-categories_Apply");
+			//action.clickAction("select-categories_Apply");
+			action.clickAction("category-filter_Apply");
 		}
 		public static void selectTag() {
 			action.selectTag("select-categories");				
+		}
+		public static void chooseTag(String tag) {
+			action.chooseTag(tag);				
 		}
 	}
 	
@@ -452,6 +465,46 @@ public class Dialog extends PageObject{
 		}
 	}
 	
+	
+	public static class ImportUser
+	{
+		public static void select(String user){
+			
+		}
+		public static void importUser(){
+			
+		}
+	}
+	
+	
+	public static class Legend
+	{
+		
+	}
+	
+	
+	public static class LiveUser
+	{
+		public static void select(String user){
+			action.selectLiveUser(user);
+		}
+		public static void selectOption(String option){
+			action.adminUserPopupMenu("rightClickMenu", option);
+		}
+	}
+	
+	public static class EditUser
+	{
+		public static void selectRole(String role){
+			action.clickAction("DOMadditions", "sideComponent", "button", 0);
+			action.adminUserPopupMenu("view-menu", role);
+		}
+
+		public static void save() {
+			action.clickAction("DOMadditions", "dialogFoot", 0, "button", 1);
+		}
+	}
+	
 	public static class CustomTypes
 	{
 		public static void add(){
@@ -510,14 +563,214 @@ public class Dialog extends PageObject{
 	}
 	public static class SelectADocument
 	{
-		public static void find() {
-			action.inputText("doc-chooser","tran");
-            select("tran");
-            action.clickAction("doc-chooser_Apply");
+
+		public static void selectFolder(String folder) {
+			find(folder);
+			action.selectFolder(folder);
+			apply();
 		}
-		public static void select(String text)
-        {
-			action.clickAction("doc-chooser_doc-chooser_Selectall");
-        }
+		private static void find(String folder) {
+			action.findSearch("doc-chooser_doc-chooser", folder);
+		}
+		public static void apply() {
+			action.clickAction("doc-chooser_Apply");
+		}
+		public static void cancel() {
+			action.clickAction("doc-doc-chooser_Cancel");
+		}
+	}
+	
+	public static class ReplaceDocument
+	{
+
+		public static void chooseFile(String file) {
+			action.selectFile("DOMadditions", "dialog", 0, "input", 0, file);
+		}		
+		public static void next() {
+			action.clickAction("DOMadditions", "dialogFoot", "button", 1);
+			util.wait(10);
+		}
+		public static void replace() {
+			action.clickAction("DOMadditions", "dialogFoot", "button", 1);
+			action.acceptAlert();
+		}
+		public static void close() {
+			action.clickAction("DOMadditions", "dialogFoot", "button", 0);
+			action.reloadPage();
+		}
+		
+	}
+	
+	public static class StampEditor
+	{
+
+		public static void name(String name) {
+			action.inputText("stamp-editor", "activeTextInput", 0, name);
+		}
+		public static void fieldName(String fieldName){
+			action.inputText("stamp-editor", "activeTextInput", 1, fieldName);
+		}
+		public static void fontSize(String fontSize){
+			action.inputText("stamp-editor", "activeTextInput", 2, fontSize);
+		}
+		public static void offSetx(String offSetx){
+			action.inputText("stamp-editor", "activeTextInput", 3, offSetx);
+		}
+		public static void offSety(String offSety){
+			action.inputText("stamp-editor", "activeTextInput", 4, offSety);
+		}		
+		public static void setRotation(String angle){
+			action.inputText("stamp-editor", "activeTextInput", 5, angle);
+		}
+		public static void displayPage(String page){
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 2);
+			util.wait(1);
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 2);
+		}
+		public static void selectCorner(String corner){
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 3);
+			util.wait(1);
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 3);
+			
+		}
+		public static void borderType(String type){
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 8);
+			util.wait(1);
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 8);
+			
+		}
+		public static void displayPageNumber(String num){
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 10);
+			util.wait(1);
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 10);
+			
+		}
+		public static void visibleOnExports(String num){
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 11);
+			util.wait(1);
+			action.clickAction("stamp-editor", "dialogBodyMargin", "button", 11);
+			
+		}
+		
+		
+		//increaseRotation(){}
+		//decreaseRotation(){}
+		//resetRotation(){}
+		
+	}
+	
+	public static class BulkOrganize
+	{
+
+		public static void findDocument(String doc) {
+			action.inputTextAreaReturn("MagnumAddDocToBundleFromDocIds", doc);
+			action.clickAction("addBundleFromID_FindDocuments");
+		}
+		public static void findDocument(String doc, String doc2, String doc3) {
+			action.inputTextAreaReturn("MagnumAddDocToBundleFromDocIds", doc,doc2,doc3);
+			action.clickAction("addBundleFromID_FindDocuments");
+		}
+		public static void selectTag() {
+			action.clickAction("addBundleFromID_SelectTag");
+		}
+		public static void selectFolder() {
+			action.clickAction("addBundleFromID_SelectFolder");
+		}
+		public static void applyTag() {
+			action.clickAction("addBundleFromID_ApplyTag");
+			action.acceptAlert();
+		}
+		public static void moveDocuments() {
+			action.clickAction("addBundleFromID_MoveDocuments");
+			action.acceptAlert();
+			util.wait(2);
+		}
+		public static void close() {
+			action.clickAction("add-doc-to-tags-from-id_Close");
+		}
+	}
+	public static class ChronologyFilter
+	{
+
+		public static void itemsWithoutDescription(){
+			action.clickActionName("Items without description");
+			util.wait(1);
+			action.clickActionName("Items without description");
+		}
+
+		public static void inputDate(String date) {
+			action.inputChroDate("filter-from-date", date);
+			util.wait(1);
+		}
+
+		public static void selectDateOption(String option) {
+			action.selectChroDateOption(option, 0);
+		}
+
+		public static void openDropdown() {
+			action.openDropdown(1);
+		}
+		public static void selectType(String option) {
+			if(option.equals("All")){
+				action.chroTypeAllNone(1);
+			}else if(option.equals("None")){
+				action.chroTypeAllNone(3);
+			}else{
+				action.chroTypeOption(option);
+			}
+		}
+
+		public static void selectStatue(String option) {
+			action.chroStatue(option);
+		}
+
+		public static void tag() {
+			action.clickAction("chron-filter_chron-filter", "filter", 3, "button", 0);
+		}
+
+		
+		public static void createSharedFilters() {
+			itemsWithoutDescription();
+            action.chroStatue("Disputed");
+		}
+
+		@SuppressWarnings("static-access")
+		public static void createPrivateFilters() {
+			action.chroStatue("Undisputed");
+	        tag();
+	        selectDocumentTags.selectAll();
+	        selectDocumentTags.apply();
+		}
+
+		public static void saveCurrentFilter(String option) {
+            action.clickAction("chron-filter_chron-filter_SaveCurrentFilter");
+            action.currentFilter(option);
+		}
+		
+		public static void useSavedFilter(String option){
+			if(option.equals("Shared")){			
+				action.filterDropdown(0);
+				action.filterOption(0);
+			}else if(option.equals("Private")){
+				action.filterDropdown(3);
+				action.filterOption(0);
+			}
+		}
+		public static void deleteSavedFilter(String option){
+			if(option.equals("Shared")){			
+				action.filterDropdown(0);
+				action.filterOption(0);
+			}else if(option.equals("Private")){
+				action.filterDropdown(3);
+				//action.filterOption(1);
+			}
+		}
+	}
+	
+	public static class SaveAsSharedFilter
+	{
+		public static void inputText(String option){
+			action.inputText("name-dialog", "dialogSection", "input", 1, option);
+		}
 	}
 }

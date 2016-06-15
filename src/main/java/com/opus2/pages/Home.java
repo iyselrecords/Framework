@@ -53,4 +53,15 @@ public class Home extends PageObject {
 			}
 		}	
 	}
+	
+	public void workspace(String workspace) {
+		WebElement wslist = getDriver().findElement(By.id("workspaceslist"));
+		List <WebElement> lists = wslist.findElements(By.className("wsline"));
+		for(WebElement list: lists){
+			if(list.getAttribute("title").equalsIgnoreCase(workspace)){
+				list.findElements(By.tagName("a")).get(0).click();
+				break;
+			}
+		}	
+	}
 }

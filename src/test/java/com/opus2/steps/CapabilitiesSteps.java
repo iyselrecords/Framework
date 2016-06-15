@@ -1,5 +1,6 @@
 package com.opus2.steps;
 
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -31,6 +32,14 @@ public class CapabilitiesSteps extends SerenityStories{
 	}
 	@Then("user should be in Admin page")
 	public void thenUserShouldBeInAdminPage(){
+		 util.wait(1);
+	}
+	@Given("user is present in Admin Role page")
+	public void givenUserIsPresentInAdminRolePage(){
+		 util.wait(1);
+	}
+	@Given("user is present in Admin User page")
+	public void givenUserIsPresentInAdminUserPage(){
 		 util.wait(1);
 	}
 	@When("user clicks on 'Roles' tab")	
@@ -72,7 +81,7 @@ public class CapabilitiesSteps extends SerenityStories{
 	@SuppressWarnings("static-access")
 	@When("user clicks on the New Role button")	
 	public void whenUserClicksOnTheNewRoleButton(){
-		admin.roles.newRole();	
+		admin.roles.newRole();
 	}
 	@SuppressWarnings("static-access")
 	@When("set Transcripts capabilities")	
@@ -90,9 +99,9 @@ public class CapabilitiesSteps extends SerenityStories{
 		admin.roles.documentsCapability();
 	}
 	@SuppressWarnings("static-access")
-	@When("user clicks on the Edit button")
-	public void whenUserClicksOnTheEditButton(){
-		admin.roles.edit(Constants.NewRole2);
+	@When("user select Role to Edit")
+	public void whenUserSelectRoleToEdit(){
+		admin.roles.edit(Constants.NewRole);
 	}
 	@Then("user should be able to toggle capabilities and save changes to the Role")
 	public void thenUserShouldBeAbleToToggleCapabilitiesAndSaveChangesToTheRole(){
@@ -192,5 +201,57 @@ public class CapabilitiesSteps extends SerenityStories{
 	public void thenUserRoleShouldBeDeletedFromRoleSection(){
 		util.wait(1);
 	}
+
+	@SuppressWarnings("static-access")
+	@When("click on the Role dropdown")
+	public void andClickOnTheRoleDropdown(){
+		dialog.addUsers.selectRole(Constants.NewRole);
+	}
+	@Then("new Role should be listed")
+	public void thenNewRoleShouldBeListed(){
+		util.wait(1);
+		System.out.println("assert new role");
+	}
+	
+	//004
+	@SuppressWarnings("static-access")
+	@When("'<user>' is selected")
+	public void whenuserIsSelected(@Named("user") String user){
+		dialog.liveUser.select(user);
+	}
+	@Then("new Role should be assigned to '<user>'")
+	public void thenNewRoleShouldBeAssignedTouser(){
+		util.wait(2);
+	}
+	@SuppressWarnings("static-access")
+	@When("new changes saved")
+	public void whenNewChangesSaved(){
+		dialog.editUser.save();
+	}
+	@SuppressWarnings("static-access")
+	@When("Edit option selected")
+	public void whenEditOptionSelected(){
+		dialog.liveUser.selectOption("Edit");
+	}
+	@SuppressWarnings("static-access")
+	@When("new Role is assigned")
+	public void whenNewRoleIsAssigned(){
+		dialog.editUser.selectRole(Constants.NewRole);
+	}
+	@SuppressWarnings("static-access")
+	@When("user select Role to Delete")
+	public void whenUserSelectRoleToDelete(){
+		admin.roles.delete(Constants.NewRole);
+	}
+	@SuppressWarnings("static-access")
+	@When("select Role to Delete")
+	public void andUserSelectRoleToDelete(){
+		admin.roles.delete(Constants.NewRole);
+	}
+	@Then("role should be deleted from Workspace")
+	public void thenRoleShouldBeDeletedFromWorkspace(){
+		util.wait(5);
+	}
+	
 }
 

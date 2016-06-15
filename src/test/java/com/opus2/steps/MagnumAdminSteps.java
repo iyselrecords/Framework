@@ -4,6 +4,7 @@ import java.awt.AWTException;
 
 import static org.junit.Assert.*;
 
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -15,6 +16,7 @@ import com.opus2.enums.ToolsOption;
 import com.opus2.enums.TranscriptOptions;
 import com.opus2.enums.UserActivity;
 import com.opus2.pages.Admin;
+import com.opus2.pages.Assertions;
 import com.opus2.pages.Chronology;
 import com.opus2.pages.Dialog;
 import com.opus2.pages.Documents;
@@ -54,6 +56,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	Dialog dialog;
 	Event event;
 	UserAction action;
+	Assertions assertions;
 	
 	
 	
@@ -724,8 +727,121 @@ public class MagnumAdminSteps extends SerenityStories{
 		
 	@When("user navigate to Admin page")
 	public void whenUserNavigateToAdminPage(){
-		action.goTo(Pages.Admin);
+		action.goTo(Pages.Admin);	
 	}
+	
+	//Admin_055
+	@When("user navigate to Admin page1")
+	public void whenUserNavigateToAdminPage1(){
+		documents.rightClick("autolinkref2");
+	}
+	@When("user navigate to Admin page2")
+	public void whenUserNavigateToAdminPage2(){
+		documents.selectContextOptions(DocumentOption.Replace);
+	}
+	@SuppressWarnings("static-access")
+	@When("user navigate to Admin page3")
+	public void whenUserNavigateToAdminPage3(){
+		dialog.replaceDocument.chooseFile("recentDoc.pdf");
+	}
+	@SuppressWarnings("static-access")
+	@When("user navigate to Admin page4")
+	public void whenUserNavigateToAdminPage4(){
+		dialog.replaceDocument.next();
+	}
+	@SuppressWarnings("static-access")
+	@When("user navigate to Admin page5")
+	public void whenUserNavigateToAdminPage5(){
+		dialog.replaceDocument.replace();
+	}
+	@SuppressWarnings("static-access")
+	@When("user navigate to Admin page6")
+	public void whenUserNavigateToAdminPage6(){
+		dialog.replaceDocument.close();
+	}
+	
+	
+	//Admin_055
+	@When("user select a '<doc>', rightclick")
+	public void whenUserSelectAdocRightclick(@Named("doc") String file){
+		documents.rightClick(file);
+	}
+	@When("select Replace option")
+	public void whenSelectReplaceOption(){
+		documents.selectContextOptions(DocumentOption.Replace);
+	}	
+	@SuppressWarnings("static-access")
+	@When("choose a '<rep_doc>'")
+	public void whenChooseArep_doc(@Named("rep_doc") String file){
+		dialog.replaceDocument.chooseFile(file + ".pdf");
+	}
+	@SuppressWarnings("static-access")
+	@When("click Next")
+	public void whenClickNext(){
+		dialog.replaceDocument.next();
+	}
+	@When("wait for progress bar")
+	public void andWaitForProgressBar(){
+		util.wait(3);
+		action.progressBar2();
+	}
+	@SuppressWarnings("static-access")
+	@When("click Replace")
+	public void whenClickReplace(){
+		dialog.replaceDocument.replace();
+	}
+	@SuppressWarnings("static-access")
+	@When("close the Dialog and refresh page")
+	public void andCloseTheDialogAndRefreshPage(){
+		dialog.replaceDocument.close();
+	}
+	@Then("'<doc>' should replaced by '<rep_doc>'")
+	public void thendocShouldReplacedByrep_doc(@Named("doc") String file,@Named("rep_doc") String rep){
+		util.wait(2);
+	}	
+	
+	//Admin_056
+	@SuppressWarnings("static-access")
+	@When("select and apply tag")	
+	public void whenSelectAndApplyTag(){
+		dialog.bulkOrganize.selectTag();
+		dialog.selectDocumentTags.chooseTag("tag3");
+		dialog.selectDocumentTags.apply();
+		dialog.bulkOrganize.applyTag();
+	}
+	@SuppressWarnings("static-access")
+	@Then("documents are organise in a selected folder")	
+	public void thenDocumentsAreOrganiseInASelectedFolder(){
+		dialog.bulkOrganize.close();
+		action.reloadPage();
+		documents.expandFolder("BF");
+		util.wait(2);
+	}
+	@SuppressWarnings("static-access")
+	@When("select a '<bulk_fol>'")	
+	public void whenSelectAbulk_fol(@Named("bulk_fol") String folder){
+		dialog.bulkOrganize.selectFolder();
+		dialog.selectADocument.selectFolder(folder);
+	}
+	@SuppressWarnings("static-access")
+	@When("move document")	
+	public void whenMoveDocument(){
+		dialog.bulkOrganize.moveDocuments();
+	}
+	@SuppressWarnings("static-access")
+	@When("find bulk documents '<bulk_doc>', '<bulk_doc2>' and '<bulk_doc3>'")	
+	public void andFindBulkDocumentsToOrganise(@Named("bulk_doc") String doc,@Named("bulk_doc2") String doc2,@Named("bulk_doc3") String doc3){
+		dialog.bulkOrganize.findDocument(doc,doc2,doc3);
+	}
+	@When("user select Bulk Organize option from Tool dropdown")	
+	public void whenUserSelectBulkOrganizeOptionFromToolDropdown(){
+		documents.select(ToolsOption.BulkOrganize);
+	}	
+	
+	
+	
+	
+	
 	
 	@When("clicks Metadata on the SideMenu")
 	public void andClicksMetadataOnTheSideMenu(){		
@@ -938,6 +1054,14 @@ public class MagnumAdminSteps extends SerenityStories{
 	public void thenVideoTimecodeCorrectionDialogShouldExit(){
 		
 	}
+	@When("user clicks line in dialog")	
+	public void whenUserClicksLineInDialog(){
+		action.clickAction("line_0_8");
+		util.wait(3);
+		//action.videoTimecodeCorrection(1,6);
+		
+	}
+	
 	
 	//Admin_93
 	@Then("Ready Dialog should exit")
@@ -1051,7 +1175,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	
 	@When("user clicks on (+) button")
 	public void whenUserClicksOnAddButton(){
-		transcript.textLarger(3);
+		transcript.textLarger(5);
 	}
 	@Then("Transcript text should be larger")
 	public void thenTranscriptTextShouldBeLarger(){
@@ -1059,7 +1183,7 @@ public class MagnumAdminSteps extends SerenityStories{
 	}
 	@When("user clicks on (-) button")
 	public void whenUserClicksOnButton(){
-		transcript.textSmaller(2);
+		transcript.textSmaller(3);
 	}
 	@Then("Transcript text should be smaller")
 	public void thenTranscriptTextShouldBeSmaller(){
@@ -1409,7 +1533,6 @@ public class MagnumAdminSteps extends SerenityStories{
 		
 		dialog.relationships.add();
 		dialog.duplicateDocument.select();
-		dialog.selectADocument.find();
 		dialog.duplicateDocument.save();
 		util.wait(1);
 		dialog.relationships.save();
@@ -1441,5 +1564,133 @@ public class MagnumAdminSteps extends SerenityStories{
 	public void andUserEnterARoleName(){	
 		admin.roles.enterNewRole(Constants.NewRole2);
 	}
+		
+	//Admin_096
+	@SuppressWarnings("static-access")
+	@When("select a workspace from the dropdown")
+	public void whenSelectAWorkspaceFromTheDropdown(){
+		admin.roles.selectRole("Matt Testing");
+	}
+	@SuppressWarnings("static-access")
+	@When("click Import")
+	public void whenClickImport(){
+		admin.roles.importRole();
+	}
+	@SuppressWarnings("static-access")
+	@Then("roles from the selected workspace should appear on this workspace")
+	public void thenRolesFromTheSelectedWorkspaceShouldAppearOnThisWorkspace(){
+		util.wait(2);
+	}
 	
+	//Admin_097
+	@When("clicks on Document Stamps SideMenu")
+	public void whenClicksOnDocumentStampsSideMenu(){		
+		admin.select(SideMenu.DocumentStamps);
+	}
+	@Then("Stamps in workspace should display")	
+	public void thenStampsInWorkspaceShouldDisplay(){
+		assertTrue(assertions.isAt("stamps"));
+	}
+	@SuppressWarnings("static-access")
+	@When("user click on Create a new stamp button")	
+	public void whenUserClickOnCreateANewStampButton(){
+		admin.documentStamps.newStamp();
+	}
+	@SuppressWarnings("static-access")
+	@When("enter Name")
+	public void whenEnterName(){
+		dialog.stampEditor.name("BHS");
+	}
+	@SuppressWarnings("static-access")
+	@When("Field Name")
+	public void whenFieldName(){
+		dialog.stampEditor.fieldName("FNS");
+	}
+	@When("select colour")	
+	public void whenSelectColour(){
+		
+	}
+	@SuppressWarnings("static-access")
+	@When("enter font size")	
+	public void whenEnterFontSize(){
+		dialog.stampEditor.fontSize("12");
+	}
+	@SuppressWarnings("static-access")
+	@When("select page to display")	
+	public void whenSelectPageToDisplay(){
+		dialog.stampEditor.displayPage("First page");
+	}
+	@SuppressWarnings("static-access")
+	@When("select corner to display stamp")
+	public void whenSelectCornerToDisplayStamp(){
+		dialog.stampEditor.selectCorner("Top Left");
+	}
+	@SuppressWarnings("static-access")
+	@When("set x% and y% value to offset")	
+	public void whenSetXAndYValueToOffset(){
+		dialog.stampEditor.offSetx("5");
+		dialog.stampEditor.offSety("15");
+	}
+	@When("set stamp backgroud")	
+	public void whenSetStampBackgroud(){
+		
+	}
+	@SuppressWarnings("static-access")
+	@When("set rotation value")	
+	public void whenSetRotationValue(){
+		dialog.stampEditor.setRotation("120");
+	}
+	@When("reset to default value")	
+	public void whenResetToDefaultValue(){
+		
+	}
+	@When("increase rotation value")	
+	public void whenIncreaseRotationValue(){
+		
+	}
+	@When("decrease rotation value")	
+	public void whenDecreaseRotationValue(){
+		
+	}
+	@SuppressWarnings("static-access")
+	@When("select border")	
+	public void whenSelectBorder(){
+		dialog.stampEditor.borderType("Solid Line");
+	}
+	@SuppressWarnings("static-access")
+	@When("display page number")	
+	public void whenDisplayPageNumber(){
+		dialog.stampEditor.displayPageNumber("YES");
+	}
+	@SuppressWarnings("static-access")
+	@When("page number visible on export")
+	public void whenPageNumberVisibleOnExport(){
+		dialog.stampEditor.visibleOnExports("NO");
+	}
+	@Then("preview should display current settings")	
+	public void thenPreviewShouldDisplayCurrentSettings(){
+		
+	}
+	@Then("save changes")	
+	public void thenSaveChanges(){
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 }

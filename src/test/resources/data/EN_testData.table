@@ -1,6 +1,9 @@
 {ignorableSeparator=!--,headerSeparator=|,valueSeparator=|,transformer=FROM_LANDSCAPE}
-|username|magnum@opus2international.com|
-|password|p00k!DtLQ|
+|username_611|magnum@opus2international.com|
+|password_611|p00k!DtLQ|
+|username|user569@opus2.com|
+|password|Happy123|
+|memorable_word|123456|
 |email|opus2k4@mailinator.com|
 |title|Martins|
 |description|Designing BDD Framework|
@@ -47,3 +50,9 @@
 |docType|DTypeTest|
 |newDocType|DTypeTest|
 |doc_fol|CSV|
+|rep_doc|recentDoc|
+|bulk_doc|trans|
+|bulk_doc2|a|
+|bulk_doc3|testDoc10|
+|bulk_doc4|repDoc|
+|bulk_fol|BF|

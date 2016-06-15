@@ -28,10 +28,10 @@ testData.table
 
 
 Scenario: Verify Editing New Role
-When user clicks on the Edit button
-And edit user capabilities
-And save changes
-Then capabilities are updated to current changes
+!--When user clicks on the Edit button
+!--And edit user capabilities
+!--And save changes
+!--Then capabilities are updated to current changes
 
 Examples:
 testData.table

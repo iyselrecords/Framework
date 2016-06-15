@@ -17,7 +17,8 @@ Then '<testTranscripts>' should open in a new tab
 When user click on Tools dropdown
 And select Timecodes option
 Then Video Timecode Correction Dailog should be visible
-When user click on the Play button
+When user clicks line in dialog
+And user click on the Play button
 Then video should play
 When user clicks on Cancel button
 Then Video Timecode Correction Dialog should exit

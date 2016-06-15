@@ -1,0 +1,8 @@
+
+	Util util;
+	
+	@SuppressWarnings("static-access")
+	public AcceptanceTestSuite() throws IOException{
+		//util.myBrandConfigLoader();
+		//util.myBrandConfigLoader242();
+	}

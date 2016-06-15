@@ -11,12 +11,13 @@ public interface Constants {
 	String PLATFORM_MOBILE = "Mobile";
 	String PLATFORM_GRID = "Grid";
 	String CONFIG = "configuration";
-	String USERNAME = "magnum@opus2international.com";
-	String PASSWORD = "p00k!DtLQ";
-	
+	String USERNAME_611 = "magnum@opus2international.com";
+	String PASSWORD_611 = "p00k!DtLQ";
+	String USERNAME = "user569@opus2.com";
+	String PASSWORD = "Happy123";	
 	String filesize = "File Size";
-	String WORKSPACE = "Test Automation";
-	
+	String WORKSPACE_611 = "Test Automation";
+	String WORKSPACE = "569.1.5";
 	String Home = "logo";
 	String Documents = "magnumDocuments";
 	String Transcripts = "transcripts";

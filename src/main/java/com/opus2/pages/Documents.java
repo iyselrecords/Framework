@@ -1,9 +1,6 @@
 package com.opus2.pages;
 
-import java.awt.AWTException;
 import java.util.List;
-import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -185,24 +182,21 @@ public class Documents extends PageObject {
 		getDriver().findElement(By.id("preview-div"))
 			.findElements(By.className("previewNotes")).get(0).click();	
 	}
-
+	
 	public void rightClick(String file) {		
 		findDocument(file);
 		
 		util.wait(1);
-		WebElement wrap = getDriver().findElement(By.id("docsdiv"));
-		List<WebElement> folders = wrap.findElements(By.className("clearboth"));
+		WebElement topLevel = getDriver().findElement(By.id("docsdiv"))
+				.findElements(By.className("foldercontents")).get(0);
+		List<WebElement> spans = topLevel.findElements(By.tagName("span"));
 		
-		for(WebElement folder: folders){
-			List<WebElement> spans = folder.findElements(By.tagName("span"));
-			
-			for(WebElement span: spans){
-				if(span.getText().equalsIgnoreCase(file)){
-					Actions action = new Actions(getDriver());
-					action.contextClick(span).sendKeys(Keys.ARROW_DOWN).perform();
-					util.wait(1);
-					return;
-				}
+		for(WebElement span: spans){
+			if(span.getText().equalsIgnoreCase(file)){
+				Actions action = new Actions(getDriver());
+				action.contextClick(span).sendKeys(Keys.ARROW_DOWN).perform();
+				util.wait(1);
+				return;
 			}
 		}
 	}
@@ -485,14 +479,17 @@ public class Documents extends PageObject {
         }
 	}
 
+
 	public void select(ToolsOption option) {
-		action.clickAction("docscontrols_Tools");
-		action.select(option, "admin-button");
-		action.switchToCurrentWindow(1);
+		if ((option.returnToolOption().equals("Bulk Organize")) || (option.returnToolOption().equals("Import Metadata"))){
+			action.clickAction("docscontrols_Tools");
+			action.select(option, "admin-button");
+		}else {
+			action.clickAction("docscontrols_Tools");
+			action.select(option, "admin-button");
+			action.switchToCurrentWindow(1);
+		}
 	}
-
-	
-
 	
 	
 	

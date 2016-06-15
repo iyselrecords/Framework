@@ -123,7 +123,7 @@ public class Event extends PageObject{
 				
 		int roleIndex = 0;
 		for(int i=0; i < lists.size(); i++){
-			if(lists.get(i).getText().equalsIgnoreCase("TRole2")){
+			if(lists.get(i).getText().equalsIgnoreCase(newrole)){
 				roleIndex = i;
 				break;
 			}

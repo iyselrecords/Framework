@@ -32,10 +32,10 @@ testData.table
 
 
 Scenario:  Verify User Can Delete Workspace
-When user select a '<workspace>'
-And clicks on the view dropdown
-And select 'delete' option
-Then '<workspace>' is removed from the list and no longer accessible
+!--When user select a '<workspace>'
+!--And clicks on the view dropdown
+!--And select 'delete' option
+!--Then '<workspace>' is removed from the list and no longer accessible
 
 Examples:
 testData.table

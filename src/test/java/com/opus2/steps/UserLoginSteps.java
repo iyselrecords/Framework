@@ -37,7 +37,7 @@ public class UserLoginSteps extends SerenityStories{
 	
 	@When("click on the login button")
 	public void whenClickOnTheLoginButton(){
-		loginpage.login();
+		loginpage.login("submit-login");
 	}
 	
 	@Then("user should access list of available workspaces/mirrors")

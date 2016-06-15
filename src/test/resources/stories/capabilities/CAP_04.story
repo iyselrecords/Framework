@@ -8,26 +8,26 @@ In order to test Magnum application
 As a tester
 I want to use the BDD approach in testing features and functionality.
 					 
-Scenario: Verify Inviting Users With New Role
+Scenario: Verify New Roles is Added to List of Users
 When user navigates to Admin page
-Then user should be in Admin page
+And clicks on 'Roles' tab
+Then Roles tab should open default roles displaying list of capabilities
+Given user is present in Admin Role page
 When user clicks on 'Users' tab
-Then user page should display 'Add Users' and 'Import User' Dialog
-!-- When user enters '<email>' on Email input on the Add User Dialog
-!-- And select '<newRole>' from Role dropdown
-!-- And click the Invite button
-!-- Then new user should have the 'newRole' role capability
+And click on the Role dropdown
+Then new Role should be listed
 
 Examples:
 capability.table
 
-Scenario: Verify Editing Existing User To New Role
-When user selects '<email>' to edit
-And Add FirstName and LastName
-And Username and Signature
-And select role to 'newRole'
-And save
-Then existing user should have the 'newRole' role capability
+
+Scenario: Verify Users Can Be Assisgned To New Role
+Given user is present in Admin User page
+When '<user>' is selected
+And Edit option selected
+And new Role is assigned
+And new changes saved
+Then new Role should be assigned to '<user>'
 
 Examples:
 capability.table

@@ -56,7 +56,31 @@ public class AcceptanceTestSuite extends SerenityStories  {
 				+ "Admin_097a.story;"
 				+ "Admin_097b.story;"
 				+ "CAP_01.story;"
-				+ "CAP_02.story;");
+				+ "CAP_02.story;"
+				+ "Admin_038.story;"
+				+ "Admin_055.story;"
+				+ "Admin_056.story;"
+				+ "Admin_097.story;"
+				+ "LoginStepOneEnterUserEmailOrUserNameAndPassword.story;"
+				+ "CHf_01.story;"
+				+ "CHf_02.story;"
+				+ "CHf_03.story;"
+				+ "CHf_04.story;"
+				+ "CHf_05.story;"
+				+ "CHf_06.story;"
+				+ "CHf_07.story;"
+				+ "CHf_08.story;"
+				+ "CHf_09.story;"
+				+ "Admin_055.story;"
+				+ "Admin_092.story;"
+				+ "USER_GUI10.story;"
+				+ "USER_GUI11.story;"
+				+ "Admin_090.story;"
+				+ "USER_FUNCTr01.story;"
+				+ "CAP_01_15.story;"
+				+ "CAP_03.story;"
+				+ "CAP_04.story;"
+				+ "CAP_05.story;");
 				
 		
 

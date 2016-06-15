@@ -13,7 +13,7 @@ When user navigates to Admin page
 Then user should be in Admin page
 When user clicks on 'Roles' tab
 Then Roles tab should open default roles displaying list of capabilities
-When user clicks on the Edit button
+When user select Role to Edit
 And edit user capabilities
 And save changes
 Then user should be able to toggle capabilities and save changes to the Role

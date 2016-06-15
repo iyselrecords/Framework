@@ -7,9 +7,13 @@ import java.util.concurrent.TimeUnit;
 import net.thucydides.core.pages.PageObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.opus2.enums.Pages;
 import com.opus2.enums.SideMenu;
@@ -60,7 +64,6 @@ public class UserAction extends PageObject {
 			.findElements(By.className(className)).get(0);
 		topLevel.findElements(By.tagName(element))
 			.get(index).click();
-		util.wait(0.5);
 	}	
 	public void clickAction(String topLevelId, String tagName, int index){
 		util.wait(0.5);
@@ -72,18 +75,27 @@ public class UserAction extends PageObject {
 		WebElement topLevel = getDriver().findElement(By.id(topLevelId))
 			.findElements(By.className(className)).get(0);
 		topLevel.findElement(By.id(elementId)).click();
-		util.wait(0.5);
 	}
 	public void clickAction(String topLevelId, String className){
 		util.wait(0.5);
 		getDriver().findElement(By.id(topLevelId))
 			.findElements(By.className(className)).get(0).click();
-		util.wait(0.5);
 	}
 	public void clickActionByText(String elementId){
 		getDriver().findElement(By.linkText(elementId)).click();
-		util.wait(0.5);
 	}
+	public void clickAction(String topLevelId, String className, int classIndex, String element, int elementIndex){
+		util.wait(0.5);
+		WebElement topLevel = getDriver().findElement(By.id(topLevelId))
+			.findElements(By.className(className)).get(classIndex);
+		topLevel.findElements(By.tagName(element))
+			.get(elementIndex).click();
+	}	
+	public void clickActionName(String elementId)
+    {
+        getDriver().findElement(By.name(elementId)).click();
+        util.wait(0.3);
+    }
 	
 	
 	/*
@@ -125,13 +137,39 @@ public class UserAction extends PageObject {
 		element.findElements(By.tagName("textarea")).get(0).sendKeys(keysToSend);
 		util.wait(0.5);
 	}
+	public void inputTextAreaReturn(String elementId, String keysToSend) {
+		WebElement element = getDriver().findElement(By.id(elementId))
+			.findElements(By.tagName("textarea")).get(0);
+		element.sendKeys(keysToSend);
+		element.sendKeys(Keys.RETURN);
+	}
+	public void inputTextAreaReturn(String elementId, String keysToSend, String keysToSend2, String keysToSend3) {
+		WebElement element = getDriver().findElement(By.id(elementId))
+			.findElements(By.tagName("textarea")).get(0);
+		element.sendKeys(keysToSend);element.sendKeys(Keys.RETURN);
+		element.sendKeys(keysToSend2);element.sendKeys(Keys.RETURN);
+		element.sendKeys(keysToSend3);
+	}
 	public void clearText(String elementId) {	
 		util.wait(0.5);
 		WebElement element = getDriver().findElement(By.id(elementId));
 		element.findElements(By.tagName("input")).get(0).clear();
 	}
-	
-	
+	public void inputText(String topLevelId, String className, int classIndex, String keysToSend) {	
+		util.wait(0.5);
+		WebElement topLevel = getDriver().findElement(By.id(topLevelId))
+				.findElements(By.className(className)).get(classIndex);
+		
+		topLevel.clear(); topLevel.sendKeys(keysToSend);
+	}
+	public void inputText(String topLevelId, String className, String element, int index, String searchText){
+		WebElement topLevel = getDriver().findElement(By.id(topLevelId))
+			.findElements(By.className(className)).get(0);
+
+        WebElement  input = topLevel.findElements(By.tagName("input")).get(index);
+            input.clear();
+            input.sendKeys(searchText);
+	}
 	/*
 	 * overloaded methods closeDialog
 	 */
@@ -296,6 +334,18 @@ public class UserAction extends PageObject {
 				}
 			}	
 			util.wait(0.5);
+	}
+	public void selectDropdown(String option){	
+		WebElement viewMenu = getDriver().findElement(By.id("view-menu"));
+			
+			List<WebElement> options = viewMenu.findElements(By.tagName("span"));
+			for(WebElement list : options){
+				if(list.getText().equals(option)){
+					list.click();
+					break;
+				}
+			}	
+			util.wait(0.5);
 	}	
 	public void selectFolder(String file) {
 		util.wait(1);
@@ -309,6 +359,16 @@ public class UserAction extends PageObject {
 			}
 		}
 	}
+	public void chooseTag(String label) {
+		WebElement topLevel = getDriver().findElements(By.className("treeContentDiv")).get(0);
+		List<WebElement> tags = topLevel.findElements(By.tagName("span"));		
+		for(WebElement tag: tags){
+			if(tag.getText().equalsIgnoreCase(label)){
+				tag.click();
+				break;
+			}
+		}	
+	}
 	public void selectDocOpenWindow(String file) {
 		util.wait(5);
 		WebElement wrap = getDriver().findElement(By.id("uploader_uploader"));
@@ -320,6 +380,24 @@ public class UserAction extends PageObject {
 		//input.sendKeys("C:\\Users\\misele\\Desktop\\PN\\docs\\testData\\" + file + ".pdf");
 		//input.sendKeys("C:\\Users\\misele\\UD\\" + file + ".pdf");
 		util.wait(7);
+	}
+	public void selectFile(String topLevelId, String className, int classIndex, String element, int elementIndex, String file) {	
+		String path = "C:\\Users\\misele\\Desktop\\PN\\docs\\testData\\";
+		WebElement topLevel = getDriver().findElement(By.id(topLevelId))
+				.findElements(By.className(className)).get(classIndex);
+		WebElement input = topLevel.findElements(By.tagName(element)).get(elementIndex);
+		input.sendKeys(path + file);
+	}
+	public void adminUserPopupMenu(String topLevelId,String list) {	
+		WebElement topLevel = getDriver().findElements(By.id(topLevelId)).get(0);
+		List<WebElement> options = topLevel.findElements(By.className("element"));		
+		for(WebElement option: options){
+			if(option.findElement(By.tagName("span")).getText().equalsIgnoreCase(list)){
+				option.click();
+				break;
+			}
+		}
+		util.wait(1);
 	}
 	
 	/*
@@ -501,6 +579,23 @@ public class UserAction extends PageObject {
 	
 
 	/*
+	 * Explicit Wait
+	 */
+	public boolean progressBar(){
+		try{
+			WebDriverWait wait = new WebDriverWait(getDriver(), 40);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("progress-bar-bar")));
+		}catch(ElementNotVisibleException e){
+			e.getMessage();
+		}
+		return true;
+	}
+	public boolean progressBar2(){
+		WebDriverWait wait = new WebDriverWait(getDriver(), 40);
+		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("progress-bar-bar")));
+	}
+	
+	/*
 	 * debugging issues
 	 */
 	public void debug(){
@@ -527,5 +622,151 @@ public class UserAction extends PageObject {
 				break;
 			}
 		}
-	}	
+	}
+
+
+	public void videoTimecodeCorrection(int pageNum, int lineNum) {
+		WebElement topLevel = getDriver().findElement(By.id("DOMadditions"))
+				.findElements(By.className("dialogSection")).get(0);
+		List<WebElement> pages = topLevel.findElements(By.className("trpage"));
+		
+		for(WebElement page : pages){
+			if(page.getAttribute("id").equals("test")){
+				//
+			}
+		}
+		
+		
+		
+	}
+	
+	public void inputChroDate(String topLevelId, String text) {
+		WebElement topLevel = getDriver().findElement(By.id(topLevelId));
+        topLevel.clear();
+        topLevel.sendKeys(text);
+	}
+
+
+	public void selectChroDateOption(String option, int index) {		
+		openDropdown(0);
+		
+		WebElement topLevel = getDriver().findElements(By.className("filter-header")).get(index)
+                .findElements(By.className("menu")).get(index);
+        List <WebElement> lists = topLevel.findElements(By.tagName("span"));
+
+        turnOffWait();
+        for (WebElement list : lists)
+        {
+            if (list.getText().equalsIgnoreCase(option)&& (option != "Range"))
+            {
+                list.click();
+                util.wait(0.5);
+                break;
+            }
+            else if (list.getText().equalsIgnoreCase(option) && (option == "Range"))
+            {
+                list.click();
+                util.wait(0.5);
+                inputChroDate("filter-from-date", "04/18/2016");
+                inputChroDate("filter-to-date", "04/18/2016");
+            }
+        }
+        turnOnWait();    
+	}
+	
+	public void openDropdown(int index){
+		WebElement topLevel = getDriver().findElement(By.id("chron-filter_chron-filter"))
+                .findElements(By.className("filter")).get(index);
+            topLevel.findElements(By.tagName("button")).get(0).click();
+	}
+	public void filterDropdown(int index){
+		WebElement topLevel = getDriver().findElement(By.id("chron-filter_chron-filter"))
+                .findElements(By.className("saved-filters")).get(0);
+            topLevel.findElements(By.tagName("button")).get(index).click();
+	}
+	public void chroTypeOption(String index){
+		WebElement topLevel = getDriver().findElement(By.id("chron-type-dropdown"))
+                .findElements(By.className("listSelectorItems")).get(0);
+		
+		List<WebElement> options = topLevel.findElements(By.className("selectable"));
+        
+		turnOffWait();
+		for (WebElement option : options)
+        {
+            if (option.findElement(By.className("listSelectorValue")).getText().equalsIgnoreCase(index))
+            {
+                option.findElements(By.tagName("input")).get(0).click();
+                util.wait(1);
+                option.findElements(By.tagName("input")).get(0).click();
+                break;
+            }
+        }
+		turnOnWait();
+	}
+	public void chroTypeAllNone(int index){
+		util.wait(1);
+		WebElement topLevel = getDriver().findElement(By.id("chron-type-dropdown"))
+                .findElements(By.className(" floatright")).get(0);
+		topLevel.findElements(By.tagName("span")).get(index).click();   	
+	}
+	public void chroStatue(String list){
+		openDropdown(2);
+		
+		WebElement topLevel = getDriver().findElement(By.id("chron-filter_chron-filter"))
+                .findElements(By.className("filter")).get(2);	
+		List<WebElement> options = topLevel.findElements(By.className("menu")).get(0)
+				.findElements(By.tagName("span"));
+        
+		turnOffWait();
+		for (WebElement option : options)
+        {
+            if (option.getText().equalsIgnoreCase(list))
+            {
+                option.click();
+                util.wait(0.5);
+                break;
+            }
+        }
+		turnOnWait();
+	}
+	
+	public void uncheckDate(){
+		
+	}
+	public void currentFilter(String option){
+		WebElement topLevel = getDriver().findElement(By.id("chron-filter_chron-filter"))
+                .findElements(By.className("floatright")).get(0);
+		List<WebElement> lists = topLevel.findElements(By.tagName("span"));
+        
+		if (option == "Shared")
+        {
+            lists.get(1).click();
+        }
+        else if (option == "Private")
+        {
+            lists.get(2).click();
+        }
+        util.wait(1);
+	}
+	public void filterOption(int index){
+		WebElement topLevel = getDriver().findElement(By.id("chron-filter_chron-filter"))
+		    .findElements(By.className("saved-filters")).get(0);
+		topLevel.findElements(By.className("autocompletes")).get(index)
+            .findElements(By.tagName("div")).get(0).click();
+            util.wait(1);    
+	}
+	public void selectLiveUser(String option){
+		WebElement topLevel = getDriver().findElement(By.id("settingsmain"))
+			    .findElements(By.className("panel-body")).get(3);
+		
+		List<WebElement> rows = topLevel.findElements(By.tagName("tr"));
+		for(int i=1; i < rows.size(); i++){
+			WebElement cell = rows.get(i).findElements(By.tagName("td")).get(0);
+			if(cell.getText().equalsIgnoreCase(option)){
+				rows.get(i).findElements(By.tagName("input")).get(0).click();
+				break;
+			}
+		}
+		util.wait(1);
+	}
 }

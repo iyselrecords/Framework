@@ -24,6 +24,7 @@ public class Admin extends PageObject {
 	static Event event;
 	public static MonitorActivity monitorActivity;
 	static UserAction action;
+	public static DocumentStamps documentStamps;
 	
 		
 	public void select(SideMenu menu){		
@@ -72,6 +73,10 @@ public class Admin extends PageObject {
 		public static void edit(String newrole) {
 			event.editDeleteRole(newrole, 0);
 		}
+		public static void delete(String newrole) {
+			event.editDeleteRole(newrole, 1);
+			action.acceptAlert();
+		}
 		public static void userCapabilities() {
 			action.setCapabilities(6,9);
 			util.wait(0.5);
@@ -82,6 +87,17 @@ public class Admin extends PageObject {
 			action.setCapabilities(23,24);
 			util.wait(0.5);
 		}
+
+		public static void selectRole(String option) {
+			action.clickAction("settingsmain","floatleft", 1, "button", 0);
+			action.selectDropdown(option);
+		}
+
+		public static void importRole() {
+			action.clickAction("settingsmain","floatleft", 1, "button", 1);
+			util.wait(2);
+		}
+		
 	}
 	
 	public static class Users
@@ -90,6 +106,7 @@ public class Admin extends PageObject {
 		public static void select(UsersCap edit, String email) {
 			event.selectUser(edit, email);
 		}
+		
 		
 	}
 	
@@ -103,6 +120,14 @@ public class Admin extends PageObject {
 
 	public void backToAdmin() {
 		action.clickAction("adminbackbutton", "a", 0);
+	}
+	
+	public static class DocumentStamps
+	{
+
+		public static void newStamp() {
+			action.clickAction("settingsmain", "button", 0);
+		}
 	}
 	
 }
