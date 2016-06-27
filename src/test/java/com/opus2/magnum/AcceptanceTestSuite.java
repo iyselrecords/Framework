@@ -1,4 +1,4 @@
-package com.martin.magnum.steps;
+package com.opus2.magnum;
 
 import net.serenitybdd.jbehave.SerenityStories;
 

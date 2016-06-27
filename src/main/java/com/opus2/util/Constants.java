@@ -1,4 +1,4 @@
-package com.martin.util;
+package com.opus2.util;
 
 
 public interface Constants {
@@ -13,10 +13,12 @@ public interface Constants {
 	String CONFIG = "configuration";
 	String USERNAME = "magnum@opus2international.com";
 	String PASSWORD = "p00k!DtLQ";
-	
+	//String USERNAME = "user569@opus2.com";
+	//String USERNAME = "admintaf@opus2.com";
+	//String PASSWORD = "Happy123";	
 	String filesize = "File Size";
 	String WORKSPACE = "Test Automation";
-	
+	String WORKSPACE_569 = "569.1.5";
 	String Home = "logo";
 	String Documents = "magnumDocuments";
 	String Transcripts = "transcripts";
