@@ -370,6 +370,30 @@ public class Documents  extends PageObject {
 		util.pause(1);
 		search.findElements(By.tagName("button")).get(0).click();	
 	}
+	
+	public void findSelectDocument(String document) {
+		WebElement topInput = getDriver().findElement(By.id("left-button-row"))
+				.findElement(By.className("searchComponent"));	
+		WebElement input = topInput.findElements(By.tagName("input")).get(0);
+		input.clear();
+		input.sendKeys(document);
+		util.pause(0.5);
+		topInput.findElements(By.tagName("button")).get(0).click();
+		
+		util.pause(1);
+		
+		WebElement topLevel = getDriver().findElement(By.id("docsdiv"))
+				.findElements(By.className("foldercontents")).get(0);
+		List<WebElement> lists = topLevel.findElements(By.className("doctitle"));
+		for(WebElement list : lists){
+			if(list.getText().equals(document)){
+				list.click();
+				util.pause(1);
+				break;
+			}
+		}
+	}
+	
 	public void dropDownOptions(String parentValue, String listValue, String optionValue){
 		WebElement viewMenu = getDriver().findElement(By.id(parentValue));
 		

@@ -21,6 +21,8 @@ import com.opus2.pages.Dialog;
 import com.opus2.pages.Documents;
 import com.opus2.pages.Home;
 import com.opus2.pages.LoginPage;
+import com.opus2.pages.Mailinator;
+import com.opus2.pages.Transcripts;
 import com.opus2.pages.UserAction;
 import com.opus2.util.Util;
 
@@ -32,7 +34,8 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	Admin admin;
 	Dialog dialog;
 	LoginPage loginPage;
-	
+	Transcripts transcript;
+	Mailinator mail;
 	/**
 	 * 
 	 */
@@ -298,6 +301,7 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	@When("click the select file button")
 	public void andClickTheSelectFileButton(){
 		//dialog.upload.selectFiles();
+		util.pause(1);
 	}
 	@SuppressWarnings("static-access")
 	@When("choose '$file' to select")
@@ -402,8 +406,9 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	//Admin_053
 	@When("user select a '$doc'")
 	public void whenUserSelectADocument(String doc) {
-		document.findDocument(doc);
-		util.pause(2);
+		//document.findDocument(doc);
+		document.findSelectDocument(doc);
+		util.pause(1);
 	}
 	@When("click to preview")
 	public void andClickToPreview() {
@@ -430,76 +435,92 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	//Admin_035
 	@When("user click on Pages button")
 	public void whenUserClickOnPagesButton() {
-		util.pause(1);
+		transcript.pages();
 	}
 	@Then("all document pages are displayed as thumbnails")
 	public void thenAllDocumentPagesAreDisplayedAsThumbnails() {
-		util.pause(1);
+		util.pause(5);
+		//assert greater than one page
 	}
 	
 	//Admin_036
-	@When("user select '$' option from Zoom dropdown")
-	public void whenUserSelectOptionFromZoomDropdown(){
-		util.pause(1);
+	@When("user select '$option' option from Zoom dropdown")
+	public void whenUserSelectOptionFromZoomDropdown(String option){
+		transcript.zoom(option);
 	}
 	@Then("document dimension is displayed")
 	public void thenDocumentDimensionIsDisplayed(){
-		util.pause(1);
+		util.pause(2.5);
 	}
 	
 	//Admin_037
+	@SuppressWarnings("static-access")
+	@When("select '$role' role")
+	public void whenEnterFirstName(String role){
+		dialog.addUsers.selectRole(role);
+	}
+	@SuppressWarnings("static-access")
 	@When("enter FirstName")
 	public void whenEnterFirstName(){
-		util.pause(1);
+		dialog.addUsers.firstName();
 	}
+	@SuppressWarnings("static-access")
 	@When("Confirm Password")
 	public void whenConfirmPassword(){
-		util.pause(1);
+		dialog.addUsers.confirmPassword();
 	}
+	@SuppressWarnings("static-access")
 	@When("LastName")
 	public void whenLastName(){
-		util.pause(1);
+		dialog.addUsers.lastName();
 	}
 	@Then("new user is created and displayed in Legend section")
 	public void thenNewUserIsCreatedAndDisplayedInLegendSection(){
-		util.pause(1);
+		util.pause(2);
 	}
+	@SuppressWarnings("static-access")
 	@When("Password")
 	public void whenPassword(){
-		util.pause(1);
+		dialog.addUsers.password();
 	}
+	@SuppressWarnings("static-access")
 	@When("enter Memorable Word")
 	public void whenEnterMemorableWord(){
-		util.pause(1);
+		dialog.addUsers.memorableWord();
 	}
+	@SuppressWarnings("static-access")
 	@When("click the Set Details button")
 	public void whenClickTheSetDetailsButton(){
-		util.pause(1);
+		dialog.addUsers.setDetails();
 	}
 	@When("select Users SideMenu")
 	public void whenSelectUsersSideMenu(){
 		admin.select(SideMenu.Users);
 	}
+	@SuppressWarnings("static-access")
 	@When("Signature")
 	public void whenSignature(){
-		util.pause(1);
+		dialog.addUsers.signature();
 	}
 	@Then("Users in Workspace are displayed")
 	public void thenUsersInWorkspaceAreDisplayed(){
 		util.pause(1);
+		//assert
 	}
 	@SuppressWarnings("static-access")
-	@When("user enters an '$email' on AddUser panel")
+	@When("user enters '$email' on AddUser panel")
 	public void whenUserEntersAnEmailOnAddUserPanel(String email){
 		dialog.addUsers.email(email);
 	}
+	@SuppressWarnings("static-access")
 	@When("Confirm Memorable Word")
 	public void whenConfirmMemorableWord(){
-		util.pause(1);
+		dialog.addUsers.confirmMemorableWord();
 	}
+	@SuppressWarnings("static-access")
 	@When("Create Account")
 	public void whenCreateAccount(){
-		util.pause(1);
+		dialog.addUsers.createAccount();
 	}
 	@SuppressWarnings("static-access")
 	@When("click the Invite button")
@@ -508,7 +529,7 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	}
 	@Then("a registration email is sent to user email")
 	public void thenARegistrationEmailIsSentToUserEmail(){
-		util.pause(1);
+		util.pause(3);
 	}
 	
 	
@@ -523,7 +544,7 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	}
 	@Then("user is directed to Mailinator homepage")	
 	public void thenUserIsDirectedToMailinatorHomepage(){
-		
+		util.pause(0.5);
 	}
 	@When("user enter FirstName")
 	public void whenUserEnterFirstName(){
@@ -543,11 +564,11 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	}
 	@When("click the Register button")	
 	public void whenClickTheRegisterButton(){
-		
+		mail.register();
 	}
 	@When("click Go")
 	public void whenClickGo(){
-		
+		mail.go();
 	}
 	@Then("user is directed to Magnum Terms page")
 	public void thenUserIsDirectedToMagnumTermsPage(){
@@ -563,19 +584,20 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	}
 	@Then("user is directed to 'testEmail' inbox")
 	public void thenUserIsDirectedTotestEmailInbox(){
-		
+		//Assert user is in inbox
+		util.pause(2);
 	}
-	@When("user navigate to 'https://www.mailinator.com/'")
-	public void whenUserNavigateTohttpswwwmailinatorcom(){
-		
+	@When("user navigate to '$url'")
+	public void whenUserNavigateTohttpswwwmailinatorcom(String url){
+		mail.navigateTo(url);
 	}
-	@When("user enter 'testEmail' on email textbox")
-	public void whenUserEntertestEmailOnEmailTextbox(){
-		
+	@When("user enter '$inbox' on email textbox")
+	public void whenUserEntertestEmailOnEmailTextbox(String inbox){
+		mail.inbox(inbox);
 	}
 	@When("user clicks on Magnum Email Notification")
 	public void whenUserClicksOnMagnumEmailNotification(){
-		
+		mail.magnumNotification();
 	}
 	
 	//Admin_42
@@ -647,9 +669,8 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	public void whenRepeatpassword(String confirmPassword){
 		util.pause(1); 
 	}
-	
-	
-	@Then("user pause for $min min")
+		
+	@Then("user pause for $min sec")
 	public void thenUsersPauseforMinute(int min){
 		util.pause(min); 
 	}

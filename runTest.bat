@@ -2,7 +2,7 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="+loginToday"
+SET META_FILTER="-admin_004c5 +admin_039"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...
@@ -12,22 +12,29 @@ echo Removing previous test results Done...........
  
 MD %PROJECT_DIR%\%TEST_RESULTS%\site\serenity
 
-echo clean........clean........clean........clean.......
+::echo cleaning........clean........clean........clean.......
 CALL mvn clean
-echo done.......done........done........done........done........done.........
+
+echo done.....
+
+
 echo initialize........initialize........initialize........initialize
 
-CALL mvn initialize
+::CALL mvn initialize
 
-echo done.......done........done........done........done........done.........
+echo done.....
+
+
 echo compile........compile........compile........compile
 
 CALL mvn compile
 
-echo done.......done........done........done........done........done.........
-echo running Test........running Test........running Test..............
-CALL mvn verify -Dmetafilter=%META_FILTER%
+echo done.....
 
+echo Executing Test.........
+
+::CALL mvn verify
+CALL mvn verify -Dmetafilter=%META_FILTER%
 
 XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
 echo Done

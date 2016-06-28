@@ -124,6 +124,7 @@ public class Dialog extends PageObject{
 		}
 		public static void selectFiles() {
 			action.clickAction("select files");
+			util.pause(1.5);
 		}
 
 		public static void selectFiles(String file) throws AWTException {	
@@ -446,44 +447,53 @@ public class Dialog extends PageObject{
 	
 	public static class AddUsers
 	{
-		public static void email(String email){
-			//action.inputTextClassName("panel-body", email);
+		public static void email(String email){		
+			String opus2 = "@opus2.com";
+			email = email + action.getTime();
+			//String mailinator = "@mailinator.com";
+			UserAction.currentValue = email+opus2;
+			action.inputTextClassName("panel-body", UserAction.currentValue);
 		}
-		public static void selectRole(String newRole){
-			//action.selectDropdown("settingsmain", "select", newRole);
+		public static void selectRole(String role){
+			action.selectDropdown("settingsmain", "select", role);
 		}
 		public static void invite(){
 			action.clickAction("settingsmain","panel-body","button","Invite");
 		}
 		public static void createAccount(){
-			
+			action.element("button", "Create Account").click();
 		}
 		public static void firstName(){
-			
+			String firstName = "FN" + action.getTime();
+			action.inputText("settingsmain", "panel-body", "input", 1, firstName);
 		}	
 		public static void lastName(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 2, "Tester");
 		}
 		public static void username(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 3, "username");
 		}
 		public static void signature(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 4, "TF");
 		}	
 		public static void password(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 5, "Pa55word");
 		}
 		public static void confirmPassword(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 6, "Pa55word");
 		}	
 		public static void memorableWord(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 7, "123456");
 		}
 		public static void confirmMemorableWord(){
-			
+			action.inputText("settingsmain", "panel-body", "input", 8, "123456");
 		}
 		public static void sendEmailNotification(){
-			
+			action.clickAction("settingsmain", "panel-body", 0, "input", 8);
+		}
+		public static void setDetails(){
+			action.element("button", "Set Details").click();
+			util.pause(1.5);
 		}
 	}
 	

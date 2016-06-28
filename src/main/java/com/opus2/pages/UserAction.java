@@ -39,8 +39,8 @@ public class UserAction extends PageObject {
 	public void clickAction(String elementId) {
 		getDriver().findElement(By.id(elementId)).click();
 	}
-	public void clickActionLinkText(String elementId) {
-		getDriver().findElement(By.linkText(elementId)).click();
+	public void clickActionLinkText(String linkText) {
+		getDriver().findElement(By.linkText(linkText)).click();
 	}
 	public void clickActionClassName(String elementId) {
 		getDriver().findElement(By.className(elementId)).click();
@@ -410,6 +410,24 @@ public class UserAction extends PageObject {
             }
         }
     }
+	public void selectDropdownId(String topLevelId, String className, int classIndex, String option)
+    {
+        WebElement topLevel = getDriver().findElement(By.id(topLevelId));
+        WebElement button = topLevel.findElements(By.tagName("button")).get(0);
+        button.click();
+        util.pause(0.5);
+
+        WebElement viewMenu = topLevel.findElements(By.className(className)).get(classIndex);
+        List<WebElement> spans = viewMenu.findElements(By.tagName("span"));
+        for (WebElement span : spans)
+        {
+            if (span.getText().equalsIgnoreCase(option))
+            {
+                span.click();
+                break;
+            }
+        }
+    }
 	public void selectDropdown(String option){	
 		WebElement viewMenu = getDriver().findElement(By.id("view-menu"));
 			
@@ -458,10 +476,10 @@ public class UserAction extends PageObject {
 	}
 	public void selectFile(String file) throws AWTException {
 		util.pause(1);
-		//String path = "C:\\Users\\martino\\Desktop\\Opus2\\testDoc\\testData\\";
+		String ext = ".pdf";
 		String path = "C:\\Users\\misele\\Desktop\\PN\\docs\\testData\\testDoc\\";
 		
-		StringSelection myFile = new StringSelection(path + file);
+		StringSelection myFile = new StringSelection(path+file+ext);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(myFile, null);
 		
 		Robot upload = new Robot();	
@@ -952,4 +970,5 @@ public class UserAction extends PageObject {
 		turnOnWait();
 		util.pause(1);
 	}
+	
 }

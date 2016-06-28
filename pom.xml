@@ -1,43 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.martin</groupId>
-    <artifactId>reconfig</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>Magnum Test Automation Framework</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>1.1.36</serenity.version>
-        <serenity.jbehave.version>1.13.0</serenity.jbehave.version>
-        <webdriver.driver>chrome</webdriver.driver>
-    </properties>
-
-    <repositories>
-      <repository>
-        <snapshots>
-        <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>bintray</name>
-        <url>http://jcenter.bintray.com</url>
-      </repository>
-    </repositories>
-    <pluginRepositories>
-      <pluginRepository>
-        <snapshots>
-        <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>bintray-plugins</name>
-        <url>http://jcenter.bintray.com</url>
-      </pluginRepository>
-    </pluginRepositories>
-
-    <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.opus2</groupId>
+  <artifactId>magnum</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <name>Magnum Automation Framework using JBehave and WebDriver</name>
+  
+  <properties>
+   	 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <serenity.version>1.1.36</serenity.version>
+     <serenity.jbehave.version>1.13.0</serenity.jbehave.version>
+     <webdriver.driver>chrome</webdriver.driver>
+   </properties>
+   
+   <dependencies>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
@@ -95,7 +72,6 @@
                     <systemPropertyVariables>
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>
                     </systemPropertyVariables>
-             		<max.retries>0</max.retries>
                 </configuration>
                 <executions>
                     <execution>
@@ -129,7 +105,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+			<plugin>
             	<groupId>org.codehaus.mojo</groupId>
             	<artifactId>properties-maven-plugin</artifactId>
             	<version>1.0.0</version>
@@ -146,78 +122,7 @@
             			</configuration>
             		</execution>
             	</executions> 
-            </plugin>
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<phase>initialize</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>testData.properties</echo>
-								<echo>${username}</echo>
-								<echo>${password}</echo>
-								<echo>${email}</echo>
-								<echo>${title}</echo>
-								<echo>${description}</echo>
-								<echo>${workspace}</echo>
-								<echo>${delete}</echo>
-								<echo>${user}</echo>
-								<echo>${disable account}</echo>
-								<echo>${enable 2fa}</echo>
-								<echo>${enable memorable word}</echo>
-								<echo>${authenticate with Magnum}</echo>
-								<echo>${authenticate with LDAP}</echo>
-								<echo>${file}</echo>
-								<echo>${folder_name}</echo>
-								<echo>${sub_folder_name}</echo>
-								<echo>${export}</echo>
-								<echo>${Destination}</echo>
-								<echo>${Document}</echo>
-								<echo>${listOption}</echo>
-								<echo>${upload_folder}</echo>
-								<echo>${upload_folder}</echo>
-								<echo>${Closed to new notes}</echo>
-								<echo>${Allowed}</echo>
-								<echo>${Rename}</echo>
-								<echo>${new_name}</echo>
-								<echo>${previous_name}</echo>
-								<echo>${Reorder}</echo>
-								<echo>${+x}</echo>
-								<echo>${-x}</echo>
-								<echo>${Move}</echo>
-								<echo>${folder}</echo>
-								<echo>${Sort by}</echo>
-								<echo>${Manual order}</echo>
-								<echo>${Destination_Folder}</echo>
-								<echo>${document}</echo>
-								<echo>${docs}</echo>
-								<echo>${X}</echo>
-								<echo>${Rotate}</echo>
-								<echo>${start_page}</echo>
-								<echo>${end_page}</echo>
-								<echo>${rotate_degree}</echo>
-								<echo>${next_six}</echo>
-								<echo>${doc}</echo>
-								<echo>${docType}</echo>
-								<echo>${newDocType}</echo>
-								<echo>${doc_fol}</echo>
-								<echo>${rep_doc}</echo>
-								<echo>${bulk_doc}</echo>
-								<echo>${bulk_doc2}</echo>
-								<echo>${bulk_doc3}</echo>
-								<echo>${bulk_doc4}</echo>
-								<echo>${bulk_fol}</echo>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+            </plugin>         
         </plugins>
     </build>
 </project>
