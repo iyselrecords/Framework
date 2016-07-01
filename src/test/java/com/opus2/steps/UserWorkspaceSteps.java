@@ -2,12 +2,14 @@ package com.opus2.steps;
 
 import java.io.IOException;
 
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import com.opus2.enums.Pages;
 import com.opus2.enums.UserWorkspaceOption;
+import com.opus2.pages.Config;
 import com.opus2.pages.Home;
 import com.opus2.pages.UserAction;
 import com.opus2.pages.UserWorkspaces;
@@ -59,6 +61,12 @@ public class UserWorkspaceSteps  extends ScenarioSteps {
 	}
 	
 	//Admin_
+	@Given("user is present on Admin-Roles page")
+	public void givenUserIsPresentOnAdminRolesPage(){
+		
+	}
+	
+	
 	@When("user clicks on New User button")
 	public void userClickNewUser(){
 		userWorkspace.newUser();
@@ -110,10 +118,8 @@ public class UserWorkspaceSteps  extends ScenarioSteps {
 	
 	@When("admin selects a user")
 	public void whenAdminSelectsAuser() throws IOException{
-		util.initializing();
-		String user = util.Test_Properties.getProperty("user");
-		userWorkspace.findUser(user);
-		userWorkspace.selectUser(user);
+		userWorkspace.findUser(Config.email);
+		userWorkspace.selectUser(Config.email);
 	}
 	@When("admin selects a '$user'")
 	public void whenAdminsSelectsAuser(String user){
@@ -192,5 +198,9 @@ public class UserWorkspaceSteps  extends ScenarioSteps {
 		util.pause(1);
 	}
 	
-	
+	@Given("user is present on Manage User and Workspace page")
+	public void givenUserIsPresentOnManageUserAndWorkspacePage(){
+		//assert page
+	}
+
 }
