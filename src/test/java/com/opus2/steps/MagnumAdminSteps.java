@@ -3,8 +3,10 @@ package com.opus2.steps;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import static org.junit.Assert.*;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
@@ -536,27 +538,36 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	//Admin_039
 	@Then("Magnum Registration page opens in a new tab")	
 	public void thenMagnumRegistrationPageOpensInANewTab(){
-		
+		//assert registration page
+		util.pause(2);
+	}
+	@Given("user is present on the Registration page")	
+	public void givenUserIsPresentOnTheRegistrationPage(){
+		util.pause(2);
 	}
 	@When("'$answer' to third Security Question")	
-	public void whenToThirdSecurityQuestion(){
-		
+	public void whenToThirdSecurityQuestion(String answer){
+		mail.question("a3", answer);
 	}
 	@Then("user is directed to Mailinator homepage")	
 	public void thenUserIsDirectedToMailinatorHomepage(){
 		util.pause(0.5);
 	}
-	@When("user enter FirstName")
+	@When("user enters Firstname and Lastname")
 	public void whenUserEnterFirstName(){
-		
+		mail.names();
+	}
+	@When("enters Signature")
+	public void andEntersSignature(){
+		mail.signature();
 	}
 	@When("enter Password")	
 	public void whenEnterPassword(){
 		
 	}
 	@When("'$answer' to second Security Question")	
-	public void whenToSecondSecurityQuestion(){
-		
+	public void whenToSecondSecurityQuestion(String answer){
+		mail.question("a2", answer);
 	}
 	@Then("user is logged into Workspace as a User")	
 	public void thenUserIsLoggedIntoWorkspaceAsAUser(){
@@ -575,8 +586,8 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 		
 	}
 	@When("set '$answer' to first Security Question")
-	public void whenSetAnswerToFirstSecurityQuestion(){
-		
+	public void whenSetAnswerToFirstSecurityQuestion(String answer){
+		mail.question("a1", answer);
 	}
 	@When("user accept Magnum Terms and Condition")
 	public void whenUserAcceptMagnumTermsAndCondition(){
@@ -677,6 +688,40 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	@When("user pause for $min min")
 	public void whenUsersPauseforMinute(int min){
 		util.pause(min); 
+	}
+	@Given("user is present on '$page' page")
+	public void givenUserIsPresentOnPage(Pages page){
+		assertTrue(page.returnPage().equals(page.returnPage()));
+	}
+	
+	@Then("user is present on '$page' page")
+	public void thenUserIsPresentOnPage(Pages page){
+		assertTrue(page.returnPage().equals(page.returnPage()));
+	}
+	
+	//
+	@When("user clicks on New Folder button")
+	public void whenUserClicksOnNewFolderButton(){
+		document.newFolder();
+	}
+	
+	@SuppressWarnings("static-access")
+	@When("user enters '<folder_name>'")
+	@Alias("enters <folder_name>")
+	public void whenUserEntersfolderName(String folder_name){
+		dialog.newFolder.enterFoldersName(folder_name);
+	}
+	
+	@SuppressWarnings("static-access")
+	@When("user click Create Folder button")
+	@Alias("click Create Folder button")
+	public void whenUserClickCreateButton(){
+		dialog.newFolder.createFolder();
+	}
+	@Then("created folder should be visible on workspace")
+	public void thenCreatedFolderShouldBeVisibleOnWorkspace(){
+		//assert
+		util.pause(5);
 	}
 	
 }

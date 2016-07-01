@@ -1,0 +1,256 @@
+<acceptance-test-run title="Verify Creating New Folder" name="Verify Creating New Folder" steps="17" successful="17" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="43914" timestamp="2016-07-01T16:34:20.558+01:00" session-id="ebd3a3c5d1aa175834788877b7f54d5a">
+  <user-story id="CreatNewFolder" name="Creat new folder" path="stories/chronology/filter/CreatNewFolder.story"/>
+  <tags>
+    <tag name="Chronology" type="capability"/>
+    <tag name="Chronology/Filter" type="feature"/>
+    <tag name="Filter/Creat new folder" type="story"/>
+  </tags>
+  <examples>
+    <datasets>
+      <dataset startRow="0" rowCount="0"/>
+    </datasets>
+    <headers>
+      <header>username_611</header>
+      <header>password_611</header>
+      <header>username</header>
+      <header>password</header>
+      <header>memorable_word</header>
+      <header>email</header>
+      <header>title</header>
+      <header>description</header>
+      <header>workspace</header>
+      <header>delete</header>
+      <header>user</header>
+      <header>disable account</header>
+      <header>enable 2fa</header>
+      <header>enable memorable word</header>
+      <header>authenticate with Magnum</header>
+      <header>authenticate with LDAP</header>
+      <header>file</header>
+      <header>folder_name</header>
+      <header>sub_folder_name</header>
+      <header>export</header>
+      <header>Destination</header>
+      <header>Document</header>
+      <header>listOption</header>
+      <header>upload_folder</header>
+      <header>properties</header>
+      <header>Closed to new notes</header>
+      <header>Allowed</header>
+      <header>Rename</header>
+      <header>new_name</header>
+      <header>previous_name</header>
+      <header>Reorder</header>
+      <header>+x</header>
+      <header>-x</header>
+      <header>Move</header>
+      <header>folder</header>
+      <header>Sort by</header>
+      <header>Manual order</header>
+      <header>Destination_Folder</header>
+      <header>document</header>
+      <header>docs</header>
+      <header>X</header>
+      <header>Rotate</header>
+      <header>start_page</header>
+      <header>end_page</header>
+      <header>rotate_degree</header>
+      <header>next_six</header>
+      <header>doc</header>
+      <header>docType</header>
+      <header>newDocType</header>
+      <header>doc_fol</header>
+      <header>rep_doc</header>
+      <header>bulk_doc</header>
+      <header>bulk_doc2</header>
+      <header>bulk_doc3</header>
+      <header>bulk_doc4</header>
+      <header>bulk_fol</header>
+      <header>label</header>
+      <header>field_name</header>
+      <header>tag</header>
+      <header>del_ws</header>
+    </headers>
+    <rows>
+      <row result="SUCCESS">
+        <value>magnum@opus2international.com</value>
+        <value>p00k!DtLQ</value>
+        <value>user569@opus2.com</value>
+        <value>Happy123</value>
+        <value>123456</value>
+        <value>opus2k4@mailinator.com</value>
+        <value>TsWk</value>
+        <value>Test Automation Framework</value>
+        <value>TAF</value>
+        <value>Delete</value>
+        <value>TAF</value>
+        <value>Disable Account</value>
+        <value>Enable 2FA</value>
+        <value>Enable Memorable Word</value>
+        <value>Authenticate with Magnum</value>
+        <value>Authenticate with LDAP</value>
+        <value>C:\Users\misele\UD\testDoc.pdf</value>
+        <value>DST</value>
+        <value>DMT</value>
+        <value>Export</value>
+        <value>DST</value>
+        <value>testDoc</value>
+        <value>7</value>
+        <value>Demo</value>
+        <value>Properties</value>
+        <value>Closed to new notes</value>
+        <value>Allowed</value>
+        <value>Rename</value>
+        <value>testDoc4</value>
+        <value>testDoc</value>
+        <value>Reorder</value>
+        <value>-4</value>
+        <value>6</value>
+        <value>Move</value>
+        <value>Test</value>
+        <value>Sort by</value>
+        <value>Manual order</value>
+        <value>DST</value>
+        <value>recentDoc32</value>
+        <value>testDoc03</value>
+        <value>4</value>
+        <value>Rotate</value>
+        <value>25</value>
+        <value>30</value>
+        <value>rotate_degree</value>
+        <value>5</value>
+        <value>testDoc04</value>
+        <value>DTypeTest</value>
+        <value>DTypeTest</value>
+        <value>CSV</value>
+        <value>recentDoc</value>
+        <value>trans</value>
+        <value>doc01</value>
+        <value>doc02</value>
+        <value>repDoc</value>
+        <value>TestDocs</value>
+        <value>LB</value>
+        <value>FN</value>
+        <value>tag3</value>
+        <value>TstWKS</value>
+      </row>
+    </rows>
+  </examples>
+  <test-group name="User Login Stage Another" result="SUCCESS">
+    <screenshots>
+      <screenshot image="05f11d594fe740c826cfbb2289388dc5.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="6381">
+      <screenshots>
+        <screenshot image="47936cb87944977f39b937165ed45186.png"/>
+      </screenshots>
+      <description>Given user is present on Magnum loginpage</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="1252">
+      <screenshots>
+        <screenshot image="d6c0d08aa4fd996252208bbf3c52214e.png"/>
+      </screenshots>
+      <description>When user enter username and password</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="1440">
+      <screenshots>
+        <screenshot image="f928fd59d56c68879a71e80e29a7cfcc.png"/>
+      </screenshots>
+      <description>And click the login button</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="2754">
+      <screenshots>
+        <screenshot image="05f11d594fe740c826cfbb2289388dc5.png"/>
+      </screenshots>
+      <description>Then user should see the second stage of login</description>
+    </test-step>
+  </test-group>
+  <test-group name="User Login Stage Two" result="SUCCESS">
+    <screenshots>
+      <screenshot image="21f0089535ab0cf2e61846684fd41b45.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="3632">
+      <screenshots>
+        <screenshot image="69b17b86510eb333cc773df1b454386d.png"/>
+      </screenshots>
+      <description>Given user is present on Memorable Word page</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="968">
+      <screenshots>
+        <screenshot image="5ac34fe097a1b2237029fa40f92d75be.png"/>
+      </screenshots>
+      <description>When the user enter first memorable character</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="766">
+      <screenshots>
+        <screenshot image="52e17609a431f9b414c35161b1a9bca1.png"/>
+      </screenshots>
+      <description>And second memorable character</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="789">
+      <screenshots>
+        <screenshot image="f89f3cada438c8a437f57bb120cc2639.png"/>
+      </screenshots>
+      <description>And third memorable character</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="5592">
+      <screenshots>
+        <screenshot image="a80b4c2a8667af12d066180551a76931.png"/>
+      </screenshots>
+      <description>And click login button</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="720">
+      <screenshots>
+        <screenshot image="ed683660e1cff71d619e3e46bb3a562b.png"/>
+      </screenshots>
+      <description>Then user should be on the homepage</description>
+    </test-step>
+  </test-group>
+  <test-group name="Select Workspace" result="SUCCESS">
+    <screenshots>
+      <screenshot image="a21cf04abd8c5c5d95a311c7f8d99a5c.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="720">
+      <screenshots>
+        <screenshot image="e3727a02006235f237afa30cbac9445d.png"/>
+      </screenshots>
+      <description>Given the user is on homepage</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="9721">
+      <screenshots>
+        <screenshot image="e55d1e91c5024b93f010067bc0ca481b.png"/>
+      </screenshots>
+      <description>When user select &apos;TAF&apos; workspace</description>
+    </test-step>
+    <test-step result="SUCCESS" duration="1187">
+      <screenshots>
+        <screenshot image="a21cf04abd8c5c5d95a311c7f8d99a5c.png"/>
+      </screenshots>
+      <description>Then user should be on the Documents page</description>
+    </test-step>
+  </test-group>
+  <test-step result="SUCCESS" duration="282">
+    <screenshots>
+      <screenshot image="fb83a134cb1ffbf6bf0ad8650c1e04c0.png"/>
+    </screenshots>
+    <description>When user clicks on New Folder button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="802">
+    <screenshots>
+      <screenshot image="2acd869d816da5d6a48458885d8288ff.png"/>
+    </screenshots>
+    <description>And enters {DST}</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="287">
+    <screenshots>
+      <screenshot image="bacf12864643800a29b7d8284435d295.png"/>
+    </screenshots>
+    <description>And click Create Folder button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5208">
+    <screenshots>
+      <screenshot image="da8ee5dfd66cddf456fbf57bb2ab3536.png"/>
+    </screenshots>
+    <description>Then created folder should be visible on workspace</description>
+  </test-step>
+</acceptance-test-run>

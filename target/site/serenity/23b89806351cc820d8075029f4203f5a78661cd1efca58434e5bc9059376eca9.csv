@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"User login","Select Workspace","SUCCESS","2016-07-01T16:34:12.395+01:00","0.0","6.58"
+"User login","User Login Stage Another","SUCCESS","2016-07-01T16:33:41.014+01:00","0.0","15.39"
+"User login","User Login Stage Two","SUCCESS","2016-07-01T16:33:56.522+01:00","0.0","15.86"
