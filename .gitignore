@@ -1,0 +1,4 @@
+/target/
+TestResults/*
+log
+build.gradle
