@@ -1,7 +1,0 @@
-#org.jbehave.core.embedder.StoryManager
-#Fri Jul 01 16:35:05 BST 2016
-stories/chronology/filter/CreatNewFolder.story=44000
-stories/Login/UserLogin.story=39000
-threads=1
-total=83000
-threadAverage=83000

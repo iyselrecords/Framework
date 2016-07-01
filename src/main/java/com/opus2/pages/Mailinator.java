@@ -32,11 +32,11 @@ public class Mailinator extends PageObject {
 	}
 
 	public void register() {	
-		WebDriver frame = switchTo("publicshowmaildivcontent");		
+		WebDriver frame = switchTo("publicshowmaildivcontent");
+		
 		WebElement button = frame.findElements(By.className("btnMain")).get(0)
 				.findElements(By.tagName("a")).get(0);		
 		button.click();
-		frame.switchTo().defaultContent();
 		
 		action.switchToCurrentWindow(1);
 		util.pause(3);
@@ -45,19 +45,4 @@ public class Mailinator extends PageObject {
 	public WebDriver switchTo(String id){
 		return getDriver().switchTo().frame(id);
 	}
-
-	public void names() {
-		action.inputTextId("fnid", "FN" + action.getTime());
-		action.inputTextId("lnid", "LN" + action.getTime());
-	}
-
-	public void signature() {
-		action.inputTextId("sigid", "SG" + action.getTime());
-	}
-
-	public void question(String id, String answer) {
-		action.inputTextId(id, answer);
-	}
-
-	
 }
