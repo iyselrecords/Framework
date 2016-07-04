@@ -15,12 +15,13 @@ public class LoginPage extends PageObject {
 	Util util;
 	UserAction user;
 	
+	
 	public void initialize() {
 		getDriver().manage().window().maximize();
 		util.pause(1);
 	}
 	public void navigateTo() {
-		getDriver().navigate().to(Config.defaultUrl());
+		getDriver().navigate().to(Configuration.defaultUrl());
 	}
 	public void loginAs(String username) {
 		user.inputTextId("eid", username);
@@ -45,7 +46,7 @@ public class LoginPage extends PageObject {
         else if ((homemain.getSize().height > 390) && ((homemain.getSize().height < 400)))
         {
         	forceLogout();
-        	loginAs(Config.email); withPassword(Config.password);login("submit-login");
+        	loginAs(Configuration.email); withPassword(Configuration.password);login("submit-login");
             //firstStageLogin(username, password);
             return;
         }
@@ -86,7 +87,8 @@ public class LoginPage extends PageObject {
 	
 	public void getCharacter(int index)
     {
-		user.getCharacter(index);	
+		//user.getCharacter(index);
+		user.grabIndex(index);
     }
 
 	public void firstMemorableCharacter() {

@@ -178,7 +178,7 @@ public class Dialog extends PageObject{
 		}
 
 		public static void enterFoldersName(String name) {
-			action.inputText("newFolderDialog_newFolderDialog", name);
+			action.inputText("newFolderDialog_newFolderDialog", (name+action.getTime()));
 		}
 		public static void enterFoldersName() {
 			UserAction.currentValue = "F_" + action.getTime();

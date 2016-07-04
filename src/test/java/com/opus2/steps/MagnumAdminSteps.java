@@ -43,6 +43,9 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	 */
 	
 	//Homepage
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	@Given("the user is on homepage")
@@ -66,10 +69,18 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	}
 		
 	//Admin_02
-	@When("user navigates to Admin page")
-	public void whenUserNavigatesToAdminPage(){
-		user.goTo(Pages.Admin);
+	//@When("user navigates to Admin page")
+	//@Alias("user click the Admin tab")
+	//public void whenUserNavigatesToAdminPage(){
+	//	user.goTo(Pages.Admin);
+	//}
+	
+	@When("user navigates to $Page page")
+	@Alias("user click the $Page tab")
+	public void whenUserGoToAdminPage(Pages page){
+		user.goTo(page);
 	}
+	
 	@When("clicks on 'Manage Workspaces' link")	
 	public void andClicksOnManageWorkspacesLink(){
 		admin.select(SideMenu.ManageWorkspaces);
@@ -682,11 +693,11 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 	}
 		
 	@Then("user pause for $min sec")
-	public void thenUsersPauseforMinute(int min){
+	public void thenUsersPauseforSeconds(int min){
 		util.pause(min); 
 	}
-	@When("user pause for $min min")
-	public void whenUsersPauseforMinute(int min){
+	@When("user pause for $min sec")
+	public void whenUsersPauseforSeconds(int min){
 		util.pause(min); 
 	}
 	@Given("user is present on '$page' page")
@@ -724,4 +735,15 @@ public class MagnumAdminSteps extends ScenarioSteps  {
 		util.pause(5);
 	}
 	
+	
+	//Go To A Page
+	@Given("user is present on $page page")
+	public void givenUserIsPresentOnAPage(String page){
+		util.pause(1);
+	}
+	@Then("user is present on $page page")
+	public void thenUserIsPresentOnAdminPage(String page){
+		//assert
+		util.pause(1);
+	}
 }

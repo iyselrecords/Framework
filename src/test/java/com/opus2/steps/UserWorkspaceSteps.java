@@ -9,7 +9,7 @@ import org.jbehave.core.annotations.When;
 
 import com.opus2.enums.Pages;
 import com.opus2.enums.UserWorkspaceOption;
-import com.opus2.pages.Config;
+import com.opus2.pages.Configuration;
 import com.opus2.pages.Home;
 import com.opus2.pages.UserAction;
 import com.opus2.pages.UserWorkspaces;
@@ -118,8 +118,8 @@ public class UserWorkspaceSteps  extends ScenarioSteps {
 	
 	@When("admin selects a user")
 	public void whenAdminSelectsAuser() throws IOException{
-		userWorkspace.findUser(Config.email);
-		userWorkspace.selectUser(Config.email);
+		userWorkspace.findUser(Configuration.email);
+		userWorkspace.selectUser(Configuration.email);
 	}
 	@When("admin selects a '$user'")
 	public void whenAdminsSelectsAuser(String user){

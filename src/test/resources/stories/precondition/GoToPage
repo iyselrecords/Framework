@@ -1,0 +1,6 @@
+Naviagte To A Page
+
+Scenario: Naviagte To A Page
+Given user is present on Any page
+When user click the Page tab
+Then user is present on That page

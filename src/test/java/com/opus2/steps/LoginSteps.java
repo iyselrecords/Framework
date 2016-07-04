@@ -12,7 +12,7 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import com.opus2.enums.Pages;
-import com.opus2.pages.Config;
+import com.opus2.pages.Configuration;
 import com.opus2.pages.Home;
 import com.opus2.pages.LoginPage;
 import com.opus2.pages.UserAction;
@@ -51,8 +51,8 @@ public class LoginSteps extends ScenarioSteps {
 	}	
 	@When("user enter username and password")
 	public void whenTheUserEnterUsernameAndPassword() throws IOException{		
-		login.loginAs(Config.email);
-		login.withPassword(Config.password);
+		login.loginAs(Configuration.email);
+		login.withPassword(Configuration.password);
 	}
 	@When("click the login button")
 	public void whenClickTheLoginButton(){
@@ -64,8 +64,7 @@ public class LoginSteps extends ScenarioSteps {
 	}
 	
 	//UserLogin Stage 2
-	@Given("user is present on Memorable Word page")
-	@Alias("checks session using username and password")
+	@Given("confirm session")
 	public void givenTheUserIsOnLoginMemorableWordPage() throws IOException{
 		login.checkSession();
 	}

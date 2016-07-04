@@ -2,7 +2,6 @@ C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\UserAction.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\Documents.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\enums\UserWorkspaceOption.java
-C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\Config.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\enums\UserActivity.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\Mailinator.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\util\Util.java
@@ -14,6 +13,7 @@ C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\util\Constants.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\enums\Pages.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\Transcripts.java
+C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\Configuration.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\UploadDialog.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\pages\Chronology.java
 C:\Users\misele\Documents\GitHub\serenity-bdd-functional-tests\src\main\java\com\opus2\enums\TranscriptOptions.java

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.opus2.magnum.AcceptanceTestSuite" time="80.022" tests="26" errors="0" skipped="0" failures="0">
+<testsuite name="com.opus2.magnum.AcceptanceTestSuite" time="234.577" tests="81" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_91\jre\bin"/>
@@ -62,30 +62,85 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="BeforeStories" classname="java.lang.Object" time="0.263"/>
-  <testcase name="Given user is present on Magnum loginpage" classname="com.opus2.steps.LoginSteps" time="7.508"/>
-  <testcase name="When user enter username and password" classname="com.opus2.steps.LoginSteps" time="0.746"/>
-  <testcase name="And click the login button" classname="com.opus2.steps.LoginSteps" time="0.287"/>
-  <testcase name="Then user should see the second stage of login" classname="com.opus2.steps.LoginSteps" time="2.002"/>
-  <testcase name="Scenario: User Login Stage Another" classname="Scenario: User Login Stage Another" time="2.752"/>
-  <testcase name="Given user is present on Memorable Word page" classname="com.opus2.steps.LoginSteps" time="2.641"/>
-  <testcase name="When the user enter first memorable character" classname="com.opus2.steps.LoginSteps" time="0.813"/>
-  <testcase name="And second memorable character" classname="com.opus2.steps.LoginSteps" time="0.492"/>
-  <testcase name="And third memorable character" classname="com.opus2.steps.LoginSteps" time="0.868"/>
-  <testcase name="And click login button" classname="com.opus2.steps.LoginSteps" time="3.631"/>
-  <testcase name="Then user should be on the homepage" classname="com.opus2.steps.LoginSteps" time="0.498"/>
-  <testcase name="Scenario: User Login Stage Two" classname="Scenario: User Login Stage Two" time="0.846"/>
-  <testcase name="Given the user is on homepage" classname="com.opus2.steps.MagnumAdminSteps" time="0.529"/>
-  <testcase name="When user select &apos;TAF&apos; workspace" classname="com.opus2.steps.MagnumAdminSteps" time="4.124"/>
-  <testcase name="Then user should be on the Documents page" classname="com.opus2.steps.MagnumAdminSteps" time="1.002"/>
-  <testcase name="Scenario: Select Workspace" classname="Scenario: Select Workspace" time="1.203"/>
-  <testcase name="UserLogin.story" classname="UserLogin.story" time="1.346"/>
-  <testcase name="When user clicks on New Folder button" classname="com.opus2.steps.MagnumAdminSteps" time="37.156"/>
-  <testcase name="And enters &lt;folder_name&gt;" classname="com.opus2.steps.MagnumAdminSteps" time="0.083"/>
-  <testcase name="And click Create Folder button" classname="com.opus2.steps.MagnumAdminSteps" time="0.616"/>
-  <testcase name="Then created folder should be visible on workspace" classname="com.opus2.steps.MagnumAdminSteps" time="0.079"/>
-  <testcase name="Then created folder should be visible on workspace" classname="com.opus2.steps.MagnumAdminSteps" time="5.006"/>
-  <testcase name="Scenario: Verify Creating New Folder" classname="Scenario: Verify Creating New Folder" time="5.209"/>
-  <testcase name="CreatNewFolder.story" classname="CreatNewFolder.story" time="5.325"/>
-  <testcase name="AfterStories" classname="java.lang.Object" time="0.003"/>
+  <testcase name="BeforeStories" classname="java.lang.Object" time="0.134"/>
+  <testcase name="Scenario: " classname="Scenario: " time="0.084"/>
+  <testcase name="VariableExamples.story" classname="VariableExamples.story" time="0.261"/>
+  <testcase name="CreatingNewEntryList.story" classname="CreatingNewEntryList.story" time="40.086"/>
+  <testcase name="CreatingNewEntryList.story" classname="CreatingNewEntryList.story" time="1.324"/>
+  <testcase name="Given user is present on Documents page" classname="com.opus2.steps.MagnumAdminSteps" time="1.014"/>
+  <testcase name="When user click the Chronology tab" classname="com.opus2.steps.MagnumAdminSteps" time="2.504"/>
+  <testcase name="Then user is present on Chronology page" classname="com.opus2.steps.MagnumAdminSteps" time="1.011"/>
+  <testcase name="Scenario: Naviagte To Chronology Page" classname="Scenario: Naviagte To Chronology Page" time="1.204"/>
+  <testcase name="Given user is present on Chronology page" classname="com.opus2.steps.MagnumAdminSteps" time="1.023"/>
+  <testcase name="When user click on New Entry button" classname="com.opus2.steps.ChronologySteps" time="0.088"/>
+  <testcase name="Then a new chronology entry is created" classname="com.opus2.steps.ChronologySteps" time="1.003"/>
+  <testcase name="Scenario: Creating New Entry List" classname="Scenario: Creating New Entry List" time="1.207"/>
+  <testcase name="OpenFilterDialog.story" classname="OpenFilterDialog.story" time="27.151"/>
+  <testcase name="OpenFilterDialog.story" classname="OpenFilterDialog.story" time="1.337"/>
+  <testcase name="Given user is present on Documents page​" classname="com.opus2.steps.MagnumAdminSteps" time="1.007"/>
+  <testcase name="When user click the Chronology tab​" classname="com.opus2.steps.MagnumAdminSteps" time="1.829"/>
+  <testcase name="Then user is present on Chronology page​" classname="com.opus2.steps.MagnumAdminSteps" time="1.001"/>
+  <testcase name="Scenario: Naviagte To Chronology Page​" classname="Scenario: Naviagte To Chronology Page​" time="1.211"/>
+  <testcase name="Given user is present on Chronology page​" classname="com.opus2.steps.MagnumAdminSteps" time="0.998"/>
+  <testcase name="When user click the Filter button" classname="com.opus2.steps.ChronologySteps" time="0.068"/>
+  <testcase name="Then the Filter Dialog is display" classname="com.opus2.steps.ChronologySteps" time="1.003"/>
+  <testcase name="Scenario: Open Filter Dialog" classname="Scenario: Open Filter Dialog" time="1.212"/>
+  <testcase name="Given user is present on Magnum loginpage" classname="com.opus2.steps.LoginSteps" time="4.999"/>
+  <testcase name="When user enter username and password" classname="com.opus2.steps.LoginSteps" time="0.259"/>
+  <testcase name="And click the login button" classname="com.opus2.steps.LoginSteps" time="0.06"/>
+  <testcase name="Then user should see the second stage of login" classname="com.opus2.steps.LoginSteps" time="2.001"/>
+  <testcase name="Scenario: User Login Stage One" classname="Scenario: User Login Stage One" time="2.613"/>
+  <testcase name="Given user is present on Memorable Word page" classname="com.opus2.steps.MagnumAdminSteps" time="1.007"/>
+  <testcase name="And check session status" classname="com.opus2.steps.LoginSteps" time="1.955"/>
+  <testcase name="When the user enter first memorable character" classname="com.opus2.steps.LoginSteps" time="0.188"/>
+  <testcase name="And second memorable character" classname="com.opus2.steps.LoginSteps" time="0.16"/>
+  <testcase name="And third memorable character" classname="com.opus2.steps.LoginSteps" time="0.13"/>
+  <testcase name="And click login button" classname="com.opus2.steps.LoginSteps" time="2.699"/>
+  <testcase name="Then user should be on the homepage" classname="com.opus2.steps.LoginSteps" time="0.5"/>
+  <testcase name="Scenario: User Login Stage Two" classname="Scenario: User Login Stage Two" time="0.718"/>
+  <testcase name="Given the user is on homepage" classname="com.opus2.steps.MagnumAdminSteps" time="0.507"/>
+  <testcase name="When user select &apos;TAF&apos; workspace" classname="com.opus2.steps.MagnumAdminSteps" time="3.351"/>
+  <testcase name="Then user should be on the Documents page" classname="com.opus2.steps.MagnumAdminSteps" time="1.009"/>
+  <testcase name="Scenario: Select Workspace" classname="Scenario: Select Workspace" time="1.224"/>
+  <testcase name="LogInToMagnum.story" classname="LogInToMagnum.story" time="1.228"/>
+  <testcase name="When user clicks on New Folder button" classname="com.opus2.steps.MagnumAdminSteps" time="27.513"/>
+  <testcase name="And enters &lt;folder_name&gt;" classname="com.opus2.steps.MagnumAdminSteps" time="0.074"/>
+  <testcase name="And click Create Folder button" classname="com.opus2.steps.MagnumAdminSteps" time="0.623"/>
+  <testcase name="Then created folder should be visible on workspace" classname="com.opus2.steps.MagnumAdminSteps" time="0.069"/>
+  <testcase name="Then created folder should be visible on workspace" classname="com.opus2.steps.MagnumAdminSteps" time="5.004"/>
+  <testcase name="Scenario: Verify Creating New Folder" classname="Scenario: Verify Creating New Folder" time="5.189"/>
+  <testcase name="CreatNewFolder.story" classname="CreatNewFolder.story" time="5.302"/>
+  <testcase name="CreatingNewRole.story" classname="CreatingNewRole.story" time="26.632"/>
+  <testcase name="CreatingNewRole.story" classname="CreatingNewRole.story" time="2.22"/>
+  <testcase name="Given user is present on Documents page​​" classname="com.opus2.steps.MagnumAdminSteps" time="1.003"/>
+  <testcase name="When user click the Admin tab" classname="com.opus2.steps.MagnumAdminSteps" time="2.473"/>
+  <testcase name="Then user is present on Admin page" classname="com.opus2.steps.MagnumAdminSteps" time="0.997"/>
+  <testcase name="Scenario: Naviagte To Admin Page" classname="Scenario: Naviagte To Admin Page" time="1.231"/>
+  <testcase name="Given user is present on Admin page" classname="com.opus2.steps.MagnumAdminSteps" time="1.007"/>
+  <testcase name="When user click on link sidemenu" classname="com.opus2.steps.CapabilitiesSteps" time="0.689"/>
+  <testcase name="And click on New Role button" classname="com.opus2.steps.CapabilitiesSteps" time="0.65"/>
+  <testcase name="And enter Role&apos;s RL" classname="com.opus2.steps.CapabilitiesSteps" time="1.186"/>
+  <testcase name="And set General capabilities" classname="com.opus2.steps.CapabilitiesSteps" time="0.743"/>
+  <testcase name="And set Documents capabilities" classname="com.opus2.steps.CapabilitiesSteps" time="0.126"/>
+  <testcase name="And set Transcripts capabilities" classname="com.opus2.steps.CapabilitiesSteps" time="0.189"/>
+  <testcase name="And set Chronology capabilities" classname="com.opus2.steps.CapabilitiesSteps" time="0.213"/>
+  <testcase name="And set Exporting capabilities" classname="com.opus2.steps.CapabilitiesSteps" time="0.214"/>
+  <testcase name="And save changes" classname="com.opus2.steps.CapabilitiesSteps" time="1.42"/>
+  <testcase name="Then new Role is created with ability to choose its capabilities" classname="com.opus2.steps.CapabilitiesSteps" time="2.002"/>
+  <testcase name="Scenario: Verify Creating New Role" classname="Scenario: Verify Creating New Role" time="2.215"/>
+  <testcase name="FilteringEntriesWithoutDescription.story" classname="FilteringEntriesWithoutDescription.story" time="27.498"/>
+  <testcase name="FilteringEntriesWithoutDescription.story" classname="FilteringEntriesWithoutDescription.story" time="3.193"/>
+  <testcase name="Given user is present on Documents page​​​" classname="com.opus2.steps.MagnumAdminSteps" time="1.005"/>
+  <testcase name="When user click the Chronology tab​​" classname="com.opus2.steps.MagnumAdminSteps" time="1.813"/>
+  <testcase name="Then user is present on Chronology page​​" classname="com.opus2.steps.MagnumAdminSteps" time="1.001"/>
+  <testcase name="Scenario: Naviagte To Chronology Page​​" classname="Scenario: Naviagte To Chronology Page​​" time="1.202"/>
+  <testcase name="Given user is present on Chronology page​​" classname="com.opus2.steps.MagnumAdminSteps" time="1.002"/>
+  <testcase name="When user click the Filter button​" classname="com.opus2.steps.ChronologySteps" time="0.064"/>
+  <testcase name="Then the Filter Dialog is display​" classname="com.opus2.steps.ChronologySteps" time="1.001"/>
+  <testcase name="Scenario: Open Filter Dialog​" classname="Scenario: Open Filter Dialog​" time="1.232"/>
+  <testcase name="Given the filter dialog is visible" classname="com.opus2.steps.ChronologySteps" time="1.005"/>
+  <testcase name="When user click &apos;Item without description&apos; checkbox" classname="com.opus2.steps.ChronologySteps" time="0.069"/>
+  <testcase name="Then only entries without description are display" classname="com.opus2.steps.ChronologySteps" time="3.004"/>
+  <testcase name="Scenario: Verify Filtering Entries Without Description" classname="Scenario: Verify Filtering Entries Without Description" time="3.188"/>
+  <testcase name="AfterStories" classname="java.lang.Object" time="0.026"/>
 </testsuite>

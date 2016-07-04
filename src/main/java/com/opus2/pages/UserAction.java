@@ -31,7 +31,6 @@ public class UserAction extends PageObject {
 	Util util;
 	public static String currentValue;
 	
-	
 
 	/*
 	 * Overloaded Click Methods
@@ -115,7 +114,39 @@ public class UserAction extends PageObject {
 	private void enterCharacter(String character, int index) {
 		WebElement topLevel = getDriver().findElement(By.id("eid" + index));
         topLevel.sendKeys(character);
-        //util.pause(0.2);
+	}
+	
+	public void grabIndex(int index){
+		WebElement topLevel = getDriver().findElement(By.id("formMemWord"));
+        List <WebElement> characters = topLevel.findElements(By.tagName("tr"));
+        
+        for (int i = 0; i < characters.size()-1; i++)
+        {
+        	if (i == index)
+            {
+            	String label = characters.get(i).findElements(By.className("white"))
+            			.get(0).getText();
+                inputMemorableWord(label.substring(6, 7), (i+1));
+                break;
+            }
+        }
+	}
+	
+	private void inputMemorableWord(String character, int index) {
+		WebElement topLevel = getDriver().findElement(By.id("eid" + index));		
+		if(character.equals("1")){
+			topLevel.sendKeys(Configuration.first);
+		}else if(character.equals("2")){
+			topLevel.sendKeys(Configuration.second);
+		}else if(character.equals("3")){
+			topLevel.sendKeys(Configuration.third);
+		}else if(character.equals("4")){
+			topLevel.sendKeys(Configuration.fourth);
+		}else if(character.equals("5")){
+			topLevel.sendKeys(Configuration.fifth);
+		}else if(character.equals("6")){
+			topLevel.sendKeys(Configuration.sixth);
+		}
 	}
 	
 	

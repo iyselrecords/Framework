@@ -2,12 +2,12 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="+user"
+SET META_FILTER="-login+ch_002"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...
 IF exist %PROJECT_DIR%\%TEST_RESULTS%  DEL /S /Q /F %PROJECT_DIR%\%TEST_RESULTS% | echo > NUL
-echo Removing previous test results Done...........
+echo done.....
 
  
 MD %PROJECT_DIR%\%TEST_RESULTS%\site\serenity
@@ -39,3 +39,4 @@ CALL mvn verify
 XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
 echo Done
 START %PROJECT_DIR%\%TEST_RESULTS%\site\serenity\index.html
+

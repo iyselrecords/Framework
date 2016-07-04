@@ -1,5 +1,7 @@
 package com.opus2.steps;
 
+import org.jbehave.core.annotations.Alias;
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
@@ -36,21 +38,18 @@ public class ChronologySteps extends ScenarioSteps  {
 	public void thenChronologyPageOpensCorrectly(){
 		util.pause(0.5);
 	}
-/*
-	@When("clicks on New Entry button")
-	public void andClicksOnNewEntryButton(){
+
+	@When("user click on New Entry button")
+	@Alias("user clicks on New Entry button")
+	public void whenUserClickOnNewEntryButton(){
 		chronology.newEntry();
 	}
-	@When("user clicks on New Entry button")
-	public void whenUserClicksOnNewEntryButton(){
-		chronology.newEntry();
-	}
-	@Then("a new blank entry will appear in the list")
-	public void thenANewBlankEntryWillAppearInTheList(){
-		util.wait(1);
+	@Then("a new chronology entry is created")
+	public void thenANewChronologyEntryIsCreated(){
+		util.pause(1);
 		//assert list count;
 	}
-	
+/*	
 	//CH_004
 	@When("select Entry from the list")
 	public void andSelectEntryFromTheList(){
@@ -144,24 +143,29 @@ public class ChronologySteps extends ScenarioSteps  {
 
 	
 	//CHf_01
-	@When("user click on the Filter button")
+	@When("user click the Filter button")
+	@Alias("click the Filter button")
 	public void whenUserClickOnTheFilterButton(){
 		chronology.filter();
 	}
-	@Then("the Filter Dialog is visible")
-	public void thenTheFilterDialogIsVisible(){
+	@Then("the Filter Dialog is display")
+	public void thenTheFilterDialogIsDisplay(){
 		util.pause(1);
 	}
 	
 	////CHf_02
+	@Given("the filter dialog is visible")
+	public void givenTheFilterDialogIsVisible(){
+		util.pause(1);
+	}
 	@SuppressWarnings("static-access")
-	@When("user clicks 'Item without description' checkbox")
+	@When("user click 'Item without description' checkbox")
 	public void whenUserClicksItemWithoutDescriptionCheckbox(){
 		dialog.chronologyFilter.itemsWithoutDescription();
 	}
-	@Then("only entries without description are visible")
-	public void thenOnlyEntriesWithoutDescriptionAreVisible(){
-		user.clickAction("docscontrols.Filter");
+	@Then("only entries without description are display")
+	public void thenOnlyEntriesWithoutDescriptionAreDisplay(){
+		//user.clickAction("docscontrols_Filter");
 		util.pause(3);
 	}
 	

@@ -7,10 +7,10 @@ com\opus2\enums\UserWorkspaceOption.class
 com\opus2\pages\Dialog$Relationships.class
 com\opus2\pages\Dialog$SortOrder.class
 com\opus2\pages\Dialog$ReplaceDocument.class
-com\opus2\pages\Config.class
 com\opus2\pages\Dialog$ImportDesignations.class
 com\opus2\pages\Dialog$SelectDocumentTags.class
 com\opus2\enums\Pages.class
+com\opus2\pages\Admin$Roles.class
 com\opus2\pages\Dialog$NewFolder.class
 com\opus2\pages\Mailinator.class
 com\opus2\enums\ToolsOption.class
@@ -38,6 +38,7 @@ com\opus2\pages\Dialog$NewTag.class
 com\opus2\enums\SideMenu.class
 com\opus2\pages\Dialog$ChronologyFilter.class
 com\opus2\pages\Dialog$ExportTranscript.class
+com\opus2\pages\Admin$Users.class
 com\opus2\pages\Dialog$ManageDesignationsAndComments.class
 com\opus2\enums\ChronologyType.class
 com\opus2\pages\Dialog$AddUsers.class
@@ -56,6 +57,7 @@ com\opus2\pages\UserAction.class
 com\opus2\pages\Dialog$EditTag.class
 com\opus2\pages\Dialog$NewDesignation.class
 com\opus2\pages\Admin$MonitorActivity.class
+com\opus2\pages\Configuration.class
 com\opus2\pages\Dialog$PageRotation.class
 com\opus2\pages\Dialog$SelectNoteTags.class
 com\opus2\pages\Dialog$LiveUser.class

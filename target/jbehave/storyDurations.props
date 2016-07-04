@@ -1,7 +1,12 @@
 #org.jbehave.core.embedder.StoryManager
-#Fri Jul 01 16:35:05 BST 2016
-stories/chronology/filter/CreatNewFolder.story=44000
-stories/Login/UserLogin.story=39000
+#Mon Jul 04 09:51:13 BST 2016
+stories/capability/CreatingNewRole.story=45000
+stories/chronology/filter/FilteringEntriesWithoutDescription.story=40000
+stories/chronology/CreatingNewEntryList.story=49000
+stories/chronology/filter/OpenFilterDialog.story=35000
+stories/magnumAdmin/CreatNewFolder.story=35000
+stories/precondition/LogInToMagnum.story=27000
+total=231000
+VariableExamples.story=0
+threadAverage=231000
 threads=1
-total=83000
-threadAverage=83000

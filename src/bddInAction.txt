@@ -1,0 +1,52 @@
+This Scenario does a much better job of foccsuing on the business actions that you're describing. A scenario should only contain information by the scenario; anything else is a waste.
+
+notes:
+5.4.3 Writting expressive then steps:
+1. 	This is more of a test script than a description of a behavior, which is very much a BDD
+	anti-pattern. Scenarios written this way communicate poorly and are hard to maintain
+	because they’re very tightly coupled to the implementation.
+		TIP Good scenarios are declarative, not imperative. They describe the requirements
+		in terms of what a feature should do, not how it should do it.
+
+	Once again, you can simplify this scenario by removing UI-specific implementation
+	details and data that the business doesn’t really care about. Doing this, you could write
+	a much cleaner version of the scenario along the following lines:
+
+2. 	Using Background
+	High-level scenarios like this give a much better picture of why you need to implement
+	a feature, and what sort of things you’ll value in it. Scenarios like this are highly maintainable,
+	because the business scenario you’re describing is much less likely to change
+	than, for example, the user interface you’d build to deliver this feature.
+
+
+Pages 154.
+
+
+Automating scenarios in Java with JBehave
+
+Installing and setting up JBehave
+1. Use Maven Build Tool
+2. JBehave to look for feature files in the src/test/resources directory of your project (or in subdirectories of
+   this directory).
+3. The AcceptanceTestSuite class is a test runner that will execute all of the scenarios
+   in the feature files.
+4. Run individual story using class placed in the same directory
+
+
+6.4.2	JBehave step definitions
+1. JBehave step definitions are just annotated Java6 methods that live in ordinary Java classes
+2. JBehave lets you pass parameters to your step definitions by putting placeholder variables at the appropriate spots in the annotation text
+3. JBehave lets you pass parameters to your step definitions by putting placeholder variables at the appropriate spots in the annotation text
+4. 
+
+6.4.3	Sharing data between steps
+1.  
+2. 
+3. 
+
+
+6.4.6 Pattern variants
+1. 
+2. 
+3. 
+
