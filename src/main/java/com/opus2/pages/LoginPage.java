@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import com.opus2.core.configuration.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.User;
-
 public class LoginPage extends Page {
 	
 	@FindBy(id="eid")
@@ -22,14 +21,17 @@ public class LoginPage extends Page {
 	public LoginPage(WebDriver driver) {
 		super(driver);
 	}
-
+	public Page view(){
+		this.openAt(Configuration.getInstance().loginUrl);
+		return this;
+	}
 	public void authenticateSuccessFully() {
-		User user = Configuration.getSelectedUser();
+		User user = Configuration.getInstance().getSelectedUser();
 		nameField.sendKeys(user.getEmail());
 		passwordField.sendKeys(user.getPassword());
 	}
     public void loginAsUser(User user){
-    	Configuration.selectedUser = user;
+    	Configuration.getInstance().setUser(user);
     	authenticateSuccessFully();
     }
 	

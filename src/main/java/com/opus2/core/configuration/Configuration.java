@@ -74,6 +74,7 @@ public final class Configuration {
 			file.load(testData);
 
 			Configuration.baseUrl =  file.getProperty(BASE_URL).concat(file.getProperty(CODEBASE));
+			
 			//urls
 			Configuration.loginUrl =  Configuration.baseUrl.concat(file.getProperty("loginUrl"));
 			Configuration.memorableWordUrl = Configuration.baseUrl.concat(file.getProperty("memorableWordUrl"));
@@ -144,7 +145,9 @@ public final class Configuration {
 	}
 
 	public static  User getSelectedUser() { 
-		getInstance();
-		return Configuration.selectedUser;
+		return getInstance().selectedUser;
+	}
+	public static void setUser(User user){
+		 getInstance().selectedUser = user;
 	}
 }

@@ -8,10 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.opus2.core.configuration.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.components.home.CasesSelection;
 
-import net.thucydides.core.annotations.WhenPageOpens;
 
 public class Home extends Page {
 	private static final String HOME_ID = "homemain";
@@ -28,11 +28,6 @@ public class Home extends Page {
 		cases = new CasesSelection(driver);
 	}
 	
-	@WhenPageOpens
-    public void waitUntilTitleAppears() {
-        element(me).waitUntilVisible();
-    }
-	
 	public void makeWorkspace(String title , String description){
 		
 	}
@@ -43,6 +38,12 @@ public class Home extends Page {
 	public AdminUsersPage manageUsers(){
 		manageUsersBtn.click();
 		return new AdminUsersPage(driver);
+	}
+
+	@Override
+	public Page view() {
+		this.openAt(Configuration.getInstance().homeUrl);
+		return null;
 	}
 	
 }

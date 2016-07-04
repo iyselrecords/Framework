@@ -18,4 +18,5 @@ public abstract class Page extends PageObject{
 	 super(driver);
 	 this.driver = driver;
  }
+ public abstract Page view();
 }
