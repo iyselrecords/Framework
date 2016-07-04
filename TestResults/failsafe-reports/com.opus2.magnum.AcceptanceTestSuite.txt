@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.opus2.magnum.AcceptanceTestSuite
--------------------------------------------------------------------------------
-Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 242.171 sec - in com.opus2.magnum.AcceptanceTestSuite

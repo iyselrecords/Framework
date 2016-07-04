@@ -1,7 +1,7 @@
-com\opus2\steps\UserWorkspaceSteps.class
-com\opus2\steps\ChronologySteps.class
-com\opus2\steps\MagnumAdminSteps.class
-com\opus2\steps\Initialize.class
-com\opus2\steps\CapabilitiesSteps.class
-com\opus2\steps\LoginSteps.class
-com\opus2\magnum\AcceptanceTestSuite.class
+com/opus2/steps/UserWorkspaceSteps.class
+com/opus2/magnum/AcceptanceTestSuite.class
+com/opus2/steps/CapabilitiesSteps.class
+com/opus2/steps/LoginSteps.class
+com/opus2/steps/MagnumAdminSteps.class
+com/opus2/steps/Initialize.class
+com/opus2/steps/ChronologySteps.class

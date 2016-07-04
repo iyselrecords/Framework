@@ -1,4 +1,5 @@
-/target/
-TestResults/*
+**/target/*
+**/TestResults/*
 log
 build.gradle
+.classpath
