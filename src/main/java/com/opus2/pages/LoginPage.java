@@ -10,6 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import com.opus2.core.configuration.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.User;
+
+import net.serenitybdd.core.Serenity;
+
 public class LoginPage extends Page {
 	
 	@FindBy(id="eid")
@@ -18,8 +21,7 @@ public class LoginPage extends Page {
 	WebElement passwordField;
 	@FindBy(id="submit-login")
 	WebElement submitButton;
-	public LoginPage(WebDriver driver) {
-		super(driver);
+	public LoginPage() {
 	}
 	public Page view(){
 		this.openAt(Configuration.getInstance().loginUrl);
@@ -36,6 +38,7 @@ public class LoginPage extends Page {
     }
 	
 	private void forceLogout() {
+		WebDriver driver = Serenity.getWebdriverManager().getCurrentDriver();
         WebElement forceLogoutChkBox = driver.findElement(By.id("breakid"));
         forceLogoutChkBox.click();
 	}

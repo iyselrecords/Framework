@@ -8,40 +8,41 @@ Login must not be successful unless the conditions outlined above have been met
 If at any stage of process the user makes an error they must be informed of this mistake and the process reset
 
 Background: if the user is registered and has an active account they must beable to login
-
+Meta:
+@issue #Login
 Scenario: Enter Correct User Details And Password 
 
-Given the <User> is present on the <Login_Page>
-When the <User> authenticates successfully
+Given that a user is present on the login page
+When the user authenticates successfully
 Then they must be navigated to the <Memorable_Word_Page>
 
 
 Scenario: Enter Incorrect User Details And Correct Password
 
-Given the <User> is present on the <Login_Page>
-When the <User> fails to authenticate due to bad email
-Then they must be notified that the <Incorrect_Details> have been entered
+Given that a user is present on the login page
+When the user fails to authenticate due to bad email
+Then they must be notified for their error
 And the process reset 
 
 Scenario: Enter Correct User Details And Incorrect Password
 
-Given the <User> is present on the <Login_Page>
-When the <User> fails to authenticate due to bad password
-Then they must be notified that the <Incorrect_Details> have been entered
+Given that a user is present on the login page
+When the user fails to authenticate due to bad password
+Then they must be notified for their error
 And the process reset 
 
 Scenario: Enter Correct Characters Of Memorable Word
 
-Given the <User> is present on the <Memorable_Word_Page>
-When the <User> fills the memorable word options correctly
-Then they must be navigated to the <Home_Page>
+Given that a user is present on the memorableword page
+When the user fills the memorable word options correctly
+Then they must be navigated to the home page
 
 
 Scenario: Enter Incorrect Characters Of Memorable Word
 
-Given the <User> is present on the <Memorable_Word_Page>
-When the <User> fills the memorable word options incorrectly
-Then they must be notified that the <Memorable_Word> was incorrect
+Given the user is present on the memorableword page
+When the user fills the memorable word options incorrectly
+Then they must be notified that the memorableword was incorrect
 And the process reset
 
 

@@ -25,6 +25,7 @@ public final class Configuration {
 	public static String baseUrl;
 	public static String loginUrl;
 	public static String disclaimerUrl;
+	public static String memorableWordUrl;
 	public static String homeUrl;
 	public static String documentsUrl;
 	public static String transcriptsUrl;
@@ -48,7 +49,7 @@ public final class Configuration {
 	private static Configuration config;
 
 	private static String selectedId;
-	private static String memorableWordUrl;
+	
 
 
 	public static synchronized Configuration getInstance() {

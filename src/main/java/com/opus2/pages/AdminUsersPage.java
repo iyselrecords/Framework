@@ -7,8 +7,8 @@ import com.opus2.util.Page;
 
 public class AdminUsersPage extends Page {
 
-	public AdminUsersPage(WebDriver driver) {
-		super(driver);
+	public AdminUsersPage() {
+		
 	}
 
 	@Override

@@ -12,6 +12,8 @@ import com.opus2.core.configuration.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.components.home.CasesSelection;
 
+import net.serenitybdd.core.Serenity;
+
 
 public class Home extends Page {
 	private static final String HOME_ID = "homemain";
@@ -22,8 +24,8 @@ public class Home extends Page {
 	@FindBy(id=MANAGE_USERS_ID)
 	private WebElement manageUsersBtn;
 	private CasesSelection cases;
-	public Home(WebDriver driver){
-		super(driver);
+	public Home(){
+		WebDriver driver = Serenity.getWebdriverManager().getCurrentDriver();
 		me = driver.findElement(By.id(HOME_ID));
 		cases = new CasesSelection(driver);
 	}
@@ -37,7 +39,7 @@ public class Home extends Page {
 	
 	public AdminUsersPage manageUsers(){
 		manageUsersBtn.click();
-		return new AdminUsersPage(driver);
+		return new AdminUsersPage();
 	}
 
 	@Override

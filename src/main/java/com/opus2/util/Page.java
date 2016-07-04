@@ -13,10 +13,7 @@ import net.serenitybdd.core.pages.PageObject;
 public abstract class Page extends PageObject{
  protected WebElement me;
  List<Component> elements = new ArrayList<Component>();
- protected WebDriver driver;
- public Page(WebDriver driver){
-	 super(driver);
-	 this.driver = driver;
+ public Page(){
  }
  public abstract Page view();
 }
