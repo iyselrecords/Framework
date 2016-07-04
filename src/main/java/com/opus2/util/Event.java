@@ -6,17 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.opus2.enums.ChronologyType;
-import com.opus2.enums.UserActivity;
-import com.opus2.enums.UsersCap;
-import com.opus2.pages.UserAction;
-
 import net.thucydides.core.pages.PageObject;
 
 public class Event extends PageObject{
-	public WebDriver driver = getDriver();
+	//DEprecated
+/*	public WebDriver driver = getDriver();
 	Util util;
-	UserAction action;
+	
 
 	public void selectDocumentType(String documentType) {
 		WebElement topLevel = getDriver().findElement(By.id("settingsmain"));
@@ -215,5 +211,5 @@ public class Event extends PageObject{
 		util.pause(1);
 	}
 
-	
+	*/
 }
