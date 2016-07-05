@@ -1,6 +1,4 @@
-package com.opus2.pages;
-
-import java.io.IOException;
+package com.opus2.pages.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,26 +21,34 @@ public class LoginPage extends Page {
 	WebElement submitButton;
 	public LoginPage() {
 	}
-	public Page view(){
-		this.openAt(Configuration.getInstance().loginUrl);
+	@Override
+  public Page view(){
+		Configuration.getInstance();
+    this.openAt(Configuration.loginUrl);
 		return this;
 	}
 	public void authenticateSuccessFully() {
-		User user = Configuration.getInstance().getSelectedUser();
-		nameField.sendKeys(user.getEmail());
-		passwordField.sendKeys(user.getPassword());
+		Configuration.getInstance();
+    User user = Configuration.getSelectedUser();
+		authenticateBy(user.getEmail(),user.getPassword());
 	}
     public void loginAsUser(User user){
-    	Configuration.getInstance().setUser(user);
+    	Configuration.getInstance();
+      Configuration.setUser(user);
     	authenticateSuccessFully();
     }
 	
-	private void forceLogout() {
+	public void forceLogout() {
 		WebDriver driver = Serenity.getWebdriverManager().getCurrentDriver();
         WebElement forceLogoutChkBox = driver.findElement(By.id("breakid"));
         forceLogoutChkBox.click();
 	}
 	
+	public void authenticateBy(String email , String password){
+		nameField.sendKeys(email);
+		passwordField.sendKeys(password);
+		submitButton.click();
+	}
 	
 
 	

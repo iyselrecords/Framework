@@ -2,10 +2,10 @@ Narrative:
 If the user is logged in, present on any page, they are a member of several Workspaces and the Workspace Dropdown Menu is open
 they must be able to select a Workspace from the Workspace Dropdown Menu
 
-GivenStories: stories/Login/LoggingIn.story
-              stories/MagnumUser/Home/OpenWorkspaceDropdownMenu.story
+GivenStories: stories/pages/Login/LoggingIn.story
+             stories/pages/Home/OpenWorkspaceDropdownMenu.story
 
-Meta: @SelectWorkspaceWorkspaceDropdownMenu @MagnumUser @USER_GUI03
+Meta:  @MagnumUser @USER_GUI03
 
 Scenario: Select Workspace Workspace Dropdown Menu     
   

@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they are a member of a Workspace and are present on the Home Page
 they must beable to navigate to the Transcripts Page by clicking the Transcripts shortcut.
 
-GivenStories: stories/Login/LoggingIn.story
+GivenStories: stories/pages/Login/LoggingIn.story
 
 Meta: @NavigateToTranscriptsShortcutViaShortcutOnHomePage @MagnumUser @USER_GUI02
 

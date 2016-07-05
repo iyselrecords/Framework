@@ -14,7 +14,7 @@ Scenario: Enter Correct User Details And Password
 
 Given that a user is present on the login page
 When the user authenticates successfully
-Then they must be navigated to the <Memorable_Word_Page>
+Then the user is navigated to the memorableword page
 
 
 Scenario: Enter Incorrect User Details And Correct Password

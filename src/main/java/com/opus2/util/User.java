@@ -31,7 +31,7 @@ public class User {
 	public String getWorkspace(){
 		return workspace;
 	}
-	public String getMemorableAt(int index){
+	public String getMemorableWordAt(int index){
 		return memorable.substring(index,1);
 	}
 }

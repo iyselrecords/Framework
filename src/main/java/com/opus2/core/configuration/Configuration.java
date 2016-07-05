@@ -146,9 +146,11 @@ public final class Configuration {
 	}
 
 	public static  User getSelectedUser() { 
-		return getInstance().selectedUser;
+		getInstance();
+    return Configuration.selectedUser;
 	}
 	public static void setUser(User user){
-		 getInstance().selectedUser = user;
+		 getInstance();
+    Configuration.selectedUser = user;
 	}
 }

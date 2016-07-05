@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they are a member of a workspace and are present on the Home Page
 they must beable to navigate to the Documents Page by clicking the Documents Shortcut.
 
-GivenStories: stories/Login/LoggingIn.story
+GivenStories: stories/pages/Login/LoggingIn.story
 
 Meta: @NavigateToDocuments @MagnumUser @USER_GUI02 
 

@@ -2,9 +2,9 @@ Narrative:
 If the user is logged in, they have Administrator Capabilities and are present on the Home Page
 they must beable to open the Start A New Workspace Dialog.
 
-GivenStories: stories/Login/LoggingIn.story
+GivenStories: stories/pages/Login/LoggingIn.story
 
-Meta: @CreateANewWorkspaceHomePage
+Meta: 
 
 Scenario: Create A New Workspace Home Page
 

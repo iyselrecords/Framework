@@ -2,10 +2,10 @@ Narrative:
 If the user is logged in, they have Administrator Capabilities and are present on the Home Page
 they must beable to create a New Workspace.
 
-GivenStories: stories/Login/LoggingIn.story
-              stories/MagnumUser/Home/OpenStartANewWorkspaceDialogHomePage.story
+GivenStories: stories/pages/Login/LoggingIn.story
+             stories/pages/Home/OpenStartANewWorkspaceDialogHomePage.story
 
-Meta: @CreateANewWorkspaceHomePage
+Meta:
 
 Scenario: Create A New Workspace Home Page
 

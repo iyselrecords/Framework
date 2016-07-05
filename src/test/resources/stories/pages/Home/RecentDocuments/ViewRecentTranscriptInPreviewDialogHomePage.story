@@ -2,10 +2,10 @@ Narrative:
 If the user is logged in, present on the Home page, and they are a member of a workspace which has recently uploaded Transcripts
 they must beable to view Transcripts individually in the Preview by clicking on the title of a specific Transcript.  
 
-GivenStories: stories/Login/LoggingIn.story
-              stories/MagnumUser/Home/VerifyRecentDocumentsLoadedHomePage.story
+GivenStories: stories/pages/Login/LoggingIn.story
+             stories/pages/Home/VerifyRecentDocumentsLoadedHomePage.story
 
-Meta: @ViewRecentTranscriptInPreviewHomePage  @MagnumUser @USER_GUI04
+Meta:   @MagnumUser @USER_GUI04
 
 Scenario: View Recent Transcript In Preview Home Page 
 

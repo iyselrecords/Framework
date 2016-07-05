@@ -44,7 +44,8 @@ public class Home extends Page {
 
 	@Override
 	public Page view() {
-		this.openAt(Configuration.getInstance().homeUrl);
+		Configuration.getInstance();
+    this.openAt(Configuration.homeUrl);
 		return null;
 	}
 	

@@ -2,9 +2,9 @@ Narrative:
 If the user is logged in, they are a member of a workspace which has recently uploaded Documents
 they must beable to view said Documents on the Recent Documents section of the Home page. 
 
-GivenStories: stories/Login/LoggingIn.story
+GivenStories: stories/pages/Login/LoggingIn.story
 
-Meta: @VerifyRecentDocumentsLoadedHomePage @MagnumUser @USER_GUI04
+Meta:  @MagnumUser @USER_GUI04
  
 Scenario: Verify Recent Documents Section Loaded  Home Page
 

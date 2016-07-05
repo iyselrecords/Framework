@@ -3,9 +3,9 @@ If the user is logged in, present on the Home page and they are a member of a Wo
 they must beable to navigate to the Documents Page of said workspace by double clicking the Title,
 within the index on the Home Page.
 
-GivenStories: stories/Login/LoggingIn.story
+GivenStories: stories/pages/Login/LoggingIn.story
 
-Meta: @NavigateToDocumentsPageFromHomePageViaWorkspaceTitle @MagnumUser @USER_GUI02
+Meta:  @MagnumUser @USER_GUI02
 
 Scenario:  Navigate To Documents Page From Home Page Via Workspace Title
 
