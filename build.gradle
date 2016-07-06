@@ -1,27 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
 repositories {
     jcenter()
     mavenLocal()
 }
 
 buildscript {
+	project.ext {
+        serenityVersion = '1.1+'
+    }
     repositories {
         mavenLocal()
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.31")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:"+ serenityVersion)
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'net.serenity-bdd.aggregator'
+
 
 dependencies {
-    compile 'net.serenity-bdd:serenity-core:1.1.31'
-    compile 'net.serenity-bdd:serenity-jbehave:1.10.0'
-    testCompile('junit:junit:4.12')
+    compile 'net.serenity-bdd:serenity-core:'+ serenityVersion
+    compile 'net.serenity-bdd:serenity-jbehave:'+ serenityVersion
+    compile 'net.serenity-bdd:serenity-junit:' + serenityVersion
+    compile 'org.assertj:assertj-core:3.4+'
+    compile 'org.slf4j:slf4j-simple:1.7+'
     compile('org.assertj:assertj-core:1.7.0')
     compile('com.googlecode.lambdaj:lambdaj:2.3.3')
 }

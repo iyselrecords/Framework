@@ -8,13 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import net.serenitybdd.core.Serenity;
 
 public final class Util{
-	public static void pause(double seconds) {
-		try {
-			Thread.sleep((long) (1000 * seconds));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 	public static WebDriver getDriver(){
 	  return Serenity.getWebdriverManager().getCurrentDriver();
 	}

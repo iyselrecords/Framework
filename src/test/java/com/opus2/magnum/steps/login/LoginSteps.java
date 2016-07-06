@@ -1,5 +1,6 @@
-package com.opus2.actions.Login;
-import com.opus2.util.Util;
+package com.opus2.magnum.steps.login;
+import java.util.concurrent.TimeUnit;
+
 import com.opus2.core.configuration.Configuration;
 import com.opus2.pages.login.LoginPage;
 import com.opus2.pages.login.MemorableWordPage;
@@ -15,8 +16,9 @@ public class LoginSteps {
     page.view();
   }
   @Step
-  public void loginAs(User user){
-    page.loginAsUser(user);
+  public void loginAs(){
+    page.authenticateSuccessFully();
+    page.setImplicitTimeout(5, TimeUnit.SECONDS);
   }
   @Step
   public void authenticateBy(String email , String password){
@@ -36,6 +38,7 @@ public class LoginSteps {
     memWordPage.fillMemorableWordAt(1, user.getMemorableWordAt(secondIndex));
     memWordPage.fillMemorableWordAt(2, user.getMemorableWordAt(thirdIndex));
     memWordPage.submitForm();
+    memWordPage.setImplicitTimeout(3, TimeUnit.SECONDS);
   }
   @Step
   public void fillMemorableWordFormFail(){
@@ -47,5 +50,6 @@ public class LoginSteps {
     memWordPage.fillMemorableWordAt(1, user.getMemorableWordAt(secondIndex));
     memWordPage.fillMemorableWordAt(2, user.getMemorableWordAt(thirdIndex));
     memWordPage.submitForm();
+    memWordPage.setImplicitTimeout(3, TimeUnit.SECONDS);
   }
 }

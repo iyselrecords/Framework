@@ -33,6 +33,9 @@ public class MemorableWordPage extends Page {
       if (i == index){
         String label = characters.get(i).findElements(By.className("white")).get(0).getText();
         //subtract 1 in order to get the real value of the memorable word
+        System.out.println(label);
+        System.out.println("Looking for "+label.substring(6, 7));
+        System.out.println("In reality it is "+(Integer.parseInt(label.substring(6, 7))-1));
         return Integer.parseInt(label.substring(6, 7))-1;
 
       }
@@ -40,7 +43,7 @@ public class MemorableWordPage extends Page {
     return -1;
   }
   public void fillMemorableWordAt(int index , String character){
-    WebElement input = form.findElement(By.id("eid"+index));
+    WebElement input = form.findElement(By.id("eid"+(index+1)));
     input.sendKeys(character);
   }
 

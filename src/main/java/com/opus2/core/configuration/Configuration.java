@@ -3,12 +3,10 @@ package com.opus2.core.configuration;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Properties;
-
 
 import com.opus2.core.configuration.Configuration;
 import com.opus2.enums.Role;
@@ -17,7 +15,7 @@ import com.opus2.util.User;
 
 
 public final class Configuration {
-
+   
 	private static final String BASIC_CONF =  "/config.properties";
 	private static final String BASE_URL =  "baseUrl";
 	private static final String CODEBASE =  "codeBase";
@@ -99,8 +97,8 @@ public final class Configuration {
 
 			//selected user id
 			Configuration.selectedId = file.getProperty("selectedUser" );
-			String [] users =  file.getProperty("users").split(",");
-			loadUsers(users);
+			String [] names =  file.getProperty("users").split(",");
+			loadUsers(names);
 			file =  null;
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -112,24 +110,28 @@ public final class Configuration {
 
 	private void loadUsers(String[] names) {
 		for(String filename : names){
-			Path path =  Paths.get("/"+filename.concat(".properties"));
-			if(Files.exists(path)){
-				readUserFile(filename,path);
-			}
+			Path path =  Paths.get(("/"+filename.concat(".properties")));
+			System.out.println(path.toString());
+			readUserFile(filename,path.toString());
+			
 		}
 
 	}
 
-	private void readUserFile(String key , Path path) {
+	private void readUserFile(String key , String location) {
 		Properties file = null;
 		InputStream testData =  null;	
+		
 		file =  new Properties();
-		testData = this.getClass().getResourceAsStream(path.toString());
+		
+		testData = this.getClass().getResourceAsStream(location);
 		try {
+		    System.out.println("It exists...");
 			file.load(testData);
 			User user = new User();
 			user.setEmail(file.getProperty("email"));
 			user.setPassword(file.getProperty("password"));
+			user.setMemorableWord(file.getProperty("memorable"));
 			String roleId = file.getProperty("role");
 			if(roleId.equals("admin")){
 				user.setRole(Role.ADMIN);
@@ -139,6 +141,7 @@ public final class Configuration {
 				user.setRole(Role.USER);
 			}
 			users.put(key, user);
+			System.out.println(users.toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,10 +150,19 @@ public final class Configuration {
 
 	public static  User getSelectedUser() { 
 		getInstance();
-    return Configuration.selectedUser;
+      return Configuration.selectedUser;
 	}
 	public static void setUser(User user){
 		 getInstance();
     Configuration.selectedUser = user;
 	}
+
+  public static User setUserFromType(String typeOfUser) {
+    System.out.println(typeOfUser);
+    if(users.containsKey(typeOfUser)){
+      Configuration.selectedUser = users.get(typeOfUser);
+      return Configuration.selectedUser;
+    }    
+    return null;
+  }
 }

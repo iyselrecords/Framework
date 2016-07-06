@@ -1,4 +1,4 @@
-package com.opus2.steps;
+package com.opus2.magnum.steps;
 
 import com.opus2.pages.Home;
 
