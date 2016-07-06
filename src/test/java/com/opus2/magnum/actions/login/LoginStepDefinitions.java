@@ -1,5 +1,5 @@
 package com.opus2.magnum.actions.login;
-import org.jbehave.core.annotations.Pending;
+
 import org.jbehave.core.annotations.Given;
 
 import org.jbehave.core.annotations.Then;
@@ -25,10 +25,8 @@ public class LoginStepDefinitions  {
   @When("the user authenticates successfully")
   public void authenticate(){
     userSteps.loginAs();
-
   }
   @Then("the user is navigated to the memorableword page")
-  
   public void openMemorableWordPage(){
     userSteps.openMemorableWordPage();
   }
@@ -40,14 +38,6 @@ public class LoginStepDefinitions  {
     }else{
       userSteps.authenticateBy(user.getEmail(), user.getPassword().concat("+failure"));
     }
-  }
-
-  @Then("the user must be notified for their error on details")
-  @Pending
-  public void failureMessage(){
-    //assert the message 
-    //Sorry, incorrect email address or user name or password
-    
   }
   @Given("that a user is present on the memorableword page")
   public void isOnMemorableWordPage(){

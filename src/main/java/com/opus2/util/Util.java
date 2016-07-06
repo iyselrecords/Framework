@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import net.serenitybdd.core.Serenity;
 
 public final class Util{
+    private static String WS_URL_TOKEN = "ws";
 	public static WebDriver getDriver(){
 	  return Serenity.getWebdriverManager().getCurrentDriver();
 	}
@@ -16,4 +17,7 @@ public final class Util{
       wait.until(ExpectedConditions.alertIsPresent());
       return getDriver().switchTo().alert();  
 	}
+  public static String getWorkspaceUrlToken(String id) {
+    return String.join(WS_URL_TOKEN,"=",id);
+  }
 }

@@ -6,8 +6,8 @@ public class User {
   private String password;
   private String email;
   private Role role;
-  public  String memorable;
-  public  String workspace;
+  private  String memorable;
+  private  String workspace;
   public User() {
   }
   public Role getRole() {
@@ -30,6 +30,9 @@ public class User {
   }
   public String getWorkspace(){
     return workspace;
+  }
+  public void setWorkspace(String workspace){
+    this.workspace = workspace;
   }
   public String getMemorableWordAt(int index){
     return String.valueOf(memorable.charAt(index));

@@ -132,6 +132,7 @@ public final class Configuration {
 			user.setEmail(file.getProperty("email"));
 			user.setPassword(file.getProperty("password"));
 			user.setMemorableWord(file.getProperty("memorable"));
+			user.setWorkspace(file.getProperty("workspace"));
 			String roleId = file.getProperty("role");
 			if(roleId.equals("admin")){
 				user.setRole(Role.ADMIN);

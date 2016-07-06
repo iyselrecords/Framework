@@ -11,7 +11,6 @@ import net.serenitybdd.core.pages.PageObject;
 
 public abstract class Page extends PageObject{
  protected WebElement me;
- List<Component> elements = new ArrayList<Component>();
  public Page(){
  }
  public abstract Page view();
