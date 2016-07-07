@@ -2,9 +2,17 @@ node ('master') {
   checkout scm
   String projectRelease = "${env.JOB_NAME} #${env.BUILD_NUMBER}"
   init()
+  try {
   executeTests()
   publishResults()
+  }catch (e) {
+    echo "Failing: ${e}"
+    currentBuild.result = 'FAILURE'
+  }finally{
+  echo 'Notify slack or something else...'
+  }
 }
+
 def init() {
   stage name: 'Initialise build environment', concurrency: 1
 
@@ -14,10 +22,13 @@ def init() {
   env.VERSION = "${env.BRANCH_NAME}"
   env.BUILD = "${env.BUILD_NUMBER}".padLeft(6,"0")
 }
+
 def executeTests(){
-withEnv(["PATH+MAVEN=${tool 'MAVEN'}/bin"]){
+ withEnv(["PATH+MAVEN=${tool 'MAVEN'}/bin"]){
 	sh "mvn -B -e -q clean verify"
+ }
 }
+
 def publishResults(){
   publishHTML(target: [
         reportName : 'Serenity',
