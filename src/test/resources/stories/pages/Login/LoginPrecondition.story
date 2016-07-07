@@ -8,10 +8,7 @@ Login must not be successful unless the conditions outlined above have been met
 If at any stage of process the User makes an error they must be informed of this mistake and the process reset
 
 Background: if the User is registered and has an active account they must be able to login
-Meta: @Login
-@issue #Login
-@version:6.11
-
+Meta: @login
 Scenario: Enter Correct User Details And Password 
 
 Given that a user is present on the login page

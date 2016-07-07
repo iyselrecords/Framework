@@ -17,8 +17,6 @@ def init() {
   stage name: 'Initialise build environment', concurrency: 1
 
   gitClean()
-
-  env.PROJECT = readFile("PROJECT").trim()
   env.VERSION = "${env.BRANCH_NAME}"
   env.BUILD = "${env.BUILD_NUMBER}".padLeft(6,"0")
 }
