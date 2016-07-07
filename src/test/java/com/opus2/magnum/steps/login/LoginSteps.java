@@ -1,7 +1,7 @@
 package com.opus2.magnum.steps.login;
 import java.util.concurrent.TimeUnit;
 
-import com.opus2.core.configuration.Configuration;
+import com.opus2.core.Configuration;
 import com.opus2.pages.login.LoginPage;
 import com.opus2.pages.login.MemorableWordPage;
 import com.opus2.util.User;
@@ -10,20 +10,20 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 public class LoginSteps {
-  LoginPage page = new LoginPage();
+  LoginPage loginPage;
   MemorableWordPage memWordPage;
   @Step
   public void openLoginPage(){
-    page.view();
+    loginPage.view();
   }
   @Step
   public void loginAs(){
-    page.authenticateSuccessFully();
-    page.setImplicitTimeout(5, TimeUnit.SECONDS);
+    loginPage.authenticateSuccessFully();
+    loginPage.setImplicitTimeout(5, TimeUnit.SECONDS);
   }
   @Step
   public void authenticateBy(String email , String password){
-    memWordPage = (MemorableWordPage) page.authenticateBy(email, password);
+    loginPage.authenticateBy(email, password);
     memWordPage.view();
   }
 
@@ -54,7 +54,7 @@ public class LoginSteps {
   }
   public void openMemorableWordPage() {
     if(memWordPage==null){
-      memWordPage = new MemorableWordPage();
+      
     }
     memWordPage.view();
     Serenity.takeScreenshot();

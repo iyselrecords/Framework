@@ -18,6 +18,6 @@ public final class Util{
       return getDriver().switchTo().alert();  
 	}
   public static String getWorkspaceUrlToken(String id) {
-    return String.join(WS_URL_TOKEN,"=",id);
+    return String.join("=",WS_URL_TOKEN,id);
   }
 }

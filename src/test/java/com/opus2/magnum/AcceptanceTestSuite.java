@@ -4,7 +4,7 @@ import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.BeforeStories;
 import org.openqa.selenium.WebDriver;
 
-import com.opus2.core.configuration.Configuration;
+import com.opus2.core.Configuration;
 
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.jbehave.SerenityStories;
@@ -16,8 +16,6 @@ public class AcceptanceTestSuite extends SerenityStories {
 	}
 	@AfterStories
 	public void afterStories(){
-	  WebDriver driver = Serenity.getWebdriverManager().getCurrentDriver();
-	  driver.close();
-      driver.quit();
+	  System.out.println("finished");
 	}
 }

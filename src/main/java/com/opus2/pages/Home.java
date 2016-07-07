@@ -3,7 +3,7 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.FindBy;
 
-import com.opus2.core.configuration.Configuration;
+import com.opus2.core.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.components.Button;
 import com.opus2.util.panels.Search;
@@ -27,15 +27,22 @@ public class Home extends Page {
   private CasesSelection cases;
   @FindBy(id=SEARCH_CASES_ID)
   private Search search;
-  public Home(WebDriver driver, int timeout) {
-    super(driver, timeout);
-  }
 
 
   @Override
   public Page view() {
     this.openAt(Configuration.homeUrl);
     return this;
+  }
+
+
+  public boolean hasWorkspaceInTheList(String wsid) {
+    return cases.hasWorkspace(wsid);
+  }
+
+
+  public void selectWorkspace(String wsid) {
+    cases.selectWorkspace(wsid);
   }
 
 }

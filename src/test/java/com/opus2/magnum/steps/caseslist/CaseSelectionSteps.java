@@ -3,10 +3,11 @@ package com.opus2.magnum.steps.caseslist;
 
 import com.opus2.pages.Home;
 
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 public class CaseSelectionSteps {
-  Home page = new Home();
+  Home page;
   public void visitPage() {
     page.view();
   }
@@ -15,12 +16,9 @@ public class CaseSelectionSteps {
    return page.hasWorkspaceInTheList(wsid);
   }
   @Step("select workspace from the list")
-  public void visitWorkspace(String wsid) {
-    page.visitWorkspace(wsid);
+  public void selectWorkspace(String wsid) {
+    page.selectWorkspace(wsid);
   }
-  public boolean isCasesListVisible() {
-    return page.isCasesListVisible();
-  }
- 
+
 
 }

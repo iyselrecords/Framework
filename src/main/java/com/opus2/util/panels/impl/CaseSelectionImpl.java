@@ -37,14 +37,17 @@ public class CaseSelectionImpl extends PanelImpl implements CasesSelection {
   }
   @Override
   public void selectWorkspace(String wsid){
-    ArrayList<WebElementFacade> list =  (ArrayList<WebElementFacade>) thenFindAll(By.id(getWorkspaceItemId(wsid)));
-    if(list.isEmpty()){
-      System.out.println("Empty list the wsid is not there?");
-    }
-    list.get(0).click();
+    getWorkspaceItem(wsid).then().click();
     waitForPageAction();
   }
   public String getWorkspaceItemId(String wsid) {
-    return String.join(WS_ANCHOR_PREFIX, "-",wsid);
+    return String.join("-",WS_ANCHOR_PREFIX,wsid);
+  }
+  public WebElementFacade getWorkspaceItem(String wsid){
+    return find(By.id(getWorkspaceItemId(wsid)));
+  }
+  @Override
+  public boolean hasWorkspace(String wsid) {
+    return (getWorkspaceItem(wsid)!=null);
   }
 }

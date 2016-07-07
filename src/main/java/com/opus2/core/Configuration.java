@@ -1,4 +1,4 @@
-package com.opus2.core.configuration;
+package com.opus2.core;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Properties;
 
-import com.opus2.core.configuration.Configuration;
+import com.opus2.core.Configuration;
 import com.opus2.enums.Role;
 import com.opus2.util.User;
 

@@ -11,10 +11,6 @@ import com.opus2.util.components.Component;
 import net.serenitybdd.core.pages.PageObject;
 
 public class Page extends PageObject{
- protected WebElement me;
- public Page(WebDriver driver, int timeout) {
-   super(driver, timeout);
- }
  public Page view() {
   return null;
 }

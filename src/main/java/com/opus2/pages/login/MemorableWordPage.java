@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.opus2.core.configuration.Configuration;
+import com.opus2.core.Configuration;
 import com.opus2.util.Page;
 
 import net.serenitybdd.core.annotations.findby.By;
@@ -16,9 +16,7 @@ public class MemorableWordPage extends Page {
   WebElement form;
   @FindBy(id="submitbtn")
   WebElement submitBtn;
-  public MemorableWordPage(WebDriver driver, int timeout) {
-    super(driver, timeout);
-  }
+
 
   @Override
   public Page view() {
