@@ -1,5 +1,7 @@
 package com.opus2.pages;
 
+import org.openqa.selenium.WebDriver;
+
 import com.opus2.core.configuration.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.Util;
@@ -7,7 +9,10 @@ import com.opus2.util.Util;
 public class DocumentsPage extends Page {
 
   private String id;
-  public DocumentsPage(String id){
+  public DocumentsPage(WebDriver driver, int timeout) {
+    super(driver, timeout);
+  }
+  public void setWorkspaceId(String id){
     this.id = id;
   }
   @Override

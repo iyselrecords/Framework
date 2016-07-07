@@ -2,6 +2,7 @@ package com.opus2.pages.login;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.opus2.core.configuration.Configuration;
@@ -15,14 +16,17 @@ public class MemorableWordPage extends Page {
   WebElement form;
   @FindBy(id="submitbtn")
   WebElement submitBtn;
-  public MemorableWordPage() {
-
+  public MemorableWordPage(WebDriver driver, int timeout) {
+    super(driver, timeout);
   }
 
   @Override
   public Page view() {
-    Configuration.getInstance();
-    this.openAt(Configuration.memorableWordUrl);
+    if(!this.getDriver().getCurrentUrl().startsWith(Configuration.memorableWordUrl)){
+      this.openAt(Configuration.memorableWordUrl);
+    }
+    System.out.println(form);
+    System.out.println(submitBtn);
     return this;
   }
   public int getMemorableWordIndexAt(int index){

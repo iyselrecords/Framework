@@ -6,11 +6,12 @@ import com.opus2.pages.login.LoginPage;
 import com.opus2.pages.login.MemorableWordPage;
 import com.opus2.util.User;
 
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 public class LoginSteps {
   LoginPage page = new LoginPage();
-  MemorableWordPage memWordPage = new MemorableWordPage();
+  MemorableWordPage memWordPage;
   @Step
   public void openLoginPage(){
     page.view();
@@ -22,12 +23,10 @@ public class LoginSteps {
   }
   @Step
   public void authenticateBy(String email , String password){
-    page.authenticateBy(email, password);
-  }
-  @Step
-  public void openMemorableWordPage() {
+    memWordPage = (MemorableWordPage) page.authenticateBy(email, password);
     memWordPage.view();
   }
+
   @Step
   public void fillMemorableWordFormSucessfully(){
     int firstIndex = memWordPage.getMemorableWordIndexAt(0);
@@ -37,6 +36,7 @@ public class LoginSteps {
     memWordPage.fillMemorableWordAt(0, user.getMemorableWordAt(firstIndex));
     memWordPage.fillMemorableWordAt(1, user.getMemorableWordAt(secondIndex));
     memWordPage.fillMemorableWordAt(2, user.getMemorableWordAt(thirdIndex));
+    Serenity.takeScreenshot();
     memWordPage.submitForm();
     memWordPage.setImplicitTimeout(3, TimeUnit.SECONDS);
   }
@@ -51,5 +51,12 @@ public class LoginSteps {
     memWordPage.fillMemorableWordAt(2, user.getMemorableWordAt(thirdIndex));
     memWordPage.submitForm();
     memWordPage.setImplicitTimeout(3, TimeUnit.SECONDS);
+  }
+  public void openMemorableWordPage() {
+    if(memWordPage==null){
+      memWordPage = new MemorableWordPage();
+    }
+    memWordPage.view();
+    Serenity.takeScreenshot();
   }
 }

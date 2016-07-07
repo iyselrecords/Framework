@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.opus2.core.configuration.Configuration;
+import com.opus2.pages.Home;
 import com.opus2.util.Page;
 import com.opus2.util.User;
 
@@ -21,11 +22,11 @@ public class LoginPage extends Page {
   WebElement nameField;
   WebElement passwordField;
   WebElement submitButton;
-  public LoginPage() {
+  public LoginPage(WebDriver driver, int timeout) {
+    super(driver, timeout);
   }
   @Override
   public Page view(){
-    Configuration.getInstance();
     this.openAt(Configuration.loginUrl);
     withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id(EMAIL_ID));
     nameField = this.getDriver().findElement(By.id(EMAIL_ID));
@@ -35,9 +36,9 @@ public class LoginPage extends Page {
     submitButton = this.getDriver().findElement(By.id(SUBMIT_ID));
     return this;
   }
-  public void authenticateSuccessFully() {
+  public Page authenticateSuccessFully() {
     User user = Configuration.getSelectedUser();
-    authenticateBy(user.getEmail().trim(),user.getPassword().trim());
+    return authenticateBy(user.getEmail().trim(),user.getPassword().trim());
   }
 
   public void forceLogout() {
@@ -46,7 +47,7 @@ public class LoginPage extends Page {
     forceLogoutChkBox.click();
   }
 
-  public void authenticateBy(String email , String password){
+  public Page authenticateBy(String email , String password){
     System.out.println("the email is "+email);
     System.out.println("The pass is "+password);
     nameField.clear();
@@ -54,6 +55,6 @@ public class LoginPage extends Page {
     nameField.sendKeys(email);
     passwordField.sendKeys(password);
     submitButton.click();
-
+    return new MemorableWordPage(this.getDriver(),1000);
   }	
 }
