@@ -6,5 +6,6 @@ import net.serenitybdd.core.annotations.ImplementedBy;
 
 @ImplementedBy(ButtonImpl.class)
 public interface Button extends Component {
-  void click();
-}
+	void click();
+	
+}	

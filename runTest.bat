@@ -18,12 +18,6 @@ CALL mvn clean
 echo done.....
 
 
-echo initialize........initialize........initialize........initialize
-
-CALL mvn initialize
-
-echo done.....
-
 
 echo compile........compile........compile........compile
 

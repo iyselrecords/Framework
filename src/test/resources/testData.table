@@ -1,62 +1,48 @@
 {ignorableSeparator=!--,headerSeparator=|,valueSeparator=|,transformer=FROM_LANDSCAPE}
-|username_611|magnum@opus2international.com|
-|password_611|p00k!DtLQ|
-|username|user569@opus2.com|
-|password|Happy123|
-|memorable_word|123456|
-|email|opus2k4@mailinator.com|
-|title|TsWk|
-|description|Test Automation Framework|
-|workspace|TAF|
-|delete|Delete|
-|user|TAF|
-|disable account|Disable Account|
-|enable 2fa|Enable 2FA|
-|enable memorable word|Enable Memorable Word|
-|authenticate with Magnum|Authenticate with Magnum|
-|authenticate with LDAP|Authenticate with LDAP|
-|file|C:\Users\misele\UD\testDoc.pdf|
-|folder_name|DST|
-|sub_folder_name|DMT|
-|export|Export|
-|Destination|DST|
-|Document|testDoc|
-|listOption|7|
-|upload_folder|DST|
-|upload_folder|Demo|
-|properties|Properties|
-|Closed to new notes|Closed to new notes|
-|Allowed|Allowed|
-|Rename|Rename|
-|new_name|testDoc4|
-|previous_name|testDoc|
-|Reorder|Reorder|
-|+x|-4|
-|-x|6|
-|Move|Move|
-|folder|Test|
-|Sort by|Sort by|
-|Manual order|Manual order|
-|Destination_Folder|DST|
-|document|recentDoc32|
-|docs|testDoc03|
-|X|4|
-|Rotate|Rotate|
-|start_page|25|
-|end_page|30|
-|rotate_degree|rotate_degree|
-|next_six|5|
-|doc|testDoc04|
-|docType|DTypeTest|
-|newDocType|DTypeTest|
-|doc_fol|CSV|
-|rep_doc|recentDoc|
-|bulk_doc|trans|
-|bulk_doc2|doc01|
-|bulk_doc3|doc02|
-|bulk_doc4|repDoc|
-|bulk_fol|TestDocs|
-|label|LB|
-|field_name|FN|
-|tag|tag3|
-|del_ws|TstWKS|
+|Find_Input|TAF3|
+|Admin_Capabilities|Admin|
+|New_Workspace_Button|home-buttons_NewWorkspace|
+|Home_Page|test|
+|New_Workspace_Button|home-buttons_NewWorkspace|
+|Start_A_New_Workspace_Dialog|Start a new workspace|
+|Workspace_Title|TAF5|
+|Description|Test Automation Framework|
+|Title_Field|input|
+|Description_Field|textarea|
+|Create_Workspace_Button|Create_Workspace_Button|
+|New_Workspace|New Workspace|
+|X_Button|new-ws dialogClose-div|
+|Start_A_New_Workspace_Dialog|Start A New Workspace|
+|Cancel_Button|new-ws_Cancel|
+|file|autolink|
+|Recent_Documents|Recent documents|
+|Target_Document|Target Document|
+|Target_Transcript|TranscriptDoc|
+|Document|RecentTestDoc|
+|Document_Title|RecentTestDoc|
+|Transcript|Transcript|
+|Transcript_Title|TestTranscript|
+|Preview_Dialog|Preview Dialog|
+|Preview_Dialog_Title|Transcript Title|
+|Home_Page|Home Page|
+|Home_Tab|logo|
+|Documents_Page|Documents Page|
+|Documents_Tab|magnumDocuments|
+|Admin_Tab|magnumAdmin|
+|Admin_Page|Admin_Page|
+|Chronology_Tab|magnumChronology|
+|Chronology_Page|Chronology Page|
+|Notes_Tab|magnumNotes|
+|Notes_Page|Notes Page|
+|Search_Tab|search|
+|Search_Page|Search Page|
+|Transcripts_Tab|transcripts|
+|Transcripts_Page|Transcripts Page|
+|Cases_Section|Cases|
+|Workspace_Title|AUTOMATEDTESTINGWSONE|
+|Documents_Shortcut|Documents|
+|Transcripts_Shortcut|Transcripts|
+|Chronology_Shortcut|Chronology|
+|Notes_Shortcut|Notes|
+|Workspace_Info_Button|wsinfo|
+|Workspace_Dropdown_Menu|open|

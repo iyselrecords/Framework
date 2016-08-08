@@ -25,14 +25,17 @@ public class LoginStepDefinitions  {
     String url = Util.getDriver().getCurrentUrl();
     assertThat(url).containsOnlyOnce(Configuration.loginUrl);
   }
+  
   @When("the user authenticates successfully")
   public void authenticate(){
     userSteps.loginAs();
   }
+  
   @Then("the user is navigated to the memorableword page")
   public void openMemorableWordPage(){
     userSteps.openMemorableWordPage();
   }
+  
   @When("the user fails to authenticate due to bad $type")
   public void failureAuthentication(String type){
     User user = Configuration.getSelectedUser();
@@ -42,6 +45,7 @@ public class LoginStepDefinitions  {
       userSteps.authenticateBy(user.getEmail(), user.getPassword().concat("+failure"));
     }
   }
+  
   @Given("that a user is present on the memorableword page")
   public void isOnMemorableWordPage(){
     String url = Util.getDriver().getCurrentUrl();
@@ -50,6 +54,7 @@ public class LoginStepDefinitions  {
     }
     assertThat(url).containsOnlyOnce(Configuration.memorableWordUrl);
   }
+  
   @When("the user fills the memorable word options correctly")
   public void completeMemorableWord(){
     isOnMemorableWordPage();
@@ -57,6 +62,7 @@ public class LoginStepDefinitions  {
     String url = Util.getDriver().getCurrentUrl();
     assertThat(url).containsOnlyOnce(Configuration.homeUrl);
   }
+  
   @Then("the user must be navigated to the home page")
   public void isInHomePage(){
     String url = Util.getDriver().getCurrentUrl();
