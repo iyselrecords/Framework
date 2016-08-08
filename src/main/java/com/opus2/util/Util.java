@@ -1,7 +1,9 @@
 package com.opus2.util;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,7 +19,25 @@ public final class Util{
       wait.until(ExpectedConditions.alertIsPresent());
       return getDriver().switchTo().alert();  
 	}
-  public static String getWorkspaceUrlToken(String id) {
-    return String.join("=",WS_URL_TOKEN,id);
-  }
+    public static String getWorkspaceUrlToken(String id) {
+      return String.join("=",WS_URL_TOKEN,id);
+    }
+    
+    public static void pause(int waitTime) {
+      try {
+          Thread.sleep(1000 * waitTime);
+      } catch (InterruptedException e) {
+          e.printStackTrace();
+      }
+    }
+    
+    public static void click(String elementId){
+    	getDriver().findElement(By.id(elementId))
+    		.click();
+    }
+    
+    public static WebElement header(String topLevelId){
+		return getDriver().findElement(By.id(topLevelId))
+				.findElements(By.tagName("h2")).get(0);
+	}
 }
