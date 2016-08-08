@@ -1,12 +1,9 @@
 {ignorableSeparator=!--,headerSeparator=|,valueSeparator=|,transformer=FROM_LANDSCAPE}
-|username_611|magnum@opus2international.com|
-|password_611|p00k!DtLQ|
-|username|user569@opus2.com|
-|password|Happy123|
-|memorable_word|123456|
+|username|magnum@opus2international.com|
+|password|p00k!DtLQ|
 |email|opus2k4@mailinator.com|
-|title|TsWk|
-|description|Test Automation Framework|
+|title|Martins|
+|description|Designing BDD Framework|
 |workspace|TAF|
 |delete|Delete|
 |user|TAF|
@@ -34,7 +31,7 @@
 |+x|-4|
 |-x|6|
 |Move|Move|
-|folder|Test|
+|folder|Demo2|
 |Sort by|Sort by|
 |Manual order|Manual order|
 |Destination_Folder|DST|
@@ -50,13 +47,9 @@
 |docType|DTypeTest|
 |newDocType|DTypeTest|
 |doc_fol|CSV|
-|rep_doc|recentDoc|
+|rep_doc|repDoc|
 |bulk_doc|trans|
-|bulk_doc2|doc01|
-|bulk_doc3|doc02|
+|bulk_doc2|a|
+|bulk_doc3|testDoc10|
 |bulk_doc4|repDoc|
-|bulk_fol|TestDocs|
-|label|LB|
-|field_name|FN|
-|tag|tag3|
-|del_ws|TstWKS|
+|bulk_fol|BF|

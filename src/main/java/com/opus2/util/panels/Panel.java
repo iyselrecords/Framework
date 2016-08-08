@@ -10,6 +10,5 @@ import net.serenitybdd.core.pages.WidgetObject;
 public interface Panel extends WidgetObject {
 
   void waitForPageAction();
-  
-  
+
 }

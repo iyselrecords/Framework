@@ -15,6 +15,6 @@ public interface CasesSelection extends Panel {
   List<WebElementFacade> getVisibleWorkspaces();
 
   void selectWorkspace(String wsid);
-  
+
   boolean hasWorkspace(String wsid);
 }

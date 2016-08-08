@@ -1,5 +1,5 @@
 target/*
-TestResults/*
+build.gradle
 /.classpath
-log
-phantomjsdriver.log
+.gradle/*
+build/*

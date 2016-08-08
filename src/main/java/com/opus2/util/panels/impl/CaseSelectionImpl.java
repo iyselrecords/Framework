@@ -5,6 +5,7 @@ import org.openqa.selenium.support.pagefactory.ElementLocator;
 
 import com.opus2.util.panels.home.CasesSelection;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -49,6 +50,4 @@ public class CaseSelectionImpl extends PanelImpl implements CasesSelection {
   public boolean hasWorkspace(String wsid) {
     return (getWorkspaceItem(wsid)!=null);
   }
-  
-  
 }

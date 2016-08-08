@@ -8,8 +8,6 @@ public class User {
   private Role role;
   private  String memorable;
   private  String workspace;
-  private  String cases;
-  
   public User() {
   }
   public Role getRole() {
@@ -26,12 +24,6 @@ public class User {
   }
   public String getPassword() {
     return password;
-  }
-  public void setCase(String cases) {
-    this.cases = cases;
-  }
-  public String getCase() {
-    return cases;
   }
   public void setPassword(String password) {
     this.password = password;
