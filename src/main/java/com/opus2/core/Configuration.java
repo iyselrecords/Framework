@@ -51,7 +51,7 @@ public final class Configuration {
 
 
 	public static synchronized Configuration getInstance() {
-		if (config == null) {
+	    if (config == null) {
 			config = new Configuration();
 			selectedUser = users.get(selectedId);
 		}
@@ -65,7 +65,7 @@ public final class Configuration {
 	};
 
 	public void loadConfig(){
-		Properties file = null;
+	    Properties file = null;
 		InputStream testData =  null;	
 		try{
 			file =  new Properties();
@@ -95,7 +95,7 @@ public final class Configuration {
 			Configuration.adminMonitorActivity = Configuration.baseUrl.concat(file.getProperty("adminMonitorActivity"));
 			Configuration.adminActivityReportsUrl = Configuration.baseUrl.concat(file.getProperty("adminActivityReportsUrl"));
 
-			//selected user id
+			//selected user id			
 			Configuration.selectedId = file.getProperty("selectedUser" );
 			String [] names =  file.getProperty("users").split(",");
 			loadUsers(names);
@@ -106,16 +106,13 @@ public final class Configuration {
 			e.printStackTrace();
 		}
 	}
-
-
+	
 	private void loadUsers(String[] names) {
 		for(String filename : names){
-			Path path =  Paths.get(("/"+filename.concat(".properties")));
-			System.out.println(path.toString());
-			readUserFile(filename,path.toString());
-			
+			Path path =  Paths.get((filename.concat(".properties")));
+			//System.out.println(path.toString());
+			readUserFile(filename,path.toString());		
 		}
-
 	}
 
 	private void readUserFile(String key , String location) {
@@ -123,16 +120,18 @@ public final class Configuration {
 		InputStream testData =  null;	
 		
 		file =  new Properties();
-		
-		testData = this.getClass().getResourceAsStream(location);
+
+		testData = this.getClass().getResourceAsStream("/"+location);
+
 		try {
-		    System.out.println("It exists...");
+		    //System.out.println("It exists...");
 			file.load(testData);
-			User user = new User();
+            User user = new User();
 			user.setEmail(file.getProperty("email"));
 			user.setPassword(file.getProperty("password"));
 			user.setMemorableWord(file.getProperty("memorable"));
 			user.setWorkspace(file.getProperty("workspace"));
+			user.setCase(file.getProperty("case"));
 			String roleId = file.getProperty("role");
 			if(roleId.equals("admin")){
 				user.setRole(Role.ADMIN);
@@ -140,11 +139,11 @@ public final class Configuration {
 				user.setRole(Role.VIEWER);
 			}else if(roleId.equals("user")){
 				user.setRole(Role.USER);
+			}else if(roleId.equals("superAdmin")){
+				user.setRole(Role.SUPERADMIN);
 			}
 			users.put(key, user);
-			System.out.println(users.toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -155,15 +154,16 @@ public final class Configuration {
 	}
 	public static void setUser(User user){
 		 getInstance();
-    Configuration.selectedUser = user;
+		 Configuration.selectedUser = user;
 	}
 
-  public static User setUserFromType(String typeOfUser) {
-    System.out.println(typeOfUser);
-    if(users.containsKey(typeOfUser)){
-      Configuration.selectedUser = users.get(typeOfUser);
-      return Configuration.selectedUser;
-    }    
-    return null;
-  }
+    public static User setUserFromType(String typeOfUser) {
+      if(users.containsKey(typeOfUser)){
+          Configuration.selectedUser = users.get(typeOfUser);
+          return Configuration.selectedUser;
+      }    
+      return null;
+    }
+  
+
 }

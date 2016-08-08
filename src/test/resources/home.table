@@ -1,0 +1,30 @@
+{ignorableSeparator=!--,headerSeparator=|,valueSeparator=|,transformer=FROM_LANDSCAPE}
+|Workspace_Info_Button|wsinfo|
+|Workspace_Dropdown_Menu|open|
+|Cases|Cases|
+|Page_Title|Page Title|
+|Recent_Documents|Recent Documents|
+|Home_Page|Home Page|
+|Target_Document|Target Document|
+|Target_Transcript|Target Transcript|
+|Document|Document|
+|Document_Title|Document Title|
+|Preview_Dialog|Preview Dialog|
+|Transcript_Title|Transcript Title|
+|Preview_Dialog_Title|Preview Dialog Title|
+|Cancel_Button|new-ws_Cancel|
+|Start_A_New_Workspace_Dialog|Start A New Workspace|
+|X_Button|X_Button|
+|Title_Field|Title_Field|
+|Description_Field|Description_Field|
+|Create_Workspace_Button|new-ws_Createworkspace|
+|Workspace_Title|TWKS5|
+|Description|WKS Desc|
+|New_Workspace|New_Workspace|
+|Admin_Page|Admin_Page|
+|New_Workspace_Dialog|New_Workspace_Dialog|
+|Documents_Page|Documents_Page|
+|Buttons|Buttons|
+|Fields|Fields|
+|Icons|Icons|
+|Element_Names|Element_Names|

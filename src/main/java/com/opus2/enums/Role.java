@@ -4,5 +4,6 @@ public enum Role {
  USER,
  ADMIN,
  VIEWER,
- CONTENT_ADMIN
+ CONTENT_ADMIN,
+ SUPERADMIN
 }

@@ -9,11 +9,9 @@ If at any stage of process the User makes an error they must be informed of this
 
 Background: if the User is registered and has an active account they must be able to login
 Meta: @login
-Scenario: Enter Correct User Details And Password 
 
+Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
 When the user authenticates successfully
 And the user fills the memorable word options correctly
 Then the user must be navigated to the home page
-
-
