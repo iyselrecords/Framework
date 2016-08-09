@@ -4,9 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.opus2.util.Util;
 
 import net.thucydides.core.annotations.Step;
@@ -14,7 +11,7 @@ import net.thucydides.core.annotations.Step;
 public class RightClickMenuSteps {	
 	@Step
 	public WebElement document() {
-		loadingIcon();
+		Util.loadingIcon();
 		return Util.getDriver().findElement(By.className("heading"));
 	}
 	
@@ -40,7 +37,7 @@ public class RightClickMenuSteps {
 
 	@Step
 	public WebElement folder() {
-		loadingIcon();
+		Util.loadingIcon();
 	    return Util.getDriver().findElement(By.className("heading"));
 	}
 	
@@ -54,10 +51,5 @@ public class RightClickMenuSteps {
 		WebElement folder = Util.getDriver().findElement(By.id("docsdiv"))
 			.findElements(By.className("docrow")).get(0);
 		return folder;
-	}
-	
-	private void loadingIcon(){
-		WebDriverWait wait = new WebDriverWait(Util.getDriver(), 10);
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-icon")));
 	}
 }

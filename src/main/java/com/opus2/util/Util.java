@@ -1,5 +1,7 @@
 package com.opus2.util;
 
+import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -39,5 +41,24 @@ public final class Util{
     public static WebElement header(String topLevelId){
 		return getDriver().findElement(By.id(topLevelId))
 				.findElements(By.tagName("h2")).get(0);
+	}
+
+    
+	public static void loadingIcon(){
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-icon")));
+	}
+	
+	public static WebElement optionOnMenuList(String optionName) {
+		WebElement elem = null;
+		WebElement menu = getDriver().findElement(By.id("rightClickMenu"));
+		List <WebElement> options = menu.findElements(By.tagName("span"));
+		for(WebElement option : options){
+			if(option.getText().equals(optionName)){
+				elem = option;
+				break;
+			}
+		}
+		return elem;
 	}
 }

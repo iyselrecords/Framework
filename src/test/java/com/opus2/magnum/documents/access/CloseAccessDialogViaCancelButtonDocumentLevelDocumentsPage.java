@@ -1,7 +1,8 @@
 package com.opus2.magnum.documents.access;
 import org.jbehave.core.annotations.*;
 public class CloseAccessDialogViaCancelButtonDocumentLevelDocumentsPage{
-@Then("the <Access_Dialog> must close via the <Cancel_Button>")	
+
+ @Then("the <Access_Dialog> must close via the <Cancel_Button>")	
  public void thenTheAccess_DialogMustCloseViaTheCancel_Button(@Named("Access_Dialog") String Access_Dialog, @Named("Cancel_Button") String Cancel_Button){
 	 
  
