@@ -50,4 +50,16 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 		}	
 		return element;
 	}
+
+	@Override
+    public WebElement hasInput(String dialog) {
+        return Util.getDriver().findElement(By.id(dialog))
+            .findElements(By.tagName("input")).get(0);
+    }
+    
+    @Override
+    public WebElement hasTextArea(String dialog) {
+        return Util.getDriver().findElement(By.id(dialog))
+            .findElements(By.tagName("textarea")).get(0);
+    }
 }

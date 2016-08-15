@@ -8,9 +8,11 @@ import com.opus2.util.components.impl.DialogImpl;
 
 @ImplementedBy(DialogImpl.class)
 public interface Dialog extends Component {
-	WebElement hasDialog(String elementId);
-	WebElement xButton(String elementId);
-	String notVisible(String elementId);
-	WebElement folder(String folder);
-	WebElement dialog(String header);
+    WebElement hasDialog(String elementId);
+    WebElement xButton(String elementId);
+    String notVisible(String elementId);
+    WebElement folder(String folder);
+    WebElement dialog(String header);
+    WebElement hasInput(String dialog);
+    WebElement hasTextArea(String dialog);
 }

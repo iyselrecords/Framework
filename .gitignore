@@ -2,3 +2,7 @@ target/*
 TestResults/*
 log
 phantomjsdriver.log
+.settings/*
+.classpath
+.project
+.pom.xml.swp
