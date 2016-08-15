@@ -1,21 +1,24 @@
 package com.opus2.magnum.documents.addToMenu;
+import net.thucydides.core.annotations.Steps;
+import static org.assertj.core.api.Assertions.*;
+
 import org.jbehave.core.annotations.*;
 public class OpenAddToMenuDocumentsPage{
-	@Then("the <Add_To_Menu> must open")
-	@Pending
-	public void thenTheAdd_To_MenuMustOpen(@Named("Add_To_Menu") String Add_To_Menu){
-		 //TODO 
+	@Steps
+	AddToMenuSteps add2Menu;
+
+	@Given("the Add_To_Option is visible in the Right_Click_Menu")
+	public void givenTheAdd_ToOptionIsVisible(){
+		assertThat(add2Menu.option().isDisplayed()).isTrue();
 	}
 	
-	@When("the user hovers the pointer over the <Add_To_Option>")
-	@Pending
-	public void whenTheUserHoversThePointerOverTheAdd_ToOption(@Named("Add_To_Option") String Add_To_Option){
-		 //TODO 
+	@When("the user hovers the pointer over the Add_To_Option")
+	public void whenTheUserHoversThePointerOverTheAdd_ToOption(){
+		add2Menu.mouseOverOption();
 	}
 	
-	@Given("the <Add_To_Option> is visible in the <Right_Click_Menu>")
-	@Pending
-	public void givenTheAdd_ToOptionIsVisible(@Named("Add_To_Option") String Add_To_Option){
-		 //TODO 
+	@Then("the Add_To_Menu must open")
+	public void thenTheAdd_To_MenuMustOpen(){
+		assertThat(add2Menu.subMenu().isDisplayed()).isTrue();		
 	}
 }

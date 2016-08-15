@@ -1,19 +1,24 @@
 package com.opus2.magnum.documents.insert;
+import net.thucydides.core.annotations.Steps;
+import static org.assertj.core.api.Assertions.*;
+
 import org.jbehave.core.annotations.*;
 public class OpenInsertDialogDocumentsPage{
-	@Then("the <Insert_Document_Dialog> must open")
-	@Pending
-	public void thenTheInsert_Document_DialogMustOpen(@Named("Insert_Document_Dialog") String Insert_Document_Dialog){
-		 //TODO 
+	@Steps
+	InsertDocumentSteps insert; 
+	
+	@Given("the Insert_Option is visible in the Right_Click_Menu")
+	public void givenTheInsert_OptionIsVisibleInTheRight_Click_Menu(){
+		assertThat(insert.option().isDisplayed()).isTrue();
 	}
-	@When("the user clicks the <Insert_Option>")
-	@Pending
-	public void whenTheUserClicksTheInsert_Option(@Named("Insert_Option") String Insert_Option){
-		 //TODO 
+	
+	@When("the user clicks the Insert_Option")
+	public void whenTheUserClicksTheInsert_Option(){
+		insert.insertDocumentOption();
 	}
-	@Given("the <Insert_Option> is visible in the <Right_Click_Menu>")
-	@Pending
-	public void givenTheInsert_OptionIsVisibleInTheRight_Click_Menu(@Named("Insert_Option") String Insert_Option, @Named("Right_Click_Menu") String Right_Click_Menu){
-		 //TODO 
+	
+	@Then("the Insert_Document_Dialog must open")
+	public void thenTheInsert_Document_DialogMustOpen(){
+		assertThat(insert.dialog().isDisplayed()).isTrue();
 	}
 }

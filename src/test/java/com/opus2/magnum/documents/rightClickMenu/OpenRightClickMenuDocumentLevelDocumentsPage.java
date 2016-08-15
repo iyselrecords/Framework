@@ -5,20 +5,20 @@ import static org.assertj.core.api.Assertions.*;
 import org.jbehave.core.annotations.*;
 public class OpenRightClickMenuDocumentLevelDocumentsPage{
 	@Steps
-	RightClickMenuSteps rckm;
+	RightClickMenuSteps user;
 	
 	@Given("there is at least one Document in the Document_Index")
 	public void givenThereIsAtLeastOneDocumentInTheDocument_Index(){
-		assertThat(rckm.document().isDisplayed()).isTrue();
+		assertThat(user.getDocument().isDisplayed()).isTrue();
 	}
 	
 	@When("the user right clicks the Document")
 	public void whenTheUserRightClicksTheDocument(){
-		rckm.rightClickDocument();
+		user.rightclickDocument();
 	}
 	
 	@Then("the Right_Click_Menu must open at document level")
 	public void thenTheRight_Click_MenuMustOpenAtDocumentLevel(){
-		assertThat(rckm.rightClickMenu().isDisplayed()).isTrue();
+		assertThat(user.menu().isDisplayed()).isTrue();
 	}
 }

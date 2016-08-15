@@ -2,7 +2,7 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="-login+ch_002"
+SET META_FILTER="-Find -skip"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...
@@ -12,25 +12,18 @@ echo done.....
  
 MD %PROJECT_DIR%\%TEST_RESULTS%\site\serenity
 
-::echo cleaning........clean........clean........clean.......
+echo cleaning..........
 CALL mvn clean
+echo done...............
 
-echo done.....
-
-
-
-echo compile........compile........compile........compile
-
+echo compiling...............
 CALL mvn compile
+echo done...............
 
-echo done.....
-
-echo Executing Test.........
-
-CALL mvn verify
-::CALL mvn verify -Dmetafilter=%META_FILTER%
+echo executing test...............
+CALL mvn verify -Dmetafilter=%META_FILTER% -Dphantomjs.binary.path=C:/Users/misele/phantomjs/bin/phantomjs.exe
 
 XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
-echo Done
-START %PROJECT_DIR%\%TEST_RESULTS%\site\serenity\index.html
+echo done...............
 
+START %PROJECT_DIR%\%TEST_RESULTS%\site\serenity\index.html

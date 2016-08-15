@@ -5,8 +5,13 @@ within the index on the Home Page.
 
 Meta: @caselist
 
-Scenario:  Navigate To Documents Page From Home Page Via Workspace Title
-GivenStories: stories/pages/login/LoginPrecondition.story
+Scenario: Enter Correct User Details And Password 
+Given that a user is present on the login page
+When the user authenticates successfully
+And the user fills the memorable word options correctly
+Then the user must be navigated to the home page
+
+Scenario: Select Workspace And Navigate To Documents Page
 Given the workspace is visible in the cases section
 When the user selects workspace title
 Then they must be navigated to the documents page
