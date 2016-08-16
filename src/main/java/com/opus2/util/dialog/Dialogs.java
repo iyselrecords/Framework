@@ -2,8 +2,6 @@ package com.opus2.util.dialog;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import com.opus2.util.Page;
 import com.opus2.util.Util;
 import com.opus2.util.components.Dialog;

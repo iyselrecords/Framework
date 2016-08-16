@@ -4,7 +4,6 @@ package com.opus2.magnum.steps.caseslist;
 import com.opus2.pages.Home;
 import com.opus2.util.Util;
 
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 public class CaseSelectionSteps {

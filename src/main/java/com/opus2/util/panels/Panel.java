@@ -1,7 +1,5 @@
 package com.opus2.util.panels;
 
-import org.openqa.selenium.By;
-
 import com.opus2.util.panels.impl.PanelImpl;
 
 import net.serenitybdd.core.annotations.ImplementedBy;

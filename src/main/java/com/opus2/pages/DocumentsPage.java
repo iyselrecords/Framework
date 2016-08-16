@@ -6,8 +6,6 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-import org.openqa.selenium.WebDriver;
-
 import com.opus2.core.Configuration;
 import com.opus2.util.Page;
 import com.opus2.util.Util;

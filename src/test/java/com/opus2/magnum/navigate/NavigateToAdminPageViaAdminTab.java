@@ -2,8 +2,6 @@ package com.opus2.magnum.navigate;
 import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
-import org.openqa.selenium.WebElement;
-
 import static org.assertj.core.api.Assertions.*;
 
 import com.opus2.core.Configuration;

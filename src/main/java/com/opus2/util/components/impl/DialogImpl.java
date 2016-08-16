@@ -62,4 +62,10 @@ public class DialogImpl extends ComponentImpl implements Dialog {
         return Util.getDriver().findElement(By.id(dialog))
             .findElements(By.tagName("textarea")).get(0);
     }
+    
+    @Override
+    public String getTitle(String dialogId) {
+        return Util.getDriver().findElement(By.id(dialogId))
+            .findElements(By.tagName("h2")).get(0).getText();
+    }
 }

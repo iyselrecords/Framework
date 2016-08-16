@@ -3,25 +3,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
-import org.openqa.selenium.WebElement;
 
-import com.opus2.core.Configuration;
+import com.opus2.util.Util;
+
 public class SelectWorkspaceWorkspaceDropdownMenu{
 	@Steps
-	WorkspaceDropdownSteps ws;
+	WorkspaceDropdownSteps wks;
 	
 	@Given("the Workspace_Title is visible in the Cases section")	
 	public void givenTheWorkspace_TitleIsVisibleInTheCasesSection(){
-		assertThat(ws.workspaceslist().isDisplayed()).isTrue();
+		assertThat(wks.workspacesList().isDisplayed()).isTrue();
 	}
 	
 	@When("the user clicks the Workspace_Title")	
 	public void whenTheUserClicksTheWorkspace_Title(){
-		ws.selectWorkspace();
+		wks.selectWorkspace();
 	}
 	
 	@Then("the Page_Title must equal the Workspace_Title")	
 	public void thenThePage_TitleMustEqualTheWorkspace_Title(){
-		assertThat(ws.getpageTitle().equals("Home - " + Configuration.getSelectedUser().getCase())).isTrue();
+		assertThat(wks.getCurrentUrl().equals(Util.getDriver().getCurrentUrl())).isTrue();
 	}
 }

@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.*;
 
 import com.opus2.core.Configuration;
-import com.opus2.magnum.steps.login.HomeSteps;
 import com.opus2.util.Util;
 public class NavigateToDocumentsPageViaShortcutOnHomePage{
 	@Steps

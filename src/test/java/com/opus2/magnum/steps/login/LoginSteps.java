@@ -1,8 +1,6 @@
 package com.opus2.magnum.steps.login;
 import java.util.concurrent.TimeUnit;
 
-import org.jbehave.core.annotations.AfterStory;
-
 import com.opus2.core.Configuration;
 import com.opus2.pages.login.LoginPage;
 import com.opus2.pages.login.MemorableWordPage;

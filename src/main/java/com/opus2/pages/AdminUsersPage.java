@@ -1,7 +1,5 @@
 package com.opus2.pages;
 
-import org.openqa.selenium.WebDriver;
-
 import com.opus2.core.Configuration;
 import com.opus2.util.Page;
 
