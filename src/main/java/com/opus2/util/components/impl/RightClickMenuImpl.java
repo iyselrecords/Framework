@@ -114,7 +114,7 @@ public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu 
 		for(WebElement row : docrows){
 			List <WebElement> doclinks = row.findElements(By.className("doclink"));
 			for(WebElement link : doclinks){
-				if(row.getText().equals(docLink)){
+				if(link.getText().equals(docLink)){
 					folder = link;
 					break;
 				}

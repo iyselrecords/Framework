@@ -20,6 +20,5 @@ public class CaseSelectionSteps {
   @Step("select workspace from the list")
   public void selectWorkspace(String wsid) {
 	  page.selectWorkspace(wsid);
-	  Util.loadingIcon();
   }
 }
