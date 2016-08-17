@@ -5,4 +5,4 @@ phantomjsdriver.log
 .settings/*
 .classpath
 .project
-.pom.xml.swp
+/target/
