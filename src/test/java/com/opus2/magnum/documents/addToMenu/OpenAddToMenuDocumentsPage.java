@@ -19,6 +19,6 @@ public class OpenAddToMenuDocumentsPage{
 	
 	@Then("the Add_To_Menu must open")
 	public void thenTheAdd_To_MenuMustOpen(){
-		assertThat(add2Menu.subMenu().isDisplayed()).isTrue();		
+		assertThat(add2Menu.subMenu().equals("block")).isTrue();		
 	}
 }

@@ -22,7 +22,7 @@ public class DocumentsRightClickMenu extends Page {
 		doc.rightclickDocument(DOCUMENT_TITLE);
 	}
 	
-	public WebElement hasMenu() {
+	public String hasMenu() {
 		return dialog.hasDialog(MENU);
 	}
 	

@@ -26,7 +26,7 @@ public class DestinationFolder extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(DOC_CHOOSER_DIALOG);
 	}
 	

@@ -21,7 +21,7 @@ public class AddToMenu extends Page {
 		option.mouseOverOption(hasOption());
 	}
 	
-	public WebElement subMenu() {
+	public String subMenu() {
 		return dialog.hasDialog(SUBMENU);
 	}	
 }

@@ -19,6 +19,6 @@ public class OpenAutolinkDialogDocumentsPage{
 	
 	@Then("the Autolink_Dialog must open")	
 	public void thenTheAutolink_DialogMustOpen(){
-		assertThat(autolink.dialog().isDisplayed()).isTrue();
+		assertThat(autolink.dialog().equals("block")).isTrue();
 	}
 }

@@ -19,6 +19,6 @@ public class OpenRightClickMenuFolderLevelDocumentsPage{
 	
 	@Then("the Right_Click_Menu must open at folder level")
 	public void thenTheRight_Click_MenuMustOpenAtFolderLevel(){
-		assertThat(user.menu().isDisplayed()).isTrue();
+		assertThat(user.menu().equals("block")).isTrue();
 	}
 }

@@ -19,6 +19,6 @@ public class OpenTagFolderDialogDocumentsPage{
 	
 	@Then("the Tag_Folder_Dialog must open")	
 	public void thenTheTag_Folder_DialogMustOpen(){
-		assertThat(tagFolder.dialog().isDisplayed()).isTrue();
+		assertThat(tagFolder.dialog().equals("block")).isTrue();
 	}
 }

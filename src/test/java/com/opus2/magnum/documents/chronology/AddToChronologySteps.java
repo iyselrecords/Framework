@@ -20,7 +20,7 @@ public class AddToChronologySteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return addToChron.dialog();
 	}
 	

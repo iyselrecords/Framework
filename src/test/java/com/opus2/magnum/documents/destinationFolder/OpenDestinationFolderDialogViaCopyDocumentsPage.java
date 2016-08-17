@@ -19,6 +19,6 @@ public class OpenDestinationFolderDialogViaCopyDocumentsPage{
 	
 	@Then("the Destination_Folder_Dialog must open via the Copy_Option")
 	public void thenTheDestination_Folder_DialogMustOpenViaTheCopy_Option(){
-		assertThat(destFol.dialog().isDisplayed()).isTrue();
+		assertThat(destFol.dialog().equals("block")).isTrue();
 	}
 }

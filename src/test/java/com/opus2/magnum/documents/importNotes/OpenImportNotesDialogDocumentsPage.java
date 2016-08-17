@@ -24,6 +24,6 @@ public class OpenImportNotesDialogDocumentsPage{
 	
 	@Then("the Import_Notes_Dialog must open")
 	public void thenTheImport_Notes_DialogMustOpen(){
-		assertThat(notes.importNotesDialog().isDisplayed()).isTrue();
+		assertThat(notes.importNotesDialog().equals("block")).isTrue();
 	}
 }

@@ -28,11 +28,11 @@ public class ImportNotes extends Page {
 		hasOption().click();
 	}
 
-	public WebElement selectDialog() {
+	public String selectDialog() {
 		return dialog.hasDialog(DOC_CHOOSER_DIALOG);
 	}
 	
-	public WebElement notesDialog() {
+	public String notesDialog() {
 		return dialog.dialog(DIALOG_HEADER);
 	}
 	
@@ -57,6 +57,6 @@ public class ImportNotes extends Page {
 	}
 	
 	public String notVisible() {
-		return dialog.dialog(DIALOG_HEADER).getCssValue("display");
+		return dialog.dialog(DIALOG_HEADER);
 	}	
 }

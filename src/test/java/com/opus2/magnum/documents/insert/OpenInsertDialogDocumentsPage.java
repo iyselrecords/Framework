@@ -19,6 +19,6 @@ public class OpenInsertDialogDocumentsPage{
 	
 	@Then("the Insert_Document_Dialog must open")
 	public void thenTheInsert_Document_DialogMustOpen(){
-		assertThat(insert.dialog().isDisplayed()).isTrue();
+		assertThat(insert.dialog().equals("block")).isTrue();
 	}
 }

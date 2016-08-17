@@ -25,7 +25,7 @@ public class Replace extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.dialog(DIALOG_HEADER);
 	}
 	

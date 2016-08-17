@@ -19,6 +19,6 @@ public class OpenRightClickMenuDocumentLevelDocumentsPage{
 	
 	@Then("the Right_Click_Menu must open at document level")
 	public void thenTheRight_Click_MenuMustOpenAtDocumentLevel(){
-		assertThat(user.menu().isDisplayed()).isTrue();
+		assertThat(user.menu().equals("block")).isTrue();
 	}
 }

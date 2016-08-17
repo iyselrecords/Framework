@@ -55,7 +55,7 @@ public class RecentDocuments extends Page {
 		docHasLoaded().click();
 	}
 
-	public WebElement previewDialog() {
+	public String previewDialog() {
 		return dialog.hasDialog(DOC_PREVIEW);
 	}
 

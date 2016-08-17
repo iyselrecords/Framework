@@ -20,7 +20,7 @@ public class InsertDocumentSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return insert.dialog();
 	}
 	

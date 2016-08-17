@@ -25,7 +25,7 @@ public class EnableDisableExport extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(ENABLE_DISABLE_EXPORT_DIALOG);
 	}
 	

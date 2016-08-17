@@ -25,7 +25,7 @@ public class Rename extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(RENAME_DIALOG);
 	}
 	

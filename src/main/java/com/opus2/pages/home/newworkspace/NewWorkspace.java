@@ -35,7 +35,7 @@ public class NewWorkspace extends Page {
 		newWorkspaceButton().click();
 	}
   
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(NEW_WORKSPACE_DIALOG);
 	}
 	

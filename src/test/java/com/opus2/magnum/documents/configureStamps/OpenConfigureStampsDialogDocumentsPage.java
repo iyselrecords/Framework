@@ -19,6 +19,6 @@ public class OpenConfigureStampsDialogDocumentsPage{
 	
 	@Then("the Configure_Stamps_Dialog must open")
 	public void thenTheConfigure_Stamps_DialogMustOpen(){
-		assertThat(configureStamps.dialog().isDisplayed()).isTrue();
+		assertThat(configureStamps.dialog().equals("block")).isTrue();
 	}
 }

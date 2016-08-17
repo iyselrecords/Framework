@@ -34,7 +34,7 @@ public class RecentDocumentsSteps {
 	}
 	
 	@Step()
-	public WebElement previewDialog() {
+	public String previewDialog() {
 		return renDocs.previewDialog();
 	}
 	

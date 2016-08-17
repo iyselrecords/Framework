@@ -20,7 +20,7 @@ public class DestinationFolderSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return destFol.dialog();
 	}
 	

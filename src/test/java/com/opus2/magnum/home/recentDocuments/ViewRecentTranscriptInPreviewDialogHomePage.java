@@ -19,7 +19,7 @@ public class ViewRecentTranscriptInPreviewDialogHomePage{
 	
 	@Then("the Preview_Dialog must open via the Transcript_Title")    
     public void thenThePreview_DialogMustOpenViaTheTranscript_Title(){
-		assertThat(renDocs.previewDialog().isDisplayed()).isTrue();
+		assertThat(renDocs.previewDialog().equals("block")).isTrue();
     }
 	
 	@Then("the correct Transcript must be loaded in the Preview_Dialog")    

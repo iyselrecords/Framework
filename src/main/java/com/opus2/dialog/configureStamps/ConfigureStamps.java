@@ -26,7 +26,7 @@ public class ConfigureStamps extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(CONFIGURE_STAMPS_DIALOG);
 	}
 	

@@ -17,9 +17,10 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 	}
 
 	@Override
-	public WebElement hasDialog(String elementId) {
-		return Util.getDriver().findElement(By.id(elementId));
-	}
+	public String hasDialog(String elementId) {
+        return Util.getDriver().findElement(By.id(elementId))
+            .getCssValue("display");
+    }
 
 	@Override
 	public WebElement xButton(String elementId) {
@@ -39,16 +40,16 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 	}
 
 	@Override
-	public WebElement dialog(String dialogHeader){
-		WebElement element = null;
-		List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
-		for(WebElement dialog :dialogs){
-			if(dialog.findElement(By.tagName("h2")).getText().equals(dialogHeader.toUpperCase())){
-				element = dialog;
-				break;
-			}
-		}	
-		return element;
+	public String dialog(String dialogHeader){
+	  WebElement element = null;
+      List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
+      for(WebElement dialog :dialogs){
+          if(dialog.findElement(By.tagName("h2")).getText().equals(dialogHeader.toUpperCase())){
+              element = dialog;
+              break;
+          }
+      }   
+      return element.getCssValue("display");
 	}
 
 	@Override

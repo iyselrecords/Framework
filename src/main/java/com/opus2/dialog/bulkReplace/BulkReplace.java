@@ -27,7 +27,7 @@ public class BulkReplace extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(BULK_REPLACE_DIALOG);
 	}
 

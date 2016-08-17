@@ -9,6 +9,7 @@ import com.opus2.util.components.RightClickMenu;
 
 public class Access extends Page {
 	private static final String ACCESS = "Access";
+	private static final String ACCESS_DIALOG = "access";
 	private static final String ACCESS_CANCEL = "access_Cancel";
 	private static final String X_BUTTON = "access dialogClose-div";
 
@@ -25,8 +26,8 @@ public class Access extends Page {
 		hasOption().click();
 	}
 	
-	public WebElement dialog() {
-		return dialog.hasDialog(ACCESS.toLowerCase());
+	public String dialog() {
+		return dialog.hasDialog(ACCESS_DIALOG);
 	}
 	
 	public WebElement cancelButton() {
@@ -38,7 +39,7 @@ public class Access extends Page {
 	}
 
 	public String notVisible() {
-		return dialog.notVisible(ACCESS.toLowerCase());
+		return dialog.notVisible(ACCESS_DIALOG);
 	}
 	
 	public WebElement xButton() {

@@ -19,6 +19,6 @@ public class OpenFolderColourDialogDocumentsPage{
 	
 	@Then("the Folder_Colour_Dialog must open")
 	public void thenTheFolder_Colour_DialogMustOpen(){
-		assertThat(color.dialog().isDisplayed()).isTrue();
+		assertThat(color.dialog().equals("block")).isTrue();
 	}
 }

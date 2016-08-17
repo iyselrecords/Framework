@@ -19,6 +19,6 @@ public class OpenBulkReplacementDialogDocumentsPage{
 	
 	@Then("the Bulk_Doc_Replace_Dialog must open")	
 	public void thenTheBulk_Doc_Replace_DialogMustOpen(){
-		assertThat(bulkReplace.dialog().isDisplayed()).isTrue();
+		assertThat(bulkReplace.dialog().equals("block")).isTrue();
 	}
 }

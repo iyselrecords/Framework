@@ -20,6 +20,6 @@ public class OpenEnableDisableExportDialogDocumentsPage{
 	
 	@Then("the EnableDisable_Export_Dialog must open")
 	public void thenTheEnableDisable_Export_DialogMustOpen(){
-		assertThat(eDExp.dialog().isDisplayed()).isTrue();
+		assertThat(eDExp.dialog().equals("block")).isTrue();
 	}
 }

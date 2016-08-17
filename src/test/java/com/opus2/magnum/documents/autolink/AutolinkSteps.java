@@ -25,7 +25,7 @@ public class AutolinkSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return link.dialog();
 	}	
 	

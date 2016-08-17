@@ -25,7 +25,7 @@ public class Autolink extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		Util.pause(2);
 		return dialog.hasDialog(AUTOLINK.toLowerCase());
 	}

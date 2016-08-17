@@ -18,6 +18,6 @@ public class OpenSelectADocumentDialogDocumentsPage{
 	}
 	@Then("the Select_A_Document_Dialog must open")
 	public void thenTheSelect_A_Document_DialogMustOpen(){
-		assertThat(notes.selectADocumentDialog().isDisplayed()).isTrue();
+		assertThat(notes.selectADocumentDialog().equals("block")).isTrue();
 	}
 }

@@ -25,7 +25,7 @@ public class TagFolder extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(TAG_FOLDER_DIALOG);
 	}
 	

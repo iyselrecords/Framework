@@ -19,6 +19,6 @@ public class OpenNewNameDialogDocumentsPage{
 	
 	@Then("the New_Name_Dialog must open")	
 	public void thenTheNew_Name_DialogMustOpen(){
-		assertThat(rename.dialog().isDisplayed()).isTrue(); 
+		assertThat(rename.dialog().equals("block")).isTrue(); 
 	}
 }

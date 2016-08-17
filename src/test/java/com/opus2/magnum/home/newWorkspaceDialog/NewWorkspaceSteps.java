@@ -27,8 +27,8 @@ public class NewWorkspaceSteps {
   }
   
   @Step("dialog is visible")
-  public WebElement dialog() {
-	return nwks.dialog();
+  public String dialog() {
+	 return nwks.dialog();
   }
   
   @Step("cancel button is visible")

@@ -20,6 +20,6 @@ public class OpenAccessDialogDocumentsPage {
 	
 	@Then("the Access_Dialog must open")	
 	public void thenTheAccess_DialogMustOpen(){
-		assertThat(access.dialog().isDisplayed()).isTrue();
+		assertThat(access.dialog().equals("block")).isTrue();
 	}
 }

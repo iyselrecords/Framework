@@ -20,7 +20,7 @@ public class ConfigureStampsSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return configureStamps.dialog();
 	}
 	

@@ -20,7 +20,7 @@ public class EnableDisableExportSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return eDExp.dialog();
 	}
 	

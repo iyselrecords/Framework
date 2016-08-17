@@ -20,7 +20,7 @@ public class TagFolderSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return tagFolder.dialog();
 	}
 	

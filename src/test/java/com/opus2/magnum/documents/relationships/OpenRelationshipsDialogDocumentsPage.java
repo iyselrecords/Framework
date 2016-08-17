@@ -19,6 +19,6 @@ public class OpenRelationshipsDialogDocumentsPage{
 	
 	@Then("the Relationships_Dialog must open")
 	public void thenTheRelationships_DialogMustOpen(){
-		assertThat(relatedDoc.dialog().isDisplayed()).isTrue();
+		assertThat(relatedDoc.dialog().equals("block")).isTrue();
 	}
 }

@@ -20,7 +20,7 @@ public class ReplaceSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return replace.dialog();
 	}
 

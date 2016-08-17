@@ -26,7 +26,7 @@ public class AddToChronology extends Page{
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(ADD_TO_CHRON_DIALOG);
 	}
 	

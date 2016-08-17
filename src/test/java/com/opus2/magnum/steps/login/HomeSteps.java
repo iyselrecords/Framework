@@ -10,14 +10,12 @@ import com.opus2.pages.DocumentsPage;
 import com.opus2.pages.Home;
 import com.opus2.pages.navigation.Navigation;
 import com.opus2.util.Util;
-import com.opus2.util.dialog.Dialogs;
 
 import net.thucydides.core.annotations.Step;
 
 public class HomeSteps {
   Home home;
   DocumentsPage doc;
-  Dialogs dialog;
   Navigation nav;
   
   @Step
@@ -75,11 +73,6 @@ public class HomeSteps {
   @Step
   public void navigateToHomepage() {
 	  doc.gotoHome();
-  }
-
-  @Step
-  public void documentSectionIsVisible(String header) {
-	  dialog.dialogIsVisible(header, "recent-docs-container");
   }
   
   @Step

@@ -26,7 +26,7 @@ public class FolderColour extends Page{
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(FOLDER_COLOR_DIALOG);
 	}
 	

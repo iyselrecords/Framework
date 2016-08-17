@@ -20,12 +20,12 @@ public class ImportNotesSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement importNotesDialog() {
+	public String importNotesDialog() {
 		return notes.notesDialog();
 	}
 	
 	@Step("dialog is visible")
-	public WebElement selectADocumentDialog() {
+	public String selectADocumentDialog() {
 		return notes.selectDialog();
 	}
 	

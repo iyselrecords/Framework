@@ -19,7 +19,7 @@ public class AddToMenuSteps {
 	}
 	
 	@Step("submenu is visible")
-	public WebElement subMenu() {
+	public String subMenu() {
 		return add2Menu.subMenu();
 	}
 }

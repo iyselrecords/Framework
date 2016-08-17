@@ -26,7 +26,7 @@ public class InsertDocument extends Page {
 		hasOption().click();
 	}
 
-	public WebElement dialog() {
+	public String dialog() {
 		return dialog.hasDialog(INSERT_DOCUMENT_DIALOG);
 	}
 	

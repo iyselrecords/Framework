@@ -28,7 +28,7 @@ DocumentsRightClickMenu user;
 	}
 	
 	@Step("menu is visible")
-	public WebElement menu() {
+	public String menu() {
 		return user.hasMenu();
 	}
 }

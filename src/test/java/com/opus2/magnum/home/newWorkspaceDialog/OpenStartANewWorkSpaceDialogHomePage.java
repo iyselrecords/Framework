@@ -26,6 +26,6 @@ public class OpenStartANewWorkSpaceDialogHomePage{
 	
 	@Then("the Start_A_New_Workspace_Dialog must open")
 	public void thenTheStart_A_New_Workspace_DialogMustOpen(){
-		assertThat(nwks.dialog().isDisplayed()).isTrue();
+		assertThat(nwks.dialog().equals("block")).isTrue();
 	}
 }

@@ -20,7 +20,7 @@ public class AccessSteps {
 	}
 	
 	@Step("dialog is visible")
-	public WebElement dialog() {
+	public String dialog() {
 		return access.dialog();
 	}	
 	

@@ -12,7 +12,7 @@ public class CreateNewWorkspaceHomePage{
     
 	@Given("the Start_A_New_Workspace_Dialog is open")
     public void givenTheStart_A_New_Workspace_DialogIsOpen(){
-	  	assertThat(nwks.dialog().isDisplayed()).isTrue();
+	  	assertThat(nwks.dialog().equals("block")).isTrue();
     }
     
     @Given("the Title_Field is visible")

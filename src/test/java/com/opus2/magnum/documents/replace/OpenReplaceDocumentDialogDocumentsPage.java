@@ -20,6 +20,6 @@ public class OpenReplaceDocumentDialogDocumentsPage{
 	
 	@Then("the Replace_Document_Dialog must open")
 	public void thenTheReplace_Document_DialogMustOpen(){
-		assertThat(replace.dialog().isDisplayed()).isTrue();
+		assertThat(replace.dialog().equals("block")).isTrue();
 	}
 }
