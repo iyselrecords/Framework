@@ -13,8 +13,7 @@ public class NavigateToDocumentsPageViaDocumentsTab{
 	
 	@Given("the user is not present on the Documents_Page")
 	public void givenTheUserIsNotPresentOnTheDocuments_Page(){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		assertThat(Configuration.documentsUrl.equals(currentUrl)).isFalse();
+		assertThat(Configuration.documentsUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
 	}
 	
 	@Given("the Documents_Tab is visible")	

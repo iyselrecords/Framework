@@ -13,8 +13,7 @@ public class NavigateToNotesPageViaNotesTab{
 	
 	@Given("the user is not present on the Notes_Page")
 	public void givenTheUserIsNotPresentOnTheNotes_Page(){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		assertThat(Configuration.notesUrl.equals(currentUrl)).isFalse();
+		assertThat(Configuration.notesUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
 	}
 	
 	@Given("the Notes_Tab is visible")

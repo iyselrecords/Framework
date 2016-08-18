@@ -1,30 +1,29 @@
 package com.opus2.magnum.navigate;
 import net.thucydides.core.annotations.Steps;
+import static org.assertj.core.api.Assertions.*;
 
 import org.jbehave.core.annotations.*;
+
 import com.opus2.core.Configuration;
-import com.opus2.magnum.steps.login.HomeSteps;
 import com.opus2.util.Util;
 
-import static org.assertj.core.api.Assertions.*;
 public class NavigateToChronologyPageViaChronologyTab{
 	@Steps
-	HomeSteps home;
+	NavigateSteps nav;
 	
 	@Given("the user is not present on the Chronology_Page")
 	public void givenTheUserIsNotPresentOnTheChronology_Page(){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		assertThat(Configuration.chronologyUrl.equals(currentUrl)).isFalse();
+		assertThat(Configuration.chronologyUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
 	}
 	
 	@Given("the Chronology_Tab is visible")
 	public void givenTheChronology_TabIsVisible(){
-		assertThat(home.tabIsVisible("magnumChronology").isDisplayed()).isTrue();
+		assertThat(nav.chronTab().isDisplayed()).isTrue();
 	}
 	
 	@When("the user clicks the Chronology_Tab")
 	public void whenTheUserClicksTheChronology_Tab(){
-		home.chronologyTab();
+		nav.chronologyTab();
 	}
 	
 	@Then("they must be navigated to the Chronology_Page")

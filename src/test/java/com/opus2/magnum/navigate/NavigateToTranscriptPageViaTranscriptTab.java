@@ -13,8 +13,7 @@ public class NavigateToTranscriptPageViaTranscriptTab{
 	
 	@Given("the user is not present on the Transcripts_Page")	
 	public void givenTheUserIsNotPresentOnTheTranscrips_Page(){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		assertThat(Configuration.transcriptsUrl.equals(currentUrl)).isFalse();
+		assertThat(Configuration.transcriptsUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
 	}
 	
 	@Given("the Transcripts_Tab is visible")	
@@ -30,8 +29,6 @@ public class NavigateToTranscriptPageViaTranscriptTab{
 	@Then("they must be navigated to the Transcripts_Page")	
 	public void thenTheyMustBeNavigatedToTheTranscripts_Page(){
 		String page = Configuration.transcriptsUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace();
-		System.out.println("Martino: "+ Configuration.transcriptsUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace());
-		System.out.println("Martino: "+ Util.getDriver().getCurrentUrl());
 		assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
 	}
 }

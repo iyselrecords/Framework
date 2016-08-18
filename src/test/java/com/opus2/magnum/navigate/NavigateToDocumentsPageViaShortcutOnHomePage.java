@@ -2,8 +2,6 @@ package com.opus2.magnum.navigate;
 import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
-import org.openqa.selenium.WebElement;
-
 import static org.assertj.core.api.Assertions.*;
 
 import com.opus2.core.Configuration;
@@ -12,22 +10,19 @@ public class NavigateToDocumentsPageViaShortcutOnHomePage{
 	@Steps
 	NavigateShortcutSteps userSteps;
 	
-	@Given("the <Documents_Shortcut> is visible")	
-	public void givenTheDocuments_ShortcutIsVisible(String Documents_Shortcut){
-		WebElement img = userSteps.thumbnail(Documents_Shortcut);
-		assertThat(img.isDisplayed()).isTrue();
+	@Given("the Documents_Shortcut is visible")	
+	public void givenTheDocuments_ShortcutIsVisible(){
+		assertThat(userSteps.documentsImage().isDisplayed()).isTrue();
 	}
 	
-	@When("the user clicks the <Documents_Shortcut>")	
-	public void whenTheUserClicksTheDocuments_Shortcut(String Documents_Shortcut){
-		userSteps.clickShortcut(Documents_Shortcut);
+	@When("the user clicks the Documents_Shortcut")	
+	public void whenTheUserClicksTheDocuments_Shortcut(){
+		userSteps.docShortcut();
 	}
 	
-	@Then("they must be navigated to the <Documents_Page> via the <Documents_Shortcut>")	
+	@Then("they must be navigated to the Documents_Page via the Documents_Shortcut")	
 	public void thenTheyMustBeNavigatedToTheDocuments_PageViaTheDocuments_Shortcut(String Documents_Page, String Documents_Shortcut){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		String wsid = Configuration.getSelectedUser().getWorkspace();
-		String page = Configuration.documentsUrl + "?ws="+ wsid;
-		assertThat(page.equals(currentUrl)).isTrue();
+		String page = Configuration.documentsUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace();
+		assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
 	}
 }

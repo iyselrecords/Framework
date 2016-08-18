@@ -14,7 +14,7 @@ public class ViewRecentTranscriptInPreviewDialogHomePage{
 	
 	@When("the user clicks the Transcript_Title") 
     public void whenTheUserClicksTheTranscript_Title(){
-		renDocs.previewDocument();
+	    renDocs.previewTranscript();
     }
 	
 	@Then("the Preview_Dialog must open via the Transcript_Title")    
@@ -24,11 +24,11 @@ public class ViewRecentTranscriptInPreviewDialogHomePage{
 	
 	@Then("the correct Transcript must be loaded in the Preview_Dialog")    
     public void thenTheCorrectTranscriptMustBeLoadedInThePreview_Dialog(){
-		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetTranscript().getText())).isTrue();
+		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetTranscript().getText().toUpperCase())).isTrue();
     }
 	
 	@Then("the Preview_Dialog_Title must equal the Transcript_Title")	
 	public void thenThePreview_Dialog_TitleMustEqualTheTranscript_Title(){
-		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetTranscript().getText())).isTrue();
+		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetTranscript().getText().toUpperCase())).isTrue();
 	}
 }

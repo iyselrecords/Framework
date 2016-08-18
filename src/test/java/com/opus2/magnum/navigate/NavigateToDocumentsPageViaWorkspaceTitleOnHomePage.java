@@ -14,8 +14,7 @@ public class NavigateToDocumentsPageViaWorkspaceTitleOnHomePage{
 	
 	@Given("the Cases_Section is visible")	
 	public void givenTheCases_SectionIsVisible(){
-		String casesTitle = home.getCasesSection();
-		assertThat(casesTitle.equals("Cases".toUpperCase())).isTrue();
+		assertThat(home.getCasesSection().equals("Cases".toUpperCase())).isTrue();
 	}
 	
 	@Given("the Workspace_Title is visible")	

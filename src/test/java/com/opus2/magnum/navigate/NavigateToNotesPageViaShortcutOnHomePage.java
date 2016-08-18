@@ -11,22 +11,19 @@ public class NavigateToNotesPageViaShortcutOnHomePage{
 	@Steps
 	NavigateShortcutSteps userSteps;
 	
-	@Given("the <Notes_Shortcut> is visible")
-	public void givenTheNotes_ShortcutIsVisible(String Notes_Shortcut){
-		WebElement img = userSteps.thumbnail(Notes_Shortcut);
-		assertThat(img.isDisplayed()).isTrue();
+	@Given("the Notes_Shortcut is visible")
+	public void givenTheNotes_ShortcutIsVisible(){
+		assertThat(userSteps.notesImage().isDisplayed()).isTrue();
 	}
 	
-	@When("the user clicks the <Notes_Shortcut>")
-	public void whenTheUserClicksTheNotes_Shortcut(String Notes_Shortcut){
-		userSteps.clickShortcut(Notes_Shortcut);
+	@When("the user clicks the Notes_Shortcut")
+	public void whenTheUserClicksTheNotes_Shortcut(){
+		userSteps.notesShortcut();
 	}
 	
-	@Then("they must be navigated to the <Notes_Page> via the <Notes_Shortcut>")
+	@Then("they must be navigated to the Notes_Page via the Notes_Shortcut")
     public void thenTheyMustBeNavigatedToTheNotes_Page(String Notes_Page, String Notes_Shortcut){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		String wsid = Configuration.getSelectedUser().getWorkspace();
-		String page = Configuration.notesUrl  + "?ws="+ wsid;
-		assertThat(page.equals(currentUrl)).isTrue();
+		String page = Configuration.notesUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace();
+		assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
     }
 }

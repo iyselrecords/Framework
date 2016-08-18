@@ -24,11 +24,11 @@ public class ViewRecentDocumentInPreviewDialogHomePage{
 	
 	@Then("the correct Document must be loaded in the Preview_Dialog")
 	public void thenTheCorrectDocumentMustBeLoadedInThePreview_Dialog(){
-		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetDocument().getText())).isTrue();
+		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetDocument().getText().toUpperCase())).isTrue();
 	}
 	
 	@Then("the Preview_Dialog_Title must equal the Document_Title")
     public void thenThePreview_Dialog_TitleMustEqualTheDocument_Title(){
-		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetDocument().getText())).isTrue();
+		assertThat(renDocs.previewDialogTitle().equals(renDocs.targetDocument().getText().toUpperCase())).isTrue();
     }
 }

@@ -13,8 +13,7 @@ public class NavigateToSearchPageViaSearchTab{
 	
 	@Given("the user is not present on the Search_Page")	
 	public void givenTheUserIsNotPresentOnTheSearch_Page(){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		assertThat(Configuration.searchUrl.equals(currentUrl)).isFalse();
+		assertThat(Configuration.searchUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
 	}
 	
 	@Given("the Search_Tab is visible")	

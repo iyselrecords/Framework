@@ -3,7 +3,6 @@ package com.opus2.magnum.navigate;
 import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
-import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.*;
 
 import com.opus2.core.Configuration;
@@ -12,22 +11,19 @@ public class NavigatetoChronologyPageViaShortcutOnHomePage{
 	@Steps
 	NavigateShortcutSteps userSteps;
 	
-	@Given("the <Chronology_Shortcut> is visible")	
-	public void givenTheChronology_ShortcutIsVisible(String Chronology_Shortcut){
-		WebElement img = userSteps.thumbnail(Chronology_Shortcut);
-		assertThat(img.isDisplayed()).isTrue();
+	@Given("the Chronology_Shortcut is visible")	
+	public void givenTheChronology_ShortcutIsVisible(){
+		assertThat(userSteps.chrnologyImage().isDisplayed()).isTrue();
 	}
 	
-	@When("the user clicks the <Chronology_Shortcut>")	
-	public void whenTheUserClicksTheChronology_Shortcut(String Chronology_Shortcut){
-		userSteps.clickShortcut(Chronology_Shortcut);
+	@When("the user clicks the Chronology_Shortcut")	
+	public void whenTheUserClicksTheChronology_Shortcut(){
+		userSteps.chronShortcut();
 	}
 	
-	@Then("they must be navigated to the <Chronology_Page> via the <Chronology_Shortcut>")
-	public void thenTheyMustBeNavigatedToTheChronology_PageViaTheChronology_Shortcut(String Chronology_Page, String Chronology_Shortcut){
-		String currentUrl = Util.getDriver().getCurrentUrl();
-		String wsid = Configuration.getSelectedUser().getWorkspace();
-		String page = Configuration.chronologyUrl  + "?ws="+ wsid;
-		assertThat(page.equals(currentUrl)).isTrue();
+	@Then("they must be navigated to the Chronology_Page via the Chronology_Shortcut")
+	public void thenTheyMustBeNavigatedToTheChronology_PageViaTheChronology_Shortcut(){
+		String page = Configuration.chronologyUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace();
+		assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
 	}
 }

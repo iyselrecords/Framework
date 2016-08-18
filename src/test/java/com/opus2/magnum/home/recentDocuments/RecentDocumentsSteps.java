@@ -33,6 +33,11 @@ public class RecentDocumentsSteps {
 		renDocs.previewDocument();
 	}
 	
+	@Step("click to preview transcript")
+    public void previewTranscript() {
+        renDocs.previewTranscript();
+    }
+	
 	@Step()
 	public String previewDialog() {
 		return renDocs.previewDialog();
@@ -41,6 +46,6 @@ public class RecentDocumentsSteps {
 	@Step()
 	public String previewDialogTitle() {
 		return renDocs.previewDialogTitle();
-	}	
+	}
 }
 
