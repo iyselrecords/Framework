@@ -13,7 +13,7 @@ public class NavigateToChronologyPageViaChronologyTab{
 	
 	@Given("the user is not present on the Chronology_Page")
 	public void givenTheUserIsNotPresentOnTheChronology_Page(){
-		assertThat(Configuration.chronologyUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
+		assertThat(nav.getCurrentUrl().equals(Configuration.chronologyUrl)).isFalse();
 	}
 	
 	@Given("the Chronology_Tab is visible")

@@ -3,7 +3,6 @@ package com.opus2.magnum.navigate;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.*;
 import com.opus2.core.Configuration;
 import com.opus2.util.Util;
@@ -22,8 +21,7 @@ public class NavigateToHomePageViaHomeIcon {
 	
 	@Given("the Home Tab is visible")
 	public void givenTheHome_TabIsVisible(){
-		WebElement tab = nav.tabIsVisible();
-		assertThat(tab.isDisplayed());
+		assertThat(nav.tabIsVisible().isDisplayed());
 	}
 	
 	@When("the user clicks the Home Tab")

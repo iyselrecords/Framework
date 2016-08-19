@@ -21,7 +21,7 @@ public class NavigateToDocumentsPageViaShortcutOnHomePage{
 	}
 	
 	@Then("they must be navigated to the Documents_Page via the Documents_Shortcut")	
-	public void thenTheyMustBeNavigatedToTheDocuments_PageViaTheDocuments_Shortcut(String Documents_Page, String Documents_Shortcut){
+	public void thenTheyMustBeNavigatedToTheDocuments_PageViaTheDocuments_Shortcut(){
 		String page = Configuration.documentsUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace();
 		assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
 	}

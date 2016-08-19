@@ -3,27 +3,26 @@ import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
 import com.opus2.core.Configuration;
-import com.opus2.magnum.steps.login.HomeSteps;
 import com.opus2.util.Util;
 
 import static org.assertj.core.api.Assertions.*;
 public class NavigateToSearchPageViaSearchTab{
 	@Steps
-	HomeSteps home;
+	NavigateSteps nav;
 	
 	@Given("the user is not present on the Search_Page")	
 	public void givenTheUserIsNotPresentOnTheSearch_Page(){
-		assertThat(Configuration.searchUrl.equals(Util.getDriver().getCurrentUrl())).isFalse();
+		assertThat(nav.getCurrentUrl().equals(Configuration.searchUrl)).isFalse();
 	}
 	
 	@Given("the Search_Tab is visible")	
 	public void givenTheSearch_TabIsVisible(){
-		assertThat(home.tabIsVisible("search").isDisplayed()).isTrue();
+		assertThat(nav.searcTab().isDisplayed()).isTrue();
 	}
 	
 	@When("the user clicks the Search_Tab")	
 	public void whenTheUserClicksTheSearch_Tab(){
-		home.searchTab();;
+		nav.searchTab();;
 	}
 	
 	@Then("they must be navigated to the Search_Page")	

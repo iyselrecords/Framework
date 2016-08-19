@@ -20,7 +20,7 @@ public class NavigateToTranscriptsPageViaShortcutOnHomePage{
 	}
 	
 	@Then("they must be navigated to the Transcripts_Page via the Transcripts_Shortcut")	
-	public void thenTheyMustBeNavigatedToTheTranscripts_PageViaTheTranscript_Shortcut(String Transcripts_Page, String Transcripts_Shortcut){
+	public void thenTheyMustBeNavigatedToTheTranscripts_PageViaTheTranscript_Shortcut(){
 		String page = Configuration.transcriptsUrl + "?ws="+ Configuration.getSelectedUser().getWorkspace();
 		assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
 	}
