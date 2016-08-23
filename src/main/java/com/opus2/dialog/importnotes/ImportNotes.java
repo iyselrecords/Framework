@@ -1,5 +1,8 @@
 package com.opus2.dialog.importnotes;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.opus2.util.Page;
@@ -33,6 +36,7 @@ public class ImportNotes extends Page {
 	}
 	
 	public String notesDialog() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
 		return dialog.dialog(DIALOG_HEADER);
 	}
 	
@@ -57,6 +61,7 @@ public class ImportNotes extends Page {
 	}
 	
 	public String notVisible() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
 		return dialog.dialog(DIALOG_HEADER);
 	}	
 }

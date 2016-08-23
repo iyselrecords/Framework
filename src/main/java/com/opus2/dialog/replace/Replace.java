@@ -1,5 +1,8 @@
 package com.opus2.dialog.replace;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.opus2.util.Page;
@@ -26,6 +29,7 @@ public class Replace extends Page {
 	}
 
 	public String dialog() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
 		return dialog.dialog(DIALOG_HEADER);
 	}
 	
@@ -46,6 +50,7 @@ public class Replace extends Page {
 	}
 	
 	public String notVisible() {
-		return dialog.notVisible(DIALOG_HEADER);
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
+		return dialog.dialog(DIALOG_HEADER);
 	}
 }

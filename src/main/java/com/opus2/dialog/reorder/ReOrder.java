@@ -37,12 +37,17 @@ public class ReOrder extends Page {
 
 	public void closeDialog() {
 		cancelButton().click();
-        Util.getDriver().switchTo().alert().accept();
+		acceptAlert();
 	}
 	
-	public void closeByXButton() {
-		dialog.xButton(X_BUTTON).click();
+	private void acceptAlert() {
+	    Util.pause(2);
         Util.getDriver().switchTo().alert().accept();
+    }
+
+  public void closeByXButton() {
+		dialog.xButton(X_BUTTON).click();
+        acceptAlert();
 	}
 
 	public WebElement xButton() {
