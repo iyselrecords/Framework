@@ -36,8 +36,9 @@ public class ImportNotes extends Page {
 	}
 	
 	public String notesDialog() {
-        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
-		return dialog.dialog(DIALOG_HEADER);
+	    withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
+        return dialog.dialog(DIALOG_HEADER)
+            .getCssValue("display");
 	}
 	
 	public WebElement docFolder() {
@@ -62,6 +63,7 @@ public class ImportNotes extends Page {
 	
 	public String notVisible() {
         withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
-		return dialog.dialog(DIALOG_HEADER);
+		return dialog.dialog(DIALOG_HEADER)
+		    .getCssValue("display");
 	}	
 }

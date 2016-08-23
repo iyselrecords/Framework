@@ -12,7 +12,7 @@ public interface Dialog extends Component {
     WebElement xButton(String elementId);
     String notVisible(String elementId);
     WebElement folder(String folder);
-    String dialog(String header);
+    WebElement dialog(String header);
     WebElement hasInput(String dialog);
     WebElement hasTextArea(String dialog);
     String getTitle(String dialogId);

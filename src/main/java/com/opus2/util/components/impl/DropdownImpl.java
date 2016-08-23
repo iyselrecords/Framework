@@ -11,6 +11,7 @@ import com.opus2.util.Util;
 import com.opus2.util.components.Dropdown;
 
 public class DropdownImpl extends ComponentImpl implements Dropdown {
+  private static final String VIEW_MENU = "view-menu";
 
 	public DropdownImpl(WebDriver driver, ElementLocator locator, long implicitTimeoutInMilliseconds) {
 		super(driver, locator, implicitTimeoutInMilliseconds);
@@ -24,15 +25,16 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 	}
 
 	@Override
-	public WebElement selectOption(String className, String optionText) {
-		WebElement element = null;
-		List<WebElement> options = Util.getDriver().findElements(By.className(className));
-		for(WebElement option:options){
-			if(option.getText().equals(optionText)){
-				element = option;
-			}
-		}
-		return element;
-	}
+	public WebElement selectOption(String dropdownOption) {
+      WebElement element = null;
+      List<WebElement> options = Util.getDriver().findElement(By.id(VIEW_MENU))
+          .findElements(By.tagName("span"));
+      for(WebElement option : options){       
+          if(option.getText().equals(dropdownOption)){
+              element = option;
+          }
+      }
+      return element;
+  }
 
 }

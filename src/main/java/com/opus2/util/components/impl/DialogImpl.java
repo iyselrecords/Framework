@@ -40,23 +40,23 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 	}
 
 	@Override
-	public String dialog(String dialogHeader){
-	  WebElement element = null;
-      List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
-      for(WebElement dialog :dialogs){
-          List<WebElement> h2s = dialog.findElements(By.tagName("h2"));
-          for(WebElement h2 : h2s){
-              if(h2.getText().equals(dialogHeader.toUpperCase())){
-                  element = dialog;
-                  break;
-              }
-              else if(h2.getAttribute("innerHTML").equals(dialogHeader)){
-                  element = dialog;
-                  break;
-              }
-          }
-      }   
-      return element.getCssValue("display");
+	public WebElement dialog(String dialogHeader){
+  	    WebElement element = null;
+        List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
+        for(WebElement dialog :dialogs){
+            List<WebElement> h2s = dialog.findElements(By.tagName("h2"));
+            for(WebElement h2 : h2s){
+                if(h2.getText().equals(dialogHeader.toUpperCase())){
+                    element = dialog;
+                    break;
+                }
+                else if(h2.getAttribute("innerHTML").equals(dialogHeader)){
+                    element = dialog;
+                    break;
+                }
+            }
+        }   
+        return element;
 	}
 
 	@Override

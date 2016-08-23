@@ -30,7 +30,8 @@ public class Replace extends Page {
 
 	public String dialog() {
         withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
-		return dialog.dialog(DIALOG_HEADER);
+		return dialog.dialog(DIALOG_HEADER)
+            .getCssValue("display");
 	}
 	
 	public WebElement cancelButton() {
@@ -51,6 +52,7 @@ public class Replace extends Page {
 	
 	public String notVisible() {
         withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
-		return dialog.dialog(DIALOG_HEADER);
+		return dialog.dialog(DIALOG_HEADER)
+            .getCssValue("display");
 	}
 }
