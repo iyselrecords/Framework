@@ -37,4 +37,22 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
       return element;
   }
 
+	@Override
+    public WebElement dropdownPanel(int index) {
+        return Util.getDriver().findElements(By.className("menu")).get(index);
+    }
+
+    @Override
+    public WebElement getOption(int index, String dropdownOption) {
+        WebElement element = null;
+        List<WebElement> options = dropdownPanel(index)
+            .findElements(By.tagName("span"));
+        for(WebElement option : options){       
+            if(option.getText().equals(dropdownOption)){
+                element = option;
+            }
+        }
+        return element;
+    }
+
 }

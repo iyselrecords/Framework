@@ -10,4 +10,6 @@ import com.opus2.util.components.impl.DropdownImpl;
 public interface Dropdown extends Component{
 	String isVisible(String dropdown);
     WebElement selectOption(String dropdownOption);
+    WebElement dropdownPanel(int index);
+    WebElement getOption(int index, String dropdownOption);
 }
