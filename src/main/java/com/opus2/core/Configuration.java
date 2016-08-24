@@ -33,6 +33,7 @@ public final class Configuration {
 	public static String adminUrl;
 	public static String adminRoles;
 	public static String adminUsersUrl;
+    public static String adminWorkspacesUrl;
 	public static String adminGroupsUrl;
 	public static String adminDocumentStampsUrl;
 	public static String adminMetaDataUrl;
@@ -87,6 +88,7 @@ public final class Configuration {
 			Configuration.adminUrl = Configuration.baseUrl.concat(file.getProperty("adminUrl"));
 			Configuration.adminRoles = Configuration.baseUrl.concat(file.getProperty("adminRoles"));
 			Configuration.adminUsersUrl = Configuration.baseUrl.concat(file.getProperty("adminUsersUrl"));
+            Configuration.adminWorkspacesUrl = Configuration.baseUrl.concat(file.getProperty("adminWorkspacesUrl"));
 			Configuration.adminGroupsUrl = Configuration.baseUrl.concat(file.getProperty("adminGroupsUrl"));
 			Configuration.adminDocumentStampsUrl = Configuration.baseUrl.concat(file.getProperty("adminDocumentStampsUrl"));
 			Configuration.adminMetaDataUrl = Configuration.baseUrl.concat(file.getProperty("adminMetaDataUrl"));

@@ -4,10 +4,9 @@ import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
 
-import com.opus2.util.AssertDummy;
 public class NavigateToManageNewUserAndWorkspaceHomePages{
 	@Steps
-	AssertDummy action;
+	AdminUserSteps action;
 	
 	@Given("the Cancel_Button is visible on the Start_A_New_Workspace_Dialog")
 	public void givenTheCancel_ButtonIsVisibleOnTheStart_A_New_Workspace_Dialog(){

@@ -23,4 +23,9 @@ public class AdminUserSteps {
 	public void goToAdminUser() {
 		user.goToAdminUser();
 	}
+	
+	@Step("dummy data")
+	public String assertDIP(){
+	    return "TDIP";
+	}
 }
