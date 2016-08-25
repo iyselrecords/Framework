@@ -16,6 +16,6 @@ public class SelectResetMemorableWordFromToolsDropdownAdminUserPage {
 	}
 	@Then("Reset_Memorable_Word_Dialog should be visible")	
 	public void thenResetMemorableWordDialogShouldBeVisible(){
-		assertThat(user.memorableWordReset().equals("block")).isTrue();
+		assertThat(user.dialog().equals("block")).isTrue();
 	}
 }

@@ -16,4 +16,5 @@ public interface Dialog extends Component {
     WebElement hasInput(String dialog);
     WebElement hasTextArea(String dialog);
     String getTitle(String dialogId);
+    WebElement button(String button);
 }

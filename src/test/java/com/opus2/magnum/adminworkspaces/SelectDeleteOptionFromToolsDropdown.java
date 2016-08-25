@@ -7,14 +7,6 @@ public class SelectDeleteOptionFromToolsDropdown{
 	@Steps
 	AdminWorkspaceSteps user;
 	
-	
-	
-	
-	@When("the user select Delete from dropdown options")	
-	public void whenTheUserSelectDeleteFromDropdownOptions(){
-		user.selectOption();
-	}
-	
 	@Then("Delete_Dialog should be visible")	
 	public void thenDelete_DialogShouldBeVisible(){
 		assertThat(user.deleteDialog().equals("block")).isTrue();

@@ -1,4 +1,4 @@
-package com.opus2.magnum.adminworkspaces;
+package com.opus2.magnum.adminworkspaces.tools;
 import static org.assertj.core.api.Assertions.assertThat;
 import net.thucydides.core.annotations.Steps;
 
@@ -8,16 +8,16 @@ import com.opus2.core.Configuration;
 import com.opus2.enums.Role;
 public class AdminDeletesWorkspaceAdminWorkspacePage{
 	@Steps
-	AdminWorkspaceSteps user;
+	AdminWorkspaceToolsSteps user;
 	
 	@Given("Delete Dialog is open")	
 	public void givenDeleteDialogIsOpen(){
-		assertThat(user.deleteDialog().equals("block")).isTrue();
+		assertThat(user.dialog().equals("block")).isTrue();
 	}
 	
 	@Given("Password_Input box is visible")
 	public void givenPassword_InputBoxIsVisible(){
-		assertThat(user.passwordInput().isDisplayed()).isTrue(); 
+		assertThat(user.input().isDisplayed()).isTrue(); 
 	}
 	
 	@Given("user has Admin_Capabilities")

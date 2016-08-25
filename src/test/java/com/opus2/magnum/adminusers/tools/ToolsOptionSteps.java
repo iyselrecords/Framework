@@ -41,16 +41,13 @@ public class ToolsOptionSteps {
 		user.resetPassword();
 	}
 	
-	public String passwordReset() {
-		return user.passwordReset();
+	@Step("dialog is visible")
+	public String dialog() {
+		return user.dialog();
 	}
 	
 	public void resetMemorableWord() {
 		user.resetMemorableWord();
-	}
-	
-	public String memorableWordReset() {
-		return user.memorableWordReset();
 	}
 	
 	public void loginAs() {
@@ -59,5 +56,17 @@ public class ToolsOptionSteps {
 
 	public void alert() {
 		user.alert();
+	}
+
+	public void archive() {
+		user.archive();
+	}
+
+	public void delete() {
+		user.delete();
+	}
+	
+	public void zip() {
+		user.zip();
 	}
 }

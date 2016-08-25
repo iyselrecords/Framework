@@ -16,6 +16,6 @@ public class SelectResetPasswordFromToolsDropdownAdminUserPage {
 	}
 	@Then("Reset_Password_Dialog should be visible")	
 	public void thenResetPasswordDialogShouldBeVisible(){
-		assertThat(user.passwordReset().equals("block")).isTrue();
+		assertThat(user.dialog().equals("block")).isTrue();
 	}
 }

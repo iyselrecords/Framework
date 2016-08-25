@@ -76,4 +76,20 @@ public class DialogImpl extends ComponentImpl implements Dialog {
         return Util.getDriver().findElement(By.id(dialogId))
             .findElements(By.tagName("h2")).get(0).getText();
     }
+
+    @Override
+    public WebElement button(String name) {
+        WebElement element = null;
+        List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
+        for(WebElement dialog :dialogs){
+            List<WebElement> buttons = dialog.findElements(By.tagName("button"));
+            for(WebElement button : buttons){
+                if(button.getText().equals(name)){
+                    element = button;
+                    break;
+                }
+            }
+        }
+        return element;
+    }
 }

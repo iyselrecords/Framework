@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 
 import com.opus2.home.manageuserandworkspace.AdminWorkspace;
 
-
-
 public class AdminWorkspaceSteps {
 	AdminWorkspace user;
 
@@ -143,7 +141,5 @@ public class AdminWorkspaceSteps {
 	@Step("testing assertion with dummy data")
 	public String assertDIP(){
 		return "TDIP";
-	}
-
-		
+	}	
 }
