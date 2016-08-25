@@ -28,4 +28,36 @@ public class ToolsOptionSteps {
 	public String toolsDropdown() {
 		return user.toolsDropdown();
 	}
+
+	public void addToWorkspaces() {
+		user.addToWorkspaces();
+	}
+	
+	public String selectWorkspace() {
+		return user.selectWorkspace();
+	}
+	
+	public void resetPassword() {
+		user.resetPassword();
+	}
+	
+	public String passwordReset() {
+		return user.passwordReset();
+	}
+	
+	public void resetMemorableWord() {
+		user.resetMemorableWord();
+	}
+	
+	public String memorableWordReset() {
+		return user.memorableWordReset();
+	}
+	
+	public void loginAs() {
+		user.loginAs();
+	}
+
+	public void alert() {
+		user.alert();
+	}
 }

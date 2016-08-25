@@ -17,6 +17,11 @@ public class OpenToolsDropdownAdminUserPage {
 		assertThat(user.toolsDropdownButton().isDisplayed()).isTrue(); 
 	}
 	
+	@Given("the Tools_Dropdown is open")	
+	public void givenTheTools_Dropdown_IsOpen(){
+		assertThat(user.toolsDropdown().equals("block")).isTrue();
+	}
+	
 	@When("user clicks the Tools_Dropdown_Button")	
 	public void whenUserClicksTheTools_Dropdown_Button(){
 		user.openDropdown();
