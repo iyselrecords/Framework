@@ -27,7 +27,7 @@ public class ButtonImpl extends ComponentImpl implements Button {
   
   @Override
   public WebElement hasButton(String elementId) {
-  	return Util.getDriver().findElement(By.id(elementId));
+  		return Util.getDriver().findElement(By.id(elementId));
   }
   
   @Override

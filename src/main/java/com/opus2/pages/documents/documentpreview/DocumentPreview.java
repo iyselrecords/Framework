@@ -7,7 +7,7 @@ import com.opus2.util.Page;
 import com.opus2.util.Util;
 
 public class DocumentPreview extends Page {
-	private static final String DOCUMENT_TITLE = "Day 2";
+	private static final String DOCUMENT_TITLE = "docView";
 	private static final String DOUCMENT_PREVIEW = "previewImage";
 	private static final String MENU_OPTION = "autocompletes";
 	private static final String PAGE_SELECTOR = "page-selector";
@@ -78,12 +78,6 @@ public class DocumentPreview extends Page {
 
 	public void documentPreview() {
 		this.getElementByClass(PREVIEW_NOTES).click();
-		switchToCurrentWindow();
-	}
-
-	private void switchToCurrentWindow() {
-		for(String currentHandle : getDriver().getWindowHandles()){
-			getDriver().switchTo().window(currentHandle);
-		}
+		this.switchToCurrentWindow();
 	}
 }

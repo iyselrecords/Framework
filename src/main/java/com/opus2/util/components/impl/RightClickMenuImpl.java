@@ -14,12 +14,13 @@ import com.opus2.util.components.RightClickMenu;
 
 public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu {
 	
-	public RightClickMenuImpl(WebDriver driver, ElementLocator locator,long implicitTimeoutInMilliseconds) {
+	public RightClickMenuImpl(WebDriver driver, ElementLocator locator, long implicitTimeoutInMilliseconds) {
 		super(driver, locator, implicitTimeoutInMilliseconds);
 	}
 
 	@Override
 	public WebElement selectOption(String optionName) {
+		Util.pause(1);
 		WebElement elem = null;
 		WebElement menu = Util.getDriver().findElement(By.id("rightClickMenu"));
 		List <WebElement> options = menu.findElements(By.tagName("span"));
@@ -85,29 +86,10 @@ public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu 
 		}	
 		return element;
 	}
-	
-	@Override
-	public WebElement getDocument(String docTitle) {
-		WebElement document = null;
-		List <WebElement> documents = Util.getDriver().findElement(By.id("docsdiv"))
-			.findElements(By.className("doctitle"));
-		for(WebElement element : documents){
-			if(element.getText().equals(docTitle)){
-				document = element;
-				break;
-			}
-		}
-		return document;
-	}
-
-	@Override
-	public void rightclickDocument(String document) {
-		Actions action = new Actions(Util.getDriver());
-		action.contextClick(getDocument(document)).sendKeys(Keys.ARROW_DOWN).perform();
-	}
 
 	@Override
 	public WebElement getFolder(String docLink) {
+		Util.pause(1);
 		WebElement folder = null;	
 		List <WebElement> docrows = Util.getDriver().findElement(By.id("docsdiv"))
 			.findElements(By.className("docrow"));
@@ -126,6 +108,7 @@ public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu 
 
 	@Override
 	public void rightclickFolder(String folder) {
+		Util.pause(1);
 		Actions action = new Actions(Util.getDriver());
 		action.contextClick(getFolder(folder)).sendKeys(Keys.ARROW_DOWN).perform();
 	}

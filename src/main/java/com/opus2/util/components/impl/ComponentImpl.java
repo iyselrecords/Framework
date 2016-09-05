@@ -45,5 +45,5 @@ public class ComponentImpl extends WebElementFacadeImpl implements Component {
       }
     }
     return this;
-  } 
+  }
 }

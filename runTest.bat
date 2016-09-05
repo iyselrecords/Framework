@@ -2,7 +2,7 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="-Find +AdminUser +AdminWorkspace"
+SET META_FILTER="-Find +ChronologyEventNewEntry"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...

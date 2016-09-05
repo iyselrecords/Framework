@@ -1,6 +1,8 @@
 package com.opus2.pages.documents.rightclickmenu;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.opus2.util.Page;
 import com.opus2.util.components.Dialog;
@@ -15,11 +17,12 @@ public class DocumentsRightClickMenu extends Page {
 	
 
 	public WebElement getDocument() {
-		return doc.getDocument(DOCUMENT_TITLE);
+		return this.getDocument(DOCUMENT_TITLE);
 	}
 
 	public void rightclickDocument() {
-		doc.rightclickDocument(DOCUMENT_TITLE);
+		Actions action = new Actions(this.getDriver());
+        action.contextClick(getDocument()).sendKeys(Keys.ARROW_DOWN).perform();
 	}
 	
 	public String hasMenu() {

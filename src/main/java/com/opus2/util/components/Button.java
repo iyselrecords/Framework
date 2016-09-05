@@ -10,5 +10,5 @@ import net.serenitybdd.core.annotations.ImplementedBy;
 public interface Button extends Component {
 	void click();
 	WebElement hasButton(String button);
-	WebElement withButton(String button, String buttonName);
+	WebElement withButton(String header, String buttonName);
 }	

@@ -11,9 +11,7 @@ import com.opus2.util.components.Tabs;
 
 public class TabsImpl extends ButtonImpl implements Tabs {
 
-	public TabsImpl(WebDriver driver, ElementLocator locator,
-			long implicitTimeoutInMilliseconds) {
+	public TabsImpl(WebDriver driver, ElementLocator locator,long implicitTimeoutInMilliseconds) {
 		super(driver, locator, implicitTimeoutInMilliseconds);
-		// TODO Auto-generated constructor stub
 	}
 }

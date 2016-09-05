@@ -4,12 +4,18 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import net.serenitybdd.core.pages.PageObject;
 
 public class Page extends PageObject{
 	private static final String DOCUMENT_WRAP = "docsdiv";
+    private static final String PROGRESS_BAR = "progress-bar-bar";
+    private static final String LOADING_ICON = "loading-icon";
+    private String mainHandle;
 	
 	public Page view() {
 		return null;
@@ -46,4 +52,48 @@ public class Page extends PageObject{
 		 withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className(className));
 		return this.getDriver().findElements(By.className(className)).get(0);
 	}
+	
+	public void switchToCurrentWindow() {
+      mainHandle = getDriver().getWindowHandle();
+      for(String currentHandle : getDriver().getWindowHandles()){
+          getDriver().switchTo().window(currentHandle);
+      }
+  }
+  
+  public void switchToMainWindow() {
+      getDriver().switchTo().window(mainHandle);
+  }
+  
+  public void OK() {
+      withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id("OK"));
+      getElement("OK").click();
+  }
+  
+  public void cancel() {
+      getElement("Cancel").click();
+  }
+  
+  public void progressBar() {
+      try{
+          WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+          wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(PROGRESS_BAR)));
+      }catch(NotFoundException e){
+          progressBar();
+      }
+      loadingIcon();
+  }
+  
+  public void loadingIcon() {
+      try{
+          WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+          wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(LOADING_ICON)));
+      }catch(NotFoundException e){
+          loadingIcon();
+      }
+      Util.pause(1);
+  }
+  
+  public void reloadPage() {
+      getDriver().navigate().refresh();
+  }
 }
