@@ -165,9 +165,7 @@ public class Chronology extends Page {
 	public String dialog() {
 		return dialog.dialog(CUSTOM_TYPES_DIALOG).getCssValue("display");
 	}
-	
-	
-	
+
 	
 	public void build(){
 		dialog.links(SELECT_ALL);
@@ -202,7 +200,6 @@ public class Chronology extends Page {
 	}
 	
 	
-
 	public void filter(){
 		this.getElement(FILTER_BUTTON).click();
 		Util.pause(3);

@@ -14,6 +14,7 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 	private static final String FIND_INPUT = "searchInputArea";
 	private static final String FIND_MATCH = "findmatch";
 	
+	
 	public DialogImpl(WebDriver driver, ElementLocator locator,long implicitTimeoutInMilliseconds) {
 		super(driver, locator, implicitTimeoutInMilliseconds);
 	}
@@ -118,6 +119,7 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 		d.findElements(By.tagName("button")).get(3).click();
 		Util.pause(1);
 		findmatch();
+		Util.pause(0.5);
 	}
 
 	private void findmatch() {
@@ -159,6 +161,7 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 			d.clear();
 			d.sendKeys(input);
 		}
+		Util.pause(0.5);
 	}
 
 	@Override
@@ -168,6 +171,28 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 			if(list.getText().equals(name)){
 				list.click();
 				break;
+			}
+		}
+		Util.pause(0.5);
+	}
+	
+	@Override
+	public void selectDocument(String document) {
+		Util.pause(3);
+		Util.getDriver().findElements(By.className("searchInputArea")).get(1)
+			.findElements(By.tagName("input")).get(0).sendKeys(document);
+		Util.pause(2);
+		
+		List <WebElement> rows = Util.getDriver().findElements(By.className("docstree")).get(0)
+			.findElements(By.tagName("tr"));
+		for(WebElement row : rows){
+			List <WebElement> lists = row.findElements(By.className("doctitle"));
+			for(WebElement list : lists){
+				if(list.getText().equals(document)){
+					row.click();	
+					Util.pause(0.5);	
+					return;
+				}
 			}
 		}
 	}

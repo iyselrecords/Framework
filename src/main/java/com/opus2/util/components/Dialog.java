@@ -23,4 +23,5 @@ public interface Dialog extends Component {
 	void find2(String dialog, String linkDocument);
 	void input(String dialog, String input);
 	void select(String string);
+	void selectDocument(String string);
 }

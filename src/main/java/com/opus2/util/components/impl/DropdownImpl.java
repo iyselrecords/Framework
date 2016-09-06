@@ -70,4 +70,20 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 		}
 		Util.pause(1);
 	}
+	
+	@Override
+	public void getOptions(int index, String dropdownOption) {
+		Util.getDriver().findElements(By.className("normalIcon"))
+			.get(index).click();
+		
+		List<WebElement> options = dropdownPanel(index)
+			.findElements(By.tagName("span"));
+		for(WebElement option : options){		
+			if(option.getText().equals(dropdownOption)){
+				option.click();
+				break;
+			}
+		}
+		Util.pause(1);
+	}
 }

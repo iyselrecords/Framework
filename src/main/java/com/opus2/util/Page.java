@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -95,5 +97,12 @@ public class Page extends PageObject{
   
   public void reloadPage() {
       getDriver().navigate().refresh();
+  }
+  
+  public void rightclick(WebElement element) {
+      Util.pause(1);
+      Actions action = new Actions(Util.getDriver());
+      action.contextClick(element).sendKeys(Keys.ARROW_DOWN).perform();
+      Util.pause(1);
   }
 }

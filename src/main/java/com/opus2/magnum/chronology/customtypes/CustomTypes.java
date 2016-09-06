@@ -7,9 +7,6 @@ import org.openqa.selenium.By;
 import com.opus2.util.Page;
 import com.opus2.util.Util;
 import com.opus2.util.components.Dialog;
-import com.opus2.util.components.Dropdown;
-import com.opus2.util.components.Find;
-import com.opus2.util.components.Tools;
 
 public class CustomTypes extends Page {
 
@@ -18,13 +15,9 @@ public class CustomTypes extends Page {
 	private static final String SAVE_A_CUSTOM_DIALOG = "Save a Custom Type";
 	private static final String SAVE_A_CUSTOM_OK = "name-dialog_OK";
 	public static final String UPDATE_CUSTOM_TYPES = "ONIM";
-	private static final String MY_TYPE = "SearchType";
-	
-	
-	private Find search;
-	private Dropdown option;
-	private Tools tool;
+	private static final String MY_TYPE = "SearchType";	
 	private Dialog dialog;
+	
 	
 	public String dialog() {
 		return dialog.dialog(CUSTOM_TYPES_DIALOG).getCssValue("display");
@@ -33,10 +26,12 @@ public class CustomTypes extends Page {
 	public void newCustomType(){
 		dialog.input(SAVE_A_CUSTOM_DIALOG, CUSTOM_TYPE);
 	}
+	
 	public void save(){
 		this.getElement(SAVE_A_CUSTOM_OK).click();
 		
 	}
+	
 	public void addCustomType() {
 		dialog.button("Add").click();
 		Util.pause(1);
