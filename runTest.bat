@@ -2,7 +2,7 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="-customTypes +ExportManager"
+SET META_FILTER="-customTypes +DeleteAllEntries"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...
