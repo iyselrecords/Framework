@@ -23,5 +23,6 @@ public class SelectChronologyList {
     
     @Then("Chronologies_List_Option should display Chronology_Entries")
     public void thenChronologiesListOptionShouldDisplayChronologyEntries(){
+        assertThat(dip.selectedChron().equals(Chronology.CHRON)).isTrue();
     }
 }

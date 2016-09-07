@@ -24,12 +24,13 @@ public class CustomTypes extends Page {
 	}
 	
 	public void newCustomType(){
+        Util.pause(1.5);
 		dialog.input(SAVE_A_CUSTOM_DIALOG, CUSTOM_TYPE);
 	}
 	
 	public void save(){
-		this.getElement(SAVE_A_CUSTOM_OK).click();
-		
+        Util.pause(1);
+		this.getElement(SAVE_A_CUSTOM_OK).click();    
 	}
 	
 	public void addCustomType() {
@@ -40,15 +41,18 @@ public class CustomTypes extends Page {
 	}
 
 	public void selectCustomType(String type){
-		dialog.select(type);
+	    Util.pause(1);
+	    dialog.select(type);
 		Util.pause(1);
 	}
 
 	public void rename() {
+	    Util.pause(1);
 		dialog.button("Rename").click();
 	}
 	
 	public void update(){
+      Util.pause(1);
 		dialog.input("Rename Custom Type as", UPDATE_CUSTOM_TYPES);
 	}
 
