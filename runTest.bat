@@ -2,7 +2,7 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="-customTypes +selectChronList"
+SET META_FILTER="-customTypes +ManageChronologies"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...
@@ -22,6 +22,7 @@ echo done...............
 
 echo executing test...............
 CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions" -Dphantomjs.binary.path=C:/Users/misele/phantomjs/bin/phantomjs.exe
+::CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions" -Dphantomjs.binary.path=C:/PhantomJS/bin/phantomjs.exe
 
 XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
 echo done...............

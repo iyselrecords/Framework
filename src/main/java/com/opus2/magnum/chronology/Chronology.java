@@ -109,6 +109,7 @@ public class Chronology extends Page {
 	}
 	
 	public void chronListName(){
+	    Util.pause(1);
 		dialog.input(NEW_CHRONOLOGY_LIST, CHRON_LIST);
 	}
 	
@@ -144,6 +145,7 @@ public class Chronology extends Page {
 	}
 	
 	public void update(){
+	    Util.pause(1);
 		dialog.input("New Chronology List", UPDATE_CHRON_LIST);
 	}
 	
