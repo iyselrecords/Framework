@@ -18,7 +18,7 @@ public class ChronologyNewEntry extends Page {
   public static final String NEW_ENTRY_BUTTON = "docscontrols_NewEntry";
   public static final String CHRONOLOGY_EVENT_DIALOG = "Chronology Event";
   public static final String MARTINS = "Martins";
-  private static final String TAG = "t1";
+  private static final String TAG = "TestTag";
   private static final String APPLY_TAG = "select-categories_Apply";
   private static final String SELECT_DOCUMENT_TAG = "Select tags for this item";
   private static final String ADD_A_SOURCE = "Add a Source";
