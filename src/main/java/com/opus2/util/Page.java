@@ -1,5 +1,10 @@
 package com.opus2.util;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -60,49 +65,65 @@ public class Page extends PageObject{
       for(String currentHandle : getDriver().getWindowHandles()){
           getDriver().switchTo().window(currentHandle);
       }
-  }
+    }
   
-  public void switchToMainWindow() {
-      getDriver().switchTo().window(mainHandle);
-  }
-  
-  public void OK() {
-      withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id("OK"));
-      getElement("OK").click();
-  }
-  
-  public void cancel() {
-      getElement("Cancel").click();
-  }
-  
-  public void progressBar() {
-      try{
-          WebDriverWait wait = new WebDriverWait(getDriver(), 30);
-          wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(PROGRESS_BAR)));
-      }catch(NotFoundException e){
-          progressBar();
-      }
-      loadingIcon();
-  }
-  
-  public void loadingIcon() {
-      try{
-          WebDriverWait wait = new WebDriverWait(getDriver(), 30);
-          wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(LOADING_ICON)));
-      }catch(NotFoundException e){
-          loadingIcon();
-      }
-      Util.pause(1);
-  }
-  
-  public void reloadPage() {
-      getDriver().navigate().refresh();
-  }
-  
-  public void rightclick(WebElement element) {
-      Util.pause(1);
-      Actions action = new Actions(Util.getDriver());
-      action.contextClick(element).sendKeys(Keys.ARROW_DOWN).perform();
-      Util.pause(1);
-  }
+    public void switchToMainWindow() {
+        getDriver().switchTo().window(mainHandle);
+    }
+    
+    public void OK() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id("OK"));
+        getElement("OK").click();
+    }
+    
+    public void cancel() {
+        getElement("Cancel").click();
+    }
+    
+    public void progressBar() {
+        try{
+            WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(PROGRESS_BAR)));
+        }catch(NotFoundException e){
+            progressBar();
+        }
+        loadingIcon();
+    }
+    
+    public void loadingIcon() {
+        try{
+            WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(LOADING_ICON)));
+        }catch(NotFoundException e){
+            loadingIcon();
+        }
+        Util.pause(1);
+    }
+    
+    public void reloadPage() {
+        getDriver().navigate().refresh();
+    }
+    
+    public void rightclick(WebElement element) {
+        Util.pause(1);
+        Actions action = new Actions(Util.getDriver());
+        action.contextClick(element).sendKeys(Keys.ARROW_DOWN).perform();
+        Util.pause(1);
+    }
+    
+    public void selectFile(String file) throws AWTException {
+        Util.pause(1);
+        
+        StringSelection myFile = new StringSelection(file);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(myFile, null);
+        
+        Robot upload = new Robot();
+        upload.keyPress(KeyEvent.VK_CONTROL);
+        upload.keyPress(KeyEvent.VK_V);
+        upload.keyRelease(KeyEvent.VK_V);
+        upload.keyRelease(KeyEvent.VK_CONTROL);
+        upload.keyPress(KeyEvent.VK_ENTER);
+        upload.keyRelease(KeyEvent.VK_ENTER);
+        Util.pause(2);
+    }
 }
