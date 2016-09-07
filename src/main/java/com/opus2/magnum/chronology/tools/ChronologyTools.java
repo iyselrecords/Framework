@@ -12,7 +12,11 @@ public class ChronologyTools extends Page {
 	public static final String TOOLS_BUTTON = "docscontrols_Tools";
 	private static final String CHRON_TOOLS = "chron-tools";
 	public static final String DELETE_ALL = "Delete All";
-
+	public static final String LINK_ENTRIES_TO_SOURCE = "Link Entries to Sources";
+	public static final String EXPORT_AS_PDF = "Export as PDF";
+	public static final String EXPORT_AS_CSV = "Export as CSV";
+	public static final String EXPORT_AS_DOCX = "Export as DOCX";
+	
 	private Tools tool;
 	
 	public void button() {
@@ -27,4 +31,8 @@ public class ChronologyTools extends Page {
 	public void selectOption(String option) {
 		tool.getOption(Tool.CHRONOLOGY, option);
 	}
+
+	public void switchTab() {
+		this.switchToCurrentWindow();
+	}	
 }
