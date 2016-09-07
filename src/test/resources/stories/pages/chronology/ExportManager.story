@@ -1,7 +1,7 @@
 Narrative: 
-ImportEntries ImportEntries ImportEntries
+ExportManager ExportManager ExportManager
 
-@Meta: @ImportEntries @newChron
+@Meta: @ExportManager @newChron
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -25,15 +25,7 @@ Given the Chronologies_Dropdown_List is visible
 When user selects Chronologies_List_Option
 Then Chronologies_List_Option should display Chronology_Entries
 
-Scenario: Open Import Entries Dialog
-Given the Import_Entries_Button is visible
-When user clicks the Import_Entries_Button
-Then Import_Entries_Dialog should be visible
-
-Scenario: Select Entries To Import
-Given the Import_Entries_Dialog is open
-And Select_File_Button is visible
-When user clicks Select_File_Button
-And import file
-And confirms action
-Then Entries_Event are added to Event_List
+Scenario: Navigate To Export Manager Page
+Given the Export_Manager_Button is visible
+When user clicks the Export_Manager_Button
+Then user is navigated to Export_Manager_Page

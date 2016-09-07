@@ -40,6 +40,7 @@ public final class Configuration {
 	public static String adminRecoveryUrl;
 	public static String adminSettingsUrl;
 	public static String adminActivityReportsUrl;
+	public static String exportManagerUrl;
 
 	public static String adminMonitorActivity;
 	public static User selectedUser;
@@ -96,7 +97,8 @@ public final class Configuration {
 			Configuration.adminSettingsUrl = Configuration.baseUrl.concat(file.getProperty("adminSettingsUrl"));
 			Configuration.adminMonitorActivity = Configuration.baseUrl.concat(file.getProperty("adminMonitorActivity"));
 			Configuration.adminActivityReportsUrl = Configuration.baseUrl.concat(file.getProperty("adminActivityReportsUrl"));
-
+            Configuration.exportManagerUrl = Configuration.baseUrl.concat(file.getProperty("exportManagerUrl"));
+			
 			//selected user id			
 			Configuration.selectedId = file.getProperty("selectedUser" );
 			String [] names =  file.getProperty("users").split(",");

@@ -1,5 +1,5 @@
 Narrative: 
-FindChronologyEntry FindChronologyEntry FindChronologyEntry
+ResetEntryList ResetEntryList ResetEntryList
 
 @Meta: @ResetEntryList @newChron
 
