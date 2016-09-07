@@ -86,4 +86,9 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 		}
 		Util.pause(1);
 	}
+
+    @Override
+    public WebElement isOpen() {
+        return Util.getDriver().findElements(By.className("menu")).get(0);
+    }
 }

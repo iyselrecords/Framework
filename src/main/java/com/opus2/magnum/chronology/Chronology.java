@@ -30,7 +30,7 @@ public class Chronology extends Page {
 	public static final String SELECT_NONE = "None";
 	public static final String EXPAND = "Expand";
 	public static final String COLLAPSE = "Collapse";
-	public static final String MARTINS = "Martins";
+	public static final String CHRON = "Martins";
 	private static final String MASTER = "Master";
 	public static final String CHRON_LIST = "TGIF";
 	public static final String UPDATE_CHRON_LIST = "ONIM";
@@ -38,6 +38,7 @@ public class Chronology extends Page {
 	public static final String CUSTOM_TYPES_DIALOG = "Custom Types";
 	private static final String MY_LIST = "SearchList";
 	private static final String NEW_CHRONOLOGY_LIST = "New Chronology List";
+    private static final String CONTROLS = "docscontrols";
 
 	
 	private Find search;
@@ -62,14 +63,25 @@ public class Chronology extends Page {
 		}
 		button.click();
 	}
-	public void selectChronology() {
-		Util.pause(2);
-		option.getOption(MARTINS);
-		Util.pause(1);
-	}
+	
+	public WebElement chronologyDropdown() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id(CONTROLS));
+        return this.getElement("docscontrols").findElements(By.tagName("td")).get(0);
+    }
+    
+    public void selectChronology() {
+        Util.pause(2);
+        option.getOption(CHRON);
+    }
+    
+    public String selectedChron() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id(CONTROLS));
+        return this.getElement(CONTROLS).findElements(By.tagName("p")).get(0).getText();
+    }
+	
 	public void selectChronologyList() {
 		Util.pause(2);
-		option.getOption(MARTINS);
+		option.getOption(CHRON);
 		Util.pause(1);
 	}
 	

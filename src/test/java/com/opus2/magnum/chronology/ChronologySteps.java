@@ -1,5 +1,7 @@
 package com.opus2.magnum.chronology;
 
+import org.openqa.selenium.WebElement;
+
 import net.thucydides.core.annotations.Step;
 
 public class ChronologySteps {
@@ -10,10 +12,20 @@ public class ChronologySteps {
 		return "TDIP";
 	}
 	
-	@Step("select chronology list")
-	public void selectChronology() {
-		dip.selectChronology();
-	}
+	@Step("chronology dropdown")
+    public WebElement chronologyDropdown() {
+        return dip.chronologyDropdown();
+    }
+    
+    @Step("select chronology list")
+    public void selectChronology() {
+        dip.selectChronology();
+    }
+    
+    @Step()
+    public String selectedChron() {
+        return dip.selectedChron();
+    }
 	
 	@Step("manage chronologies")
 	public void manageChronologies() {
