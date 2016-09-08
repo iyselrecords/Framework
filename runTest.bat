@@ -2,7 +2,6 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="-Find +LinkEntriesToSources"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...
