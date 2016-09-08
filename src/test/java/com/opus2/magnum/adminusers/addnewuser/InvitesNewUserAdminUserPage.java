@@ -4,8 +4,8 @@ import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;
 
-import com.opos2.pages.adminusers.AdminUser;
 import com.opus2.magnum.adminusers.AdminUserSteps;
+import com.opus2.pages.adminusers.AdminUser;
 public class InvitesNewUserAdminUserPage{
 	@Steps
 	AdminUserSteps user;

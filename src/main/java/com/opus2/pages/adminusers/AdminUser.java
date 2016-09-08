@@ -1,4 +1,4 @@
-package com.opos2.pages.adminusers;
+package com.opus2.pages.adminusers;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

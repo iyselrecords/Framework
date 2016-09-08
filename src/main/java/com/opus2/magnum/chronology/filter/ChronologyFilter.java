@@ -36,6 +36,7 @@ public class ChronologyFilter extends Page {
 	}
 	
 	public String openDialog() {
+	    Util.pause(2);
 		return this.getElement(DIALOG).getCssValue("display");
 	}
 	

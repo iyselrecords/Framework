@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.Step;
 
-import com.opos2.pages.adminusers.AdminUser;
+import com.opus2.pages.adminusers.AdminUser;
 
 public class AdminUserSteps {
 	AdminUser user;

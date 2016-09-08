@@ -2,7 +2,7 @@ package com.opus2.magnum.home.managenewuserandworkspace;
 
 import org.openqa.selenium.WebElement;
 
-import com.opos2.pages.adminusers.AdminUser;
+import com.opus2.pages.adminusers.AdminUser;
 
 import net.thucydides.core.annotations.Step;
 
