@@ -1,7 +1,7 @@
 Narrative: 
-DeleteAllEntries DeleteAllEntries DeleteAllEntries
+ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @DeleteAllEntries @newChron
+@Meta: @ImportEntries @newChron
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -25,8 +25,15 @@ Given the Chronologies_Dropdown_List is visible
 When user selects Chronologies_List_Option
 Then Chronologies_List_Option should display Chronology_Entries
 
-Scenario: Open And Select Chronology Tools Option
-Given the Tools_Button is visible
-When user open and selects Delete_All option
+Scenario: Open Import Entries Dialog
+Given the Import_Entries_Button is visible
+When user clicks the Import_Entries_Button
+Then Import_Entries_Dialog should be visible
+
+Scenario: Select Entries To Import
+Given the Import_Entries_Dialog is open
+And Select_File_Button is visible
+When user clicks Select_File_Button
+And import file
 And confirms action
-Then all Chronology_Entries should be deleted
+Then Entries_Event are added to Event_List

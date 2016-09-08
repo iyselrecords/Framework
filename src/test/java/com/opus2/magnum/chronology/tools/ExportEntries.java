@@ -14,9 +14,35 @@ public class ExportEntries {
 	public void whenUserOpenAndSelectsExportEntriesAsPDFOption(){
 		tool.selectOption(ChronologyTools.EXPORT_AS_PDF);
 	}
+	@Then("Chronology_Entries are display on a PDF_File")
+	public void thenChronologyEntriesAredisplayOnAPDFFile(){
+		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
+	}
 	
-	@Then("all Chronology_Entries are display on a PDF_File")
-	public void thenAllChronologyEntriesAredisplayOnAPDFFile(){
+	@When("user open and selects Export_Entries_As_PDF_With_Documents option")
+	public void whenUserOpenAndSelectsExportEntriesAsPDFWithDocumentsOption(){
+		tool.selectOption(ChronologyTools.EXPORT_AS_PDF_WITH_DOC);
+	}
+	@Then("Chronology_Entries are downloaded on a PDF_File with Documents")
+	public void thenChronologyEntriesAreDownloadedOnAPDFFileWithDocuments(){
+		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
+	}
+	
+	@When("user open and selects Export_Entries_As_CSV option")
+	public void whenUserOpenAndSelectsExportEntriesAsCSVOption(){
+		tool.selectOption(ChronologyTools.EXPORT_AS_CSV);
+	}
+	@Then("Chronology_Entries are are downloaded as CSV_File")
+	public void thenChronologyEntriesAreDownloadedAsCSVFile(){
+		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
+	}
+	
+	@When("user open and selects Export_Entries_As_DOCX option")
+	public void whenUserOpenAndSelectsExportEntriesAsDOCXOption(){
+		tool.selectOption(ChronologyTools.EXPORT_AS_DOCX);
+	}
+	@Then("Chronology_Entries are are downloaded as DOCX_File")
+	public void thenChronologyEntriesAreDownloadedAsDOCXFile(){
 		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
 	}
 }

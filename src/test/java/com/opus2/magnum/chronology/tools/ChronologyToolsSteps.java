@@ -1,7 +1,5 @@
 package com.opus2.magnum.chronology.tools;
 
-import com.opus2.util.Util;
-
 import net.thucydides.core.annotations.Step;
 
 public class ChronologyToolsSteps {
@@ -23,13 +21,22 @@ public class ChronologyToolsSteps {
 	}
 
 	@Step()
-	public void OK() {
-	    Util.pause(1);
-		tool.OK();
-	}
-	
-	@Step()
-	public String assertDIP(){
-		return "TDIP";
-	}
+    public void OK() {
+        tool.OK();
+    }
+
+    @Step
+    public String dialog() {
+        return tool.dialog();       
+    }
+    
+    @Step()
+    public void createLink() {
+        tool.createLink();
+    }
+    
+    @Step()
+    public String assertDIP(){
+        return "TDIP";
+    }
 }

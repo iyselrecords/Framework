@@ -1,7 +1,7 @@
 Narrative: 
-SelectChronList SelectChronList SelectChronList
+ExportEntriesAsPDFWithDoc ExportEntriesAsPDFWithDoc ExportEntriesAsPDFWithDoc
 
-@Meta: @selectChronList @newChron
+@Meta: @ExportEntriesAsPDFWithDoc @ChronTools @newChron
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -24,3 +24,8 @@ Scenario: Select Chronologies List
 Given the Chronologies_Dropdown_List is visible
 When user selects Chronologies_List_Option
 Then Chronologies_List_Option should display Chronology_Entries
+
+Scenario: Open And Select Chronology Tools Option
+Given the Tools_Button is visible
+When user open and selects Export_Entries_As_PDF_With_Documents option
+Then Chronology_Entries are downloaded on a PDF_File with Documents

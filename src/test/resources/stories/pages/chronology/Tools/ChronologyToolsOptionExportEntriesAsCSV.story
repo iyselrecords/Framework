@@ -1,7 +1,7 @@
 Narrative: 
-ImportEntries ImportEntries ImportEntries
+ExportEntriesAsCSV ExportEntriesAsCSV ExportEntriesAsCSV
 
-@Meta: @ImportEntries @newChron
+@Meta: @ExportEntriesAsCSV @ChronTools @newChron
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -25,15 +25,7 @@ Given the Chronologies_Dropdown_List is visible
 When user selects Chronologies_List_Option
 Then Chronologies_List_Option should display Chronology_Entries
 
-Scenario: Open Import Entries Dialog
-Given the Import_Entries_Button is visible
-When user clicks the Import_Entries_Button
-Then Import_Entries_Dialog should be visible
-
-Scenario: Select Entries To Import
-Given the Import_Entries_Dialog is open
-And Select_File_Button is visible
-When user clicks Select_File_Button
-And import file
-And confirms action
-Then Entries_Event are added to Event_List
+Scenario: Open And Select Chronology Tools Option
+Given the Tools_Button is visible
+When user open and selects Export_Entries_As_CSV option
+Then Chronology_Entries are are downloaded as CSV_File

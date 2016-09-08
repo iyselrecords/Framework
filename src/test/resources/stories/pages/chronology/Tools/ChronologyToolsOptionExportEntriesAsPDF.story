@@ -1,7 +1,7 @@
 Narrative: 
 ExportEntriesAsPDF ExportEntriesAsPDF ExportEntriesAsPDF
 
-@Meta: @ExportEntriesAsPDF @newChron
+@Meta: @ExportEntriesAsPDF @ChronTools @newChron
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -28,4 +28,4 @@ Then Chronologies_List_Option should display Chronology_Entries
 Scenario: Open And Select Chronology Tools Option
 Given the Tools_Button is visible
 When user open and selects Export_Entries_As_PDF option
-Then all Chronology_Entries are display on a PDF_File
+Then Chronology_Entries are display on a PDF_File

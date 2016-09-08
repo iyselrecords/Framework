@@ -6,18 +6,22 @@ import org.openqa.selenium.By;
 
 import com.opus2.enums.Tool;
 import com.opus2.util.Page;
+import com.opus2.util.components.Dialog;
 import com.opus2.util.components.Tools;
 
 public class ChronologyTools extends Page {
-	public static final String TOOLS_BUTTON = "docscontrols_Tools";
-	private static final String CHRON_TOOLS = "chron-tools";
-	public static final String DELETE_ALL = "Delete All";
-	public static final String LINK_ENTRIES_TO_SOURCE = "Link Entries to Sources";
-	public static final String EXPORT_AS_PDF = "Export as PDF";
-	public static final String EXPORT_AS_CSV = "Export as CSV";
-	public static final String EXPORT_AS_DOCX = "Export as DOCX";
-	
-	private Tools tool;
+    public static final String TOOLS_BUTTON = "docscontrols_Tools";
+    private static final String CHRON_TOOLS = "chron-tools";
+    public static final String DELETE_ALL = "Delete All";
+    public static final String LINK_ENTRIES_TO_SOURCE = "Link Entries to Sources";
+    public static final String EXPORT_AS_PDF = "Export as PDF";
+    public static final String EXPORT_AS_PDF_WITH_DOC = "Export as PDF\n(with Documents)";
+    public static final String EXPORT_AS_CSV = "Export as CSV";
+    public static final String EXPORT_AS_DOCX = "Export as DOCX";
+    private static final String CREATE_LINK = "Create Links";
+    
+    private Tools tool;
+    private Dialog dialog;
 	
 	public void button() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.id(TOOLS_BUTTON));
@@ -32,7 +36,12 @@ public class ChronologyTools extends Page {
 		tool.getOption(Tool.CHRONOLOGY, option);
 	}
 
-	public void switchTab() {
-		this.switchToCurrentWindow();
-	}	
+	public String dialog() {
+      return dialog.dialog(LINK_ENTRIES_TO_SOURCE).getCssValue("display");
+    }
+  
+    public void createLink() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
+        dialog.button(CREATE_LINK).click();
+    }	
 }
