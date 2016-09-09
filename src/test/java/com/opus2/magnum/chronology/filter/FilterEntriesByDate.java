@@ -9,45 +9,20 @@ import net.thucydides.core.annotations.Steps;
 
 public class FilterEntriesByDate {
 	@Steps
-	ChronologyFilterSteps filter;
+	ChronologyFilterSteps entry;
 
-	@When("user selects Date_Option_On and inputs date")
-	public void whenUserSelectsDateOptionOnAndInputsDate(){
-		filter.dateOption(ChronologyFilter.DATE_OPTION_ON);
+	@When("user selects Date_Option $option and inputs date")
+	public void whenUserSelectsDateOptionOnAndInputsDate(String option){
+		entry.dateOption(option);
 	}
 	
-	@Then("Chronology_Entries On that date should display")
-	public void thenChronologyEntriesOnThatDateShouldDisplay(){
-		//assertThat(filter.onDate().equals(ChronologyFilter.FROM_DATE)).isTrue();
+	@Then("Chronology_Entries $option that date should display")
+	public void thenChronologyEntriesOnThatDateShouldDisplay(String option){
+		assertThat(entry.assertDIP().equals("TDIP")).isTrue();
 	}
-	
-	
-	@When("user selects Date_Option_Before and inputs date")
-	public void whenUserSelectsDateOptionBeforeAndInputsDate(){
-		filter.dateOption(ChronologyFilter.DATE_OPTION_BEFORE);
-	}
-	@Then("Chronology_Entries Before that date should display")
-	public void thenChronologyEntriesBeforeThatDateShouldDisplay(){
-		assertThat(filter.assertDIP().equals("TDIP")).isTrue();
-	}
-	
-	
-	@When("user selects Date_Option_After and inputs date")
-	public void whenUserSelectsDateOptionAfterAndInputsDate(){
-		filter.dateOption(ChronologyFilter.DATE_OPTION_AFTER);
-	}
-	@Then("Chronology_Entries After that date should display")
-	public void thenChronologyEntriesAfterThatDateShouldDisplay(){
-		assertThat(filter.assertDIP().equals("TDIP")).isTrue();
-	}
-	
-	@When("user selects Date_Option_Range and inputs date")
-	public void whenUserSelectsDateOptionRangeAndInputsDate(){
-		filter.dateOption(ChronologyFilter.DATE_OPTION_RANGE);
-	}
-	@Then("Chronology_Entries between Date_Range should display")
-	public void thenChronologyEntriesBetweenDateRangeShouldDisplay(){
-		assertThat(filter.assertDIP().equals("TDIP")).isTrue();
-	}
-	
+
+	@Then("Chronology_Entries between Date $option should display")
+	public void thenChronologyEntriesBeforeThatDateShouldDisplay(String option){
+		assertThat(entry.assertDIP().equals("TDIP")).isTrue();
+	}	
 }

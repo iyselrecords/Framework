@@ -1,4 +1,4 @@
-package com.opus2.magnum.home.newWorkspaceDialog;
+package com.opus2.magnum.home.newWorkspace;
 
 import org.openqa.selenium.WebElement;
 

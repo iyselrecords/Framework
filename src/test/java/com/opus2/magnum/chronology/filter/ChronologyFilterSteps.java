@@ -32,11 +32,6 @@ public class ChronologyFilterSteps {
 	}
 	
 	@Step()
-	public String onDate() {
-		return filter.onDate();
-	}
-	
-	@Step()
 	public String openDialog() {
 		return filter.openDialog();
 	}
@@ -44,5 +39,10 @@ public class ChronologyFilterSteps {
 	@Step()
 	public void checkFilterIsOpen() {
 		filter.checkFilterIsOpen();
+	}
+	
+	@Step()
+	public void statusOption(String option) {
+		filter.statusOption(option);
 	}
 }

@@ -1,4 +1,4 @@
-package com.opus2.magnum.home.newWorkspaceDialog;
+package com.opus2.magnum.home.newWorkspace;
 import static org.assertj.core.api.Assertions.assertThat;
 import net.thucydides.core.annotations.Steps;
 

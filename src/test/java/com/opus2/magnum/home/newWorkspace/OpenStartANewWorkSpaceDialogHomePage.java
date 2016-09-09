@@ -1,4 +1,4 @@
-package com.opus2.magnum.home.newWorkspaceDialog;
+package com.opus2.magnum.home.newWorkspace;
 import net.thucydides.core.annotations.Steps;
 
 import org.jbehave.core.annotations.*;

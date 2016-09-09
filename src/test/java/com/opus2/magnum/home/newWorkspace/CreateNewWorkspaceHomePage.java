@@ -1,4 +1,4 @@
-package com.opus2.magnum.home.newWorkspaceDialog;
+package com.opus2.magnum.home.newWorkspace;
 import static org.assertj.core.api.Assertions.assertThat;
 import net.thucydides.core.annotations.Steps;
 
@@ -32,7 +32,7 @@ public class CreateNewWorkspaceHomePage{
 
 	@When("the user inputs Workspace_Title into the Title_Field")
 	public void whenTheUserInputsWorkspace_TitleIntoTheTitle_Field(){
-		nwks.inputWKSTitle();	       
+		nwks.inputWKSTitle();       
 	}
 	
 	@When("the Description in the Description_Field")
