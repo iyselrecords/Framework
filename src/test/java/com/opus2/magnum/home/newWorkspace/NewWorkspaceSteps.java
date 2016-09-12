@@ -73,8 +73,8 @@ public class NewWorkspaceSteps {
   }
   
   @Step("input workspace title")
-  public void inputWKSTitle() {
-	  nwks.inputWKSTitle();
+  public void inputWKSTitle(String wks) {
+	  nwks.inputWKSTitle(wks);
   }
   
   @Step("input workspace description")
@@ -101,6 +101,21 @@ public class NewWorkspaceSteps {
 	  return Util.header("new-ws").getText().equals(dialog.toUpperCase());	
   }
 
+  @Step()
+  public void advancedLink() {
+      nwks.advancedLink();
+  }
+    
+  @Step()
+  public void selectWorkspace() {
+      nwks.selectWorkspace();
+  }
+    
+  @Step()
+  public void clonedWKS() {
+      nwks.clonedWKS();
+  }
+  
   @Step("testing assertion using dummy data")
   public String assertDIP() {
       return "TDIP";

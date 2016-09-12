@@ -2,7 +2,7 @@ Narrative:
 The Folder Colour Dialog is a tool which is used to change the colour of Folders on the Documents and Transcripts Pages 
 it is essential that the dialogs layout is both correct and consistent in appearance with the rest of the dialogs across the platform.   
 
-@Meta: @VerifyFolderColourDialogIsAestheticallyCorrectDocumentsPage @MagnumUser @Admin @PowerUser @User @AdminUser
+@Meta: @VerifyFolderColourDialogIsAestheticallyCorrectDocumentsPage @MagnumUser @Admin @PowerUser @User @AdminUser @ADMIN_07 @ADMIN_01_10
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

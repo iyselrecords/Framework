@@ -7,10 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.opus2.util.Page;
+import com.opus2.util.TestData;
 
 public class FindUser extends Page {
 	private static final String FIND_INPUT = "searchInputArea";
-	public static final String USER_EMAIL = "sop612@opus2.com";
+	public static final String USER_EMAIL = "newuser";
 	private static final String USERS_LISTS = "mainitems";
 	
 	
@@ -24,7 +25,7 @@ public class FindUser extends Page {
 	}
 
 	public void findUser() {
-		findInput().sendKeys(USER_EMAIL);
+		findInput().sendKeys(TestData.ADMIN_.getProperty(USER_EMAIL));
 	}
 
 	public WebElement filteredUser() {

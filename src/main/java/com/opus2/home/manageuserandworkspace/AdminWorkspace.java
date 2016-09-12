@@ -16,7 +16,7 @@ public class AdminWorkspace extends Page {
 	private static final String WORKSPACES_TAB = "adminWorkspaces";
 	public static final String CREATE_WORKSPACES_BUTTON = "maintoolbar_CreateaNewWorkspace";
 	private static final String NEW_WORKSPACE_DIALOG = "new-ws";
-	public static final String WORKSPACE_TITLE = "ACME v TBD Incorporated";
+	public static final String WORKSPACE_TITLE = "TWKS";
 	private static final String WORKSPACE_DESCRIPTION = "Test Automation";
 	private static final String WORKSPACE_LIST = "mainitems";
 	private static final String DIALOG_CREATE_BUTTON = "new-ws_Createworkspace";
@@ -74,7 +74,10 @@ public class AdminWorkspace extends Page {
 	}
 
 	public void createWorkspace() {
+	    Util.pause(2);
 		this.getElement(DIALOG_CREATE_BUTTON).click();
+		Util.pause(2);
+        this.reloadPage();
 	}
 
 	public WebElement newWorkspace() {
@@ -84,8 +87,7 @@ public class AdminWorkspace extends Page {
 	private WebElement workspace() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className(WORKSPACE_LIST));
 		WebElement workspace = null;
-		List <WebElement> workspaces = this.getDriver().findElements(By.className(WORKSPACE_LIST)).get(0)
-			.findElements(By.className("awc1"));
+		List <WebElement> workspaces = this.getDriver().findElements(By.className("awc1"));
 		for(WebElement wks : workspaces){
 			if(wks.findElements(By.tagName("span")).get(0).getText().equals(WORKSPACE_TITLE)){
 				workspace = wks;
@@ -104,20 +106,18 @@ public class AdminWorkspace extends Page {
 	}
 
 	public WebElement filteredWorkspace() {
-		WebElement element = null;		
-		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className(FILTERED_WORKSPACE));		
-		WebElement t = this.getElementByClass(FILTERED_WORKSPACE)
-			.findElements(By.className("users")).get(0);
-		
-		List <WebElement> rows = t.findElements(By.tagName("tr"));
-		for(WebElement row : rows){			
-			WebElement wks = row.findElements(By.className("awc1")).get(0);		
-			if(wks.findElements(By.tagName("span")).get(0).getText().equals(WORKSPACE_TITLE)){
-				element = row;
-				break;
-			}
-		}
-		return element;
+	  WebElement element = null;        
+      withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className(FILTERED_WORKSPACE));     
+      List <WebElement> rows = this.getElementByClass("users")
+          .findElements(By.tagName("tr"));
+      for(WebElement row : rows){         
+          WebElement wks = row.findElements(By.className("awc1")).get(0);     
+          if(wks.findElements(By.tagName("span")).get(0).getText().equals(WORKSPACE_TITLE)){
+              element = row;
+              break;
+          }
+      }
+      return element;
 	}
 
 	

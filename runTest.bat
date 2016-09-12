@@ -2,7 +2,7 @@
 
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
-SET META_FILTER="-Find +newChron"
+SET META_FILTER="+ADMIN_01_10"
 SET TEST_RESULTS=TestResults
 
 echo Removing previous test results...

@@ -36,3 +36,15 @@ Scenario: Select Tools Add To Workspaces Option Admin User Page
 Given the Tools_Dropdown is open
 When the user select Add_To_Workspaces from dropdown options
 Then Select_Workspaces_Dialog should be visible
+
+Scenario: Select Workspace From Dialog
+Given Select_Workspaces_Dialog is visible
+When user select workspace
+And click Select_Workspace_Apply_Button
+Then Add_Users_To_Workspaces_Dialog should be visible
+
+Scenario: Select User Role and Apply
+Given Add_Users_To_Workspaces_Dialog is visible
+When user select role
+And click Add_Users_To_Workspaces_Apply_Button
+Then User should be added to Workspace

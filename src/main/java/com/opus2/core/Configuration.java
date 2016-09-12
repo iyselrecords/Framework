@@ -10,6 +10,7 @@ import java.util.Properties;
 
 import com.opus2.core.Configuration;
 import com.opus2.enums.Role;
+import com.opus2.util.TestData;
 import com.opus2.util.User;
 
 
@@ -104,6 +105,11 @@ public final class Configuration {
 			String [] names =  file.getProperty("users").split(",");
 			loadUsers(names);
 			file =  null;
+			
+			//load testdata
+	        TestData data = new TestData();
+	        data.load();
+	        
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

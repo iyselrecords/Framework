@@ -9,6 +9,7 @@ import com.opus2.util.Page;
 import com.opus2.util.Util;
 import com.opus2.util.components.Button;
 import com.opus2.util.components.Dialog;
+import com.opus2.util.components.Dropdown;
 
 public class NewWorkspace extends Page {
 	private static final String NEW_WORKSPACE_BUTTON = "home-buttons_NewWorkspace";
@@ -18,10 +19,13 @@ public class NewWorkspace extends Page {
 	private static final String CREATE_NEW_WORKSPACE_BUTTON ="new-ws_Createworkspace";
 	public static final String NEW_WORKSPACE_TITLE = "TWKS";
 	private static final String NEW_WORKSPACE_DESCRIPTION ="test automation framework";
+    private static final String CLONED_WKS = "AutomatedTestingWSOne";
+    private static final String ADVANCE_TOGGLE = "advance-toggle";
 	
 	
 	private Dialog dialog;	
 	private Button button;
+    private Dropdown option;
 	
 	public Role userRole() {
 		return Configuration.getSelectedUser().getRole();
@@ -71,9 +75,9 @@ public class NewWorkspace extends Page {
 		return button.hasButton(CREATE_NEW_WORKSPACE_BUTTON);
 	}
 	
-	public void inputWKSTitle() {
+	public void inputWKSTitle(String wks) {
 		titleField().clear();
-		titleField().sendKeys(NEW_WORKSPACE_TITLE);
+		titleField().sendKeys(wks);
 	}
 
 	public void inputWKSDescription() {
@@ -88,5 +92,22 @@ public class NewWorkspace extends Page {
     public String wksCreated() {
         return Util.getDriver().findElement(By.id("settingsmain"))
             .findElements(By.tagName("h2")).get(0).getText();
+    }
+    
+    public void advancedLink() {
+      this.getElement(NEW_WORKSPACE_DIALOG).findElement(By.className(ADVANCE_TOGGLE)).click();
+    }
+
+    public void selectWorkspace() {
+        option.getOption(CLONED_WKS); 
+    }
+
+    public void clonedWKS() {
+        this.switchToCurrentWindow();
+        this.switchToMainWindow();
+        Util.pause(1);
+        this.getElement("new-ws_Cancel").click();
+        Util.pause(1);
+        this.reloadPage();
     }
 }

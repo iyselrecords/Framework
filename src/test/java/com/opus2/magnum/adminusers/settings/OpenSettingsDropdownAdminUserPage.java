@@ -3,6 +3,8 @@ import net.thucydides.core.annotations.Steps;
 import static org.assertj.core.api.Assertions.*;
 
 import org.jbehave.core.annotations.*;
+
+import com.opus2.util.Util;
 public class OpenSettingsDropdownAdminUserPage{
 	@Steps
 	SettingsOptionSteps user;
@@ -29,6 +31,8 @@ public class OpenSettingsDropdownAdminUserPage{
 	
 	@Given("the Settings_Dropdown is open")
 	public void givenTheSettingsDropdownIsOpen(){
+	    Util.pause(1);
 		assertThat(user.settingsDropdown().equals("block")).isTrue();
+		Util.pause(3);
 	}
 }

@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they have Administrator Capabilities and are present on the Home Page
 they must beable to open the Start A New Workspace Dialog.
 
-Meta: @CreateANewWorkspaceHomePage @MagnumAdmin @Admin @Admin_04 @AdminUser
+Meta: @CreateANewWorkspaceHomePage @MagnumAdmin @Admin @Admin_04 @AdminUser @ADMIN_01_10
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

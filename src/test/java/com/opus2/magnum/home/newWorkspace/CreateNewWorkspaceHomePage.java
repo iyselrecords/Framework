@@ -30,10 +30,10 @@ public class CreateNewWorkspaceHomePage{
     	assertThat(nwks.createWorkspaceButton().isDisplayed()).isTrue();
     }
 
-	@When("the user inputs Workspace_Title into the Title_Field")
-	public void whenTheUserInputsWorkspace_TitleIntoTheTitle_Field(){
-		nwks.inputWKSTitle();       
-	}
+	@When("the user inputs $wks into the Title_Field")
+    public void whenTheUserInputsWorkspace_TitleIntoTheTitle_Field(String wks){
+        nwks.inputWKSTitle(wks);           
+    }
 	
 	@When("the Description in the Description_Field")
 	public void whenTheDescriptionInTheDescription_Field(){

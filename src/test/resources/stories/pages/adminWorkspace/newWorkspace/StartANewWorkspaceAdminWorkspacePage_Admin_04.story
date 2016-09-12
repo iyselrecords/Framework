@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they have Administrator Capabilities and are present on the Home Page
 they must beable to open the Start A New Workspace Dialog.
 
-Meta: @CreateANewWorkspaceHomePage @MagnumAdmin @Admin @Admin_06 @AdminWorkspace
+Meta: @CreateANewWorkspaceHomePage @MagnumAdmin @Admin @ADMIN_01_10 @ADMIN_05b
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -35,32 +35,3 @@ When the user input Title
 And Description
 And clicks the Create_workspace button
 Then the new Workspace must be visible on list
-
-Scenario: Find Workspace From Workspace List Admin Workspaces Page
-Given the Find_Input box is visible
-And Workspace is listed in Workspace_List
-When the user enters Workspace_Title
-Then Workspace is visible
-
-Scenario: Select Displayed Workspace Admin Workspace Page
-Given Filtered_Workspace is visible
-When the user clicks the checkbox button
-Then Workspace is selected
-
-Scenario: Open Tools Dropdown Admin Workspace Page
-Given the Tools_Dropdown_Button is visible
-When user clicks the Tools_Dropdown_Button
-Then the Dropdown should display Dropdown_Options
-
-Scenario: Select Tools Archive Option
-Given the Tools_Dropdown is open
-When the user select Delete from dropdown options
-Then Delete_Workspace_Dialog should be visible
-
-Scenario: Admin Delete Workspace Admin Workspace Page
-Given Delete Dialog is open
-And Password_Input box is visible
-And user has Admin_Capabilities
-When user inputs password
-And clicks Delete_Button
-Then Selected_Workspace is deleted from Workspaces_List
