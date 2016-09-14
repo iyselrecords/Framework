@@ -13,12 +13,17 @@ public class DeleteCustomType {
 
 
 	@When("user select Custom_Type to delete")
-	public void whenUserSelectCustom_TypeToDelete(){
-		type.selectCustomType(CustomTypes.UPDATE_CUSTOM_TYPES);
-	}
+    public void whenUserSelectCustom_TypeToDelete(){
+        type.selectCustomType(CustomTypes.UPDATE_CUSTOM_TYPES);
+    }
 
-	@Then("the Custom_Type is deleted from the list")
-	public void thenTheCustom_TypeDeletedFromTheList(){
-		assertThat(type.assertDIP().equals("TDIP")).isTrue();  
-	}
+    @When("user select Custom_Type")
+    public void whenUserSelectCustomType(){
+        type.selectCustomType(CustomTypes.CUSTOM_TYPE);
+    }
+    
+    @Then("the Custom_Type is deleted from the list")
+    public void thenTheCustom_TypeDeletedFromTheList(){
+        assertThat(type.assertDIP().equals("TDIP")).isTrue();  
+    }
 }

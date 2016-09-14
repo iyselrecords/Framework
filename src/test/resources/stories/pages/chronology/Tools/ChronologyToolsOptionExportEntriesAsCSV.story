@@ -1,7 +1,7 @@
 Narrative: 
 ExportEntriesAsCSV ExportEntriesAsCSV ExportEntriesAsCSV
 
-@Meta: @ExportEntriesAsCSV @ChronTools @newChron
+@Meta: @CHRON_16 @ExportEntriesAsCSV @ChronologyTools @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

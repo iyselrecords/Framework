@@ -15,16 +15,16 @@ public class OpenChronologyEventNewEntry {
 	
 	@Given("the New_Entry_Button is visible")
 	public void givenTheNewEntryButtonIsVisible(){
-        assertThat(Util.getElement(ChronologyNewEntry.NEW_ENTRY_BUTTON).isDisplayed()).isTrue();
+		assertThat(Util.getElement(ChronologyNewEntry.NEW_ENTRY_BUTTON).isDisplayed()).isTrue();
 	}
 	
 	@When("user clicks the New_Entry_Button")
 	public void whenUserClicksTheNewEntryButton(){
-	    newEntry.newEntry();
+		newEntry.newEntry();
 	}
 	
 	@Then("Chronology_Event_Dialog should be visible")
 	public void thenChronologyEventShouldBeVisible(){
-        assertThat(newEntry.dialog().equals("block")).isTrue();
+		assertThat(newEntry.dialog().equals("block")).isTrue();
 	}
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import com.opus2.enums.Tool;
 import com.opus2.util.Page;
+import com.opus2.util.TestData;
 import com.opus2.util.Util;
 import com.opus2.util.components.Dialog;
 import com.opus2.util.components.Dropdown;
@@ -30,7 +31,6 @@ public class Chronology extends Page {
 	public static final String SELECT_NONE = "None";
 	public static final String EXPAND = "Expand";
 	public static final String COLLAPSE = "Collapse";
-	public static final String CHRON = "Martins";
 	private static final String MASTER = "Master";
 	public static final String CHRON_LIST = "TGIF";
 	public static final String UPDATE_CHRON_LIST = "ONIM";
@@ -39,7 +39,8 @@ public class Chronology extends Page {
 	private static final String MY_LIST = "SearchList";
 	private static final String NEW_CHRONOLOGY_LIST = "New Chronology List";
     private static final String CONTROLS = "docscontrols";
-
+    public static final String CHRON = TestData.CHRONOLOGY_.getProperty("chronologyList");
+    
 	
 	private Find search;
 	private Dropdown option;

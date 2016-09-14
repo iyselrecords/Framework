@@ -1,7 +1,7 @@
 Narrative: 
 LinkEntriesToSources LinkEntriesToSources LinkEntriesToSources
 
-@Meta: @LinkEntriesToSources @ChronTools @newChron
+@Meta: @CHRON_19 @LinkEntriesToSources @ChronologyTools @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
