@@ -5,16 +5,18 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 
 import com.opus2.util.Page;
+import com.opus2.util.TestData;
 import com.opus2.util.Util;
 import com.opus2.util.components.Dialog;
+import com.opus2.util.components.impl.DialogImpl;
 
 public class CustomTypes extends Page {
 
 	private static final String CUSTOM_TYPES_DIALOG = "Custom Types";
-	public static final String CUSTOM_TYPE = "TGIF";
+    public static final String CUSTOM_TYPE = TestData.CHRONOLOGY_.getProperty("addCustomType");
 	private static final String SAVE_A_CUSTOM_DIALOG = "Save a Custom Type";
 	private static final String SAVE_A_CUSTOM_OK = "name-dialog_OK";
-	public static final String UPDATE_CUSTOM_TYPES = "ONIM";
+    public static final String UPDATE_CUSTOM_TYPES = TestData.CHRONOLOGY_.getProperty("renameCustomType");
 	private static final String MY_TYPE = "SearchType";	
 	private Dialog dialog;
 	
@@ -57,10 +59,10 @@ public class CustomTypes extends Page {
 	}
 
 	public void search() {
-		Util.pause(2);
-		dialog.find2("Custom Types", MY_TYPE);
-		selectList(MY_TYPE);
-		Util.pause(2);
+	  dialog.find2("Custom Types", CUSTOM_TYPE);
+      Util.pause(1);
+      DialogImpl.findInput.clear();
+      Util.pause(2);
 	}
 	public void selectList(String type){
 		dialog.select(type);

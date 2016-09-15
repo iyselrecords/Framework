@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @ImportEntries @newChron
+@Meta: @CHRON_17 @ImportEntries @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

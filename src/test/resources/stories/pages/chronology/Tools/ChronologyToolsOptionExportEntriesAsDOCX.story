@@ -1,7 +1,7 @@
 Narrative: 
 ExportEntriesAsDOCX ExportEntriesAsDOCX ExportEntriesAsDOCX
 
-@Meta: @ExportEntriesAsDOCX @ChronTools @newChron
+@Meta: @CHRON_22 @ExportEntriesAsDOCX @ChronologyTools @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

@@ -1,7 +1,7 @@
 Narrative: 
 ItemWithoutDescription ItemWithoutDescription ItemWithoutDescription
 
-@Meta: @ItemWithoutDescription @ChronFilter @newChron
+@Meta: @CHRON_40 @ItemWithoutDescription @ChronologyFilter @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

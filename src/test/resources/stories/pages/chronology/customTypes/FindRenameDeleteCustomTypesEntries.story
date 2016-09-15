@@ -1,7 +1,7 @@
 Narrative: 
 ManageChronologies ManageChronologies ManageChronologies
 
-@Meta: @CustomTypes @newChron
+@Meta: @CHRON_06 @CustomTypes @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,22 +30,18 @@ Given Custom_Types_Button is visible
 When user clicks Custom_Types_Button
 Then Custom_Types_Dialog should be visible
 
-Scenario: Select All Custom Types
-Given the Custom_Types_Dialog is open
-When user clicks the All_Link
-Then all Custom_Types is selected
-
-Scenario: DeSelect All Custom Types
-Given the Custom_Types_Dialog is open
-When user clicks the None_Link
-Then all Custom_Types are deselected
-
 Scenario: Add New Custom Type
 Given the Add_Button is visible
 When user clicks on the Add_Button
 And input Custom_Types_Name
 And clicks Custom_Types_Save_Button
 Then new Custom Types is visible on the Custom_Types_List
+
+Scenario: Find Custom Type
+Given the Find_Input is visible
+And the Custom_Type is listed on the list
+When user input a Search_Term
+Then the Search_Text is filtered
 
 Scenario: Rename Custom Type
 Given the Rename_Button is visible
@@ -61,9 +57,3 @@ When user select Custom_Type to delete
 And clicks on the Delete_Button
 And confirms action
 Then the Custom_Type is deleted from the list
-
-Scenario: Find Custom Type
-Given the Find_Input is visible
-And the Custom_Type is listed on the list
-When user input a Search_Term
-Then the Search_Text is filtered

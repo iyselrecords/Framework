@@ -13,6 +13,7 @@ import com.opus2.util.components.Dialog;
 public class DialogImpl extends ComponentImpl implements Dialog {
 	private static final String FIND_INPUT = "searchInputArea";
 	private static final String FIND_MATCH = "findmatch";
+    public static WebElement findInput;
 	
 	
 	public DialogImpl(WebDriver driver, ElementLocator locator,long implicitTimeoutInMilliseconds) {

@@ -6,31 +6,92 @@ public class ChronologyNewEntrySteps {
 	ChronologyNewEntry entry;
 	
 	@Step("test run")
-    public String assertDIP(){
-        return "TDIP";
-    }
-    
+	public String assertDIP(){
+		return "TDIP";
+	}
+	
 	@Step("new entry")
-    public void newEntry() {
-        entry.newEntry();
-    }
-    
+	public void newEntry() {
+		entry.newEntry();
+	}
+	
 	@Step("dialog is visible")
-    public String dialog(){
-        return entry.dialog();
-    }
+	public String dialog(){
+		return entry.dialog();
+	}
+	
+	@Step("add chronology event")
+	public void eventEntries() {
+		entry.eventEntries();
+	}
+	
+	@Step("delete entry")
+	public void deleteEntry() {
+		entry.deleteEntry();
+	}
+	
+    @Step()
+	public void entry() {
+		entry.entry();
+	}
     
-    @Step("add chronology event")
-    public void eventEntries() {
-        entry.eventEntries();
-    }
+    @Step()
+	public void addTag() {
+		entry.addTag();
+	}
     
-    @Step("delete entry")
-    public void deleteEntry() {
-        entry.deleteEntry();
-    }
+    @Step()
+	public void assignType() {
+		entry.assignType();
+	}
+    
+    @Step()
+	public void setDate(String date_Option, String date) {
+		entry.setDate(date_Option,date);
+	}
+    
+    @Step()
+	public void setTime(String timezone, String time) {
+		entry.setTime(time,time);
+	}
 
-    public void entry() {
-        entry.entry();
-    }
+    @Step()
+	public void addDescription(String desc) {
+    	entry.addDescription(desc);
+	}
+    
+    @Step()
+	public void addSource(String document) {
+    	entry.addSource(document);
+	}
+    
+    @Step()
+	public void previewDocument(String document) {
+		entry.previewDocument(document);
+	}
+    
+    @Step()
+	public void preview() {
+		entry.preview();
+	}
+    
+    @Step()
+	public void document() {
+    	entry.document(); 
+	}
+
+    @Step()
+	public void chronEntry(String newEntry) {
+		entry.chronEntry(newEntry);
+	}
+	
+    @Step()
+	public void rightclick() {
+		entry.rightclick();
+	}
+	
+    @Step()
+	public void selectOption(String option) {
+		entry.selectOption(option);
+	}
 }
