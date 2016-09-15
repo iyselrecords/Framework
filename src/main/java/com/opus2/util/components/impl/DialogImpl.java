@@ -136,15 +136,14 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 	
 	@Override
 	public void find2(String dialog, String link) {
-		WebElement d = dialog(dialog).findElements(By.className(FIND_INPUT)).get(0);
-		d.findElements(By.tagName("input")).get(0).sendKeys(link);
-		Util.pause(0.5);
-		findmatch(dialog);
-	}
-
-	private void findmatch(String dialog) {
-		dialog(dialog).findElements(By.className(FIND_MATCH))
-			.get(0).click();
+  	    WebElement d = dialog(dialog).findElements(By.className(FIND_INPUT)).get(0);
+        findInput = d.findElements(By.tagName("input")).get(0);
+        findInput.sendKeys(link);
+        Util.pause(0.5);
+        WebElement match = dialog(dialog).findElements(By.className(FIND_MATCH)).get(0);
+        match.click();
+        Util.pause(0.5);
+        match.click();
 	}
 
 	@Override

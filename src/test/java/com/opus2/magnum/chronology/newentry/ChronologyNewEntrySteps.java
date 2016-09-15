@@ -57,7 +57,7 @@ public class ChronologyNewEntrySteps {
     
     @Step()
 	public void setTime(String timezone, String time) {
-		entry.setTime(time,time);
+		entry.setTime(timezone,time);
 	}
 
     @Step()

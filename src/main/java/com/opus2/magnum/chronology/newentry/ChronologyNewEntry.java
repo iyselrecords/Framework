@@ -213,7 +213,7 @@ public class ChronologyNewEntry extends Page {
 	public void setTime(String timezone, String time) {
 		inputTime(time);
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
-		option.getOptions(3, time);
+		option.getOptions(3, timezone);
 		Util.pause(0.5);
 		saveEntry();
 		cleanUp();

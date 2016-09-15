@@ -3,6 +3,8 @@ package com.opus2.magnum.chronology.newentry;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.opus2.util.Util;
+
 import net.thucydides.core.annotations.Steps;
 import static org.assertj.core.api.Assertions.*;
 
@@ -23,5 +25,6 @@ public class SetDateAndTimeToNewEntry {
 	@Then("Date and Time is set on Chronology_Entry")
 	public void thenDateAndTimeIsAddedToChronologyEntry(){
 		assertThat(newEntry.assertDIP().equals("TDIP")).isTrue();
+		Util.pause(2);
 	}
 }
