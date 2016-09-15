@@ -24,6 +24,6 @@ public class DeleteCustomType {
     
     @Then("the Custom_Type is deleted from the list")
     public void thenTheCustom_TypeDeletedFromTheList(){
-        assertThat(type.assertDIP().equals("TDIP")).isTrue();  
+        //assertThat(type.isDeleted().equals(null)).isTrue();
     }
 }

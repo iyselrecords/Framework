@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import com.opus2.enums.ChronologyEvent;
 import com.opus2.util.Page;
+import com.opus2.util.TestData;
 import com.opus2.util.Util;
 import com.opus2.util.components.Dialog;
 import com.opus2.util.components.Dropdown;
@@ -18,19 +19,27 @@ public class ChronologyNewEntry extends Page {
 	public static final String NEW_ENTRY_BUTTON = "docscontrols_NewEntry";
 	public static final String CHRONOLOGY_EVENT_DIALOG = "Chronology Event";
 	public static final String MARTINS = "Martins";
-	private static final String TAG = "TestTag";
+	private static final String ENTRY_TAG = TestData.CHRONOLOGY_.getProperty("entryTag");
 	private static final String APPLY_TAG = "select-categories_Apply";
 	private static final String SELECT_DOCUMENT_TAG = "Select tags for this item";
 	private static final String ADD_A_SOURCE = "Add a Source";
-	private static final String SELECT_DOCUMENT = "RecentTestDoc";
+	private static final String SELECT_DOCUMENT = TestData.CHRONOLOGY_.getProperty("entrySource");
 	private static final String APPLY = "doc-chooser_Apply";
-	public static final String NEW_ENTRY = "TestEntry";
-	private Dialog dialog;
+	public static final String NEW_ENTRY = TestData.CHRONOLOGY_.getProperty("entryDescription");
+    private static final String ENTRY_TYPES = TestData.CHRONOLOGY_.getProperty("entryType");
+    private static final String ENTRY_STATUS = TestData.CHRONOLOGY_.getProperty("entryStatus");
+    private static final String ENTRY_DATE = TestData.CHRONOLOGY_.getProperty("entryDate");
+    private static final String ENTRY_DATEOPTION = TestData.CHRONOLOGY_.getProperty("entryDateOption");
+    private static final String ENTRY_TIME = TestData.CHRONOLOGY_.getProperty("entryTime");
+    private static final String ENTRY_TIMEZONE = TestData.CHRONOLOGY_.getProperty("entryTimezone");
+
+    
+    private Dialog dialog;
 	private Dropdown option;
 	public static WebElement Entry;
 	private RightClickMenu menu;
 	private String preview;
-	
+    public static int Index;
 	
 	
 	public void newEntry() {
@@ -57,19 +66,30 @@ public class ChronologyNewEntry extends Page {
 	
 	private void selectType() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
-		option.getOptions(0, ChronologyEvent.Meeting.toString());
+		option.getOptions(0, ENTRY_TYPES);
 		Util.pause(0.5);
+	}
+	
+	public int myEntry() {
+	   WebElement a = this.getElementByClass("chronmain")
+	       .findElements(By.tagName("tbody")).get(0);
+	   int num = a.findElements(By.className("factfirst")).size();
+	   return num;
+	}
+	
+	public void getIndex() {
+	    Index = myEntry();
 	}
 	
 	private void selectStatus() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
-		option.getOptions(2, ChronologyEvent.Disputed.toString());
+		option.getOptions(2, ENTRY_STATUS);
 		Util.pause(0.5);
 	}
 	
 	private void selectDate() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
-		option.getOptions(1, ChronologyEvent.Before.toString());
+		option.getOptions(1, ENTRY_DATEOPTION);
 		Util.pause(0.5);
 		inputDate();
 	}
@@ -77,14 +97,14 @@ public class ChronologyNewEntry extends Page {
 	private void selectTime() {
 		inputTime();
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
-		option.getOptions(3, "HKT (+9)");
+		option.getOptions(3, ENTRY_TIMEZONE);
 		Util.pause(0.5);
 	}
 	
 	private void selectTag() {
 		dialog.buttonByTitle(SELECT_DOCUMENT_TAG).click();
 		Util.pause(0.5);
-		dialog.select(TAG);
+		dialog.select(ENTRY_TAG);
 		Util.pause(0.5);
 		this.getElement(APPLY_TAG).click();
 	}
@@ -115,7 +135,7 @@ public class ChronologyNewEntry extends Page {
 	
 	private void inputDate() {
 		this.getElement("factdate").clear();
-		this.getElement("factdate").sendKeys("09/20/2016");
+		this.getElement("factdate").sendKeys(ENTRY_DATE);
 		Util.pause(0.5);
 	}
 	
@@ -124,9 +144,10 @@ public class ChronologyNewEntry extends Page {
 		this.getElement("factdate").sendKeys(date);
 		Util.pause(0.5);
 	}
+	
 	private void inputTime() {
 		this.getElement("facttime").clear();
-		this.getElement("facttime").sendKeys("17:30");
+		this.getElement("facttime").sendKeys(ENTRY_TIME);
 		Util.pause(0.5);
 	}	
 	private void inputTime(String time) {
@@ -155,20 +176,20 @@ public class ChronologyNewEntry extends Page {
 			for(WebElement entry : entries){
 				if(entry.getText().equals(NEW_ENTRY)){
 					Entry = entry;
-					deleteEntry();
 					return;
 				}
 			}
 		}
 	}
+	
 	public void cleanUp() {
 		Util.pause(2);
 		entry();
+		deleteEntry();
 	}
+	
 	public void addTag() {	
 		description();
-		//selectType();
-		//selectDate();
 		selectTag();
 		saveEntry();
 		cleanUp();
@@ -176,8 +197,6 @@ public class ChronologyNewEntry extends Page {
 	
 	public void assignType() {	
 		description();
-		//selectDate();
-		//selectTag();
 		selectType();
 		saveEntry();
 		cleanUp();
@@ -213,8 +232,7 @@ public class ChronologyNewEntry extends Page {
 		Util.pause(0.5);
 		saveEntry();
 		cleanUp();
-	}
-	
+	}	
 
 	public void previewDocument(String document) {
 		description();
@@ -260,10 +278,12 @@ public class ChronologyNewEntry extends Page {
 	public void rightclick() {
 		this.rightclick(Entry);
 	}
+	
 	public void selectOption(String option) {
 		menu.hasOption(option).click();
 		Util.pause(1);
 	}
+	
 	public void entry(String newEntry){
 		List <WebElement> rows = Util.getDriver().findElements(By.className("auc2"));
 		for(WebElement row : rows){
@@ -276,4 +296,8 @@ public class ChronologyNewEntry extends Page {
 			}
 		}
 	}
+
+    
+
+  
 }

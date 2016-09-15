@@ -1,5 +1,7 @@
 package com.opus2.magnum.chronology.customtypes;
 
+import org.openqa.selenium.WebElement;
+
 import net.thucydides.core.annotations.Step;
 
 public class CustomTypesSteps {
@@ -27,20 +29,34 @@ public class CustomTypesSteps {
 	public void selectCustomType(String customType) {
 		type.selectCustomType(customType);
 	}
+	
 	@Step()
 	public void rename() {
 		type.rename();
 	}
+	
 	@Step()
 	public void update() {
 		type.update();
 	}
+	
 	@Step("search term")
 	public void search() {
 		type.search();
 	}
+	
 	@Step("add custom type")
 	public void addCustomType() {
 		type.addCustomType();
 	}
+	
+	@Step()
+    public String getCustomType() {
+      return type.getCustomType();
+    }
+	
+	@Step()
+	public WebElement isDeleted() {
+       return type.isDeleted();
+    }
 }

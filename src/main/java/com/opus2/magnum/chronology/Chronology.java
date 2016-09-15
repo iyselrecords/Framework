@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.opus2.enums.Tool;
+import com.opus2.magnum.chronology.newentry.ChronologyNewEntry;
 import com.opus2.util.Page;
 import com.opus2.util.TestData;
 import com.opus2.util.Util;

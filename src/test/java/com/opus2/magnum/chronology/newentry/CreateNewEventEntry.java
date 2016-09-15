@@ -6,6 +6,7 @@ import org.jbehave.core.annotations.When;
 
 import net.thucydides.core.annotations.Steps;
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class CreateNewEventEntry {
 	@Steps
@@ -23,6 +24,7 @@ public class CreateNewEventEntry {
 	
 	@Then("a new Chronology_Event is added to Event_List")
 	public void thenANewChronologyEventIsAddedToEventList(){
-		newEntry.deleteEntry();
+	    assertTrue("values not match", newEntry.myEntry() == (ChronologyNewEntry.Index+1));
+        newEntry.deleteEntry();
 	}
 }

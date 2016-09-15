@@ -15,6 +15,11 @@ public class ChronologyNewEntrySteps {
 		entry.newEntry();
 	}
 	
+	@Step()
+    public int myEntry() {
+        return entry.myEntry();
+    }
+	
 	@Step("dialog is visible")
 	public String dialog(){
 		return entry.dialog();
@@ -94,4 +99,9 @@ public class ChronologyNewEntrySteps {
 	public void selectOption(String option) {
 		entry.selectOption(option);
 	}
+
+    @Step()
+    public void getIndex() {
+      entry.getIndex();
+    }
 }

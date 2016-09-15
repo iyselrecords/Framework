@@ -9,6 +9,7 @@ import org.jbehave.core.annotations.When;
 
 import com.opus2.magnum.chronology.Chronology;
 import com.opus2.magnum.chronology.ChronologySteps;
+import com.opus2.util.Util;
 
 public class DeleteChronologiesList {
     @Steps
@@ -29,6 +30,7 @@ public class DeleteChronologiesList {
     @When("confirms action")
     public void whenConfirmsAction(){
           dip.OK();
+          Util.pause(3);
     }
     @Then("the Chronology_List deleted from the Chronologies_List")
     public void thenTheChronology_ListDeletedFromTheChronologies_List(){

@@ -197,4 +197,16 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 			}
 		}
 	}
+
+    @Override
+    public WebElement itemText(String dialog, String itemText) {
+      WebElement elem = null;
+      List <WebElement> items = dialog(dialog).findElements(By.className("itemText"));;
+      for(WebElement t : items){
+        if(t.getText().equals(itemText)){
+            elem = t;
+        }
+      }
+      return elem;
+    }
 }
