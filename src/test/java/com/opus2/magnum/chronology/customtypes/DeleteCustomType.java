@@ -1,7 +1,5 @@
 package com.opus2.magnum.chronology.customtypes;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
