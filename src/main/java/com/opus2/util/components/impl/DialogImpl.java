@@ -190,7 +190,7 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 			for(WebElement list : lists){
 				if(list.getText().equals(document)){
 					row.click();	
-					Util.pause(0.5);	
+					Util.pause(0.5);
 					return;
 				}
 			}

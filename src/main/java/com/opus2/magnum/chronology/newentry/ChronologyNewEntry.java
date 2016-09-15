@@ -228,6 +228,7 @@ public class ChronologyNewEntry extends Page {
 
 	public void addSource(String document) {
 		description();
+		selectTag();
 		addASource(document);
 		Util.pause(0.5);
 		saveEntry();
