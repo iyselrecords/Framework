@@ -17,7 +17,7 @@ import com.opus2.util.User;
 
 public final class Configuration {
    
-	private static final String BASIC_CONF =  "/config612.properties";
+	private static final String BASIC_CONF =  "/config/repo.properties";
 	private static final String BASE_URL =  "baseUrl";
 	private static final String CODEBASE =  "codeBase";
 
@@ -99,7 +99,8 @@ public final class Configuration {
 			Configuration.adminMonitorActivity = Configuration.baseUrl.concat(file.getProperty("adminMonitorActivity"));
 			Configuration.adminActivityReportsUrl = Configuration.baseUrl.concat(file.getProperty("adminActivityReportsUrl"));
             Configuration.exportManagerUrl = Configuration.baseUrl.concat(file.getProperty("exportManagerUrl"));
-			
+			System.out.println("martino: " + file.getProperty("testingAtHome"));
+            
 			//selected user id			
 			Configuration.selectedId = file.getProperty("selectedUser" );
 			String [] names =  file.getProperty("users").split(",");
@@ -120,7 +121,6 @@ public final class Configuration {
 	private void loadUsers(String[] names) {
 		for(String filename : names){
 			Path path =  Paths.get((filename.concat(".properties")));
-			//System.out.println(path.toString());
 			readUserFile(filename,path.toString());		
 		}
 	}
@@ -130,9 +130,7 @@ public final class Configuration {
 		InputStream testData =  null;	
 		
 		file =  new Properties();
-
-		testData = this.getClass().getResourceAsStream("/"+location);
-
+		testData = this.getClass().getResourceAsStream("/config/" + location);
 		try {
 		    //System.out.println("It exists...");
 			file.load(testData);

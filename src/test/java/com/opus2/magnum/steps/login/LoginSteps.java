@@ -31,12 +31,6 @@ public class LoginSteps {
     memWordPage.view();
   }
   
-  //@AfterStory
- 	//public void afterStory(){
-	  //signoutPage.signOut();
-	  //System.out.println("signing out");
- 	//}
-  
   @Step
   public void fillMemorableWordFormSucessfully(){
     int firstIndex = memWordPage.getMemorableWordIndexAt(0);

@@ -48,8 +48,10 @@ public class LoginStepDefinitions  {
     String url = Util.getDriver().getCurrentUrl();
     if(!url.equals(Configuration.memorableWordUrl)){
       userSteps.openMemorableWordPage();
+      assertThat(url).containsOnlyOnce(Configuration.loginUrl);
+    }else if(url.equals(Configuration.memorableWordUrl)){
+      assertThat(url).containsOnlyOnce(Configuration.memorableWordUrl);
     }
-    assertThat(url).containsOnlyOnce(Configuration.memorableWordUrl);
   }
  
   @When("the user fills the memorable word options correctly")
