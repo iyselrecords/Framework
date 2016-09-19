@@ -1,7 +1,7 @@
 Narrative: 
 DeleteAllEntries DeleteAllEntries DeleteAllEntries
 
-@Meta: @CHRON_25 @DeleteAllEntries @ChronologyTools @Chronology
+@Meta: @CHRON_25 @DeleteAllEntries @ChronologyTools @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,3 +30,16 @@ Given the Tools_Button is visible
 When user open and selects Delete_All option
 And confirms action
 Then all Chronology_Entries should be deleted
+
+Scenario: Open Import Entries Dialog
+Given the Import_Entries_Button is visible
+When user clicks the Import_Entries_Button
+Then Import_Entries_Dialog should be visible
+
+Scenario: Select Entries To Import
+Given the Import_Entries_Dialog is open
+And Select_File_Button is visible
+When user clicks Select_File_Button and select importEntries
+And import file
+And confirms action
+Then Entries_Event are added to Event_List

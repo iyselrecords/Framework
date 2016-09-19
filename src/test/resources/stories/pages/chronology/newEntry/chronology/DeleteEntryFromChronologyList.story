@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_14 @DeleteEntry @Chronology
+@Meta: @CHRON_14 @DeleteEntry @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,7 +30,10 @@ Given the New_Entry_Button is visible
 When user clicks the New_Entry_Button
 Then Chronology_Event_Dialog should be visible
 
-Scenario: Create New Event Entry
+Scenario: Delete New Entry
 Given the Chronology_Event_Dialog is open
-When user inputs Chronology_Event_Details
-Then a new Chronology_Event is added to Event_List
+When user inputs new entry DeleteNewEntry
+And rightclick New_Entry
+And select Delete option
+And confirms action
+Then New_Entry is deleted from Chronology_Index

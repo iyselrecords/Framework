@@ -1,7 +1,7 @@
 Narrative: 
 ManageChronologies ManageChronologies ManageChronologies
 
-@Meta: @CHRON_06 @CustomTypes @Chronology
+@Meta: @CHRON_06 @CustomTypes @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

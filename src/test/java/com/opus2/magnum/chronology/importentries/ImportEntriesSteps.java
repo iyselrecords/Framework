@@ -18,12 +18,14 @@ public class ImportEntriesSteps {
 	}
 	
 	@Step("select file")
-	public void selectFile() throws AWTException {
-		entry.selectFile();
+	public void getFile(String file) throws AWTException {
+	  entry.getFile(file);
 	}
 	
 	@Step("import")
 	public void importEntries() {
 		entry.importEntries();
 	}
+
+  
 }

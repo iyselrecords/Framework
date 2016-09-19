@@ -17,6 +17,7 @@ public class ExportManager extends Page {
 		this.getElement(EXPORT_MANAGER_BUTTON).click();
 		Util.pause(1);
 		this.switchToCurrentWindow();
+		Util.pause(3);
 	}
 
 	public String getCurrentUrl() {

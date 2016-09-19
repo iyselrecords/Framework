@@ -36,7 +36,16 @@ public class ChronologyToolsSteps {
     }
     
     @Step()
+    public void showThumbnails(){
+        tool.showThumbnails();
+    }
+    
+    @Step()
     public String assertDIP(){
         return "TDIP";
+    }
+
+    public void plan() {
+        tool.pan();
     }
 }

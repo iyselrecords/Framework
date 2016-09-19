@@ -28,9 +28,9 @@ public class SelectEntriesToImport {
 		assertThat(Util.getElement(ImportEntry.SELECT_FILE_BUTTON).isDisplayed()).isTrue();
 	}
 	
-	@When("user clicks Select_File_Button")
-	public void whenUserClicksSelectFileButton()  throws AWTException{
-		entry.selectFile();
+	@When("user clicks Select_File_Button and select $file")
+	public void whenUserClicksSelectFileButton(String file)  throws AWTException{
+		entry.getFile(file);
 	}
 	
 	@When("import file")

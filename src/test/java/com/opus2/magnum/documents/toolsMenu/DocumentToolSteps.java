@@ -4,7 +4,7 @@ import net.thucydides.core.annotations.Step;
 
 public class DocumentToolSteps {
 	
-	@Step("testing assertion with dummy data")
+	@Step("dummy data")
 	public String assertDIP(){
 		return "TDIP";
 	}

@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they are a member of a workspace and are present on any page 
 they must beable to navigate to the Chronology Page  by clicking the Chronology Tab on the Navigation Bar.
 
-Meta: @NavigateToChronologyPageViaTheChronologyTab  @MagnumUser @USER_GUI01 @Admin @PowerUser @User @Viewer @CHRON_01 @Chronology
+Meta: @NavigateToChronologyPageViaTheChronologyTab  @MagnumUser @USER_GUI01 @Done @PowerUser @User @Viewer @CHRON_01 @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

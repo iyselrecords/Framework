@@ -1,7 +1,7 @@
 Narrative: 
 DeleteAllEntries DeleteAllEntries DeleteAllEntries
 
-@Meta: @CHRON_20 @ShowThumbnails @ChronologyTools @Chronology
+@Meta: @CHRON_20 @ShowThumbnails @ChronologyTools @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -25,8 +25,10 @@ Given the Chronologies_Dropdown_List is visible
 When user selects Chronologies_List_Option
 Then Chronologies_List_Option should display Chronology_Entries
 
-Scenario: Open And Select Chronology Tools Option
+Scenario: Show Entries With Thumbnails
 Given the Tools_Button is visible
-When user open and selects Delete_All option
-And confirms action
-Then all Chronology_Entries should be deleted
+When user click Tools_Button
+And uncheck Show_Thumbnails_Checkbox
+Then Thumbnails are not displayed on Entries
+When user check Show_Thumbnails_Checkbox
+Then Chronology_Entries displays Thumbnails

@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_13 @ViewDocumentSourceOnPreview @Chronology
+@Meta: @CHRON_13 @ViewDocumentSourceOnPreview @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,7 +30,13 @@ Given the New_Entry_Button is visible
 When user clicks the New_Entry_Button
 Then Chronology_Event_Dialog should be visible
 
-Scenario: Create New Event Entry
+Scenario: Add Document Source And Preview
 Given the Chronology_Event_Dialog is open
-When user inputs Chronology_Event_Details
-Then a new Chronology_Event is added to Event_List
+When user adds Document_Source RecentTestDoc
+And clicks Document to Preview
+Then Preview_Dialog should load Document
+
+Scenario: View Document on Document View
+Given Preview_Dialog is open
+When user clicks on Document
+Then Document should open in a new tab

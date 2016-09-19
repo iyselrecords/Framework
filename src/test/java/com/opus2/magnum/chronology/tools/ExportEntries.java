@@ -3,6 +3,8 @@ package com.opus2.magnum.chronology.tools;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.opus2.util.Util;
+
 import net.thucydides.core.annotations.Steps;
 import static org.assertj.core.api.Assertions.*;
 
@@ -16,6 +18,7 @@ public class ExportEntries {
 	}
 	@Then("Chronology_Entries are display on a PDF_File")
 	public void thenChronologyEntriesAredisplayOnAPDFFile(){
+	    Util.pause(5);
 		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
 	}
 	
@@ -25,6 +28,7 @@ public class ExportEntries {
 	}
 	@Then("Chronology_Entries are downloaded on a PDF_File with Documents")
 	public void thenChronologyEntriesAreDownloadedOnAPDFFileWithDocuments(){
+        Util.pause(5);
 		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
 	}
 	
@@ -34,6 +38,7 @@ public class ExportEntries {
 	}
 	@Then("Chronology_Entries are are downloaded as CSV_File")
 	public void thenChronologyEntriesAreDownloadedAsCSVFile(){
+        Util.pause(5);
 		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
 	}
 	
@@ -43,6 +48,7 @@ public class ExportEntries {
 	}
 	@Then("Chronology_Entries are are downloaded as DOCX_File")
 	public void thenChronologyEntriesAreDownloadedAsDOCXFile(){
+        Util.pause(5);
 		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
 	}
 }

@@ -37,9 +37,11 @@ public class LinkEntriesToSources {
 	public void whenUserClicksCreate_Links_Button(){
 		 tool.createLink();
 	}
+	
 	@Then("Document_Scource should be Linked to Chronology_Entries")
 	public void thenDocument_ScourceShouldBeLinkedToChronology_Entries(){
 		Util.pause(7);
 		assertThat(tool.assertDIP().equals("TDIP")).isTrue();
+		tool.button();
 	}
 }

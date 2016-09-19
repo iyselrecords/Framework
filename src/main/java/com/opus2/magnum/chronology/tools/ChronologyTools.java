@@ -1,11 +1,14 @@
 package com.opus2.magnum.chronology.tools;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.opus2.enums.Tool;
 import com.opus2.util.Page;
+import com.opus2.util.Util;
 import com.opus2.util.components.Dialog;
 import com.opus2.util.components.Tools;
 
@@ -43,5 +46,27 @@ public class ChronologyTools extends Page {
     public void createLink() {
         withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
         dialog.button(CREATE_LINK).click();
-    }	
+    }
+    
+    public void showThumbnails(){
+        thumbnails().click();
+        Util.pause(7);
+    }
+    
+    private WebElement thumbnails() {
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.name("Show Thumbnails"));
+        return Util.getDriver().findElements(By.name("Show Thumbnails")).get(0);
+    }
+
+    public void pan() {
+        List <WebElement> t = Util.getDriver().findElements(By.className("thumb"));
+        
+        for(WebElement a : t){
+          if(a.isDisplayed()){
+              System.out.println("display:" + t.size());
+          }else if(!a.isDisplayed()){
+              System.out.println("notDisplay:" + t.size());
+          }
+        }
+    }
 }

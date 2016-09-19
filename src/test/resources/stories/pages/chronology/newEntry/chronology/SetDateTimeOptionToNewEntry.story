@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_07 @SetDateTimeOptionToChronologyNewEntry @Chronology
+@Meta: @CHRON_07 @SetDateTimeOptionToChronologyNewEntry @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

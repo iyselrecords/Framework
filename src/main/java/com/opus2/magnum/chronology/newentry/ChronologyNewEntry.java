@@ -55,10 +55,10 @@ public class ChronologyNewEntry extends Page {
 		selectType();		
 		selectStatus();	
 		selectDate();	
-		selectTime();	
+		selectTime(); 
+        addASource();	
 		selectTag();	
-		description();	
-		addASource();
+		description();
 		saveEntry();
 		Util.pause(3);
 		entry();
@@ -70,6 +70,12 @@ public class ChronologyNewEntry extends Page {
 		Util.pause(0.5);
 	}
 	
+	private void selectType(String type) {
+      withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
+      option.getOptions(0, type);
+      Util.pause(0.5);
+    }
+	
 	public int myEntry() {
 	   WebElement a = this.getElementByClass("chronmain")
 	       .findElements(By.tagName("tbody")).get(0);
@@ -79,6 +85,7 @@ public class ChronologyNewEntry extends Page {
 	
 	public void getIndex() {
 	    Index = myEntry();
+	    System.out.println("myIndex: "+ Index);
 	}
 	
 	private void selectStatus() {
@@ -86,6 +93,12 @@ public class ChronologyNewEntry extends Page {
 		option.getOptions(2, ENTRY_STATUS);
 		Util.pause(0.5);
 	}
+	
+	private void selectStatus(String status) {
+      withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
+      option.getOptions(2, status);
+      Util.pause(0.5);
+    }
 	
 	private void selectDate() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
@@ -228,8 +241,7 @@ public class ChronologyNewEntry extends Page {
 
 	public void addSource(String document) {
 		description();
-		selectTag();
-		addASource(document);
+        addASource(document);
 		Util.pause(0.5);
 		saveEntry();
 		cleanUp();
@@ -258,7 +270,7 @@ public class ChronologyNewEntry extends Page {
 
 	public void document() {
 		Util.pause(2);
-		this.getElementByClass("previewImage").click();
+		this.getElementByClass("previewNotes").click();
 		this.switchToCurrentWindow();
 		Util.pause(5);
 		this.switchToMainWindow();
@@ -266,8 +278,8 @@ public class ChronologyNewEntry extends Page {
 	}
 
 	public void chronEntry(String entry) {
-		selectType();		
-		selectStatus();	
+		selectType("Fact");		
+		selectStatus("Undisputed");	
 		selectDate();	
 		selectTime();
 		description(entry);

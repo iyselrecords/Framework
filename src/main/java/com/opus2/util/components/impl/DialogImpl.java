@@ -178,8 +178,8 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 	
 	@Override
 	public void selectDocument(String document) {
-		Util.pause(3);
-		Util.getDriver().findElements(By.className("searchInputArea")).get(1)
+		Util.pause(2);
+		Util.getDriver().findElements(By.className("searchInputArea")).get(0)
 			.findElements(By.tagName("input")).get(0).sendKeys(document);
 		Util.pause(2);
 		

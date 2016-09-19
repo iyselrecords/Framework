@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_18 @ImportEntriesMetaData @Chronology
+@Meta: @CHRON_18 @ImportEntriesMetaData @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -33,7 +33,7 @@ Then Import_Entries_Dialog should be visible
 Scenario: Select Entries To Import
 Given the Import_Entries_Dialog is open
 And Select_File_Button is visible
-When user clicks Select_File_Button
+When user clicks Select_File_Button and select tagsDelimeter
 And import file
 And confirms action
 Then Entries_Event are added to Event_List
