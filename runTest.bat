@@ -3,7 +3,7 @@
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
 SET TEST_RESULTS=TestResults
-SET META_FILTER="+Chronology"
+SET META_FILTER="+CHRON_08"
 echo Removing previous test results...
 IF exist %PROJECT_DIR%\%TEST_RESULTS%  DEL /S /Q /F %PROJECT_DIR%\%TEST_RESULTS% | echo > NUL
 echo done.....
@@ -23,7 +23,7 @@ echo executing test...............
 CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions" -Dphantomjs.binary.path=C:/Users/misele/phantomjs/bin/phantomjs.exe
 ::CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions" -Dphantomjs.binary.path=C:/PhantomJS/bin/phantomjs.exe
 
-::XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
+XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
 echo done...............
 
-::START %PROJECT_DIR%\%TEST_RESULTS%\site\serenity\index.html
+START %PROJECT_DIR%\%TEST_RESULTS%\site\serenity\index.html

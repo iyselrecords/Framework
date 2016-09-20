@@ -30,7 +30,7 @@ Given the New_Entry_Button is visible
 When user clicks the New_Entry_Button
 Then Chronology_Event_Dialog should be visible
 
-Scenario: Create New Event Entry
+Scenario: Select Date From CalendarDropdown
 Given the Chronology_Event_Dialog is open
-When user inputs Chronology_Event_Details
-Then a new Chronology_Event is added to Event_List
+When user selects Today's_Date from Calendar_Dropdown
+Then selected_Date should saved to Chronology_Entry

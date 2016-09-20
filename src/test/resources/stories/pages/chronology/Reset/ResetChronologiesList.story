@@ -1,7 +1,7 @@
 Narrative: 
 ResetEntryList ResetEntryList ResetEntryList
 
-@Meta: @CHRON_53 @ResetEntryList @ChronologyFilter @Chronology
+@Meta: @CHRON_53 @ResetEntryList @ChronologyFilter @Chronology @Done
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

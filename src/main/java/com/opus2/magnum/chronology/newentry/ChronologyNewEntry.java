@@ -1,12 +1,12 @@
 package com.opus2.magnum.chronology.newentry;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.opus2.enums.ChronologyEvent;
 import com.opus2.util.Page;
 import com.opus2.util.TestData;
 import com.opus2.util.Util;
@@ -309,6 +309,17 @@ public class ChronologyNewEntry extends Page {
 			}
 		}
 	}
+
+    public void todaysDate() {
+        this.getElement("factdate").click();
+            Util.pause(2);  
+        this.getElementByClass("is-today").findElements(By.tagName("button"))
+            .get(0).click();
+        
+        description();
+        saveEntry();
+        cleanUp();
+    }
 
     
 

@@ -102,6 +102,11 @@ public class ChronologyNewEntrySteps {
 
     @Step()
     public void getIndex() {
-      entry.getIndex();
+        entry.getIndex();
+    }
+    
+    @Step()
+    public void todaysDate() {
+        entry.todaysDate();
     }
 }
