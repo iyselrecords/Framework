@@ -106,8 +106,8 @@ public class ChronologyNewEntrySteps {
     }
     
     @Step()
-    public void openDropdown() {
-        entry.openDropdown();
+    public void openDropdown(String dropdown) {
+        entry.openDropdown(dropdown);
     }
     
     @Step()
@@ -123,5 +123,10 @@ public class ChronologyNewEntrySteps {
     @Step()
     public void previousMonth() {
         entry.previousMonth();
+    }
+    
+    @Step()
+    public void saveDescAndDelete(){
+        entry.saveDescAndDelete();
     }
 }

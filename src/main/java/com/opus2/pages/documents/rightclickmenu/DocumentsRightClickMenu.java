@@ -5,12 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import com.opus2.util.Page;
+import com.opus2.util.TestData;
 import com.opus2.util.components.Dialog;
 import com.opus2.util.components.RightClickMenu;
 
 public class DocumentsRightClickMenu extends Page {
 	private RightClickMenu doc;	
-	private static final String DOCUMENT_TITLE = "autolink";
+	private static final String DOCUMENT_TITLE = TestData.DOCUMENTS_.getProperty("document");
 	private static final String FOLDER_TITLE = "Test";
 	private static final String MENU = "rightClickMenu";
 	private Dialog dialog;

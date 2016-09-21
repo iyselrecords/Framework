@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_09 @SelectDateFromCalendarDropdown @Chronology @Auto
+@Meta: @CHRON_08 @SelectDateFromCalendarDropdown @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -33,5 +33,7 @@ Then Chronology_Event_Dialog should be visible
 Scenario: Select Date From Calendar Dropdown
 Given the Chronology_Event_Dialog is open
 When user opens Calendar_Dropdown
+And clicks Next_Arrow to view Next_Month_Dates
+And clicks Previous_Arrow to view Previous_Month_Dates
 And selects Today's_Date
 Then selected_Date should saved to Chronology_Entry

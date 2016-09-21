@@ -18,8 +18,6 @@ public class ChronologyFilter extends Page {
 	public static final String FROM_DATE_INPUT = "filter-from-date";
 	public static final String TO_DATE_INPUT = "filter-to-date";
 	
-	private static String DateOption;
-	
 	private Dropdown option;
 	
 	public void openFilter() {
@@ -54,7 +52,6 @@ public class ChronologyFilter extends Page {
 			fromDate();
 		}
 		closeFilter();
-		DateOption = dropdownOption;
 	}
 	
 	public void checkFilterIsOpen() {

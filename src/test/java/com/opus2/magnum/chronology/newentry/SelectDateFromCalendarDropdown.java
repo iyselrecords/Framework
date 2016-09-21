@@ -12,7 +12,12 @@ public class SelectDateFromCalendarDropdown {
   
     @When("user opens Calendar_Dropdown")
     public void whenUserOpensCalendarDropdown(){
-        newEntry.openDropdown();
+        newEntry.openDropdown(ChronologyNewEntry.NEW_ENTRY_DATE_DROPDOWN);
+    }
+    
+    @When("user opens Filter_Calendar_Dropdown")
+    public void whenUserOpensFilterCalendarDropdown(){
+        newEntry.openDropdown(ChronologyNewEntry.FILTER_DATE_DROPDOWN);
     }
     
     @When("selects Today's_Date")
@@ -33,5 +38,6 @@ public class SelectDateFromCalendarDropdown {
     @Then("selected_Date should saved to Chronology_Entry")
     public void thenSelectedDateShouldSavedToChronologyEntry(){
         assertThat(newEntry.assertDIP().equals("TDIP")).isTrue();
+        newEntry.saveDescAndDelete();
     }
 }

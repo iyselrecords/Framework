@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_09 @SelectDateFromCalendarPanel @ChronologyFilter @Chronology
+@Meta: @CHRON_09 @SelectDateFromCalendarPanel @ChronologyFilter @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -25,12 +25,15 @@ Given the Chronologies_Dropdown_List is visible
 When user selects Chronologies_List_Option
 Then Chronologies_List_Option should display Chronology_Entries
 
-Scenario: Open New Entry Event Dialog
-Given the New_Entry_Button is visible
-When user clicks the New_Entry_Button
-Then Chronology_Event_Dialog should be visible
+Scenario: Open Chronology Filter Dialog
+Given the Filter_Button is visible
+When user clicks the Filter_Button
+Then Chronology_Filter_Dialog should be visible
 
-Scenario: Create New Event Entry
-Given the Chronology_Event_Dialog is open
-When user inputs Chronology_Event_Details
-Then a new Chronology_Event is added to Event_List
+Scenario: Select Date From Calendar Dropdown On Filter Pane
+Given the Chronology_Filter_Dialog is open
+When user opens Filter_Calendar_Dropdown
+And clicks Next_Arrow to view Next_Month_Dates
+And clicks Previous_Arrow to view Previous_Month_Dates
+And selects Today's_Date
+Then Chronology_Entries displays entries within Today's Date

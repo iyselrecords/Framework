@@ -14,21 +14,15 @@ Given the workspace is visible in the cases section
 When the user selects workspace title
 Then they must be navigated to the documents page
 
-Scenario: Navigate To Chronology Page Via The Chronology Tab
-Given the user is not present on the Chronology_Page
-And the Chronology_Tab is visible
-When the user clicks the Chronology_Tab
-Then they must be navigated to the Chronology_Page
+Scenario: Open Right Click Menu Document Level Documents Page
+Given there is at least one Document in the Document_Index
+When the user right clicks the Document
+Then the Right_Click_Menu must open at document level
 
-Scenario: Select Chronologies List
-Given the Chronologies_Dropdown_List is visible
-When user selects Chronologies_List_Option
-Then Chronologies_List_Option should display Chronology_Entries
-
-Scenario: Open New Entry Event Dialog
-Given the New_Entry_Button is visible
-When user clicks the New_Entry_Button
-Then Chronology_Event_Dialog should be visible
+Scenario: Open Add To Dialog Documents Page
+Given the Add_To_Option is visible in the Right_Click_Menu
+When the user hovers the pointer over the Add_To_Option
+Then the Add_To_Menu must open
 
 Scenario: Create New Event Entry
 Given the Chronology_Event_Dialog is open

@@ -1,10 +1,10 @@
 package com.opus2.magnum.chronology.newentry;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
 import com.opus2.util.Page;
@@ -34,6 +34,9 @@ public class ChronologyNewEntry extends Page {
     private static final String ENTRY_TIMEZONE = TestData.CHRONOLOGY_.getProperty("entryTimezone");
     private static final String NEXT_MONTH = "pika-next";
     private static final String PREVIOUS_MONTH = "pika-prev";
+    public static final String NEW_ENTRY_DATE_DROPDOWN = "factdate";
+    public static final String FILTER_DATE_DROPDOWN = "filter-from-date";
+    
     
     private Dialog dialog;
 	private Dropdown option;
@@ -311,32 +314,40 @@ public class ChronologyNewEntry extends Page {
 		}
 	}
 
-	public void openDropdown() {
-        this.getElement("factdate").click();
+	public void openDropdown(String dropdown) {
+        this.getElement(dropdown).click();
         Util.pause(2);  
     }
-    
+	
 	public void todaysDate() {      
         this.getElementByClass("is-today").findElements(By.tagName("button"))
-            .get(0).click(); 
+            .get(0).click();
+    }
+  
+	public void saveDescAndDelete() {
         description();
         saveEntry();
         cleanUp();
     }
-  
+	
     public void nextMonth() {
+        month(NEXT_MONTH);
         month(NEXT_MONTH);
     }
 
     public void previousMonth() {
         month(PREVIOUS_MONTH);
+        month(PREVIOUS_MONTH);
     }
 
     private void month(String month){
-        WebElement c = this.getElementByClass(month);
-        c.click();
-        Util.pause(2);
-        c.click();
+        try{
+          WebElement c = this.getElementByClass(month);
+          c.click();
+          Util.pause(1);
+        }catch(StaleElementReferenceException e){
+            month(month);
+        }
     }
 
   
