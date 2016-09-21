@@ -15,4 +15,5 @@ public interface Dropdown extends Component{
 	void getOption(String option);
 	void getOptions(int index, String dropdownOption);
     WebElement isOpen();
+    void myOption(int index,String dropdownOption);
 }

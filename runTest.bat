@@ -3,7 +3,7 @@
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
 SET TEST_RESULTS=TestResults
-SET META_FILTER="+CHRON_28"
+SET META_FILTER="+Auto"
 echo Removing previous test results...
 IF exist %PROJECT_DIR%\%TEST_RESULTS%  DEL /S /Q /F %PROJECT_DIR%\%TEST_RESULTS% | echo > NUL
 echo done.....

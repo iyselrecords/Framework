@@ -350,24 +350,15 @@ public class ChronologyNewEntry extends Page {
     }
 
     public void newEntries() {
-        selectDate();
-        selectTime(); 
+        option.myOption(1, ENTRY_TYPES);
+        option.myOption(2, ENTRY_DATEOPTION);
+        inputDate();
+        option.myOption(3, ENTRY_STATUS);
+        inputTime();
+        option.myOption(4, ENTRY_TIMEZONE);
         selectTag();
         description();
         saveEntry();
-        Util.pause(3);
-        entry();
-        /*
-        selectStatus(); 
-        selectDate();
-        selectTime(); 
-        addASource();   
-        selectTag();    
-        description();
-        saveEntry();
-        Util.pause(3);
-        entry();
-        */
     }
 
   

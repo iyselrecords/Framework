@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_27 @AddChronToNewEntry @Chronology
+@Meta: @CHRON_27 @AddChronToNewEntry @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -40,4 +40,4 @@ Given the Chronology_Event_Dialog is open
 When user inputs New_Event_Details
 And clicks the Chronology_Tab
 And selects Chronologies_List_Option
-Then a new Chronology_Event is added to Event_List
+Then Linked_Document is added As_A_Source to New_Entry

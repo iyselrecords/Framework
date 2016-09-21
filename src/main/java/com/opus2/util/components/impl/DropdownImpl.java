@@ -91,4 +91,20 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
     public WebElement isOpen() {
         return Util.getDriver().findElements(By.className("menu")).get(0);
     }
+    
+    @Override
+    public void myOption(int index, String dropdownOption) {
+        WebElement topLevel = Util.getDriver().findElements(By.className("sideComponent")).get(index);     
+        topLevel.findElement(By.className("normalIcon")).click();
+        Util.pause(1);
+        
+        List<WebElement> options = topLevel.findElements(By.tagName("span"));
+        for(WebElement option : options){       
+            if(option.getText().equals(dropdownOption)){
+                option.click();
+                break;
+            }
+        }
+        Util.pause(1);
+    }
 }

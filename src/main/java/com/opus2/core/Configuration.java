@@ -17,7 +17,7 @@ import com.opus2.util.User;
 
 public final class Configuration {
    
-	private static final String BASIC_CONF =  "/config/612.properties";
+	private static final String BASIC_CONF =  "/config/repo.properties";
 	private static final String BASE_URL =  "baseUrl";
 	private static final String CODEBASE =  "codeBase";
 
