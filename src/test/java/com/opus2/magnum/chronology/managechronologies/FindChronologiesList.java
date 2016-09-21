@@ -7,6 +7,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.opus2.magnum.chronology.Chronology;
 import com.opus2.magnum.chronology.ChronologySteps;
 
 public class FindChronologiesList {
@@ -19,7 +20,7 @@ public class FindChronologiesList {
     }
     @Given("the Chronology_List is listed on the Chronologies_List")
     public void andTheChronology_ListIsListedOnTheChronologies_List(){
-        assertThat(dip.assertDIP().equals("TDIP")).isTrue();
+        assertThat(dip.myList().isDisplayed()).isTrue();
     }
     @When("user input a Search_Text")
     public void whenUserInputASearch_Text(){
@@ -27,6 +28,7 @@ public class FindChronologiesList {
     }
     @Then("the Search_Text is filtered")
     public void thenTheSearch_TextIsFiltered(){
-        assertThat(dip.assertDIP().equals("TDIP")).isTrue();  
+        assertThat(dip.assertDIP().equals("TDIP")).isTrue();
+        dip.closeDialog();
     }
 }

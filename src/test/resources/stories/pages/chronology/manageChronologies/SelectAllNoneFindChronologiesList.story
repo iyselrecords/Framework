@@ -1,7 +1,7 @@
 Narrative: 
 ManageChronologies ManageChronologies ManageChronologies
 
-@Meta: @CHRON_33 @ManageChronologies @Chronology
+@Meta: @CHRON_33a @ManageChronologies @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -39,28 +39,6 @@ Scenario: DeSelect All Chronologies List
 Given the Manage_Chronologies_Dialog is open
 When user clicks the None_Link
 Then all Chronologies_List is deselected
-
-Scenario: Add New Chronologies List
-Given the Add_Button is visible
-When user clicks on the Add_Button
-And input Chronology_List_Name
-And clicks Chronology_List_Save_Button
-Then new Chronology_List is visible on the Chronologies_List
-
-Scenario: Edit Chronologies List
-Given the Edit_Button is visible
-When user select Chronology_List to edit
-And clicks on the Edit_Button
-And update Chronology_List
-And clicks Chronology_List_Save_Button
-Then the Chronology_List is updated on the Chronologies_List
-
-Scenario: Delete Chronologies List
-Given the Delete_Button is visible
-When user select Chronology_List to delete
-And clicks on the Delete_Button
-And confirms action
-Then the Chronology_List deleted from the Chronologies_List
 
 Scenario: Find Chronologies List
 Given the Find_Input is visible

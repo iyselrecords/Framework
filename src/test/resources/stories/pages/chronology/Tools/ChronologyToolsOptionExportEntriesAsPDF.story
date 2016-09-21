@@ -1,7 +1,7 @@
 Narrative: 
 ExportEntriesAsPDF ExportEntriesAsPDF ExportEntriesAsPDF
 
-@Meta: @CHRON_21 @ExportEntriesAsPDF @ChronologyTools @Chronology @Done
+@Meta: @CHRON_21 @ExportEntriesAsPDF @ChronologyTools @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

@@ -1,7 +1,7 @@
 Narrative: 
 DeleteAllEntries DeleteAllEntries DeleteAllEntries
 
-@Meta: @CHRON_20 @ShowThumbnails @ChronologyTools @Chronology @Done
+@Meta: @CHRON_20 @ShowThumbnails @ChronologyTools @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

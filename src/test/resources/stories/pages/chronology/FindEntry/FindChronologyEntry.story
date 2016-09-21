@@ -1,7 +1,7 @@
 Narrative: 
 FindChronologyEntry FindChronologyEntry FindChronologyEntry
 
-@Meta: @CHRON_51 @FindChronologyEntry @ChronologyFilter @Chronology @Done
+@Meta: @CHRON_51 @FindChronologyEntry @ChronologyFilter @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

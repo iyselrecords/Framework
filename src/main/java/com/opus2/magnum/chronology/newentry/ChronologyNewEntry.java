@@ -32,7 +32,8 @@ public class ChronologyNewEntry extends Page {
     private static final String ENTRY_DATEOPTION = TestData.CHRONOLOGY_.getProperty("entryDateOption");
     private static final String ENTRY_TIME = TestData.CHRONOLOGY_.getProperty("entryTime");
     private static final String ENTRY_TIMEZONE = TestData.CHRONOLOGY_.getProperty("entryTimezone");
-
+    private static final String NEXT_MONTH = "pika-next";
+    private static final String PREVIOUS_MONTH = "pika-prev";
     
     private Dialog dialog;
 	private Dropdown option;
@@ -310,18 +311,33 @@ public class ChronologyNewEntry extends Page {
 		}
 	}
 
-    public void todaysDate() {
+	public void openDropdown() {
         this.getElement("factdate").click();
-            Util.pause(2);  
+        Util.pause(2);  
+    }
+    
+	public void todaysDate() {      
         this.getElementByClass("is-today").findElements(By.tagName("button"))
-            .get(0).click();
-        
+            .get(0).click(); 
         description();
         saveEntry();
         cleanUp();
     }
+  
+    public void nextMonth() {
+        month(NEXT_MONTH);
+    }
 
-    
+    public void previousMonth() {
+        month(PREVIOUS_MONTH);
+    }
+
+    private void month(String month){
+        WebElement c = this.getElementByClass(month);
+        c.click();
+        Util.pause(2);
+        c.click();
+    }
 
   
 }

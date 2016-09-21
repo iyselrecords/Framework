@@ -36,7 +36,6 @@ public class AddNewChronologiesList {
     
     @Then("new Chronology_List is visible on the Chronologies_List")
     public void thenNewChronology_ListIsVisibleOnTheChronologies_List(){
-        dip.addMyList();
         assertThat(dip.assertDIP().equals("TDIP")).isTrue();  
     }
 }

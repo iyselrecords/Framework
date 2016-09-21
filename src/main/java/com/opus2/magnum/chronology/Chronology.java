@@ -15,6 +15,7 @@ import com.opus2.util.components.Dialog;
 import com.opus2.util.components.Dropdown;
 import com.opus2.util.components.Find;
 import com.opus2.util.components.Tools;
+import com.opus2.util.components.impl.DialogImpl;
 
 public class Chronology extends Page {
 	public static final String MANAGE_CHRONOLOGIES = "docscontrols_ManageChronologies";
@@ -32,12 +33,11 @@ public class Chronology extends Page {
 	public static final String SELECT_NONE = "None";
 	public static final String EXPAND = "Expand";
 	public static final String COLLAPSE = "Collapse";
-	private static final String MASTER = "Master";
-	public static final String CHRON_LIST = "TGIF";
-	public static final String UPDATE_CHRON_LIST = "ONIM";
+	public static final String MASTER = "Master";
+	public static final String ADD_CHRON = TestData.CHRONOLOGY_.getProperty("addChronologyList");
+	public static final String UPDATE_CHRON_LIST = TestData.CHRONOLOGY_.getProperty("editChronologyList");
 	private static final String CHRONOLOGY_ENTRY = "chron_test";
 	public static final String CUSTOM_TYPES_DIALOG = "Custom Types";
-	private static final String MY_LIST = "SearchList";
 	private static final String NEW_CHRONOLOGY_LIST = "New Chronology List";
     private static final String CONTROLS = "docscontrols";
     public static final String CHRON = TestData.CHRONOLOGY_.getProperty("chronologyList");
@@ -112,7 +112,7 @@ public class Chronology extends Page {
 	
 	public void chronListName(){
 	    Util.pause(1);
-		dialog.input(NEW_CHRONOLOGY_LIST, CHRON_LIST);
+		dialog.input(NEW_CHRONOLOGY_LIST, ADD_CHRON);
 	}
 	
 	public void save(){
@@ -123,9 +123,10 @@ public class Chronology extends Page {
 	public void addMyList() {
 		dialog.button("Add").click();
 		Util.pause(1);
-		dialog.input(NEW_CHRONOLOGY_LIST, MY_LIST);
+		dialog.input(NEW_CHRONOLOGY_LIST, MASTER);
 		dialog.button("Save").click();
 	}
+	
 	public void selectChronologiesList(String chron){
 		dialog.select(chron);
 		Util.pause(1);
@@ -156,9 +157,9 @@ public class Chronology extends Page {
 	}
 	
 	public void search(){
-		Util.pause(2);
-		dialog.find2("Manage Chronologies", MY_LIST);
-		selectList(MY_LIST);
+		dialog.find2("Manage Chronologies", MASTER);
+		Util.pause(1);
+		DialogImpl.findInput.clear();
 		Util.pause(2);
 	}
 	
@@ -260,4 +261,20 @@ public class Chronology extends Page {
 		Util.pause(3);
 		dialog.button("Close").click();
 	}
+
+	public WebElement myList() {
+	    WebElement element = null;
+	    List <WebElement> lists = Util.getDriver().findElements(By.className("itemText"));
+	    for(WebElement list : lists){
+	      if(list.getText().equals(MASTER)){
+	          element = list;
+	          break;
+	      }
+	    }
+	     return element;   
+	}
+
+    public void closeDialog() {
+        dialog.button("Close").click();
+    }
 }

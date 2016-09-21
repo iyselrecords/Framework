@@ -1,7 +1,7 @@
 Narrative: 
 ManageChronologies ManageChronologies ManageChronologies
 
-@Meta: @CHRON_33 @AddNewChronologyList @Chronology @Done
+@Meta: @CHRON_33 @AddNewChronologyList @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,16 +30,6 @@ Given Manage_Chronologies_Button is visible
 When user clicks Manage_Chronologies_Button
 Then Manage_Chronologies_Dialog should be visible
 
-Scenario: Select All Chronologies List
-Given the Manage_Chronologies_Dialog is open
-When user clicks the All_Link
-Then all Chronologies_List is selected
-
-Scenario: DeSelect All Chronologies List
-Given the Manage_Chronologies_Dialog is open
-When user clicks the None_Link
-Then all Chronologies_List is deselected
-
 Scenario: Add New Chronologies List
 Given the Add_Button is visible
 When user clicks on the Add_Button
@@ -47,23 +37,9 @@ And input Chronology_List_Name
 And clicks Chronology_List_Save_Button
 Then new Chronology_List is visible on the Chronologies_List
 
-Scenario: Edit Chronologies List
-Given the Edit_Button is visible
-When user select Chronology_List to edit
-And clicks on the Edit_Button
-And update Chronology_List
-And clicks Chronology_List_Save_Button
-Then the Chronology_List is updated on the Chronologies_List
-
 Scenario: Delete Chronologies List
 Given the Delete_Button is visible
 When user select Chronology_List to delete
 And clicks on the Delete_Button
 And confirms action
 Then the Chronology_List deleted from the Chronologies_List
-
-Scenario: Find Chronologies List
-Given the Find_Input is visible
-And the Chronology_List is listed on the Chronologies_List
-When user input a Search_Text
-Then the Search_Text is filtered

@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they are a member of a Workspace and are present on the Home Page
 they must beable to navigate to the Chronology Page by clicking the Chronology Shortcut.
 
-Meta: @NavigateToChronologyPageViaShortcutOnHomePage @MagnumUser @USER_GUI02 @Admin @Admin @PowerUser @User @Viewer @CHRON_37 @Chronology
+Meta: @NavigateToChronologyPageViaShortcutOnHomePage @MagnumUser @USER_GUI02 @Admin @Auto @PowerUser @User @Viewer @CHRON_37 @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

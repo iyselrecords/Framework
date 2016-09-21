@@ -19,21 +19,31 @@ public class DeleteChronologiesList {
     public void givenTheDelete_ButtonIsVisible(){
         assertThat(dip.assertDIP().equals("TDIP")).isTrue();
     }
+    
     @When("user select Chronology_List to delete")
     public void whenUserSelectChronology_ListToDelete(){
+          dip.selectChronologiesList(Chronology.ADD_CHRON);
+    }
+    
+    @When("user select Updated_Chronology_List to delete")
+    public void whenUserSelectUpdatedChronologyListToDelete(){
           dip.selectChronologiesList(Chronology.UPDATE_CHRON_LIST);
     }
+    
     @When("clicks on the Delete_Button")
     public void whenClicksOnTheDelete_Button(){
          dip.delete(); 
     }
+    
     @When("confirms action")
     public void whenConfirmsAction(){
           dip.OK();
           Util.pause(3);
     }
+    
     @Then("the Chronology_List deleted from the Chronologies_List")
     public void thenTheChronology_ListDeletedFromTheChronologies_List(){
-        assertThat(dip.assertDIP().equals("TDIP")).isTrue();  
+        assertThat(dip.assertDIP().equals("TDIP")).isTrue();
+        dip.closeDialog();
     }
 }

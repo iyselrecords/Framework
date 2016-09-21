@@ -118,13 +118,7 @@ public class ChronologySteps {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	@Step("filter")
 	public void filter() {
 		dip.filter();
@@ -159,4 +153,14 @@ public class ChronologySteps {
 	public void A_B_A() {
 		dip.A_B_A();
 	}
+	
+	@Step()
+    public WebElement myList() {
+        return dip.myList();
+    }
+	
+	@Step()
+    public void closeDialog() {
+        dip.closeDialog();
+    }
 }

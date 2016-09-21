@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_13 @ViewDocumentSourceOnPreview @Chronology @Done
+@Meta: @CHRON_13 @ViewDocumentSourceOnPreview @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

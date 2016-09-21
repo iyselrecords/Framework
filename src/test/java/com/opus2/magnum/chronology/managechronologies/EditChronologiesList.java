@@ -22,7 +22,7 @@ public class EditChronologiesList {
     
     @When("user select Chronology_List to edit")
     public void whenUserSelectChronology_ListToEdit(){
-          dip.selectChronologiesList(Chronology.CHRON_LIST);
+          dip.selectChronologiesList(Chronology.ADD_CHRON);
     }
     
     @When("clicks on the Edit_Button")

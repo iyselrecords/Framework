@@ -39,3 +39,23 @@ Scenario: DeSelect All Custom Types
 Given the Custom_Types_Dialog is open
 When user clicks the None_Link
 Then all Custom_Types are deselected
+
+Scenario: Add New Custom Type
+Given the Add_Button is visible
+When user clicks on the Add_Button
+And input Custom_Types_Name
+And clicks Custom_Types_Save_Button
+Then new Custom Types is visible on the Custom_Types_List
+
+Scenario: Find Chronologies List
+Given the Find_Input is visible
+And the Chronology_List is listed on the Chronologies_List
+When user input a Search_Text
+Then the Search_Text is filtered
+
+Scenario: Delete Custom Type
+Given the Delete_Button is visible
+When user select Custom_Type
+And clicks on the Delete_Button
+And confirms action
+Then the Custom_Type is deleted from the list

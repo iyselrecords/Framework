@@ -1,7 +1,7 @@
 Narrative: 
 ExportManager ExportManager ExportManager
 
-@Meta: @CHRON_24 @ExportManager @Chronology @Done
+@Meta: @CHRON_24 @ExportManager @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

@@ -106,7 +106,22 @@ public class ChronologyNewEntrySteps {
     }
     
     @Step()
-    public void todaysDate() {
+    public void openDropdown() {
+        entry.openDropdown();
+    }
+    
+    @Step()
+    public void todaysDate() {  
         entry.todaysDate();
+    }
+    
+    @Step()
+    public void nextMonth() {
+        entry.nextMonth();
+    }
+    
+    @Step()
+    public void previousMonth() {
+        entry.previousMonth();
     }
 }
