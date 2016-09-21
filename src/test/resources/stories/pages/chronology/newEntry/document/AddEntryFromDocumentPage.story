@@ -32,4 +32,5 @@ Then the Add_To_Chronology_Dialog must open
 Scenario: Select Chronologies List And Create New Entry
 Given Add_To_Chronology_Dialog is open
 When user selects TestChron Chronology_List_Option
+And clicks Create_A_New_Entry_Button
 Then Chronology_Event_Dialog should be visible
