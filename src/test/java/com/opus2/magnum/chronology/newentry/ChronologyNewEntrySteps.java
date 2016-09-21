@@ -129,4 +129,9 @@ public class ChronologyNewEntrySteps {
     public void saveDescAndDelete(){
         entry.saveDescAndDelete();
     }
+    
+    @Step()
+    public void newEntries() {
+        entry.newEntries();
+    }
 }

@@ -17,8 +17,8 @@ public class OpenAddToChronologyDialogViaAddToMenuDocumentsPage{
 		addToChron.addToChronOption();
 	}
 	
-	@Then("the Add_To Chronology_Dialog must open")
-	public void thenTheAdd_To_Chronology_DialogMustOpen(){
+	@Then("the Add_To_Chronology_Dialog must open")
+	public void thenTheAddToChronologyDialogMustOpen(){
 		assertThat(addToChron.dialog().equals("block")).isTrue();
 	}
 }

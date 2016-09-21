@@ -22,6 +22,7 @@ public class NavigateToChronologyPageViaChronologyTab{
 	}
 	
 	@When("the user clicks the Chronology_Tab")
+	@Alias("clicks the Chronology_Tab")
 	public void whenTheUserClicksTheChronology_Tab(){
 		nav.chronologyTab();
 	}

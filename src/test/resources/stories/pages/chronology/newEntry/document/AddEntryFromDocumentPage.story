@@ -24,7 +24,12 @@ Given the Add_To_Option is visible in the Right_Click_Menu
 When the user hovers the pointer over the Add_To_Option
 Then the Add_To_Menu must open
 
-Scenario: Create New Event Entry
-Given the Chronology_Event_Dialog is open
-When user inputs Chronology_Event_Details
-Then a new Chronology_Event is added to Event_List
+Scenario: Open Add To Chronology Dialog Via Add To Menu Documents Page
+Given the Chronology_Option is visible in the Right Click Menu
+When the user clicks the Chronology option
+Then the Add_To_Chronology_Dialog must open
+
+Scenario: Select Chronologies List And Create New Entry
+Given Add_To_Chronology_Dialog is open
+When user selects TestChron Chronology_List_Option
+Then Chronology_Event_Dialog should be visible

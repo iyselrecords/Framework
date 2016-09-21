@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 
@@ -56,9 +57,9 @@ public class ChronologyNewEntry extends Page {
 	}
 
 	public void eventEntries() {
-		selectType();		
+		selectType();
 		selectStatus();	
-		selectDate();	
+		selectDate();
 		selectTime(); 
         addASource();	
 		selectTag();	
@@ -69,11 +70,10 @@ public class ChronologyNewEntry extends Page {
 	}
 	
 	private void selectType() {
-		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
-		option.getOptions(0, ENTRY_TYPES);
-		Util.pause(0.5);
-	}
-	
+      withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
+      option.getOptions(0, ENTRY_TYPES);
+      Util.pause(0.5);
+    }
 	private void selectType(String type) {
       withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
       option.getOptions(0, type);
@@ -89,10 +89,9 @@ public class ChronologyNewEntry extends Page {
 	
 	public void getIndex() {
 	    Index = myEntry();
-	    System.out.println("myIndex: "+ Index);
 	}
-	
-	private void selectStatus() {
+
+    private void selectStatus() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
 		option.getOptions(2, ENTRY_STATUS);
 		Util.pause(0.5);
@@ -348,6 +347,27 @@ public class ChronologyNewEntry extends Page {
         }catch(StaleElementReferenceException e){
             month(month);
         }
+    }
+
+    public void newEntries() {
+        selectDate();
+        selectTime(); 
+        selectTag();
+        description();
+        saveEntry();
+        Util.pause(3);
+        entry();
+        /*
+        selectStatus(); 
+        selectDate();
+        selectTime(); 
+        addASource();   
+        selectTag();    
+        description();
+        saveEntry();
+        Util.pause(3);
+        entry();
+        */
     }
 
   

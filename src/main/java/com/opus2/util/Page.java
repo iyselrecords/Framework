@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebElement;
@@ -125,5 +126,10 @@ public class Page extends PageObject{
         upload.keyPress(KeyEvent.VK_ENTER);
         upload.keyRelease(KeyEvent.VK_ENTER);
         Util.pause(2);
+    }
+    
+    public void getSessionId() {
+        Cookie cookie = Util.getDriver().manage().getCookieNamed("PHPSESSID");
+        System.out.println("SessionId: "+ cookie.getValue());  
     }
 }

@@ -1,5 +1,6 @@
 package com.opus2.magnum.chronology;
 
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -17,6 +18,7 @@ public class SelectChronologyList {
     }
     
     @When("user selects Chronologies_List_Option")
+    @Alias("selects Chronologies_List_Option")
     public void whenUserSelectChronologiesList(){
         dip.selectChronology();
     }

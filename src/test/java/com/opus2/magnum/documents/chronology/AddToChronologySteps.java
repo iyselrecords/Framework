@@ -48,10 +48,23 @@ public class AddToChronologySteps {
 	public String notVisible() {
 		return addToChron.notVisible();
 	}
+
+    public void selectChronology(String option) {
+        addToChron.selectChronology(option);
+    }
 	
-	
-	@Step("testing assertion with dummy data")
+	@Step("test data")
 	public String assertDIP(){
 		return "TDIP";
 	}
+	
+	@Step()
+    public void createNewEntry() {
+        addToChron.createNewEntry();
+    }
+
+	@Step()
+    public void selectExistingEntry() {
+	    addToChron.selectExistingEntry();
+    }
 }

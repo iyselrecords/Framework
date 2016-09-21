@@ -28,4 +28,4 @@ Then the Add_To_Menu must open
 Scenario: Open Add To Chronology Dialog Via Add To Menu Documents Page
 Given the Chronology_Option is visible in the Right Click Menu
 When the user clicks the Chronology option
-Then the Add_To Chronology_Dialog must open
+Then the Add_To_Chronology_Dialog must open
