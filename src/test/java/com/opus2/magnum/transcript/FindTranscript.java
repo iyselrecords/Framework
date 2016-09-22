@@ -21,7 +21,6 @@ public class FindTranscript {
     
     @Then("Transcript should be visible and highlighted")
     public void thenTranscriptShouldBeVisibleAndHighlighted(){
-        System.out.println("debugggggggggg :"+ Transcript);
         assertThat(user.getTranscript().equals(Transcript.toUpperCase())).isTrue();
     }
 }

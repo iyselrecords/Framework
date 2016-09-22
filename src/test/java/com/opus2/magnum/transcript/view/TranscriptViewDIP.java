@@ -34,6 +34,7 @@ public class TranscriptViewDIP {
 	@Then("Transcript opens in a new tab with Detailed_Functionality")
     public void thenTranscriptOpensInANewTabWithDetailedFunctionality(){
 		assertThat(user.assertDIP().equals("TDIP")).isTrue();
+		Util.pause(3);
     }
 	
 	@Given("user is present on TranscriptView_Page")
@@ -46,11 +47,11 @@ public class TranscriptViewDIP {
     }		
 	@When("user mapping in progess on TRANSCRIPTVIEW_02")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_02(){
-		user.transcriptView01();
+		user.transcriptView02();
     }
 	@When("user mapping in progess on TRANSCRIPTVIEW_03")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_03(){
-		user.transcriptView01();
+		user.transcriptView03();
     }
 	@When("user mapping in progess on TRANSCRIPTVIEW_04")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_04(){
