@@ -45,6 +45,7 @@ public class WorkspaceDropdown extends Page {
 	}
 	
 	public String getCurrentUrl() {
-		return "https://customer.opus2.com/rc/php/magnumHome.php?ws=110470477";
+	    String url = Configuration.homeUrl+"?ws="+Configuration.getSelectedUser().getWorkspace();
+		return url;
 	}
 }
