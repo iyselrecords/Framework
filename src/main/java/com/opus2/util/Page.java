@@ -24,6 +24,7 @@ public class Page extends PageObject{
     private static final String PROGRESS_BAR = "progress-bar-bar";
     private static final String LOADING_ICON = "loading-icon";
     private String mainHandle;
+    private WebElement element = null;
 	
 	public Page view() {
 		return null;
@@ -131,5 +132,35 @@ public class Page extends PageObject{
     public void getSessionId() {
         Cookie cookie = Util.getDriver().manage().getCookieNamed("PHPSESSID");
         System.out.println("SessionId: "+ cookie.getValue());  
+    }
+    
+    public WebElement dialog(String dialogHeader){
+      List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
+      for(WebElement dialog :dialogs){
+          List<WebElement> h2s = dialog.findElements(By.tagName("h2"));
+          for(WebElement h2 : h2s){
+              if(h2.getText().equals(dialogHeader.toUpperCase())){
+                  element = dialog;
+                  break;
+              }
+              else if(h2.getAttribute("innerHTML").equals(dialogHeader)){
+                  element = dialog;
+                  break;
+              }
+          }
+      }
+      return element;
+    }
+    
+    public WebElement getFromList(String className, String match){
+        withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className(className));
+        List<WebElement> lists = Util.getDriver().findElements(By.className(className));
+        for(WebElement list : lists){
+            if(list.getText().equals(match)){
+                element = list;
+                break;
+            }
+        }
+        return element;
     }
 }

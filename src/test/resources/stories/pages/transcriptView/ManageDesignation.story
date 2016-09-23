@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they are a member of a workspace and are present on any page 
 they must beable to navigate to the Chronology Page  by clicking the Chronology Tab on the Navigation Bar.
 
-Meta: @TRANVIEW_01
+Meta: @TRANVIEW_11
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -27,7 +27,7 @@ And the Transcripts_Tab is visible
 When the user clicks the Transcripts_Tab
 Then they must be navigated to the Transcripts_Page
 
-Scenario: Select And Preview Transcript 
+Scenario: Select And Preview Transcript
 Given user is present on Transcript_Page
 When user select and clicks Day 2 Transcript
 Then Transcript is loaded on Preview_Pane
@@ -37,7 +37,7 @@ Given Transcript is loaded on Preview_Pane
 When user clicks on Preview_Pane
 Then Transcript opens in a new tab with Detailed_Functionality
 
-Scenario: Zoom In And Out On Transcript
+Scenario: TRANSCRIPTVIEW_11
 Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_01
+When user mapping in progess on TRANSCRIPTVIEW_11
 Then action should be verify
