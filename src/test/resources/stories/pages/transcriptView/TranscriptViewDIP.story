@@ -37,137 +37,14 @@ Given Transcript is loaded on Preview_Pane
 When user clicks on Preview_Pane
 Then Transcript opens in a new tab with Detailed_Functionality
 
-Scenario: TRANSCRIPTVIEW_01
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_01
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_02
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_02
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_03
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_03
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_04
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_04
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_05
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_05
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_06
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_06
-Then action should be verify
-
 Scenario: TRANSCRIPTVIEW_07
 Given user is present on TranscriptView_Page
 When user mapping in progess on TRANSCRIPTVIEW_07
 Then action should be verify
 
-Scenario: TRANSCRIPTVIEW_08
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_08
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_09
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_09
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_10
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_10
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_11
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_11
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_12
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_12
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_13
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_13
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_14
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_14
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_15
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_15
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_16
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_16
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_17
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_17
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_18
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_18
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_19
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_19
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_20
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_20
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_21
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_21
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_22
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_22
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_23
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_23
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_24
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_24
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_25
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_25
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_26
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_26
-Then action should be verify
-
-Scenario: TRANSCRIPTVIEW_27
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_27
-Then action should be verify
+Scenario: Highlight Document Text, Add Notes And Select Tag
+Given the user is on Document_Viewer
+When user highlight text
+And add a Note
+And select Tag
+Then the Notepad_Annotation_Dialog should be visible

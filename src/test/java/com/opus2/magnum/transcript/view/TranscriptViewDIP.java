@@ -63,11 +63,11 @@ public class TranscriptViewDIP {
     }
 	@When("user mapping in progess on TRANSCRIPTVIEW_06")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_06(){
-		user.transcriptView01();
+		user.transcriptView06();
     }
 	@When("user mapping in progess on TRANSCRIPTVIEW_07")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_07(){
-		user.transcriptView01();
+		user.transcriptView07();
     }
 	@When("user mapping in progess on TRANSCRIPTVIEW_08")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_08(){
@@ -83,7 +83,7 @@ public class TranscriptViewDIP {
     }
 	@When("user mapping in progess on TRANSCRIPTVIEW_11")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_11(){
-		user.transcriptView01();
+		user.transcriptView11();
     }		
 	@When("user mapping in progess on TRANSCRIPTVIEW_12")
     public void whenUserMappingInProgessOnTRANSCRIPTVIEW_12(){

@@ -40,8 +40,40 @@ public class TranscriptViewSteps {
     public void transcriptView02(){
         user.transcriptView02();
     }
-    
+	@Step()
     public void transcriptView03() {
         user.transcriptView03();
+    }
+	@Step()
+    public void transcriptView06() {
+        user.transcriptView06();
+    }
+
+    public void transcriptView11() {
+        user.transcriptView11();
+    }
+
+    public void transcriptView07() {
+        user.transcriptView07();
+    }
+
+    public String currentUrl() {
+      // TODO Auto-generated method stub
+      return null;
+    }
+
+    public void highlightText() {
+      // TODO Auto-generated method stub
+      
+    }
+
+    public void addNote() {
+      // TODO Auto-generated method stub
+      
+    }
+
+    public void selectTag() {
+      // TODO Auto-generated method stub
+      
     }
 }
