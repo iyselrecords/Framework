@@ -1,5 +1,7 @@
 package com.opus2.home.workspace.dropdownmenu;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -41,6 +43,7 @@ public class WorkspaceDropdown extends Page {
 	}
 	
 	public String dropdownMenu() {
+	    withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("bareDialog"));
 		return dropdown.isVisible(DROPDOWN);
 	}
 	

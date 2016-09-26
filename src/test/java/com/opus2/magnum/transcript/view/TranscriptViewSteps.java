@@ -58,22 +58,19 @@ public class TranscriptViewSteps {
     }
 
     public String currentUrl() {
-      // TODO Auto-generated method stub
+      
       return null;
     }
 
     public void highlightText() {
-      // TODO Auto-generated method stub
-      
+        user.highlightText();
     }
 
     public void addNote() {
-      // TODO Auto-generated method stub
-      
+        user.addNote();
     }
 
     public void selectTag() {
-      // TODO Auto-generated method stub
-      
+        user.selectTag();
     }
 }

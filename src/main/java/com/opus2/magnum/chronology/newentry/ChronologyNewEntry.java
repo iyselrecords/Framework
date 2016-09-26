@@ -36,6 +36,7 @@ public class ChronologyNewEntry extends Page {
     private static final String PREVIOUS_MONTH = "pika-prev";
     public static final String NEW_ENTRY_DATE_DROPDOWN = "factdate";
     public static final String FILTER_DATE_DROPDOWN = "filter-from-date";
+    public static final String SELECT_CHRONOLOGY_ENTRY_DIALOG = "Select a chronology entry";
     
     
     private Dialog dialog;
@@ -50,9 +51,9 @@ public class ChronologyNewEntry extends Page {
 		this.getElement(NEW_ENTRY_BUTTON).click();
 	}
 	
-	public String dialog() {
+	public String eventDialog(String myDialog) {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("dialog"));
-		return dialog.dialog(CHRONOLOGY_EVENT_DIALOG).getCssValue("display");
+		return dialog.dialog(myDialog).getCssValue("display");
 	}
 
 	public void eventEntries() {
@@ -116,7 +117,7 @@ public class ChronologyNewEntry extends Page {
 		Util.pause(0.5);
 	}
 	
-	private void selectTag() {
+	public void selectTag() {
 		dialog.buttonByTitle(SELECT_DOCUMENT_TAG).click();
 		Util.pause(0.5);
 		dialog.select(ENTRY_TAG);
@@ -124,7 +125,7 @@ public class ChronologyNewEntry extends Page {
 		this.getElement(APPLY_TAG).click();
 	}
 	
-	private void description() {
+	public void description() {
 		this.getElement("description").clear();
 		this.getElement("description").sendKeys(NEW_ENTRY);
 		Util.pause(0.5);
@@ -148,7 +149,7 @@ public class ChronologyNewEntry extends Page {
 		this.getElement(APPLY).click();
 	}
 	
-	private void inputDate() {
+	public void inputDate() {
 		this.getElement("factdate").clear();
 		this.getElement("factdate").sendKeys(ENTRY_DATE);
 		Util.pause(0.5);
@@ -160,7 +161,7 @@ public class ChronologyNewEntry extends Page {
 		Util.pause(0.5);
 	}
 	
-	private void inputTime() {
+	public void inputTime() {
 		this.getElement("facttime").clear();
 		this.getElement("facttime").sendKeys(ENTRY_TIME);
 		Util.pause(0.5);
@@ -170,7 +171,8 @@ public class ChronologyNewEntry extends Page {
 		this.getElement("facttime").sendKeys(time);
 		Util.pause(0.5);
 	}
-	private void saveEntry() {
+	
+	public void saveEntry() {
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));
 		dialog.button("Save").click();
 		Util.pause(2);
@@ -360,5 +362,22 @@ public class ChronologyNewEntry extends Page {
         saveEntry();
     }
 
-  
+    public void existingEntry(String myEntry) {
+        WebElement a = this.getElementByClass("chronDisplay");
+        List <WebElement> lists = a.findElements(By.tagName("span"));      
+        for(WebElement entry : lists){
+            if(!entry.getText().isEmpty() && entry.getText().equals(myEntry)){                
+                entry.click();
+                break;
+            }
+        }
+        Util.pause(2);
+        this.getElement("chron-chooser_Apply").click();
+    }
+    
+    public String selectedChronology(){
+        return this.getElement("add-to-chron_add-to-chron")
+            .findElements(By.tagName("p")).get(0)
+                .getText();
+    }
 }

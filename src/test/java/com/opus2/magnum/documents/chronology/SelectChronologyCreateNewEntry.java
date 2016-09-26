@@ -29,5 +29,5 @@ public class SelectChronologyCreateNewEntry {
     @When("clicks Select_An_Existing_Entry_Button")
     public void andClicksSelectAnExistingEntryButton(){
         addTo.selectExistingEntry();
-    }
+    }  
 }

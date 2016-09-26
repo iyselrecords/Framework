@@ -36,7 +36,16 @@ public class ChronologyTools extends Page {
 	}
 
 	public void selectOption(String option) {
-		tool.getOption(Tool.CHRONOLOGY, option);
+		if( option != DELETE_ALL || 
+            option != LINK_ENTRIES_TO_SOURCE || 
+            option != EXPORT_AS_CSV )
+		{
+          tool.getOption(Tool.CHRONOLOGY, option);
+        }else{
+            tool.getOption(Tool.CHRONOLOGY, option);
+            this.switchToCurrentWindow();
+            Util.pause(3);
+        }
 	}
 
 	public String dialog() {

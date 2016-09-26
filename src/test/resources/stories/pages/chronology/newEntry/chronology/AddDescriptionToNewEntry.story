@@ -32,5 +32,5 @@ Then Chronology_Event_Dialog should be visible
 
 Scenario: Add Description To New Entry
 Given the Chronology_Event_Dialog is open
-When user adds Description TestEntry
+When user adds Description JZEC
 Then Description is added to Chronology_Entry

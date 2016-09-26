@@ -21,8 +21,8 @@ public class ChronologyNewEntrySteps {
     }
 	
 	@Step("dialog is visible")
-	public String dialog(){
-		return entry.dialog();
+	public String eventDialog(String header){
+		return entry.eventDialog(header);
 	}
 	
 	@Step("add chronology event")
@@ -133,5 +133,15 @@ public class ChronologyNewEntrySteps {
     @Step()
     public void newEntries() {
         entry.newEntries();
+    }
+    
+    @Step()
+    public void existingEntry(String existingEntry) {
+        entry.existingEntry(existingEntry);
+    }
+    
+    @Step()
+    public String selectedChronology() {
+        return entry.selectedChronology();
     }
 }

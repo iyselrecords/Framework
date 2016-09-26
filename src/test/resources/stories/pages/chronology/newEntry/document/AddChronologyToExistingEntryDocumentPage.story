@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_28 @AddChronToExistingEntry @Chronology
+@Meta: @CHRON_28 @AddChronToExistingEntry @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -33,9 +33,11 @@ Scenario: Select Chronologies List And Create New Entry
 Given Add_To_Chronology_Dialog is open
 When user selects TestChron Chronology_List_Option
 And clicks Select_An_Existing_Entry_Button
-Then Chronology_Event_Dialog should be visible
+Then Select_A_Chronology_Entry_Dialog should be visible
 
 Scenario: Select Existing Event Entry
-Given the Chronology_Event_Dialog is open
-When user inputs New_Event_Details
-Then a new Chronology_Event is added to Event_List
+Given the Select_A_Chronology_Entry_Dialog is open
+When user selects Existing_Entry JZEC
+And clicks the Chronology_Tab
+And selects Chronologies_List_Option
+Then Linked_Document is added As_A_Source to Existing_Entry

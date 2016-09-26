@@ -19,7 +19,6 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 
 	@Override
 	public String isVisible(String dropdown) {
-		Util.pause(2);
 		return Util.getDriver().findElements(By.className(dropdown)).get(0)
 			.getCssValue("display");
 	}

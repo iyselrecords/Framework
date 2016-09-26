@@ -6,6 +6,8 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import com.opus2.core.Configuration;
+import com.opus2.util.TestData;
+import com.opus2.util.Util;
 
 import net.thucydides.core.annotations.Steps;
 import static org.assertj.core.api.Assertions.*;
@@ -14,9 +16,10 @@ public class CreateAnnotationOnTranscript {
     @Steps
     TranscriptViewSteps user;
     
-    @Given("the user is on Document_Viewer")
-    public void givenTheUserIsOnDocument_Viewer(){
-        //assertThat(user.currentUrl().equals(Configuration.documentViewUrl + "page1")).isTrue();
+    @Given("the user is on Transcript_Viewer")
+    public void givenTheUserIsOnTranscriptViewer(){
+        String url = TestData.TRANSCRIPTSVIEW_.getProperty("tranUrl");
+        //assertThat(Util.getDriver().getCurrentUrl().equals(url)).isTrue();
     }
     
     @When("user highlight text")
@@ -32,8 +35,5 @@ public class CreateAnnotationOnTranscript {
     public void andSelectTag(){
          user.selectTag();
     }
-    @Then("the Notepad_Annotation_Dialog should be visible")
-    public void thenTheNotepad_Annotation_DialogShouldBeVisible(){
-         //assertThat(user.dialog().equals("block")).isTrue();
-    }
+    
 }

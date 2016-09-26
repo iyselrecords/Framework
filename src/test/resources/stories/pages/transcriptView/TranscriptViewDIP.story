@@ -2,7 +2,7 @@ Narrative:
 If the user is logged in, they are a member of a workspace and are present on any page 
 they must beable to navigate to the Chronology Page  by clicking the Chronology Tab on the Navigation Bar.
 
-Meta: @Admin @TranscriptViewDIP
+Meta: @TranscriptViewDIP
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -29,7 +29,7 @@ Then they must be navigated to the Transcripts_Page
 
 Scenario: Select And Preview Transcript 
 Given user is present on Transcript_Page
-When user select and clicks Day 2 Transcript
+When user select and clicks Day 3 Transcript
 Then Transcript is loaded on Preview_Pane
 
 Scenario: Navigate To Transcript View Page
@@ -37,14 +37,6 @@ Given Transcript is loaded on Preview_Pane
 When user clicks on Preview_Pane
 Then Transcript opens in a new tab with Detailed_Functionality
 
-Scenario: TRANSCRIPTVIEW_07
-Given user is present on TranscriptView_Page
-When user mapping in progess on TRANSCRIPTVIEW_07
-Then action should be verify
-
 Scenario: Highlight Document Text, Add Notes And Select Tag
-Given the user is on Document_Viewer
+Given the user is on Transcript_Viewer
 When user highlight text
-And add a Note
-And select Tag
-Then the Notepad_Annotation_Dialog should be visible

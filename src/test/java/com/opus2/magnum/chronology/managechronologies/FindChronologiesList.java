@@ -29,6 +29,6 @@ public class FindChronologiesList {
     @Then("the Search_Text is filtered")
     public void thenTheSearch_TextIsFiltered(){
         assertThat(dip.assertDIP().equals("TDIP")).isTrue();
-        dip.closeDialog();
+        //dip.closeDialog();
     }
 }

@@ -26,6 +26,16 @@ public class OpenChronologyEventNewEntry {
 	
 	@Then("Chronology_Event_Dialog should be visible")
 	public void thenChronologyEventShouldBeVisible(){
-		assertThat(newEntry.dialog().equals("block")).isTrue();
+		assertThat(newEntry.eventDialog(ChronologyNewEntry.CHRONOLOGY_EVENT_DIALOG).equals("block")).isTrue();
 	}
+	
+	@Then("Select_A_Chronology_Entry_Dialog should be visible")
+    public void thenSelectAChronologyEntryDialogShouldBeVisible(){
+        assertThat(newEntry.eventDialog(ChronologyNewEntry.SELECT_CHRONOLOGY_ENTRY_DIALOG).equals("block")).isTrue();
+    }
+	
+	@Then("$option Chronology_List_Option is displayed")
+    public void thenChronologyListOptionIsdisplayed(String option){
+	    assertThat(newEntry.selectedChronology().equals(option)).isTrue();
+    }
 }
