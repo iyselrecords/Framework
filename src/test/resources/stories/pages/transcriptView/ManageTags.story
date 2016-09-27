@@ -29,7 +29,7 @@ Then they must be navigated to the Transcripts_Page
 
 Scenario: Select And Preview Transcript 
 Given user is present on Transcript_Page
-When user select and clicks Day 2 Transcript
+When user select and clicks Day 2 - September 12, 2016 Transcript
 Then Transcript is loaded on Preview_Pane
 
 Scenario: Navigate To Transcript View Page

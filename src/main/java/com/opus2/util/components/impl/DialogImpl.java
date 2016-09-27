@@ -189,7 +189,7 @@ public class DialogImpl extends ComponentImpl implements Dialog {
 			List <WebElement> lists = row.findElements(By.className("doctitle"));
 			for(WebElement list : lists){
 				if(list.getText().equals(document)){
-					row.click();	
+					row.findElement(By.className("tx_")).click();	
 					Util.pause(0.5);
 					return;
 				}

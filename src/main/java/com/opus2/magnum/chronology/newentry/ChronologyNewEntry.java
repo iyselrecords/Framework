@@ -357,6 +357,7 @@ public class ChronologyNewEntry extends Page {
         option.myOption(3, ENTRY_STATUS);
         inputTime();
         option.myOption(4, ENTRY_TIMEZONE);
+        addASource();
         selectTag();
         description();
         saveEntry();

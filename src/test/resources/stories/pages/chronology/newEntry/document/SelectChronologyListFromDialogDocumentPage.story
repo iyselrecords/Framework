@@ -29,7 +29,7 @@ Given the Chronology_Option is visible in the Right Click Menu
 When the user clicks the Chronology option
 Then the Add_To_Chronology_Dialog must open
 
-Scenario: Select Chronologies List And Create New Entry
+Scenario: Select Chronologies List
 Given Add_To_Chronology_Dialog is open
 When user selects TestChron Chronology_List_Option
 Then TestChron Chronology_List_Option is displayed

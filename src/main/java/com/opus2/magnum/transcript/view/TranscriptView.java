@@ -109,18 +109,21 @@ public class TranscriptView  extends Page {
     }
 
     public void transcriptView03() {    
-        openSearchDropdown();
+        openSearchDropdown("open");
+        openSearchDropdown("close");
         searchTranscript();
         gotoIndex();
-        openSearchDropdown();
+        openSearchDropdown("close");
     }
 
-    private void openSearchDropdown() {
+    private void openSearchDropdown(String action) {
         WebElement button = this.getElementByClass("search-left");
-        button.click();
-        Util.pause(2);
-        button.click();
-        Util.pause(2.5);
+        if(action.equals("open")){
+            button.click();
+            Util.pause(2);
+        }else if(action.equals("close")){
+            button.click();
+        }
     }
     
     private void searchTranscript() {
@@ -141,22 +144,56 @@ public class TranscriptView  extends Page {
     public void transcriptView06() {    
         openManageTagDialog();
         addTag();
+        findTag(NEW_TAG);
+        selectTag(NEW_TAG);
+        clearSearch();
         editTag(NEW_TAG);
         deleteTag(EDIT_TAG);
-        Util.pause(3);
-        this.getElement("manage-tags_Close").click();
-        Util.pause(1);
+        selectAllAndExpand();
+        closeDialog();        
+        importCSV();
+        exportCSV();
     }
     
+    
+
+    
+
+    private void exportCSV() {
+        System.out.println("export CSV");
+    }
+
+    private void importCSV() {
+        System.out.println("import CSV");
+    }
+
     private void openManageTagDialog (){
         getToolbarButton("Manage tags").click();
         Util.pause(1);
     }
-    
     private void addTag (){
         manageTag("Add","New",NEW_TAG);
     }
-    
+    private void findTag(String tag) {
+        input("Manage Tags", tag);
+    }
+    private void input(String header, String tag) {
+        element = this.dialog(header).findElements(By.tagName("input")).get(0);
+        element.sendKeys(tag);
+    }
+    private void clearSearch() {
+        element.clear();
+    }
+    private void selectAllAndExpand() {
+        dialog.links("All");
+        dialog.links("None");
+        dialog.links("Expand");
+        dialog.links("Collapse");
+    }
+    private void closeDialog() {
+        this.getElement("manage-tags_Close").click();
+        Util.pause(1);
+    }
     private void editTag (String tag){
       selectTag(tag);
       manageTag("Edit","Edit",EDIT_TAG);
