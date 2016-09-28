@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_32 @AddAsSourceToExistingChronEntry @Chronology @Auto
+@Meta: @CHRON_30 @AddAsSourceToExistingChronEntry @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -41,7 +41,28 @@ When user selects TestChron Chronology_Option
 And clicks Select_An_Existing_Entry_Button
 Then Select_A_Chronology_Entry_Dialog should be visible
 
-Scenario: Select Existing Event Entry
-Given the Select_A_Chronology_Entry_Dialog is open
-When user selects Existing_Entry JZEC
-Then Linked_Note is added As_A_Source to New_Entry
+Scenario: Open Filter Dialog Entry and Filter Items without description
+Given Filter_Button is visible
+When user clicks Filter_Button
+And selects Filter_Option Items without description
+Then Existing_Entries With Filter_Option should display
+
+Scenario: Filter Dates
+Given the Filter_Dialog is open
+When user selects Filter_Option Dates
+Then Existing_Entries With Filter_Option should display
+
+Scenario: Filter Types
+Given the Filter_Dialog is open
+When user selects Filter_Option Types
+Then Existing_Entries With Filter_Option should display
+
+Scenario: Filter Status
+Given the Filter_Dialog is open
+When user selects Filter_Option Status
+Then Existing_Entries With Filter_Option should display
+
+Scenario: Filter Types
+Given the Filter_Dialog is open
+When user selects Filter_Option Tags
+Then Existing_Entries With Filter_Option should display

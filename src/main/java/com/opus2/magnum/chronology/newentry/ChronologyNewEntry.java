@@ -372,6 +372,10 @@ public class ChronologyNewEntry extends Page {
                 break;
             }
         }
+        apply();
+    }
+    
+    public void apply(){
         Util.pause(2);
         this.getElement("chron-chooser_Apply").click();
     }
@@ -380,5 +384,48 @@ public class ChronologyNewEntry extends Page {
         return this.getElement("add-to-chron_add-to-chron")
             .findElements(By.tagName("p")).get(0)
                 .getText();
+    }
+
+    public void filterButton() {
+        this.getElement("chron-chooser_chron-chooser_Filter").click();
+    }
+
+    public void getFilterOption(String filterOption) {
+        if(filterOption.equals("Items without description")){
+            filterDialog().findElement(By.name(filterOption)).click();
+            filterButton();
+            Util.pause(1);
+            filterButton();
+            Util.pause(1);
+            filterDialog().findElement(By.name(filterOption)).click();
+        }else if(filterOption.equals("Dates")){
+            option.myOption(2, "On");
+            this.getElement("filter-from-date").sendKeys("01/05/2016");
+            filterButton();
+            Util.pause(1);
+            filterButton();
+            Util.pause(1);
+            filterDialog().findElement(By.name("Date: ")).click();
+        }else if(filterOption.equals("Types")){
+            //option.getOption("On");
+        }else if(filterOption.equals("Status")){
+            option.myOption(3, "Undisputed");
+            filterButton();
+            Util.pause(1);
+            filterButton();
+            Util.pause(1);
+            filterDialog().findElement(By.name("Status: ")).click();
+        }else if(filterOption.equals("Tags")){
+            filterDialog().findElement(By.name("Tags: ")).click();
+            filterButton();
+            Util.pause(1);
+            filterButton();
+            Util.pause(1);
+            filterDialog().findElement(By.name("Tags: ")).click();
+        }
+    }
+
+    private WebElement filterDialog() {
+        return this.getElement("chron-filter_chron-filter");
     }
 }

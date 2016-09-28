@@ -51,4 +51,25 @@ public class DocumentViewSteps {
     public void linkedNote() {
         view.linkedNote();
     }
+    
+    @Step()
+    public void save() {
+        view.saveNote();
+    }
+    
+    @Step()
+    public void createdNote() {
+        view.createdNote();
+    }
+    
+    @Step()
+    public String noteIsCreated() {
+        return view.noteIsCreated();
+    }
+    
+    @Step()
+    public void cancel() {
+        view.annotationBuild();
+        view.cancelNote();
+    }
 }

@@ -31,7 +31,7 @@ Then the Notepad_Annotation_Dialog should be visible
 
 Scenario: Add Note To New Chronology Entry
 Given Notepad_Annotation_Dialog is open
-When user adds newEntryNote
+When user add newEntryNote
 And Add_As_Source_To_Chronology
 Then the Add_To_Chronology_Dialog must open
 

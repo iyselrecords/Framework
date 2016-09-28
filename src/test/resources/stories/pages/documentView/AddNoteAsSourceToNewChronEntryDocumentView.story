@@ -1,7 +1,7 @@
 Narrative: 
 ChronologyEventNewEntry ChronologyEventNewEntry ChronologyEventNewEntry
 
-@Meta: @CHRON_32 @AddAsSourceToExistingChronEntry @Chronology @Auto
+@Meta: @TestDocView @AddAsSourceToNewChronEntry @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -29,19 +29,7 @@ Given user is present on Document_View page
 When user highlight Document_Text
 Then the Notepad_Annotation_Dialog should be visible
 
-Scenario: Add Note To Existing Chronology Entry
+Scenario: Add Note To New Chronology Entry
 Given Notepad_Annotation_Dialog is open
-When user add existingEntryNote
-And Add_As_Source_To_Chronology
-Then the Add_To_Chronology_Dialog must open
-
-Scenario: Select Chronologies List And Create New Entry
-Given Add_To_Chronology_Dialog is open
-When user selects TestChron Chronology_Option
-And clicks Select_An_Existing_Entry_Button
-Then Select_A_Chronology_Entry_Dialog should be visible
-
-Scenario: Select Existing Event Entry
-Given the Select_A_Chronology_Entry_Dialog is open
-When user selects Existing_Entry JZEC
-Then Linked_Note is added As_A_Source to New_Entry
+When user add newEntryNote
+And cancel note

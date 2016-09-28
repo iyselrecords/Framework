@@ -34,7 +34,7 @@ public class CreateAnnotationOnDocument {
         assertThat(view.dialog().equals("block")).isTrue();
     }
     
-    @When("user adds $note")
+    @When("user add $note")
     public void whenUserAddsNote(String note){
         view.addNote(note);
     }
@@ -44,7 +44,25 @@ public class CreateAnnotationOnDocument {
         view.add2Chronolgy();
     }
     
-    //create New
+    @When("save to Document")
+    public void andSaveToDocument(){
+        view.save();
+    }
+    
+    @When("cancel note")
+    public void andCancelNote(){
+        view.cancel();
+    }
+    
+    @Then("Note is created")
+    public void thenNoteIsCreated(){
+        assertThat(view.noteIsCreated().equals("block")).isTrue();
+        view.createdNote();
+    }
+ 
+
+    
+   //create New
     @When("user selects $option Chronology_Option")
     public void testUserSelectsTestChronChronologyOption(String option){
         view.selectChronology(option);

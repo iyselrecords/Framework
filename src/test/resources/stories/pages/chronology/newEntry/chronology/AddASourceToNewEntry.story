@@ -32,5 +32,5 @@ Then Chronology_Event_Dialog should be visible
 
 Scenario: Add Document Source To New Entry
 Given the Chronology_Event_Dialog is open
-When user adds Document Source RecentTestDoc
+When user adds Document_Source RecentTestDoc
 Then Source is linked to New_Entry

@@ -32,7 +32,7 @@ Then Chronology_Event_Dialog should be visible
 
 Scenario: Add Document Source And Preview
 Given the Chronology_Event_Dialog is open
-When user adds Document_Source RecentTestDoc
+When user adds Document_Source sport
 And clicks Document to Preview
 Then Preview_Dialog should load Document
 

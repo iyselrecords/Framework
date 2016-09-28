@@ -10,11 +10,6 @@ public class ViewDocumentOnPreviewPane {
 	@Steps
 	ChronologyNewEntrySteps newEntry;
 	
-	@When("user adds Document_Source $document")
-	public void userAddTypesChronologyEventDetails(String document){
-		newEntry.previewDocument(document);
-	}
-	
 	@When("clicks Document to Preview")
 	public void andClicksDocumentToPreview(){
 		newEntry.preview();

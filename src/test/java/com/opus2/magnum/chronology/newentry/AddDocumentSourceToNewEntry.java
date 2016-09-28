@@ -10,7 +10,7 @@ public class AddDocumentSourceToNewEntry {
 	@Steps
 	ChronologyNewEntrySteps newEntry;
 	
-	@When("user adds Document Source $document")
+	@When("user adds Document_Source $document")
 	public void userAddTypesChronologyEventDetails(String document){
 		newEntry.addSource(document);
 	}

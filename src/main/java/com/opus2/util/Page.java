@@ -163,4 +163,8 @@ public class Page extends PageObject{
         }
         return element;
     }
+    
+    public WebElement links(String link) {
+        return Util.getDriver().findElement(By.linkText(link));
+    }
 }

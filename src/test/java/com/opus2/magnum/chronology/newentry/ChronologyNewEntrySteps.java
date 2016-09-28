@@ -144,4 +144,14 @@ public class ChronologyNewEntrySteps {
     public String selectedChronology() {
         return entry.selectedChronology();
     }
+    
+    @Step()
+    public void filterButton() {
+        entry.filterButton();
+    }
+    
+    @Step()
+    public void getFilterOption(String option) {
+        entry.getFilterOption(option);
+    }
 }
