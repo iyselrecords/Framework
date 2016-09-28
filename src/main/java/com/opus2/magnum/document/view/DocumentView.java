@@ -1,26 +1,20 @@
 package com.opus2.magnum.document.view;
 
+import java.util.Calendar;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.opus2.core.Configuration;
 import com.opus2.magnum.chronology.newentry.ChronologyNewEntry;
 import com.opus2.util.Page;
 import com.opus2.util.TestData;
 import com.opus2.util.Util;
 import com.opus2.util.components.Annotation;
-import com.opus2.util.components.Button;
-import com.opus2.util.components.Dialog;
 import com.opus2.util.components.Dropdown;
 
 public class DocumentView extends Page {
@@ -43,8 +37,6 @@ public class DocumentView extends Page {
     private Annotation note;
     private Dropdown option;
     private WebElement element = null;
-    private Dialog dialog;
-    
 
     public String viewUrl(){
         return TestData.DOCUMENTSVIEW_.getProperty("documentUrl");
@@ -53,7 +45,7 @@ public class DocumentView extends Page {
     public void highlightText(){
         text(100,200);
     }
-    
+
     public void text(int a, int b){
         WebElement text = this.getElement("tranche")
             .findElements(By.className("pdfpage")).get(0)
