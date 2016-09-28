@@ -1,7 +1,7 @@
 Narrative: 
 ManageChronologies ManageChronologies ManageChronologies
 
-@Meta: @CHRON_35 @DeleteChronologyList @Chronology @Auto
+@Meta: @CHRON_36 @DeleteChronologyList @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

@@ -16,6 +16,14 @@ public class SelectChronologyCreateNewEntry {
       assertThat(addTo.dialog().equals("block")).isTrue();
     }
     
+    
+    
+    @When("clicks Select_An_Existing_Entry_Button")
+    public void andClicksSelectAnExistingEntryButton(){
+        addTo.selectExistingEntry();
+    }
+    
+    
     @When("user selects $option Chronology_List_Option")
     public void testUserSelectsTestChronChronologyListOption(String option){
         addTo.selectChronology(option);
@@ -26,8 +34,5 @@ public class SelectChronologyCreateNewEntry {
         addTo.createNewEntry();
     }
     
-    @When("clicks Select_An_Existing_Entry_Button")
-    public void andClicksSelectAnExistingEntryButton(){
-        addTo.selectExistingEntry();
-    }  
+      
 }
