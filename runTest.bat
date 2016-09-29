@@ -3,7 +3,7 @@
 ::TEST SUITE CAPBILITIES
 SET PROJECT_DIR=%CD%
 SET TEST_RESULTS=TestResults
-SET META_FILTER="+CHRON_35"
+SET META_FILTER="+CHRON_37"
 echo Removing previous test results...
 IF exist %PROJECT_DIR%\%TEST_RESULTS%  DEL /S /Q /F %PROJECT_DIR%\%TEST_RESULTS% | echo > NUL
 echo done.....
@@ -20,7 +20,7 @@ CALL mvn compile
 echo done...............
 
 echo executing test...............
-CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions" -Dphantomjs.binary.path=C:/Users/misele/phantomjs/bin/phantomjs.exe
+CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions"
 ::CALL mvn verify -Dmetafilter=%META_FILTER% -Dchrome.switches="--disable-extensions" -Dphantomjs.binary.path=C:/PhantomJS/bin/phantomjs.exe
 
 ::XCOPY /E "%PROJECT_DIR%\target\*.*" "%PROJECT_DIR%\%TEST_RESULTS%\*.*"  | echo > NUL
