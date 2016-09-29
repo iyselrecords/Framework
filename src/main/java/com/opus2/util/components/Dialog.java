@@ -25,4 +25,5 @@ public interface Dialog extends Component {
 	void select(String string);
 	void selectDocument(String string);
     WebElement itemText(String dialogId, String itemText);
+    void dropdown(String dialog, int index, String option);
 }

@@ -12,6 +12,7 @@ import com.opus2.util.components.Dropdown;
 
 public class DropdownImpl extends ComponentImpl implements Dropdown {
 	private static final String VIEW_MENU = "view-menu";
+    private WebElement element = null;
 	
 	public DropdownImpl(WebDriver driver, ElementLocator locator, long implicitTimeoutInMilliseconds) {
 		super(driver, locator, implicitTimeoutInMilliseconds);
@@ -25,7 +26,6 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 
 	@Override
 	public WebElement selectOption(String dropdownOption) {
-		WebElement element = null;
 		List<WebElement> options = Util.getDriver().findElement(By.id(VIEW_MENU))
 			.findElements(By.tagName("span"));
 		for(WebElement option : options){		
@@ -43,7 +43,6 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 
 	@Override
 	public WebElement getOption(int index, String dropdownOption) {
-		WebElement element = null;
 		List<WebElement> options = dropdownPanel(index)
 			.findElements(By.tagName("span"));
 		for(WebElement option : options){		
@@ -72,19 +71,19 @@ public class DropdownImpl extends ComponentImpl implements Dropdown {
 	
 	@Override
 	public void getOptions(int index, String dropdownOption) {
-		Util.getDriver().findElements(By.className("normalIcon"))
-			.get(index).click();
-		
-		List<WebElement> options = dropdownPanel(index)
-			.findElements(By.tagName("span"));
-		for(WebElement option : options){		
-			if(option.getText().equals(dropdownOption)){
-				option.click();
-				break;
-			}
-		}
-		Util.pause(1);
-	}
+        Util.getDriver().findElements(By.className("normalIcon"))
+            .get(index).click();
+        
+        List <WebElement> options = dropdownPanel(index)
+            .findElements(By.tagName("span"));
+        for(WebElement option : options){       
+            if(option.getText().equals(dropdownOption)){
+                option.click();
+                break;
+            }
+        }
+        Util.pause(1);
+    }
 
     @Override
     public WebElement isOpen() {

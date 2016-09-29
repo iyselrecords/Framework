@@ -14,23 +14,24 @@ import com.opus2.util.components.RightClickMenu;
 
 public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu {
 	
-	public RightClickMenuImpl(WebDriver driver, ElementLocator locator, long implicitTimeoutInMilliseconds) {
+	private WebElement element = null;
+
+    public RightClickMenuImpl(WebDriver driver, ElementLocator locator, long implicitTimeoutInMilliseconds) {
 		super(driver, locator, implicitTimeoutInMilliseconds);
 	}
 
 	@Override
 	public WebElement selectOption(String optionName) {
 		Util.pause(1);
-		WebElement elem = null;
 		WebElement menu = Util.getDriver().findElement(By.id("rightClickMenu"));
 		List <WebElement> options = menu.findElements(By.tagName("span"));
 		for(WebElement option : options){
 			if(option.getText().equals(optionName)){
-				elem = option;
+			  element = option;
 				break;
 			}
 		}
-		return elem;
+		return element;
 	}
 
 	@Override
@@ -51,16 +52,15 @@ public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu 
 	
 	@Override
 	public WebElement subMenuOption(String optionName) {
-		WebElement elem = null;
 		WebElement menu = Util.getDriver().findElement(By.id("submenu"));
 		List <WebElement> options = menu.findElements(By.tagName("span"));
 		for(WebElement option : options){
 			if(option.getText().equals(optionName)){
-				elem = option;
+			    element = option;
 				break;
 			}
 		}
-		return elem;
+		return element;
 	}
 	
 	@Override
@@ -70,7 +70,6 @@ public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu 
 
 	@Override
 	public WebElement withButton(String header, String buttonName) {
-		WebElement element = null;
 		List<WebElement> dialogs = Util.getDriver().findElements(By.className("dialog"));
 		for(WebElement dialog : dialogs){
 			if(dialog.findElement(By.tagName("h2")).getText().equals(header.toUpperCase())){
@@ -90,20 +89,19 @@ public class RightClickMenuImpl extends ComponentImpl implements RightClickMenu 
 	@Override
 	public WebElement getFolder(String docLink) {
 		Util.pause(1);
-		WebElement folder = null;	
 		List <WebElement> docrows = Util.getDriver().findElement(By.id("docsdiv"))
 			.findElements(By.className("docrow"));
 		for(WebElement row : docrows){
 			List <WebElement> doclinks = row.findElements(By.className("doclink"));
 			for(WebElement link : doclinks){
 				if(link.getText().equals(docLink)){
-					folder = link;
+				    element = link;
 					break;
 				}
 			}
 			break;
 		}
-		return folder;
+		return element;
 	}
 
 	@Override

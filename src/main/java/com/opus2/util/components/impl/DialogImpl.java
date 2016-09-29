@@ -208,4 +208,19 @@ public class DialogImpl extends ComponentImpl implements Dialog {
       }
       return elem;
     }
+
+    @Override
+    public void dropdown(String dialog, int index, String optionName) {
+      dialog(dialog).findElements(By.className("normalIcon")).get(index).click();
+      Util.pause(1);      
+      List <WebElement> options = dialog(dialog).findElements(By.className("menu")).get(index)
+          .findElements(By.tagName("span"));
+      for(WebElement option : options){
+          if(option.getText().equals(optionName)){
+              option.click();
+              break;
+          }
+      }
+      Util.pause(0.5);
+  }
 }

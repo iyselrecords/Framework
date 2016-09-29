@@ -33,4 +33,11 @@ public class NavigateToAdminPageViaAdminTab{
 		String page = Configuration.adminUrl + "?ws="+ wsid +"#overview";
 		assertThat(page.equals(currentUrl)).isTrue();
 	}
+	
+	@Given("user is present on Admin_Page")
+    public void givenUserIsPresentOnAdminPage(){
+        String wsid = Configuration.getSelectedUser().getWorkspace();
+        String page = Configuration.adminUrl + "?ws="+ wsid +"#overview";
+        assertThat(page.equals(Util.getDriver().getCurrentUrl())).isTrue();
+    }
 }
