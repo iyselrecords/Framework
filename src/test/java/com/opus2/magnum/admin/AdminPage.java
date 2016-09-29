@@ -26,6 +26,5 @@ public class AdminPage {
     @Then("Document_Types and MetaData_Columns should display default values")
     public void thenDocumentTypesAndMetaDataColumnsDisplays(){
         assertThat(user.assertDIP().equals("TDIP")).isTrue();
-        Util.pause(5);
     }
 }

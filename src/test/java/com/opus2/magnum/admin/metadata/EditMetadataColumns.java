@@ -4,6 +4,8 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.opus2.util.Util;
+
 import net.thucydides.core.annotations.Steps;
 import static org.assertj.core.api.Assertions.*;
 
@@ -20,7 +22,7 @@ public class EditMetadataColumns {
     
     @When("user clicks Edit to open Custom_Fields_Dialog")
     public void whenUserClicksEditToOpenCustomFieldsDialog(){
-        user.edit(Column);
+        user.editColumn(Column);
     }
     
     @When("check Show_In_Chronology_Preview checkout")
@@ -35,6 +37,6 @@ public class EditMetadataColumns {
     
     @Then("$column Metadata is selected")
     public void thenExhibitMetadataIsSelected(String column){
-        assertThat(user.assertDIP().equals("TDIP")).isTrue();       
+        assertThat(user.assertDIP().equals("TDIP")).isTrue();     
     }
 }

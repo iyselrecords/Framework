@@ -15,12 +15,12 @@ public class OpenChronologyEventNewEntry {
 	
 	@Given("the New_Entry_Button is visible")
 	public void givenTheNewEntryButtonIsVisible(){
-	    newEntry.getIndex();
 		assertThat(Util.getElement(ChronologyNewEntry.NEW_ENTRY_BUTTON).isDisplayed()).isTrue();
 	}
 	
 	@When("user clicks the New_Entry_Button")
 	public void whenUserClicksTheNewEntryButton(){
+	    newEntry.getIndex();
 		newEntry.newEntry();
 	}
 	

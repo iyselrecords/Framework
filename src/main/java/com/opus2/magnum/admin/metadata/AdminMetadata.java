@@ -16,21 +16,31 @@ public class AdminMetadata extends Page {
     private static final String CUSTOM_FIELDS_DIALOG = "Custom Fields";
     private static final String SHOW_IN_CHRONOLOGY_PREVIEW = "Show in Chronology Preview";
     
-    public void edit(String column) {
-        List <WebElement> fieldnames = Util.getDriver().findElement(By.className("doccolumns"))
-            .findElements(By.tagName("tr")).get(0)
-              .findElements(By.className("data"));
+    public void editColumn(String column) {     
+        getButton(column,0).click();      
+    }
+    
+    public void deleteColoum(String column) {     
+        getButton(column,1).click();   
+    }
+    
+    private WebElement getButton(String column, int index) {
+        List <WebElement> fieldnames = getRow(0).findElements(By.className("data"));
         for(WebElement fieldname : fieldnames){
             if(fieldname.findElement(By.tagName("span")).getText().equals(column)){    
                 Index = fieldnames.indexOf(fieldname);
+                break;
             }
         }
-        
-        System.out.println("myIndex: "+ Index);
-        //List <WebElement> editButtons = getDialog().findElement(By.className("dialogSection"))
-            //.findElements(By.tagName("tr"));
+        return getRow(14).findElements(By.className("btn-grp"))
+        .get(Index).findElements(By.tagName("button")).get(index);
     }
-    
+
+    private WebElement getRow(int i) {
+        return Util.getDriver().findElement(By.className("doccolumns"))
+          .findElements(By.tagName("tr")).get(i);
+    }
+
     public WebElement getDialog(){
         return dialog.dialog(CUSTOM_FIELDS_DIALOG);
     }
@@ -39,11 +49,16 @@ public class AdminMetadata extends Page {
         List <WebElement> labels = getDialog().findElement(By.className("dialogSection"))
             .findElements(By.tagName("tr"));
         for(WebElement label : labels){
-            if(label.findElements(By.tagName("td")).get(0).equals(SHOW_IN_CHRONOLOGY_PREVIEW)){
-                label.findElements(By.tagName("input")).get(0).click();
-                break;
+            if(label.findElements(By.tagName("td")).get(0).getText().equals(SHOW_IN_CHRONOLOGY_PREVIEW)){
+                if(label.findElements(By.tagName("input")).get(0).isSelected()){
+                    return;
+                }else{
+                    label.findElements(By.tagName("input")).get(0).click();
+                    break;
+                }
             }
         }
+        Util.pause(1);
     }
     
     public void apply() {

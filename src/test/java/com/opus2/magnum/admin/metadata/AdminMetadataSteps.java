@@ -11,8 +11,8 @@ public class AdminMetadataSteps {
     }
 
     @Step()
-    public void edit(String column) {
-        user.edit(column);
+    public void editColumn(String column) {
+        user.editColumn(column);
     }
     
     @Step()

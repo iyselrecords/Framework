@@ -27,8 +27,8 @@ Then Properties_Option Dialog is visible
 Scenario: Set Document Exhibit Properties 
 Given Properties_Dialog is open
 When user selects Exhibit option from Type_Dropdowm
-And enters Exhibit_Value TstExh
-And Deponent_Value TstDep
+And enters Exhibit_Value TestExh
+And Deponent_Value TestDep
 And apply
 Then Properties are applied to Document
 
@@ -57,3 +57,24 @@ When user clicks Edit to open Custom_Fields_Dialog
 And check Show_In_Chronology_Preview checkout
 And apply settings
 Then Deponent Metadata is selected
+
+Scenario: Navigate To Chronology Page Via The Chronology Tab
+Given the user is not present on the Chronology_Page
+And the Chronology_Tab is visible
+When the user clicks the Chronology_Tab
+Then they must be navigated to the Chronology_Page
+
+Scenario: Select Chronologies List
+Given the Chronologies_Dropdown_List is visible
+When user selects Chronologies_List_Option
+Then Chronologies_List_Option should display Chronology_Entries
+
+Scenario: Open New Entry Event Dialog
+Given the New_Entry_Button is visible
+When user clicks the New_Entry_Button
+Then Chronology_Event_Dialog should be visible
+
+Scenario: Create New Event Entry
+Given the Chronology_Event_Dialog is open
+When user inputs Chronology_Event_Details
+Then a new Chronology_Event is added to Event_List

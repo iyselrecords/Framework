@@ -65,8 +65,8 @@ public class ChronologyNewEntry extends Page {
 		selectTag();	
 		description();
 		saveEntry();
-		Util.pause(3);
-		entry();
+		Util.pause(1);
+		cleanUp();
 	}
 	
 	private void selectType() {
@@ -81,10 +81,15 @@ public class ChronologyNewEntry extends Page {
     }
 	
 	public int myEntry() {
-	   WebElement a = this.getElementByClass("chronmain")
-	       .findElements(By.tagName("tbody")).get(0);
-	   int num = a.findElements(By.className("factfirst")).size();
-	   return num;
+	  int num=0; 
+	  if(this.getElement("chroncontainer").isDisplayed()){
+	       return num;
+	   }else{
+	     WebElement a = this.getElementByClass("chronmain")
+	           .findElements(By.tagName("tbody")).get(0);
+	       num = a.findElements(By.className("factfirst")).size();
+	       return num;
+	   }
 	}
 	
 	public void getIndex() {
