@@ -30,7 +30,7 @@ public class ChronologyFilter extends Page {
 	}
 	
 	public String openDialog() {
-		Util.pause(2);
+		Util.pause(1);
 		return this.getElement(DIALOG).getCssValue("display");
 	}
 	
@@ -41,9 +41,17 @@ public class ChronologyFilter extends Page {
 	
 	public void itemsWithoutDescription() {
 		iwdCheckbox().click();
+		Util.pause(1);
+		closeFilter();
+		Util.pause(1);
+		reset();
 	}
 
-	public void dateOption(String dropdownOption) {
+	private void reset() {
+        this.getElement("docscontrols_Reset").click();
+    }
+
+    public void dateOption(String dropdownOption) {
 		checkFilterIsOpen();	
 		option.getOptions(1, dropdownOption);
 		if(dropdownOption.equals("Range")){
