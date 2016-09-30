@@ -1,7 +1,7 @@
 Narrative: 
 SelectChronList SelectChronList SelectChronList
 
-@Meta: @SelectChronList @newChron @Chronology @Done
+@Meta: @SelectChronList @newChron @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

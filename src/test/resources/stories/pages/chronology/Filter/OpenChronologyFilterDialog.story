@@ -1,7 +1,7 @@
 Narrative: 
 OpenChronFilterDialog OpenChronFilterDialog OpenChronFilterDialog
 
-@Meta: @CHRON_39 @OpenChronFilterDialog @ChronologyFilter @Chronology
+@Meta: @CHRON_40 @OpenChronFilterDialog @ChronologyFilter @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
