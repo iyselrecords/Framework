@@ -24,9 +24,9 @@ Given there is a Document loaded in the Document_Preview
 When the user clicks the Document in the Document_Preview
 Then the user must be navigated to Document_Viewer
 
-Scenario: Highlight Document Text 
+Scenario: Highlight Document Text For ExistingEntry
 Given user is present on Document_View page
-When user highlight Document_Text
+When user highlight Document_Text for existingEntryNote
 Then the Notepad_Annotation_Dialog should be visible
 
 Scenario: Add Note To Existing Chronology Entry
@@ -43,5 +43,5 @@ Then Select_A_Chronology_Entry_Dialog should be visible
 
 Scenario: Select Existing Event Entry
 Given the Select_A_Chronology_Entry_Dialog is open
-When user selects Existing_Entry JZEC
+When user selects Existing_Entry Delimeter
 Then Linked_Note is added As_A_Source to New_Entry
