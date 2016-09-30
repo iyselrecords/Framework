@@ -24,4 +24,9 @@ public class DeleteCustomType {
     public void thenTheCustom_TypeDeletedFromTheList(){
         //assertThat(type.isDeleted().equals(null)).isTrue();
     }
+    
+    @When("user highlight Custom_Type")
+    public void whenUserHighlightCustomType(){
+        type.selectCustomType(CustomTypes.ADD_TYPE);
+    }
 }

@@ -20,6 +20,7 @@ public class CustomTypesSteps {
 	public void newCustomType(){
 		type.newCustomType();
 	}
+	
 	@Step()
 	public void save(){
 		type.save();
@@ -58,5 +59,15 @@ public class CustomTypesSteps {
 	@Step()
 	public WebElement isDeleted() {
        return type.isDeleted();
+    }
+	
+	@Step()
+    public void newCustomType(String customType){
+        type.newCustomType(customType);
+    }
+
+	@Step()
+    public String getCustomType(String addType) {
+	    return type.getCustomType(addType);
     }
 }

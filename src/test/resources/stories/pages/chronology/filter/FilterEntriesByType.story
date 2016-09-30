@@ -1,7 +1,7 @@
 Narrative: 
 FilterChronologyEntriesByDate FilterChronologyEntriesByDate FilterChronologyEntriesByDate
 
-@Meta: @CHRON_44 @CHRON_45 @FilterEntriesByType @ChronologyFilter @Chronology
+@Meta: @CHRON_45 @CHRON_46 @FilterEntriesByType @ChronologyFilter @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,27 +30,27 @@ Given the Filter_Button is visible
 When user clicks the Filter_Button
 Then Chronology_Filter_Dialog should be visible
 
-Scenario: Filter Entries By Status Option Disputed
+Scenario: Filter Chronology Entries By Entry Type Fact
 Given the Chronology_Filter_Dialog is open
-When user selects Status_Option Disputed
-Then Chronology_Entries with Disputed Status should display
+When user selects Type_Option Fact
+Then Fact Type Chronology_Entries should display
 
-Scenario: Filter Entries By Status Option Undisputed
+Scenario: Filter Chronology Entries By Entry Type Meeting
 Given the Chronology_Filter_Dialog is open
-When user selects Status_Option Undisputed
-Then Chronology_Entries with Undisputed Status should display
+When user selects Type_Option Meeting
+Then Meeting Type Chronology_Entries should display
 
-Scenario: Filter Entries By Status Option Either
+Scenario: Filter Chronology Entries By Entry Type Event
 Given the Chronology_Filter_Dialog is open
-When user selects Status_Option Either
-Then Chronology_Entries with Either Status should display
+When user selects Type_Option Event
+Then Event Type Chronology_Entries should display
 
-Scenario: Filter Entries By Status Option Any
+Scenario: Filter Chronology Entries By Entry Type Letter
 Given the Chronology_Filter_Dialog is open
-When user selects Status_Option Any
-Then Chronology_Entries with Any Status should display
+When user selects Type_Option Letter
+Then Letter Type Chronology_Entries should display
 
-Scenario: Filter Entries By Status Option Not Set
+Scenario: Filter Chronology Entries By Entry Type Email
 Given the Chronology_Filter_Dialog is open
-When user selects Status_Option Not set
-Then Chronology_Entries with Not set Status should display
+When user selects Type_Option Email
+Then Email Type Chronology_Entries should display

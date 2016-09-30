@@ -18,8 +18,8 @@ public class DocumentViewSteps {
     }
     
     @Step()
-    public void highlightText(){
-        view.highlightText();
+    public void highlightText(String entry){
+        view.highlightText(entry);
     }
     
     @Step()

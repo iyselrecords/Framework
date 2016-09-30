@@ -154,4 +154,9 @@ public class ChronologyNewEntrySteps {
     public void getFilterOption(String option) {
         entry.getFilterOption(option);
     }
+
+    @Step()
+    public void assignType(String customType) {
+        entry.assignType(customType);
+    }
 }

@@ -18,9 +18,12 @@ public class CustomTypes extends Page {
 	private static final String SAVE_A_CUSTOM_DIALOG = "Save a Custom Type";
 	private static final String SAVE_A_CUSTOM_OK = "name-dialog_OK";
     public static final String UPDATE_CUSTOM_TYPES = TestData.CHRONOLOGY_.getProperty("renameCustomType");
-	private static final String MY_TYPE = "SearchType";	
-	private Dialog dialog;
-	
+	private static final String MY_TYPE = "SearchType";
+    private static final String RESET_BUTTON = "docscontrols_Reset";
+    private static final String CUSTOM_TYPES_CANCEL = "custom-types_Cancel";
+	public static String ADD_TYPE = null;    
+
+    private Dialog dialog;
 	
 	public String dialog() {
 		return dialog.dialog(CUSTOM_TYPES_DIALOG).getCssValue("display");
@@ -32,8 +35,10 @@ public class CustomTypes extends Page {
 	}
 	
 	public void save(){
-        Util.pause(1);
-		this.getElement(SAVE_A_CUSTOM_OK).click();    
+        Util.pause(0.5);
+		this.getElement(SAVE_A_CUSTOM_OK).click();
+		Util.pause(1);
+		this.getElement(CUSTOM_TYPES_CANCEL).click();
 	}
 	
 	public void addCustomType() {
@@ -85,5 +90,16 @@ public class CustomTypes extends Page {
 
     public WebElement isDeleted() {
         return null;
+    }
+    
+    public void newCustomType(String type){
+        ADD_TYPE = type;
+        dialog.input(SAVE_A_CUSTOM_DIALOG, type);
+        Util.pause(1);
+        this.getElement(RESET_BUTTON).click();
+    }
+
+    public String getCustomType(String addType) {
+        return dialog.itemText(CUSTOM_TYPES_DIALOG, addType).getText();
     }
 }

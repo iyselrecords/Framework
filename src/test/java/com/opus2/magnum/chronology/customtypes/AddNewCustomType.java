@@ -27,4 +27,14 @@ public class AddNewCustomType {
 	public void thenNewCustomTypesIsVisibleOnTheCustom_Types_List(){
 		 assertThat(type.getCustomType().equals(TestData.CHRONOLOGY_.getProperty("entryCustomType"))).isTrue();	
 	}
+	
+	@When("input Custom_Types $type")
+    public void andInputCustomTypes_Name(String customType){
+          type.newCustomType(customType);
+    }
+	
+	@Then("$addType is visible on the Custom_Types_List")
+    public void thenNewCustomTypesIsVisibleOnTheCustom_Types_List(String addType){
+         //assertThat(type.getCustomType(addType).equals(addType)).isTrue(); 
+    }
 }

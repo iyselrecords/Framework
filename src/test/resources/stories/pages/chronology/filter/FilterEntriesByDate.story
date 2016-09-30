@@ -1,7 +1,7 @@
 Narrative: 
 FilterChronologyEntriesByDate FilterChronologyEntriesByDate FilterChronologyEntriesByDate
 
-@Meta: @CHRON_41 @FilterEntriesByDate @ChronologyFilter @Chronology
+@Meta: @CHRON_42 @FilterEntriesByDate @ChronologyFilter @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,22 +30,22 @@ Given the Filter_Button is visible
 When user clicks the Filter_Button
 Then Chronology_Filter_Dialog should be visible
 
-Scenario: Filter Entries By Date Option On
+Scenario: Filter Chronology Entries By Date Option On
 Given the Chronology_Filter_Dialog is open
 When user selects Date_Option On and inputs date
 Then Chronology_Entries On that date should display
 
-Scenario: Filter Entries By Date Option Before
+Scenario: Filter Chronology Entries By Date Option Before
 Given the Chronology_Filter_Dialog is open
-When user selects Date_Option Before and inputs date
-Then Chronology_Entries Before that date should display
+When user selects Date_Option On or Before and inputs date
+Then Chronology_Entries On or Before that date should display
 
-Scenario: Filter Entries By Date Option After
+Scenario: Filter Chronology Entries By Date Option After
 Given the Chronology_Filter_Dialog is open
-When user selects Date_Option After and inputs date
-Then Chronology_Entries After that date should display
+When user selects Date_Option On or After and inputs date
+Then Chronology_Entries On or After that date should display
 
-Scenario: Filter Entries By Date Option Range
+Scenario: Filter Chronology Entries By Date Option Range
 Given the Chronology_Filter_Dialog is open
 When user selects Date_Option Range and inputs date
 Then Chronology_Entries between Date Range should display

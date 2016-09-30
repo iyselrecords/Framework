@@ -1,7 +1,7 @@
 Narrative: 
 FilterChronologyEntriesByDate FilterChronologyEntriesByDate FilterChronologyEntriesByDate
 
-@Meta: @CHRON_47 @FilterEntriesByStatus @ChronologyFilter @Chronology
+@Meta: @CHRON_48 @FilterEntriesByStatus @ChronologyFilter @Chronology
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page

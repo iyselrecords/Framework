@@ -45,4 +45,29 @@ public class ChronologyFilterSteps {
 	public void statusOption(String option) {
 		filter.statusOption(option);
 	}
+
+	@Step()
+    public void tagOption(String tag) {
+        filter.tagOption(tag);
+    }
+	
+	@Step()
+    public void docWithoutTags() {
+       filter.docWithoutTags();
+    }
+	
+	@Step()
+    public void typeOption(String type) {
+	    filter.typeOption(type);
+    }
+
+	@Step()
+    public void customTypeOption() {
+        filter.customTypeOption();
+    }
+	
+	@Step()
+	public void multipleSelection(String status) {
+        filter.multipleSelection(status);
+    }
 }

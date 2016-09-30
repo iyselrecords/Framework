@@ -24,9 +24,9 @@ Given there is a Document loaded in the Document_Preview
 When the user clicks the Document in the Document_Preview
 Then the user must be navigated to Document_Viewer
 
-Scenario: Highlight Document Text 
+Scenario: Highlight Document Text For New Entry
 Given user is present on Document_View page
-When user highlight Document_Text
+When user highlight Document_Text for newEntryNote
 Then the Notepad_Annotation_Dialog should be visible
 
 Scenario: Add Note To New Chronology Entry

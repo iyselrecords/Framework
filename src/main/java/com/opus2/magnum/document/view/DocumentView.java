@@ -42,8 +42,12 @@ public class DocumentView extends Page {
         return TestData.DOCUMENTSVIEW_.getProperty("documentUrl");
     }
     
-    public void highlightText(){
-        text(100,200);
+    public void highlightText(String entry){
+        if(entry.equals("newEntryNote")){
+            text(100,200);
+        }else if(entry.equals("existingEntryNote")){
+            text(200,550);
+        }
     }
 
     public void text(int a, int b){
@@ -116,14 +120,14 @@ public class DocumentView extends Page {
     
     //Created Note
     public void noteBuild() {
-        highlightText();
+        highlightText("newEntryNote");
         addNote("Test");
         getEditButton();
         getReplyButton();
         hideNote();
         getDeleteButton();
     }
-    ////////////////////////////////////////
+    
     public WebElement getNote() {      
         List<WebElement> notes = Util.getDriver().findElements(By.className("note"));
         for(WebElement note : notes){

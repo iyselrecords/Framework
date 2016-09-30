@@ -224,6 +224,12 @@ public class ChronologyNewEntry extends Page {
 		cleanUp();
 	}
 
+	public void assignType(String type) { 
+        description();
+        selectType(type);
+        saveEntry();
+    }
+	
 	public void setDate(String date_Option, String date) {
 		description();
 		withTimeoutOf(5, TimeUnit.SECONDS).waitForPresenceOf(By.className("menu"));

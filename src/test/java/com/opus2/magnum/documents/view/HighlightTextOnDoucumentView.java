@@ -18,9 +18,9 @@ public class HighlightTextOnDoucumentView {
         assertThat(view.viewUrl().equals(Util.getDriver().getCurrentUrl())).isTrue();
     }
     
-    @When("user highlight Document_Text")
-    public void whenUserHighlightDocumentText(){
-        view.highlightText();
+    @When("user highlight Document_Text for $entry")
+    public void whenUserHighlightDocumentText(String entry){
+        view.highlightText(entry);
     }
     
     @Then("the Notepad_Annotation_Dialog should be visible")

@@ -1,7 +1,7 @@
 Narrative: 
-FilterChronologyEntriesByDate FilterChronologyEntriesByDate FilterChronologyEntriesByDate
+FilterChronologyEntriesByTypes FilterChronologyEntriesByDate FilterChronologyEntriesByDate
 
-@Meta: @CHRON_44 @FilterEntriesWithoutTag @ChronologyFilter @Chronology @Auto
+@Meta: @CHRON_46 @FilterEntriesByTypes @ChronologyFilter @Chronology @Auto
 
 Scenario: Enter Correct User Details And Password 
 Given that a user is present on the login page
@@ -30,7 +30,7 @@ Given the Filter_Button is visible
 When user clicks the Filter_Button
 Then Chronology_Filter_Dialog should be visible
 
-Scenario: Filter Chronology Entries Without Tags
+Scenario: Filter Chronology Entries By Entry Type No Type
 Given the Chronology_Filter_Dialog is open
-When user selects Documents without tags
-Then Chronology_Entries without tags should display
+When user selects Type_Option No Type
+Then No Type Type Chronology_Entries should display
